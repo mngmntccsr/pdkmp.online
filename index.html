@@ -661,70 +661,75 @@
             });
         }
 
-        // Render eventi
-        function renderEvents(events = eventsData) {
-            const container = document.getElementById('eventsContainer');
-            
-            if (events.length === 0) {
-                container.innerHTML = `
-                    <div class="no-events">
-                        <h3>🔍 Nessun evento trovato</h3>
-                        <p>Prova a modificare i filtri di ricerca</p>
-                    </div>
-                `;
-                return;
-            }
+    // Render eventi
+function renderEvents(events = eventsData) {
+    const container = document.getElementById('eventsContainer');
+    
+    if (events.length === 0) {
+        container.innerHTML = `
+            <div class="no-events">
+                <h3>🔍 Nessun evento trovato</h3>
+                <p>Prova a modificare i filtri di ricerca</p>
+            </div>
+        `;
+        return;
+    }
 
-            container.innerHTML = events.map(event => `
-                <div class="event-card">
-                    <div class="event-header">
-                        <div class="event-date">
-                            📅 ${formatDateShort(event.dataInizio)}${event.dataFine && event.dataFine !== event.dataInizio ? ' - ' + formatDateShort(event.dataFine) : ''}
-                        </div>
-                        <div class="event-title">${event.titolo}</div>
-                        <span class="event-discipline">${getDisciplineIcon(event.disciplina)} ${event.disciplina}</span>
-                    </div>
-                    <div class="event-body">
-                        <div class="event-info">
-                            <div class="info-row">
-                                <span class="info-icon">🏁</span>
-                                <strong>${event.circuito}</strong>
-                            </div>
-                            <div class="info-row">
-                                <span class="info-icon">📍</span>
-                                ${event.citta}
-                            </div>
-                            ${event.organizzatore ? `
-                            <div class="info-row">
-                                <span class="info-icon">🏢</span>
-                                ${event.organizzatore}
-                            </div>
-                            ` : ''}
-                        </div>
-                        <div class="event-actions">
-                            ${event.linkBiglietti ? `
-                                <a href="${event.linkBiglietti}" target="_blank" class="btn btn-primary">
-                                    🎫 Biglietti
-                                </a>
-                            ` : ''}
-                            ${event.linkInfo ? `
-                                <a href="${event.linkInfo}" target="_blank" class="btn btn-secondary">
-                                    ℹ️ Info
-                                </a>
-                            ` : ''}
-                            ${!event.linkBiglietti && !event.linkInfo ? `
-                                <button class="btn btn-secondary" disabled style="opacity: 0.5;">
-                                    Info in arrivo
-                                </button>
-                            ` : ''}
-                        </div>
-                    </div>
+    // ORDINA GLI EVENTI PER DATA (dal più vicino al più lontano)
+    const sortedEvents = [...events].sort((a, b) => {
+        return new Date(a.dataInizio) - new Date(b.dataInizio);
+    });
+
+    container.innerHTML = sortedEvents.map(event => `
+        <div class="event-card">
+            <div class="event-header">
+                <div class="event-date">
+                    📅 ${formatDateShort(event.dataInizio)}${event.dataFine && event.dataFine !== event.dataInizio ? ' - ' + formatDateShort(event.dataFine) : ''}
                 </div>
-            `).join('');
+                <div class="event-title">${event.titolo}</div>
+                <span class="event-discipline">${getDisciplineIcon(event.disciplina)} ${event.disciplina}</span>
+            </div>
+            <div class="event-body">
+                <div class="event-info">
+                    <div class="info-row">
+                        <span class="info-icon">🏁</span>
+                        <strong>${event.circuito}</strong>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-icon">📍</span>
+                        ${event.citta}
+                    </div>
+                    ${event.organizzatore ? `
+                    <div class="info-row">
+                        <span class="info-icon">🏢</span>
+                        ${event.organizzatore}
+                    </div>
+                    ` : ''}
+                </div>
+                <div class="event-actions">
+                    ${event.linkBiglietti ? `
+                        <a href="${event.linkBiglietti}" target="_blank" class="btn btn-primary">
+                            🎫 Biglietti
+                        </a>
+                    ` : ''}
+                    ${event.linkInfo ? `
+                        <a href="${event.linkInfo}" target="_blank" class="btn btn-secondary">
+                            ℹ️ Info
+                        </a>
+                    ` : ''}
+                    ${!event.linkBiglietti && !event.linkInfo ? `
+                        <button class="btn btn-secondary" disabled style="opacity: 0.5;">
+                            Info in arrivo
+                        </button>
+                    ` : ''}
+                </div>
+            </div>
+        </div>
+    `).join('');
 
-            // Update counter
-            document.getElementById('totalEvents').textContent = events.length;
-        }
+    // Update counter
+    document.getElementById('totalEvents').textContent = sortedEvents.length;
+}
 
         // Filtri
         function applyFilters() {
