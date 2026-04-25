@@ -29,7 +29,7 @@
             background: var(--checkered);
         }
 
-        /* Header */
+        /* Header con transizione */
         .header {
             background: linear-gradient(135deg, var(--carbon-black) 0%, var(--track-gray) 100%);
             color: var(--white);
@@ -39,6 +39,11 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            padding: 0.5rem 1rem;
         }
 
         .logo {
@@ -46,6 +51,12 @@
             font-weight: 900;
             margin-bottom: 0.5rem;
             letter-spacing: -1px;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled .logo {
+            font-size: 1.5rem;
+            margin-bottom: 0;
         }
 
         .logo span {
@@ -56,6 +67,16 @@
             font-size: 1.2rem;
             color: rgba(255, 255, 255, 0.9);
             font-weight: 300;
+            transition: all 0.3s ease;
+            opacity: 1;
+            max-height: 100px;
+            overflow: hidden;
+        }
+
+        .header.scrolled .tagline {
+            opacity: 0;
+            max-height: 0;
+            margin: 0;
         }
 
         .stats-bar {
@@ -64,6 +85,16 @@
             gap: 2rem;
             margin-top: 1rem;
             flex-wrap: wrap;
+            transition: all 0.3s ease;
+            opacity: 1;
+            max-height: 200px;
+            overflow: hidden;
+        }
+
+        .header.scrolled .stats-bar {
+            opacity: 0;
+            max-height: 0;
+            margin: 0;
         }
 
         .stat {
@@ -294,6 +325,10 @@
                 font-size: 2rem;
             }
 
+            .header.scrolled .logo {
+                font-size: 1.2rem;
+            }
+
             .events-grid {
                 grid-template-columns: 1fr;
             }
@@ -313,7 +348,7 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
+    <header class="header" id="mainHeader">
         <div class="logo">Paddock<span>Map</span></div>
         <p class="tagline">🏁 Il Calendario Completo del Motorsport Italiano</p>
         
@@ -357,6 +392,24 @@
                     </select>
                 </div>
                 <div class="filter-group">
+                    <label for="filterMonth">Mese</label>
+                    <select id="filterMonth">
+                        <option value="">Tutti i mesi</option>
+                        <option value="01">Gennaio</option>
+                        <option value="02">Febbraio</option>
+                        <option value="03">Marzo</option>
+                        <option value="04">Aprile</option>
+                        <option value="05">Maggio</option>
+                        <option value="06">Giugno</option>
+                        <option value="07">Luglio</option>
+                        <option value="08">Agosto</option>
+                        <option value="09">Settembre</option>
+                        <option value="10">Ottobre</option>
+                        <option value="11">Novembre</option>
+                        <option value="12">Dicembre</option>
+                    </select>
+                </div>
+                <div class="filter-group">
                     <label for="filterSearch">Cerca per nome</label>
                     <input type="text" id="filterSearch" placeholder="Es: Monza, F1...">
                 </div>
@@ -381,6 +434,21 @@
     </footer>
 
     <script>
+        // SCROLL HEADER ANIMATION
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('mainHeader');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
         // DATI EVENTI - AGGIORNA QUESTA SEZIONE QUANDO HAI NUOVI EVENTI
         const eventsData = [
             {
@@ -392,7 +460,8 @@
                 citta: "Varano de' Melegari",
                 linkBiglietti: "",
                 linkInfo: "",
-                organizzatore: "Fx Racing Weekend"
+                organizzatore: "Fx Racing Weekend",
+                immagine: "" // Aggiungi qui il percorso dell'immagine
             },
             {
                 titolo: "Fx Racing Weekend Misano",
@@ -403,7 +472,8 @@
                 citta: "Misano",
                 linkBiglietti: "",
                 linkInfo: "",
-                organizzatore: "Fx Racing Weekend"
+                organizzatore: "Fx Racing Weekend",
+                immagine: ""
             },
             {
                 titolo: "Fx Racing Weekend Magione",
@@ -414,7 +484,8 @@
                 citta: "Magione",
                 linkBiglietti: "",
                 linkInfo: "",
-                organizzatore: "Fx Racing Weekend"
+                organizzatore: "Fx Racing Weekend",
+                immagine: ""
             },
             {
                 titolo: "Alfa Romeo Day 2026",
@@ -426,6 +497,7 @@
                 linkBiglietti: "",
                 linkInfo: "",
                 organizzatore:  "Alfa Romeo",
+                immagine: ""
             },
             {
                 titolo: "GT World Challenge Europe",
@@ -437,6 +509,7 @@
                 linkBiglietti: "https://www.ticketone.it/event/gt-world-challenge-europe-powered-by-aws-misano-world-circuit-20945205/",
                 linkInfo: "https://www.gt-world-challenge-europe.com/event/250/misano",
                 organizzatore:  "",
+                immagine: ""
             },          
             {
                 titolo: "Fx Racing Weekend Monza",
@@ -447,7 +520,8 @@
                 citta: "Monza",
                 linkBiglietti: "",
                 linkInfo: "",
-                organizzatore: "Fx Racing Weekend"
+                organizzatore: "Fx Racing Weekend",
+                immagine: ""
             },
             {
                 titolo: "Svolte di Popoli",
@@ -458,7 +532,8 @@
                 citta: "Popoli",
                 linkBiglietti: "",
                 linkInfo: "https://www.svoltedipopoli.it/",
-                organizzatore: "A.S.D. Svolte di Popoli"
+                organizzatore: "A.S.D. Svolte di Popoli",
+                immagine: ""
             },
             {
                 titolo: "Formula 1 Gran Premio d'Italia",
@@ -469,7 +544,8 @@
                 citta: "Monza",
                 linkBiglietti: "https://tickets.formula1.com/it/f1-3293-italia",
                 linkInfo: "",
-                organizzatore: "F1"
+                organizzatore: "F1",
+                immagine: ""
             },
             {
                 titolo: "Fx Racing Weekend Imola",
@@ -480,7 +556,8 @@
                 citta: "Imola",
                 linkBiglietti: "",
                 linkInfo: "",
-                organizzatore: "Fx Racing Weekend"
+                organizzatore: "Fx Racing Weekend",
+                immagine: ""
             },
             {
                 titolo: "Fx Racing Weekend Vallelunga",
@@ -491,7 +568,8 @@
                 citta: "Campagnano di Roma",
                 linkBiglietti: "",
                 linkInfo: "",
-                organizzatore: "Fx Racing Weekend"
+                organizzatore: "Fx Racing Weekend",
+                immagine: ""
             },
             {
                 titolo: "Minardi Day",
@@ -502,7 +580,8 @@
                 citta: "Imola",
                 linkBiglietti: "",
                 linkInfo: "",
-                organizzatore: ""
+                organizzatore: "",
+                immagine: ""
             },
             {
                 titolo: "Gran Premio Storico d'Italia",
@@ -513,7 +592,8 @@
                 citta: "Scarperia e San Piero",
                 linkBiglietti: "",
                 linkInfo: "",
-                organizzatore: ""
+                organizzatore: "",
+                immagine: ""
             },
             {
                 titolo: "Fx Racing Weekend Mugello",
@@ -524,7 +604,8 @@
                 citta: "Scarperia",
                 linkBiglietti: "",
                 linkInfo: "",
-                organizzatore: "Fx Racing Weekend"
+                organizzatore: "Fx Racing Weekend",
+                immagine: ""
             },
             {
                 titolo: "Fx Racing Weekend Misano",
@@ -535,7 +616,8 @@
                 citta: "Misano",
                 linkBiglietti: "",
                 linkInfo: "",
-                organizzatore: "Fx Racing Weekend"
+                organizzatore: "Fx Racing Weekend",
+                immagine: ""
             }
         ];
 
@@ -648,18 +730,20 @@
         function applyFilters() {
             const disciplineFilter = document.getElementById('filterDiscipline').value.toLowerCase();
             const circuitFilter = document.getElementById('filterCircuit').value.toLowerCase();
+            const monthFilter = document.getElementById('filterMonth').value;
             const searchFilter = document.getElementById('filterSearch').value.toLowerCase();
 
             const filtered = eventsData.filter(event => {
                 const matchDiscipline = !disciplineFilter || event.disciplina.toLowerCase() === disciplineFilter;
                 const matchCircuit = !circuitFilter || event.circuito.toLowerCase() === circuitFilter;
+                const matchMonth = !monthFilter || event.dataInizio.substring(5, 7) === monthFilter;
                 const matchSearch = !searchFilter || 
                     event.titolo.toLowerCase().includes(searchFilter) ||
                     event.circuito.toLowerCase().includes(searchFilter) ||
                     event.citta.toLowerCase().includes(searchFilter) ||
                     event.disciplina.toLowerCase().includes(searchFilter);
 
-                return matchDiscipline && matchCircuit && matchSearch;
+                return matchDiscipline && matchCircuit && matchMonth && matchSearch;
             });
 
             renderEvents(filtered);
@@ -668,6 +752,7 @@
         function resetFilters() {
             document.getElementById('filterDiscipline').value = '';
             document.getElementById('filterCircuit').value = '';
+            document.getElementById('filterMonth').value = '';
             document.getElementById('filterSearch').value = '';
             renderEvents(eventsData);
         }
@@ -675,6 +760,7 @@
         // Event listeners
         document.getElementById('filterDiscipline').addEventListener('change', applyFilters);
         document.getElementById('filterCircuit').addEventListener('change', applyFilters);
+        document.getElementById('filterMonth').addEventListener('change', applyFilters);
         document.getElementById('filterSearch').addEventListener('input', applyFilters);
 
         // Inizializzazione
