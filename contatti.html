@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promuovi il tuo evento - PaddockMap</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+        }
+
+        .header {
+            background: #1a1a1a;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #E10600;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0 1rem 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background: #E10600;
+            color: white;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #c00500;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h2>PaddockMap</h2>
+</div>
+
+<div class="container">
+    <h1>📣 Promuovi il tuo evento</h1>
+    <p>Sei un organizzatore? Inserisci il tuo evento su PaddockMap e raggiungi migliaia di appassionati.</p>
+
+    <form>
+        <label>Nome evento</label>
+        <input type="text" required>
+
+        <label>Data evento</label>
+        <input type="date" required>
+
+        <label>Circuito / Location</label>
+        <input type="text" required>
+
+        <label>Organizzatore</label>
+        <input type="text">
+
+        <label>Email contatto</label>
+        <input type="email" required>
+
+        <label>Link evento</label>
+        <input type="text">
+
+        <label>Descrizione</label>
+        <textarea rows="4"></textarea>
+
+        <button type="submit">Invia richiesta</button>
+    </form>
+</div>
+
+</body>
+</html>
