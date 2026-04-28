@@ -980,16 +980,13 @@ function getDisciplineIcon(disciplina) {
                         </div>
                         <div class="event-body">
                             <div class="event-info">
-                                ${event.circuito ? `
-                                <div class="info-row">
-                                    <span class="info-icon">🏁</span>
-                                    <strong>${event.circuito}</strong>
-                                </div>
-                                ` : ''}
-                                <div class="info-row">
-                                    <span class="info-icon">📍</span>
-                                    <span>${event.citta}</span>
-                                </div>
+                             <div class="info-row">
+                             <span class="info-icon">📍</span>
+                                       <span>
+                             <strong>${event.circuito || ''}</strong>
+                        ${event.citta ? ' - ' + event.citta : ''}
+                             </span>
+                </div>
                                 ${event.organizzatore ? `
                                 <div class="info-row">
                                     <span class="info-icon">🏢</span>
