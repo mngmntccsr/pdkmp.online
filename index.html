@@ -287,11 +287,11 @@
         }
 
         /* Icone personalizzate */
-.discipline-icon {
+        .discipline-icon {
     width: 70%;
     height: auto;
     object-fit: contain;
-}
+            }
 
 .event-discipline {
     position: relative;
@@ -491,7 +491,7 @@
 }
 
 .disc-window {
-    flex: 1;
+      flex: 1;
     overflow: hidden;
 }
 
@@ -517,31 +517,6 @@
 
 .disc-arrow:hover {
     color: var(--dark);
-}
-.filter-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
-}
-
-.filter-label {
-    font-weight: 600;
-}
-
-.filter-btn {
-    padding: 6px 12px;
-    border-radius: 20px;
-    border: 1px solid #ddd;
-    background: #f5f5f5;
-    cursor: pointer;
-    font-size: 0.8rem;
-}
-
-.filter-btn.active {
-    background: var(--racing-red);
-    color: white;
 }
     </style>
 </head>
@@ -576,52 +551,53 @@
         <section class="filters">
             <h3>Filtra eventi</h3>
             <div class="filter-grid">
-<!-- DISCIPLINA -->
-<div class="filter-row">
-    <span class="filter-label">Disciplina:</span>
-    <button class="filter-btn active" data-filter="discipline" data-value="">Tutte</button>
-    <button class="filter-btn" data-filter="discipline" data-value="Formula">🏎️</button>
-    <button class="filter-btn" data-filter="discipline" data-value="Gt">🏁</button>
-    <button class="filter-btn" data-filter="discipline" data-value="Misto">🚗</button>
-    <button class="filter-btn" data-filter="discipline" data-value="Storico">🏛️</button>
-</div>
-
-<!-- PREZZO -->
-<div class="filter-row">
-    <span class="filter-label">Prezzo:</span>
-    <button class="filter-btn active" data-filter="price" data-value="">Tutti</button>
-    <button class="filter-btn" data-filter="price" data-value="free">Gratis</button>
-    <button class="filter-btn" data-filter="price" data-value="paid">A pagamento</button>
-</div>
-
-<!-- MESE -->
-<div class="filter-row">
-    <span class="filter-label">Mese:</span>
-    <button class="filter-btn active" data-filter="month" data-value="">Tutti</button>
-    <button class="filter-btn" data-filter="month" data-value="05">Mag</button>
-    <button class="filter-btn" data-filter="month" data-value="06">Giu</button>
-    <button class="filter-btn" data-filter="month" data-value="07">Lug</button>
-    <button class="filter-btn" data-filter="month" data-value="08">Ago</button>
-    <button class="filter-btn" data-filter="month" data-value="09">Set</button>
-    <button class="filter-btn" data-filter="month" data-value="10">Ott</button>
-</div>
-
-<!-- CIRCUITO -->
-<div class="filter-row">
-    <span class="filter-label">Circuito:</span>
-    <select id="filterCircuit"></select>
-</div>
-
-<!-- ORGANIZZATORE -->
-<div class="filter-row">
-    <span class="filter-label">Organizzatore:</span>
-    <select id="filterOrganizer"></select>
-</div>
-
-<!-- CERCA -->
-<div class="filter-row">
-    <input type="text" id="filterSearch" placeholder="Cerca evento, circuito..." style="width:100%; padding:8px;">
-</div>
+                <div class="filter-group">
+                    <label for="filterDiscipline">Disciplina</label>
+                    <select id="filterDiscipline">
+                        <option value="">Tutte le discipline</option>
+                              <option value="Formula">🏎️ Formula</option>
+                              <option value="Misto">🚗 Misto</option>
+                              <option value="Storico">🏛️ Storico</option>
+                              <option value="Gt">🏁 GT</option>
+                              <option value="Le Mans Prototype">🚗 LMP</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filterCircuit">Circuito</label>
+                    <select id="filterCircuit">
+                        <option value="">Tutti i circuiti</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filterOrganizer">Organizzatore</label>
+                    <select id="filterOrganizer">
+                        <option value="">Tutti gli organizzatori</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filterMonth">Mese</label>
+                    <select id="filterMonth">
+                        <option value="">Tutti i mesi</option>
+                        <option value="01">Gennaio</option>
+                        <option value="02">Febbraio</option>
+                        <option value="03">Marzo</option>
+                        <option value="04">Aprile</option>
+                        <option value="05">Maggio</option>
+                        <option value="06">Giugno</option>
+                        <option value="07">Luglio</option>
+                        <option value="08">Agosto</option>
+                        <option value="09">Settembre</option>
+                        <option value="10">Ottobre</option>
+                        <option value="11">Novembre</option>
+                        <option value="12">Dicembre</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filterSearch">Cerca</label>
+                    <input type="text" id="filterSearch" placeholder="Nome evento, circuito...">
+                </div>
+            </div>
+            <button class="reset-filters" onclick="resetFilters()">Cancella filtri</button>
         </section>
 
         <!-- Events Grid -->
@@ -989,7 +965,7 @@ function getDisciplineIcon(disciplina) {
                             </div>
                             <div class="event-title">${event.titolo}</div>
 <div class="event-disciplines">
-    ${event.disciplina.length > 3 ? `<button class="disc-arrow left" onclick="scrollDisciplines(this, -1)">‹</button>` : ''}
+ ${event.disciplina.length > 3 ? `<button class="disc-arrow left" onclick="scrollDisciplines(this, -1)">‹</button>` : ''}
     
     <div class="disc-window">
         <div class="disc-track">
@@ -999,8 +975,7 @@ function getDisciplineIcon(disciplina) {
             }).join('')}
         </div>
     </div>
-
-    ${event.disciplina.length > 3 ? `<button class="disc-arrow right" onclick="scrollDisciplines(this, 1)">›</button>` : ''}
+ ${event.disciplina.length > 3 ? `<button class="disc-arrow right" onclick="scrollDisciplines(this, 1)">›</button>` : ''}
 </div>
                         </div>
                         <div class="event-body">
@@ -1056,56 +1031,32 @@ function getDisciplineIcon(disciplina) {
         }
 
         // Filtri
-let activeFilters = {
-    discipline: '',
-    price: '',
-    month: ''
-};
+        function applyFilters() {
+            const disciplineFilter = document.getElementById('filterDiscipline').value.toLowerCase();
+            const circuitFilter = document.getElementById('filterCircuit').value.toLowerCase();
+            const organizerFilter = document.getElementById('filterOrganizer').value.toLowerCase();
+            const monthFilter = document.getElementById('filterMonth').value;
+            const searchFilter = document.getElementById('filterSearch').value.toLowerCase();
 
-function applyFilters() {
-    const circuit = document.getElementById('filterCircuit')?.value.toLowerCase() || '';
-    const organizer = document.getElementById('filterOrganizer')?.value.toLowerCase() || '';
-    const search = document.getElementById('filterSearch')?.value.toLowerCase() || '';
+            const filtered = eventsData.filter(event => {
+                const matchDiscipline = !disciplineFilter || 
+                    event.disciplina.some(disc => disc.toLowerCase() === disciplineFilter);
 
-    const filtered = eventsData.filter(event => {
+                const matchCircuit = !circuitFilter || (event.circuito || '').toLowerCase() === circuitFilter;
+                const matchOrganizer = !organizerFilter || (event.organizzatore || '').toLowerCase() === organizerFilter;
+                const matchMonth = !monthFilter || event.dataInizio.substring(5, 7) === monthFilter;
+                const matchSearch = !searchFilter || 
+    event.titolo.toLowerCase().includes(searchFilter) ||
+    (event.circuito || '').toLowerCase().includes(searchFilter) ||
+    (event.citta || '').toLowerCase().includes(searchFilter) ||
+    event.disciplina.some(disc => disc.toLowerCase().includes(searchFilter)) ||
+    (event.organizzatore || '').toLowerCase().includes(searchFilter);
 
-        // 🔹 DISCIPLINA
-        const matchDiscipline =
-            !activeFilters.discipline ||
-            event.disciplina.includes(activeFilters.discipline);
+                return matchDiscipline && matchCircuit && matchOrganizer && matchMonth && matchSearch;
+            });
 
-        // 🔹 PREZZO (gratis / pagamento)
-        const matchPrice =
-            !activeFilters.price ||
-            (activeFilters.price === 'free' && event.eventoGratuito) ||
-            (activeFilters.price === 'paid' && !event.eventoGratuito);
-
-        // 🔹 MESE
-        const matchMonth =
-            !activeFilters.month ||
-            event.dataInizio.substring(5, 7) === activeFilters.month;
-
-        // 🔹 CIRCUITO
-        const matchCircuit =
-            !circuit || (event.circuito || '').toLowerCase() === circuit;
-
-        // 🔹 ORGANIZZATORE
-        const matchOrganizer =
-            !organizer || (event.organizzatore || '').toLowerCase() === organizer;
-
-        // 🔹 RICERCA TESTO
-        const matchSearch =
-            !search ||
-            event.titolo.toLowerCase().includes(search) ||
-            (event.citta || '').toLowerCase().includes(search) ||
-            (event.circuito || '').toLowerCase().includes(search);
-
-        return matchDiscipline && matchPrice && matchMonth &&
-               matchCircuit && matchOrganizer && matchSearch;
-    });
-
-    renderEvents(filtered);
-}
+            renderEvents(filtered);
+        }
 
         function resetFilters() {
             document.getElementById('filterDiscipline').value = '';
@@ -1113,15 +1064,14 @@ function applyFilters() {
             document.getElementById('filterOrganizer').value = '';
             document.getElementById('filterMonth').value = '';
             document.getElementById('filterSearch').value = '';
-            
+
         renderEvents(eventsData);
         }
-function scrollDisciplines(button, direction) {
+        function scrollDisciplines(button, direction) {
     const container = button.parentElement;
     const track = container.querySelector('.disc-track');
     const windowEl = container.querySelector('.disc-window');
-
-    const scrollAmount = windowEl.offsetWidth;
+ const scrollAmount = windowEl.offsetWidth;
 
     const currentTransform = getComputedStyle(track).transform;
     let currentX = 0;
@@ -1131,8 +1081,7 @@ function scrollDisciplines(button, direction) {
     }
 
     let newX = currentX - (scrollAmount * direction);
-
-    const maxScroll = -(track.scrollWidth - windowEl.offsetWidth);
+ const maxScroll = -(track.scrollWidth - windowEl.offsetWidth);
 
     if (newX > 0) newX = 0;
     if (newX < maxScroll) newX = maxScroll;
@@ -1146,53 +1095,7 @@ function scrollDisciplines(button, direction) {
         document.getElementById('filterOrganizer').addEventListener('change', applyFilters);
         document.getElementById('filterMonth').addEventListener('change', applyFilters);
         document.getElementById('filterSearch').addEventListener('input', applyFilters);
-document.addEventListener('click', function(e) {
 
-    // controlla se è un bottone filtro
-    if (!e.target.classList.contains('filter-btn')) return;
-
-    const type = e.target.dataset.filter;   // es: discipline / price / month
-    const value = e.target.dataset.value;   // es: Formula / free / 06
-
-    // 🔹 disattiva tutti i bottoni dello stesso tipo
-    document.querySelectorAll(`.filter-btn[data-filter="${type}"]`)
-        .forEach(btn => btn.classList.remove('active'));
-
-    // 🔹 attiva quello cliccato
-    e.target.classList.add('active');
-
-    // 🔹 salva filtro attivo
-    activeFilters[type] = value;
-
-    // 🔹 aggiorna lista eventi
-    applyFilters();
-});
-function resetFilters() {
-
-    activeFilters = {
-        discipline: '',
-        price: '',
-        month: ''
-    };
-
-    // reset bottoni filtro
-    document.querySelectorAll('.filter-btn')
-        .forEach(btn => btn.classList.remove('active'));
-
-    // riattiva i bottoni "Tutti" (quelli con value="")
-    document.querySelectorAll('[data-value=""]')
-        .forEach(btn => btn.classList.add('active'));
-
-    // reset select classici
-    document.getElementById('filterCircuit').value = '';
-    document.getElementById('filterOrganizer').value = '';
-
-    // reset ricerca
-    document.getElementById('filterSearch').value = '';
-
-    // ricarica eventi
-    renderEvents(eventsData);
-}
         // Inizializzazione
         document.addEventListener('DOMContentLoaded', function() {
             populateCircuitFilter();
