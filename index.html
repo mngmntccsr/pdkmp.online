@@ -898,7 +898,21 @@
                 organizzatore: "Fx Racing Weekend",
                 immagine: "image/fxwk.jpg",
                 eventoGratuito: true
-            }
+            },
+{
+    titolo: "Track Day Experience Italia",
+    dataInizio: "2026-07-10",
+    dataFine: "2026-07-11",
+    disciplina: ["Misto", "Gt"],
+    circuito: "Circuito disponibile",
+    citta: "Italia",
+    linkBiglietti: "",
+    linkInfo: "",
+    organizzatore: "PaddockMap",
+    immagine: "",
+    eventoGratuito: false,
+    isPromo: true
+}
         ];
 
         // Funzioni Helper
@@ -963,13 +977,30 @@ function getDisciplineIcon(disciplina) {
             const sortedEvents = [...events].sort((a, b) => {
                 return new Date(a.dataInizio) - new Date(b.dataInizio);
             });
+            // Inserisce evento promo a metà
+const promoIndex = sortedEvents.findIndex(e => e.isPromo);
+if (promoIndex !== -1) {
+    const [promoEvent] = sortedEvents.splice(promoIndex, 1);
+    const middleIndex = Math.floor(sortedEvents.length / 2);
+    sortedEvents.splice(middleIndex, 0, promoEvent);
+}
 
             container.innerHTML = sortedEvents.map(event => {
                 // Gestione immagine
-                const hasImage = event.immagine && event.immagine.trim() !== '';
-                const imageHtml = hasImage 
-                    ? `<img src="${event.immagine}" alt="${event.titolo}" class="event-image">`
-                    : `<div class="event-image placeholder">🏁</div>`;
+let imageHtml;
+
+if (event.isPromo) {
+    imageHtml = `
+        <div class="event-image placeholder" style="background: linear-gradient(135deg, #d32f2f, #212121); color: white; font-size: 1.2rem; font-weight: 700; text-align: center; padding: 1rem;">
+            🚀 Pubblica il tuo evento qui
+        </div>
+    `;
+} else {
+    const hasImage = event.immagine && event.immagine.trim() !== '';
+    imageHtml = hasImage 
+        ? `<img src="${event.immagine}" alt="${event.titolo}" class="event-image">`
+        : `<div class="event-image placeholder">🏁</div>`;
+}
 
                 return `
                     <div class="event-card">
@@ -1012,30 +1043,37 @@ function getDisciplineIcon(disciplina) {
                                 ` : ''}
                             </div>
                         </div>
-                        <div class="event-actions">
-                            ${event.linkBiglietti ? `
-                                <a href="${event.linkBiglietti}" target="_blank" class="btn btn-primary">
-                                    🎫 Biglietti
-                                </a>
-                            ` : event.eventoGratuito ? `
-                                <div class="btn btn-primary" style="background: var(--accent-green); cursor: default;">
-                                    ✨ Ingresso gratuito
-                                </div>
-                            ` : `
-                                <button class="btn btn-primary" disabled>
-                                    Info biglietti in arrivo
-                                </button>
-                            `}
-                            ${event.linkInfo ? `
-                                <a href="${event.linkInfo}" target="_blank" class="btn btn-secondary">
-                                    ℹ️ Maggiori informazioni
-                                </a>
-                            ` : `
-                                <button class="btn btn-secondary" disabled>
-                                    Info in arrivo
-                                </button>
-                            `}
-                        </div>
+<div class="event-actions">
+    ${event.isPromo ? `
+        <a href="contatti.html" class="btn btn-primary">
+            📢 Promuovi il tuo evento
+        </a>
+    ` : `
+        ${event.linkBiglietti ? `
+            <a href="${event.linkBiglietti}" target="_blank" class="btn btn-primary">
+                🎫 Biglietti
+            </a>
+        ` : event.eventoGratuito ? `
+            <div class="btn btn-primary" style="background: var(--accent-green); cursor: default;">
+                ✨ Ingresso gratuito
+            </div>
+        ` : `
+            <button class="btn btn-primary" disabled>
+                Info biglietti in arrivo
+            </button>
+        `}
+
+        ${event.linkInfo ? `
+            <a href="${event.linkInfo}" target="_blank" class="btn btn-secondary">
+                ℹ️ Maggiori informazioni
+            </a>
+        ` : `
+            <button class="btn btn-secondary" disabled>
+                Info in arrivo
+            </button>
+        `}
+    `}
+</div>
                     </div>
                 `;
             }).join('');
