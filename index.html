@@ -287,11 +287,10 @@
         }
 
         /* Icone personalizzate */
-       .discipline-icon {
-    width:  50px; /* più grande */
-    height: 50px; 
+.discipline-icon {
+    width: 70%;
+    height: auto;
     object-fit: contain;
-    cursor: pointer;
 }
 
 .event-discipline {
@@ -492,7 +491,7 @@
 }
 
 .disc-window {
-    width: 120px;
+    flex: 1;
     overflow: hidden;
 }
 
@@ -502,7 +501,7 @@
 }
 
 .event-discipline {
-    min-width: 40px;
+    flex: 0 0 calc(100% / 3);
     display: flex;
     justify-content: center;
 }
@@ -966,7 +965,7 @@ function getDisciplineIcon(disciplina) {
                             </div>
                             <div class="event-title">${event.titolo}</div>
 <div class="event-disciplines">
-    <button class="disc-arrow left" onclick="scrollDisciplines(this, -1)">‹</button>
+    ${event.disciplina.length > 3 ? `<button class="disc-arrow left" onclick="scrollDisciplines(this, -1)">‹</button>` : ''}
     
     <div class="disc-window">
         <div class="disc-track">
@@ -977,7 +976,7 @@ function getDisciplineIcon(disciplina) {
         </div>
     </div>
 
-    <button class="disc-arrow right" onclick="scrollDisciplines(this, 1)">›</button>
+    ${event.disciplina.length > 3 ? `<button class="disc-arrow right" onclick="scrollDisciplines(this, 1)">›</button>` : ''}
 </div>
                         </div>
                         <div class="event-body">
@@ -1069,13 +1068,12 @@ function getDisciplineIcon(disciplina) {
             
         renderEvents(eventsData);
         }
-        function scrollDisciplines(button, direction) {
+function scrollDisciplines(button, direction) {
     const container = button.parentElement;
     const track = container.querySelector('.disc-track');
+    const windowEl = container.querySelector('.disc-window');
 
-    const iconWidth = 40;
-    const visibleIcons = 3;
-    const scrollAmount = iconWidth * visibleIcons;
+    const scrollAmount = windowEl.offsetWidth;
 
     const currentTransform = getComputedStyle(track).transform;
     let currentX = 0;
@@ -1086,7 +1084,8 @@ function getDisciplineIcon(disciplina) {
 
     let newX = currentX - (scrollAmount * direction);
 
-    const maxScroll = -(track.scrollWidth - (iconWidth * visibleIcons));
+    const maxScroll = -(track.scrollWidth - windowEl.offsetWidth);
+
     if (newX > 0) newX = 0;
     if (newX < maxScroll) newX = maxScroll;
 
