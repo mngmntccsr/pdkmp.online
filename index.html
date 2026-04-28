@@ -287,11 +287,40 @@
         }
 
         /* Icone personalizzate */
-        .discipline-icon {
-            width: 16px;
-            height: 16px;
-            object-fit: contain;
-        }
+       .discipline-icon {
+    width: 26px; /* più grande */
+    height: 26px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.event-discipline {
+    position: relative;
+    background: transparent; /* togli effetto pill */
+    padding: 0;
+}
+
+/* Tooltip (scritta al passaggio mouse) */
+.event-discipline::after {
+    content: attr(data-name);
+    position: absolute;
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--dark);
+    color: white;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s;
+    white-space: nowrap;
+}
+
+.event-discipline:hover::after {
+    opacity: 1;
+}
 
         .event-body {
             padding: 0 1.25rem;
@@ -484,10 +513,11 @@
                     <label for="filterDiscipline">Disciplina</label>
                     <select id="filterDiscipline">
                         <option value="">Tutte le discipline</option>
-                        <option value="Formula">Formula</option>
-                        <option value="Misto">Misto</option>
-                        <option value="Storico">Auto Storiche/Revival</option>
-                        <option value="Gt">Gran Turismo (GT)</option>
+                              <option value="Formula">🏎️ Formula</option>
+                              <option value="Misto">🚗 Misto</option>
+                              <option value="Storico">🏛️ Storico</option>
+                              <option value="Gt">🏁 GT</option>
+                              <option value="Le Mans Prototype">🚗 LMP</option>
                     </select>
                 </div>
                 <div class="filter-group">
@@ -628,7 +658,7 @@
                 titolo: "European Le Mans Series - 4 hours of Imola",
                 dataInizio: "2026-07-03",
                 dataFine: "2026-07-05",
-                disciplina: ["Misto", "Gt"],
+                disciplina: ["Misto", "Gt", "Le Mans Prototype"],
                 circuito: "Autodromo Enzo e Dino Ferrari",
                 citta: "Imola",
                 linkBiglietti: "https://www.ticketone.it/event/elms-4-hours-of-imola-2026-autodromo-internazionale-enzo-e-dino-ferrari-21212815/",
@@ -816,16 +846,16 @@
             return `${day} ${month}`;
         }
 
-        function getDisciplineIcon(disciplina) {
-            const config = disciplineIcons[disciplina];
-            if (!config) return '🏁';
-            
-            if (config.customIcon) {
-                return `<img src="${config.customIcon}" alt="${disciplina}" class="discipline-icon">`;
-            }
-            
-            return config.emoji;
-        }
+function getDisciplineIcon(disciplina) {
+    const config = disciplineIcons[disciplina];
+    if (!config) return '🏁';
+    
+    if (config.customIcon) {
+        return `<img src="${config.customIcon}" alt="${disciplina}" class="discipline-icon">`;
+    }
+    
+    return `<span class="discipline-icon">${config.emoji}</span>`;
+}
 
         // Popola filtri
         function populateCircuitFilter() {
@@ -891,7 +921,7 @@
                             <div class="event-disciplines">
                                 ${event.disciplina.map(disc => {
                                     const icon = getDisciplineIcon(disc);
-                                    return `<span class="event-discipline">${icon} ${disc}</span>`;
+                                    return `<span class="event-discipline" data-name="${disc}">${icon}</span>`;
                                 }).join('')}
                             </div>
                         </div>
