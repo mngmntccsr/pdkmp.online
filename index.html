@@ -271,7 +271,7 @@
         .event-disciplines {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.4rem;
+            gap: 0.8rem;
         }
 
         .event-discipline {
@@ -288,16 +288,20 @@
 
         /* Icone personalizzate */
        .discipline-icon {
-    width: 26px; /* più grande */
-    height: 26px;
+    width: 80px; /* più grande */
+    height: 80px;
     object-fit: contain;
     cursor: pointer;
 }
 
 .event-discipline {
     position: relative;
-    background: transparent; /* togli effetto pill */
-    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+    border-radius: 8px;
+    padding: 6px;
 }
 
 /* Tooltip (scritta al passaggio mouse) */
@@ -320,6 +324,10 @@
 
 .event-discipline:hover::after {
     opacity: 1;
+}
+.event-discipline:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
 }
 
         .event-body {
@@ -746,7 +754,7 @@
                 linkBiglietti: "",
                 linkInfo: "https://www.svoltedipopoli.it/",
                 organizzatore: "A.S.D. Svolte di Popoli",
-                immagine: "",
+                immagine: "image/svolepopoli64.png",
                 eventoGratuito: false
             },
             {
