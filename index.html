@@ -1001,15 +1001,15 @@ function getDisciplineIcon(disciplina) {
                 const matchDiscipline = !disciplineFilter || 
                     event.disciplina.some(disc => disc.toLowerCase() === disciplineFilter);
                 
-                const matchCircuit = !circuitFilter || event.circuito.toLowerCase() === circuitFilter;
-                const matchOrganizer = !organizerFilter || event.organizzatore.toLowerCase() === organizerFilter;
+                const matchCircuit = !circuitFilter || (event.circuito || '').toLowerCase() === circuitFilter;
+                const matchOrganizer = !organizerFilter || (event.organizzatore || '').toLowerCase() === organizerFilter;
                 const matchMonth = !monthFilter || event.dataInizio.substring(5, 7) === monthFilter;
                 const matchSearch = !searchFilter || 
-                    event.titolo.toLowerCase().includes(searchFilter) ||
-                    event.circuito.toLowerCase().includes(searchFilter) ||
-                    event.citta.toLowerCase().includes(searchFilter) ||
-                    event.disciplina.some(disc => disc.toLowerCase().includes(searchFilter)) ||
-                    event.organizzatore.toLowerCase().includes(searchFilter);
+    event.titolo.toLowerCase().includes(searchFilter) ||
+    (event.circuito || '').toLowerCase().includes(searchFilter) ||
+    (event.citta || '').toLowerCase().includes(searchFilter) ||
+    event.disciplina.some(disc => disc.toLowerCase().includes(searchFilter)) ||
+    (event.organizzatore || '').toLowerCase().includes(searchFilter);
 
                 return matchDiscipline && matchCircuit && matchOrganizer && matchMonth && matchSearch;
             });
