@@ -129,6 +129,32 @@
     "immagine": "",
     "eventoGratuito": false
   }, 
+   {
+    "titolo": "20° Rally Regione Piemonte",
+    "dataInizio": "2026-07-31",
+    "dataFine": "2026-08-02",
+    "disciplina": ["Rally"],
+    "circuito": "Alba",
+    "citta": "Alba",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.rallyalba.it/",
+    "organizzatore": "Automobile Club Cuneo",
+    "immagine": "",
+    "eventoGratuito": true
+  }, 
+     {
+    "titolo": "73° Rallye Sanremo",
+    "dataInizio": "2026-10-16",
+    "dataFine": "2026-10-18",
+    "disciplina": ["Rally"],
+    "circuito": "Sanremo",
+    "citta": "Sanremo",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.rallyesanremo.it/",
+    "organizzatore": "Automobile Club del Ponente Ligure",
+    "immagine": "",
+    "eventoGratuito": true
+  }, 
         {
     "titolo": "Rally di Roma Capitale",
     "dataInizio": "2026-07-03",
