@@ -12,6 +12,19 @@
                 "immagine": "image/fxwk.jpg", 
                 "eventoGratuito": true
             },
+    {
+                "titolo": "Test Test",
+                "dataInizio": "2026-03-16",
+                "dataFine": "2026-03-17",
+                "disciplina": ["Misto", "Gt", "Formula"],
+                "circuito": "Test Test",
+                "citta": "Test Test",
+                "linkBiglietti": "",
+                "linkInfo": "",
+                "organizzatore": "Test Test",
+                "immagine": "", 
+                "eventoGratuito": false
+            },
             {
                 "titolo": "Fx Racing Weekend Misano",
                 "dataInizio": "2026-05-29",
