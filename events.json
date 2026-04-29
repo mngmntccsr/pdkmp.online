@@ -13,6 +13,58 @@
                 "eventoGratuito": true
             },
     {
+    "titolo": "Lamborghini Arena 2026",
+    "dataInizio": "2026-05-09",
+    "dataFine": "2026-05-10",
+    "disciplina": ["Gt", "Misto"],
+    "circuito": "Autodromo Enzo e Dino Ferrari",
+    "citta": "Imola",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autodromoimola.it/eventi/",
+    "organizzatore": "Lamborghini",
+    "immagine": "",
+    "eventoGratuito": false
+  },
+    {
+    "titolo": "ACI Racing Weekend Imola",
+    "dataInizio": "2026-09-04",
+    "dataFine": "2026-09-06",
+    "disciplina": ["Gt", "Formula", "Misto"],
+    "circuito": "Autodromo Enzo e Dino Ferrari",
+    "citta": "Imola",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autodromoimola.it/eventi/",
+    "organizzatore": "ACI Sport",
+    "immagine": "",
+    "eventoGratuito": true
+  },
+    {
+    "titolo": "Imola Classic 2026",
+    "dataInizio": "2026-10-16",
+    "dataFine": "2026-10-18",
+    "disciplina": ["Storico", "Gt", "Misto"],
+    "circuito": "Autodromo Enzo e Dino Ferrari",
+    "citta": "Imola",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autodromoimola.it/eventi/imola-classic/",
+    "organizzatore": "Autodromo Imola",
+    "immagine": "",
+    "eventoGratuito": false
+  }, 
+  {
+    "titolo": "Red Bull Showrun Imola",
+    "dataInizio": "2026-05-23",
+    "dataFine": "2026-05-23",
+    "disciplina": ["Formula", "Misto"],
+    "circuito": "Autodromo Enzo e Dino Ferrari",
+    "citta": "Imola",
+    "linkBiglietti": "https://www.redbull.com/it-it/events/red-bull-showrun",
+    "linkInfo": "https://www.redbull.com/it-it/events/red-bull-showrun",
+    "organizzatore": "Red Bull",
+    "immagine": "",
+    "eventoGratuito": false
+  },
+    {
                 "titolo": "Test Test",
                 "dataInizio": "2026-03-16",
                 "dataFine": "2026-03-17",
