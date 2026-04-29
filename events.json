@@ -99,7 +99,7 @@
     "citta": "Imola",
     "linkBiglietti": "",
     "linkInfo": "https://www.autodromoimola.it/eventi/aci-racing-weekend-settembre/",
-    "organizzatore": "ACI Sport",
+    "organizzatore": "Aci",
     "immagine": "",
     "eventoGratuito": true
   },
@@ -247,7 +247,7 @@
                 "eventoGratuito": false
             },
             {
-                "titolo": "Aci Racing Weekend",
+                "titolo": "Aci Racing Weekend Monza",
                 "dataInizio": "2026-06-19",
                 "dataFine": "2026-06-21",
                 "disciplina": ["Misto", "Gt", "Formula"],
