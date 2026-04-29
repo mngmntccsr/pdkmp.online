@@ -697,6 +697,25 @@
         // DATI EVENTI - TUTTI I TUOI DATI ORIGINALI MANTENUTI
 let eventsData = [];
 
+const randomImages = [
+    "image/random1.png",
+    "image/random2.png",
+    "image/random3.png",
+    "image/random4.png"
+];
+
+let lastRandomIndex = -1;
+
+function getRandomImage() {
+    let index;
+
+    do {
+        index = Math.floor(Math.random() * randomImages.length);
+    } while (index === lastRandomIndex);
+
+    lastRandomIndex = index;
+    return randomImages[index];
+}
         // Funzioni Helper
         function formatDateShort(dateString) {
             const date = new Date(dateString);
@@ -778,10 +797,13 @@ if (event.isPromo) {
         </div>
     `;
 } else {
-    const hasImage = event.immagine && event.immagine.trim() !== '';
-    imageHtml = hasImage 
-        ? `<img src="${event.immagine}" alt="${event.titolo}" class="event-image">`
-        : `<div class="event-image placeholder">🏁</div>`;
+const hasImage = event.immagine && event.immagine.trim() !== '';
+
+if (hasImage) {
+    imageHtml = `<img src="${event.immagine}" alt="${event.titolo}" class="event-image">`;
+} else {
+    const randomImg = getRandomImage();
+    imageHtml = `<img src="${randomImg}" alt="evento motorsport" class="event-image">`;
 }
 
                 return `
