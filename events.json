@@ -467,5 +467,70 @@
     "immagine": "",
     "eventoGratuito": false,
     "isPromo": true
-}
+}, 
+  {
+    "titolo": "Rally Targa Florio",
+    "dataInizio": "2026-05-14",
+    "dataFine": "2026-05-16",
+    "disciplina": ["Rally"],
+    "circuito": "Palermo",
+    "citta": "Palermo",
+    "linkBiglietti": "",
+    "linkInfo": "https://targa-florio.it/targafloriorally/",
+    "organizzatore": "Automobile Club Palermo", 
+    "immagine": "",
+    "eventoGratuito": true
+  },
+  {
+    "titolo": "Rally San Marino",
+    "dataInizio": "2026-06-19",
+    "dataFine": "2026-06-21",
+    "disciplina": ["Rally"],
+    "circuito": "San Marino",
+    "citta": "San Marino",
+    "linkBiglietti": "",
+    "linkInfo": "",
+    "organizzatore": "Federazione Auto Motoristica Sammarinese",
+    "immagine": "",
+    "eventoGratuito": true 
+  },
+  {
+    "titolo": "Rally Coppa Valtellina",
+    "dataInizio": "2026-05-09",
+    "dataFine": "2026-05-10",
+    "disciplina": ["Rally"],
+    "circuito": "Sondrio",
+    "citta": "Sondrio",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.coppavaltellina.it/",
+    "organizzatore": "Automobile Club Sondrio", 
+    "immagine": "",
+    "eventoGratuito": true 
+  },
+  {
+    "titolo": "Rally Appennino Reggiano",
+    "dataInizio": "2026-06-13",
+    "dataFine": "2026-06-14",
+    "disciplina": ["Rally"],
+    "circuito": "Castelnovo ne' Monti",
+    "citta": "Castelnovo ne' Monti",
+    "linkBiglietti": "",
+    "linkInfo": "",
+    "organizzatore": "Maremma Corse 2.0 A.S.D.", 
+    "immagine": "",
+    "eventoGratuito": false 
+  },
+  {
+    "titolo": "Rally Lana",
+    "dataInizio": "2026-10-23",
+    "dataFine": "2026-10-25",
+    "disciplina": ["Rally"],
+    "circuito": "Biella",
+    "citta": "Biella",
+    "linkBiglietti": "",
+    "linkInfo": "",
+    "organizzatore": "A.C. BIELLA", 
+    "immagine": "",
+    "eventoGratuito": true
+  }
       ]
