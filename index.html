@@ -929,7 +929,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     console.log("🚀 Avvio fetch events.json...");
 
-    const response = await fetch('events.json');
+    const response = await fetch('events.json?v=' + Date.now());
 
     console.log("📡 Status:", response.status);
     console.log("📡 OK:", response.ok);
