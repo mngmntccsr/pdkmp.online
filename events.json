@@ -233,6 +233,58 @@
                 "immagine": "image/fxwk.jpg",
                 "eventoGratuito": false
             },
+   {
+                "titolo": "GT World Challenge Europe",
+                "dataInizio": "2026-05-29",
+                "dataFine": "2026-05-31",
+                "disciplina": ["Gt"],
+                "circuito": "Autodromo di Monza",
+                "citta": "Monza",
+                "linkBiglietti": "https://www.ticketone.it/artist/gt-world-challenge-europe/gt-world-challenge-powered-by-aws-4081064/?_gl=1*1w0waef*_gcl_au*OTEyNDY3MTkuMTc3NzQ4MjcwNg..",
+                "linkInfo": "https://www.monzanet.it/evento/gt-world-challenge-powered-by-aws/",
+                "organizzatore": "SRO Motorsports",
+                "immagine": "",
+                "eventoGratuito": false
+            },
+            {
+                "titolo": "Aci Racing Weekend",
+                "dataInizio": "2026-06-19",
+                "dataFine": "2026-06-21",
+                "disciplina": ["Misto", "Gt", "Formula"],
+                "circuito": "Autodromo di Monza",
+                "citta": "Monza",
+                "linkBiglietti": "",
+                "linkInfo": "https://www.monzanet.it/evento/aci-racing-weekend-3/",
+                "organizzatore": "Aci",
+                "immagine": "",
+                "eventoGratuito": true
+            },
+            {
+                "titolo": "Monza Revival",
+                "dataInizio": "2026-07-25",
+                "dataFine": "2026-06-26",
+                "disciplina": ["Misto", "Storico", "Gt", "Formula", "Le Mans Prototype"],
+                "circuito": "Autodromo di Monza",
+                "citta": "Monza",
+                "linkBiglietti": "",
+                "linkInfo": "https://www.monzanet.it/evento/monza-revival/",
+                "organizzatore": "",
+                "immagine": "",
+                "eventoGratuito": true
+            },
+              {
+                "titolo": "Eurocup-3",
+                "dataInizio": "2026-07-31",
+                "dataFine": "2026-08-02",
+                "disciplina": ["Formula", "Le Mans Prototype", "Gt"],
+                "circuito": "Autodromo di Monza",
+                "citta": "Monza",
+                "linkBiglietti": "",
+                "linkInfo": "https://www.monzanet.it/evento/eurocup-3-2/",
+                "organizzatore": "",
+                "immagine": "",
+                "eventoGratuito": true
+            },
             {
                 "titolo": "Svolte di Popoli",
                 "dataInizio": "2026-08-07",
