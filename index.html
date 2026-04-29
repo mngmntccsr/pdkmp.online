@@ -927,16 +927,36 @@ if (event.isPromo) {
 
 document.addEventListener('DOMContentLoaded', async function() {
 
-    // 🔽 CARICA JSON
-    const response = await fetch('events.json');
-    const data = await response.json();
+    console.log("🚀 Avvio fetch events.json...");
 
-    // 🔽 FILTRO EVENTI FUTURI
+    const response = await fetch('events.json');
+
+    console.log("📡 Status:", response.status);
+    console.log("📡 OK:", response.ok);
+
+    const text = await response.text();
+    console.log("📄 JSON RAW (inizio):", text.slice(0, 300));
+
+    const data = JSON.parse(text);
+
+    console.log("✅ JSON OK, eventi trovati:", data.length);
+
     const today = new Date();
 
     eventsData = data.filter(event => {
         return new Date(event.dataFine || event.dataInizio) >= today;
     });
+
+    populateCircuitFilter();
+    populateOrganizerFilter();
+    renderEvents();
+
+    document.getElementById('lastUpdate').textContent =
+        today.toLocaleDateString('it-IT', {
+            month: 'long',
+            year: 'numeric'
+        }).toLowerCase();
+});
 
     // 🔽 INIZIALIZZA
     populateCircuitFilter();
