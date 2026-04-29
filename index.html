@@ -690,230 +690,7 @@
         };
 
         // DATI EVENTI - TUTTI I TUOI DATI ORIGINALI MANTENUTI
-        const eventsData = [
-            {
-                titolo: "Fx Racing Weekend Varano de' Melegari",
-                dataInizio: "2026-05-16",
-                dataFine: "2026-05-17",
-                disciplina: ["Misto", "Gt", "Formula"],
-                circuito: "Varano de' Melegari",
-                citta: "Varano de' Melegari",
-                linkBiglietti: "",
-                linkInfo: "https://www.formulaxitalianseries.it/",
-                organizzatore: "Fx Racing Weekend",
-                immagine: "image/fxwk.jpg", // es: "images/varano-fx.jpg"
-                eventoGratuito: true
-            },
-            {
-                titolo: "Fx Racing Weekend Misano",
-                dataInizio: "2026-05-29",
-                dataFine: "2026-05-31",
-                disciplina: ["Misto", "Gt", "Formula"],
-                circuito: "Misano World Circuit",
-                citta: "Misano",
-                linkBiglietti: "",
-                linkInfo: "https://www.formulaxitalianseries.it/",
-                organizzatore: "Fx Racing Weekend",
-                immagine: "image/fxwk.jpg",
-                eventoGratuito: true
-            },
-                        {
-                titolo: "European Le Mans Series - 4 hours of Imola",
-                dataInizio: "2026-07-03",
-                dataFine: "2026-07-05",
-                disciplina: ["Misto", "Gt", "Le Mans Prototype"],
-                circuito: "Autodromo Enzo e Dino Ferrari",
-                citta: "Imola",
-                linkBiglietti: "https://www.ticketone.it/event/elms-4-hours-of-imola-2026-autodromo-internazionale-enzo-e-dino-ferrari-21212815/",
-                linkInfo: "https://www.autodromoimola.it/eventi/elms-european-le-mans-series/",
-                organizzatore: "European Le Mans Series",
-                immagine: "image/4himola1.jpg",
-                eventoGratuito: false
-            },
-            {
-                titolo: "Fx Racing Weekend Magione",
-                dataInizio: "2026-06-20",
-                dataFine: "2026-06-21",
-                disciplina: ["Misto", "Gt", "Formula"],
-                circuito: "Magione",
-                citta: "Magione",
-                linkBiglietti: "",
-                linkInfo: "https://www.formulaxitalianseries.it/",
-                organizzatore: "Fx Racing Weekend",
-                immagine: "image/fxwk.jpg",
-                eventoGratuito: true
-            },
-            {
-                titolo: "Alfa Romeo Day 2026",
-                dataInizio: "2026-06-21",
-                dataFine: "2026-06-21",
-                disciplina: ["Storico"],
-                circuito: "Museo Alfa Romeo",
-                citta: "Arese",
-                linkBiglietti: "",
-                linkInfo: "",
-                organizzatore: "Alfa Romeo",
-                immagine: "",
-                eventoGratuito: false
-            },
-            {
-                titolo: "Aci Racing Weekend Misano",
-                dataInizio: "2026-05-08",
-                dataFine: "2026-05-10",
-                disciplina: ["Misto", "Gt", "Formula"],
-                circuito: "Misano World Circuit",
-                citta: "Misano",
-                linkBiglietti: "",
-                linkInfo: "https://www.misanocircuit.com/events/8a17ae87-de14-4ca0-b734-76e237414acb",
-                organizzatore: "Aci",
-                immagine: "",
-                eventoGratuito: true
-            },
-            {
-                titolo: "GT World Challenge Europe",
-                dataInizio: "2026-07-17",
-                dataFine: "2026-07-19",
-                disciplina: ["Gt"],
-                circuito: "Misano World Circuit",
-                citta: "Misano",
-                linkBiglietti: "https://www.ticketone.it/event/gt-world-challenge-europe-powered-by-aws-misano-world-circuit-20945205/",
-                linkInfo: "https://www.gt-world-challenge-europe.com/event/250/misano",
-                organizzatore: "SRO Motorsports",
-                immagine: "",
-                eventoGratuito: false
-            },          
-            {
-                titolo: "Fx Racing Weekend Monza",
-                dataInizio: "2026-07-31",
-                dataFine: "2026-08-02",
-                disciplina: ["Misto", "Gt", "Formula"],
-                circuito: "Autodromo di Monza",
-                citta: "Monza",
-                linkBiglietti: "",
-                linkInfo: "https://www.formulaxitalianseries.it/",
-                organizzatore: "Fx Racing Weekend",
-                immagine: "image/fxwk.jpg",
-                eventoGratuito: false
-            },
-            {
-                titolo: "Svolte di Popoli",
-                dataInizio: "2026-08-07",
-                dataFine: "2026-08-09",
-                disciplina: ["Gt", "Misto"],
-                circuito: "",
-                citta: "Popoli",
-                linkBiglietti: "",
-                linkInfo: "https://www.svoltedipopoli.it/",
-                organizzatore: "A.S.D. Svolte di Popoli",
-                immagine: "",
-                eventoGratuito: false
-            },
-            {
-                titolo: "Formula 1 Gran Premio d'Italia",
-                dataInizio: "2026-09-04",
-                dataFine: "2026-09-06",
-                disciplina: ["Formula"],
-                circuito: "Autodromo di Monza",
-                citta: "Monza",
-                linkBiglietti: "https://tickets.formula1.com/it/f1-3293-italia",
-                linkInfo: "",
-                organizzatore: "Formula 1",
-                immagine: "",
-                eventoGratuito: false
-            },
-            {
-                titolo: "Fx Racing Weekend Imola",
-                dataInizio: "2026-09-04",
-                dataFine: "2026-09-06",
-                disciplina: ["Misto", "Gt", "Formula"],
-                circuito: "Autodromo Enzo e Dino Ferrari",
-                citta: "Imola",
-                linkBiglietti: "",
-                linkInfo: "https://www.formulaxitalianseries.it/",
-                organizzatore: "Fx Racing Weekend",
-                immagine: "image/fxwk.jpg",
-                eventoGratuito: true
-            },
-            {
-                titolo: "Fx Racing Weekend Vallelunga",
-                dataInizio: "2026-09-12",
-                dataFine: "2026-09-13",
-                disciplina: ["Misto", "Gt", "Formula"],
-                circuito: "Vallelunga",
-                citta: "Campagnano di Roma",
-                linkBiglietti: "",
-                linkInfo: "https://www.formulaxitalianseries.it/",
-                organizzatore: "Fx Racing Weekend",
-                immagine: "image/fxwk.jpg",
-                eventoGratuito: true
-            },
-            {
-                titolo: "10° Historic Minardi Day",
-                dataInizio: "2026-09-19",
-                dataFine: "2026-09-20",
-                disciplina: ["Misto", "Storico", "Gt", "Formula"],
-                circuito: "Autodromo Enzo e Dino Ferrari",
-                citta: "Imola",
-                linkBiglietti: "https://www.ticketone.it/artist/historic-minardi-day/",
-                linkInfo: "https://www.formulaxitalianseries.it/",
-                organizzatore: "Minardi",
-                immagine: "",
-                eventoGratuito: false
-            },
-            {
-                titolo: "Gran Premio Storico d'Italia",
-                dataInizio: "2026-10-02",
-                dataFine: "2026-10-04",
-                disciplina: ["Storico"],
-                circuito: "Mugello Circuit",
-                citta: "Scarperia e San Piero",
-                linkBiglietti: "https://my.weezevent.com/gran-premio-storico-ditalia-2026-1",
-                linkInfo: "https://www.granpremiostorico.com/", 
-                organizzatore: "Gran Premio Storico d'Italia",
-                immagine: "",
-                eventoGratuito: false
-            },
-            {
-                titolo: "Fx Racing Weekend Mugello",
-                dataInizio: "2026-10-16",
-                dataFine: "2026-10-18",
-                disciplina: ["Misto", "Gt", "Formula"],
-                circuito: "Mugello Circuit",
-                citta: "Scarperia",
-                linkBiglietti: "",
-                linkInfo: "https://www.formulaxitalianseries.it/",
-                organizzatore: "Fx Racing Weekend",
-                immagine: "image/fxwk.jpg",
-                eventoGratuito: true
-            },
-            {
-                titolo: "Fx Racing Weekend Misano",
-                dataInizio: "2026-11-13",
-                dataFine: "2026-11-15",
-                disciplina: ["Misto", "Gt", "Formula"],
-                circuito: "Misano World Circuit",
-                citta: "Misano",
-                linkBiglietti: "",
-                linkInfo: "https://www.formulaxitalianseries.it/",
-                organizzatore: "Fx Racing Weekend",
-                immagine: "image/fxwk.jpg",
-                eventoGratuito: true
-            },
-{
-    titolo: "Track Day Experience Italia",
-    dataInizio: "2026-07-10",
-    dataFine: "2026-07-11",
-    disciplina: ["Misto", "Gt"],
-    circuito: "Circuito disponibile",
-    citta: "Italia",
-    linkBiglietti: "",
-    linkInfo: "",
-    organizzatore: "PaddockMap",
-    immagine: "",
-    eventoGratuito: false,
-    isPromo: true
-}
-        ];
+let eventsData = [];
 
         // Funzioni Helper
         function formatDateShort(dateString) {
@@ -1148,18 +925,29 @@ if (event.isPromo) {
         document.getElementById('filterMonth').addEventListener('change', applyFilters);
         document.getElementById('filterSearch').addEventListener('input', applyFilters);
 
-        // Inizializzazione
-        document.addEventListener('DOMContentLoaded', function() {
-            populateCircuitFilter();
-            populateOrganizerFilter();
-            renderEvents();
+document.addEventListener('DOMContentLoaded', async function() {
 
-            const today = new Date();
-            document.getElementById('lastUpdate').textContent = today.toLocaleDateString('it-IT', { 
-                month: 'long', 
-                year: 'numeric' 
-            }).toLowerCase();
-        });
+    // 🔽 CARICA JSON
+    const response = await fetch('events.json');
+    const data = await response.json();
+
+    // 🔽 FILTRO EVENTI FUTURI
+    const today = new Date();
+
+    eventsData = data.filter(event => {
+        return new Date(event.dataFine || event.dataInizio) >= today;
+    });
+
+    // 🔽 INIZIALIZZA
+    populateCircuitFilter();
+    populateOrganizerFilter();
+    renderEvents();
+
+    document.getElementById('lastUpdate').textContent = today.toLocaleDateString('it-IT', { 
+        month: 'long', 
+        year: 'numeric' 
+    }).toLowerCase();
+});
     </script>
 
 </body>
