@@ -116,6 +116,19 @@
     "immagine": "",
     "eventoGratuito": false
   }, 
+      {
+    "titolo": "44° Rally Due Valli",
+    "dataInizio": "2026-06-04",
+    "dataFine": "2026-06-06",
+    "disciplina": ["Rally"],
+    "circuito": "Verona",
+    "citta": "Verona",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.rallyduevalli.it/",
+    "organizzatore": "Automobile Club Verona",
+    "immagine": "",
+    "eventoGratuito": false
+  }, 
   {
     "titolo": "Red Bull Showrun Imola",
     "dataInizio": "2026-06-02",
