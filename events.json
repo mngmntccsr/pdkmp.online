@@ -129,6 +129,19 @@
     "immagine": "",
     "eventoGratuito": false
   }, 
+        {
+    "titolo": "Rally di Roma Capitale",
+    "dataInizio": "2026-07-03",
+    "dataFine": "2026-07-05",
+    "disciplina": ["Rally"],
+    "circuito": "Roma",
+    "citta": "Roma",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.rallydiromacapitale.it/",
+    "organizzatore": "FIA European Rally Championship",
+    "immagine": "",
+    "eventoGratuito": false
+  }, 
   {
     "titolo": "Red Bull Showrun Imola",
     "dataInizio": "2026-06-02",
