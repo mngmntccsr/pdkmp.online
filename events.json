@@ -1,0 +1,28 @@
+[
+  {
+    "titolo": "Fx Racing Weekend Varano de' Melegari",
+    "dataInizio": "2026-05-16",
+    "dataFine": "2026-05-17",
+    "disciplina": ["Misto", "Gt", "Formula"],
+    "circuito": "Varano de' Melegari",
+    "citta": "Varano de' Melegari",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.formulaxitalianseries.it/",
+    "organizzatore": "Fx Racing Weekend",
+    "immagine": "image/fxwk.jpg",
+    "eventoGratuito": true
+  },
+  {
+    "titolo": "European Le Mans Series - 4 hours of Imola",
+    "dataInizio": "2026-07-03",
+    "dataFine": "2026-07-05",
+    "disciplina": ["Misto", "Gt", "Le Mans Prototype"],
+    "circuito": "Autodromo Enzo e Dino Ferrari",
+    "citta": "Imola",
+    "linkBiglietti": "https://www.ticketone.it/event/elms-4-hours-of-imola-2026-autodromo-internazionale-enzo-e-dino-ferrari-21212815/",
+    "linkInfo": "https://www.autodromoimola.it/eventi/elms-european-le-mans-series/",
+    "organizzatore": "European Le Mans Series",
+    "immagine": "image/4himola1.jpg",
+    "eventoGratuito": false
+  }
+]
