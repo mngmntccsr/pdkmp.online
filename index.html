@@ -40,15 +40,42 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            transition: padding 0.25s ease-out;
+            transition: padding 0.25s ease, min-height 0.25s ease;
             box-shadow: 0 2px 8px rgba(0,0,0,0.15);
             min-height: 140px;
             will-change: transform;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
         }
+/* STATO CHIUSO (più piccolo di adesso) */
+.header.collapsed {
+    padding: 0.8rem 1.5rem;
+    min-height: 80px; /* 🔥 più piccolo rispetto ai 140px */
+}
 
+/* LOGO più piccolo */
+.header.collapsed .logo {
+    font-size: 1.4rem;
+}
+
+/* nascondi elementi non essenziali */
+.header.collapsed .tagline,
+.header.collapsed .stats-bar {
+    opacity: 0;
+    transform: translateY(-5px);
+    pointer-events: none;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+}
+
+/* nav più compatta */
+.header.collapsed .nav-menu {
+    margin: 0.3rem 0;
+}
         .tagline,
 .stats-bar {
-    transition: opacity 0.2s ease;
+    transition: all 0.25s ease;
     will-change: opacity;
 }
 
@@ -606,32 +633,18 @@
 
     <script>
         // SCROLL HEADER ANIMATION
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('mainHeader');
-            const scrollPos = window.pageYOffset;
-            const scrollPercent = Math.min(scrollPos / 180, 1);
+let lastState = null;
 
-            const padding = 2 - (1.2 * scrollPercent);
-            header.style.padding = `${padding}rem 1.5rem`;
+window.addEventListener('scroll', () => {
+    const header = document.getElementById('mainHeader');
 
-            const logo = header.querySelector('.logo');
-            const logoSize = 2 - (0.5 * scrollPercent);
-            logo.style.fontSize = `${logoSize}rem`;
+    const isCollapsed = window.scrollY > 80;
 
-            const tagline = header.querySelector('.tagline');
-            const statsBar = header.querySelector('.stats-bar');
-            const navMenu = header.querySelector('.nav-menu');
+    if (isCollapsed === lastState) return;
+    lastState = isCollapsed;
 
-            tagline.style.opacity = 1 - scrollPercent;
-            statsBar.style.opacity = 1 - scrollPercent;
-            navMenu.style.opacity = 1 - (scrollPercent * 0.5);
-            
-tagline.style.opacity = 1 - scrollPercent;
-statsBar.style.opacity = 1 - scrollPercent;
-
-tagline.style.pointerEvents = scrollPercent > 0.9 ? 'none' : 'auto';
-statsBar.style.pointerEvents = scrollPercent > 0.9 ? 'none' : 'auto';
-        });
+    header.classList.toggle('collapsed', isCollapsed);
+});
 
         // CONFIGURAZIONE ICONE PERSONALIZZATE
         // Puoi usare emoji oppure percorsi a file immagine
