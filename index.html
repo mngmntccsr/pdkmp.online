@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F54J4RR4YY"></script>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+
+function gtag(){
+    dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+
+gtag('config', 'G-F54J4RR4YY');
+</script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PaddockMap - Calendario Eventi Motorsport Italia</title>
@@ -886,7 +902,10 @@ if (hasImage) {
         </a>
     ` : `
         ${event.linkBiglietti ? `
-            <a href="${event.linkBiglietti}" target="_blank" class="btn btn-primary">
+            <a href="${event.linkBiglietti}" target="_blank" class="btn btn-primary"><a href="${event.linkBiglietti}"
+   target="_blank"
+   class="btn btn-primary"
+   onclick="trackBiglietti('${event.titolo}')">
                 🎫 Biglietti
             </a>
         ` : event.eventoGratuito ? `
@@ -1022,7 +1041,24 @@ document.addEventListener('DOMContentLoaded', async function() {
             year: 'numeric'
         }).toLowerCase();
 });
+function trackBiglietti(nomeEvento) {
 
+    gtag('event', 'click_biglietti', {
+        event_name: nomeEvento
+    });
+
+    console.log("🎫 Click biglietti:", nomeEvento);
+}
+function trackInfo(nomeEvento) {
+
+    gtag('event', 'click_info', {
+        event_name: nomeEvento
+    });
+}
+function trackPromo() {
+
+    gtag('event', 'click_promuovi_evento');
+}
 
 </script>
 </body>
