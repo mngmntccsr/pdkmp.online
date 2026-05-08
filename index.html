@@ -279,20 +279,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     background: #e8e8e8;
     border-radius: 6px;
-
-    width: 32px;   /* 🔴 più stretto */
-    height: 28px;  /* altezza fissa */
-
-    padding: 0;    /* 🔴 rimosso padding → niente spazio inutile */
-    flex: 0 0 32px; /* mantiene tutte uguali nello slider */
-
-    font-size: 0.7rem;
-    font-weight: 600;
+    width: 32px;
+    height: 28px;
     overflow: hidden;
-    transition: all 0.2s ease;
+}
+
+/* SOLO dentro slider */
+.disc-track .event-discipline {
+    flex: 0 0 calc(100% / 3);
 }
 
         /* Icone personalizzate */
@@ -301,49 +297,6 @@
     height: auto;
     object-fit: contain;
     transition: opacity 0.2s;
-}
-
-.event-discipline {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #e8e8e8; /* leggermente più scuro */
-    border-radius: 6px;
-
-    padding: 4px 8px; /* meno largo → meno “allungato” */
-    min-width: 42px;  /* mantiene uniformità */
-    height: 28px;     /* altezza fissa → continuità visiva */
-
-    font-size: 0.75rem;
-    font-weight: 600;
-    overflow: hidden;
-}
-
-/* Tooltip (scritta al passaggio mouse) */
-.event-discipline::after {
-    content: attr(data-name);
-    position: absolute;
-    opacity: 0;
-    transition: opacity 0.2s;
-    font-size: 0.65rem;
-    white-space: nowrap;
-    color: white; /* 🔴 importante per hover rosso */
-}
-.event-discipline:hover .discipline-icon {
-    opacity: 0;
-}
-.event-discipline:hover::after {
-    opacity: 1;
-}
- .event-discipline:hover {
-    transform: scale(1.1);
-    background: var(--racing-red);
-}
-.event-discipline:hover {
-    transform: scale(1.1);
-    transition: 0.2s;
 }
 
         .event-body {
@@ -515,12 +468,6 @@
 .disc-track {
     display: flex;
     transition: transform 0.3s ease;
-}
-
-.event-discipline {
-    flex: 0 0 calc(100% / 3);
-    display: flex;
-    justify-content: center;
 }
 
 .disc-arrow {
@@ -928,17 +875,18 @@ if (hasImage) {
     const container = button.parentElement;
     const track = container.querySelector('.disc-track');
     const windowEl = container.querySelector('.disc-window');
- const scrollAmount = windowEl.offsetWidth;
+    const itemWidth = 32 + 6; // chip + gap
+    const scrollAmount = itemWidth * 3;
 
     const currentTransform = getComputedStyle(track).transform;
     let currentX = 0;
 
-    if (currentTransform !== 'none') {
-        currentX = parseInt(currentTransform.split(',')[4]);
-    }
-
+if (currentTransform !== 'none') {
+    const matrix = new DOMMatrixReadOnly(currentTransform);
+    currentX = matrix.m41;
+}
     let newX = currentX - (scrollAmount * direction);
- const maxScroll = -(track.scrollWidth - windowEl.offsetWidth);
+       const maxScroll = Math.min(0, -(track.scrollWidth - windowEl.offsetWidth));
 
     if (newX > 0) newX = 0;
     if (newX < maxScroll) newX = maxScroll;
