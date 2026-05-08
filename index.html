@@ -270,8 +270,8 @@
 
         /* Icone personalizzate */
 .discipline-icon {
-    width: 85%; /* prima era 70% */
-    height: auto;
+    width: 90%;
+    height: 90%;
     object-fit: contain;
     transition: opacity 0.2s;
 }
@@ -439,7 +439,8 @@
 }
 
 .disc-window {
-    width: 120px;
+    width: 100%;
+    max-width: 150px; /* opzionale: controlla dimensione card */
     overflow: hidden;
 }
 
@@ -450,8 +451,8 @@
 }
 
 .event-discipline {
-    flex: 0 0 40px;
-    height: 28px;
+    flex: 0 0 calc(100% / 3);
+    height: 40px; /* aumenta dimensione verticale */
     display: flex;
     align-items: center;
     justify-content: center;
