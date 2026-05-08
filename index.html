@@ -42,7 +42,15 @@
             z-index: 100;
             transition: padding 0.25s ease-out;
             box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            min-height: 140px;
+            will-change: transform;
         }
+
+        .tagline,
+.stats-bar {
+    transition: opacity 0.2s ease;
+    will-change: opacity;
+}
 
         .header-content {
             max-width: 1400px;
@@ -617,14 +625,12 @@
             tagline.style.opacity = 1 - scrollPercent;
             statsBar.style.opacity = 1 - scrollPercent;
             navMenu.style.opacity = 1 - (scrollPercent * 0.5);
+            
+tagline.style.opacity = 1 - scrollPercent;
+statsBar.style.opacity = 1 - scrollPercent;
 
-            if (scrollPercent >= 0.9) {
-                tagline.style.display = 'none';
-                statsBar.style.display = 'none';
-            } else {
-                tagline.style.display = 'block';
-                statsBar.style.display = 'flex';
-            }
+tagline.style.pointerEvents = scrollPercent > 0.9 ? 'none' : 'auto';
+statsBar.style.pointerEvents = scrollPercent > 0.9 ? 'none' : 'auto';
         });
 
         // CONFIGURAZIONE ICONE PERSONALIZZATE
