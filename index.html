@@ -897,9 +897,11 @@ if (hasImage) {
                         </div>
 <div class="event-actions">
     ${event.isPromo ? `
-        <a href="contatti.html" class="btn btn-primary">
-            📢 Promuovi il tuo evento
-        </a>
+<a href="contatti.html"
+   class="btn btn-primary"
+   onclick="trackPromo()">
+    📢 Promuovi il tuo evento
+</a>
     ` : `
         ${event.linkBiglietti ? `
             <a href="${event.linkBiglietti}" target="_blank" class="btn btn-primary"><a href="${event.linkBiglietti}"
@@ -919,9 +921,12 @@ if (hasImage) {
         `}
 
         ${event.linkInfo ? `
-            <a href="${event.linkInfo}" target="_blank" class="btn btn-secondary">
-                ℹ️ Maggiori informazioni
-            </a>
+            <a href="${event.linkInfo}"
+   target="_blank"
+   class="btn btn-secondary"
+   onclick="trackInfo('${event.titolo}')">
+    ℹ️ Maggiori informazioni
+</a>
         ` : `
             <button class="btn btn-secondary" disabled>
                 Info in arrivo
