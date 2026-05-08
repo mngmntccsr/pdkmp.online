@@ -945,7 +945,34 @@ if (hasImage) {
 
     track.style.transform = `translateX(${newX}px)`;
 }
+function getSessionId() {
+    let id = localStorage.getItem("pm_session_id");
+    if (!id) {
+        id = crypto.randomUUID();
+        localStorage.setItem("pm_session_id", id);
+    }
+    return id;
+}
 
+const sessionId = getSessionId();
+const sessionStart = Date.now();
+
+function track(eventName, props = {}) {
+    const payload = {
+        event: eventName,
+        session_id: sessionId,
+        page: window.location.pathname,
+        timestamp: Date.now(),
+        ...props
+    };
+
+    // Plausible (se lo userai)
+    if (window.plausible) {
+        window.plausible(eventName, { props });
+    }
+
+    console.log("📊 TRACK:", payload);
+}
         // Event listeners
         document.getElementById('filterDiscipline').addEventListener('change', applyFilters);
         document.getElementById('filterCircuit').addEventListener('change', applyFilters);
@@ -978,6 +1005,22 @@ document.addEventListener('DOMContentLoaded', async function() {
     populateCircuitFilter();
     populateOrganizerFilter();
     renderEvents();
+    setTimeout(() => {
+    document.querySelectorAll(".event-card").forEach(card => {
+
+        card.addEventListener("click", () => {
+
+            const title = card.querySelector(".event-title")?.innerText || null;
+            const circuit = card.querySelector(".info-row strong")?.innerText || null;
+
+            track("event_click", {
+                title,
+                circuit
+            });
+        });
+
+    });
+}, 300);
 
     document.getElementById('lastUpdate').textContent =
         today.toLocaleDateString('it-IT', {
