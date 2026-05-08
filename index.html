@@ -965,7 +965,24 @@ function track(eventName, props = {}) {
         timestamp: Date.now(),
         ...props
     };
+function bindEventTracking() {
 
+    document.querySelectorAll(".event-card").forEach(card => {
+
+        card.addEventListener("click", () => {
+
+            const title = card.querySelector(".event-title")?.innerText || null;
+            const circuit = card.querySelector(".info-row strong")?.innerText || null;
+
+            track("event_click", {
+                title,
+                circuit
+            });
+        });
+
+    });
+
+}
     // Plausible (se lo userai)
     if (window.plausible) {
         window.plausible(eventName, { props });
@@ -1005,22 +1022,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     populateCircuitFilter();
     populateOrganizerFilter();
     renderEvents();
-    setTimeout(() => {
-    document.querySelectorAll(".event-card").forEach(card => {
-
-        card.addEventListener("click", () => {
-
-            const title = card.querySelector(".event-title")?.innerText || null;
-            const circuit = card.querySelector(".info-row strong")?.innerText || null;
-
-            track("event_click", {
-                title,
-                circuit
-            });
-        });
-
-    });
-}, 300);
+    bindEventTracking();
 
     document.getElementById('lastUpdate').textContent =
         today.toLocaleDateString('it-IT', {
