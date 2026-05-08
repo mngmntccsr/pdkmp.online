@@ -465,7 +465,7 @@
             padding: 3rem;
             color: var(--gray-medium);
         }
-/* ===== SLIDER DISCIPLINE (FIX UNICO) ===== */
+/* ===== SLIDER DISCIPLINE ===== */
 
 .event-disciplines {
     display: flex;
@@ -474,29 +474,80 @@
 }
 
 .disc-window {
-    width: 100%;
-    max-width: 150px; /* opzionale: controlla dimensione card */
+    flex: 1;
     overflow: hidden;
 }
 
 .disc-track {
     display: flex;
     transition: transform 0.3s ease;
-    will-change: transform;
 }
 
+/* ICONA DISCIPLINA */
 .event-discipline {
-    flex: 0 0 calc(100% / 3);
-    height: 40px; /* aumenta dimensione verticale */
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+
     background: #e8e8e8;
     border-radius: 6px;
-    position: relative;
-    cursor: pointer;
+
+    width: 32px;
+    height: 28px;
+
+    padding: 0;
+
+    flex: 0 0 32px;
+
+    font-size: 0.7rem;
+    font-weight: 600;
+
+    overflow: hidden;
+
+    transition: all 0.2s ease;
 }
 
+/* DIMENSIONE ICONA */
+.discipline-icon {
+    width: 85%;
+    height: auto;
+    object-fit: contain;
+    transition: opacity 0.2s;
+}
+
+/* TESTO HOVER */
+.event-discipline::after {
+    content: attr(data-name);
+
+    position: absolute;
+
+    opacity: 0;
+
+    transition: opacity 0.2s;
+
+    font-size: 0.65rem;
+
+    white-space: nowrap;
+
+    color: white;
+}
+
+/* HOVER */
+.event-discipline:hover {
+    transform: scale(1.1);
+    background: var(--racing-red);
+}
+
+.event-discipline:hover .discipline-icon {
+    opacity: 0;
+}
+
+.event-discipline:hover::after {
+    opacity: 1;
+}
+
+/* FRECCE */
 .disc-arrow {
     background: none;
     border: none;
@@ -509,28 +560,6 @@
 .disc-arrow:hover {
     color: var(--dark);
 }
-
-.disc-tooltip {
-    position: absolute;
-    bottom: -28px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--racing-red);
-    color: white;
-    font-size: 0.7rem;
-    padding: 3px 6px;
-    border-radius: 4px;
-    white-space: nowrap;
-    opacity: 0;
-    transition: 0.2s ease;
-    pointer-events: none;
-}
-
-.event-discipline:hover .disc-tooltip,
-.event-discipline:active .disc-tooltip {
-    opacity: 1;
-}
-
 
     </style>
 </head>
@@ -798,24 +827,39 @@ if (hasImage) {
                                 📅 ${formatDateShort(event.dataInizio)}${event.dataFine && event.dataFine !== event.dataInizio ? ' - ' + formatDateShort(event.dataFine) : ''}
                             </div>
                             <div class="event-title">${event.titolo}</div>
-<div class="event-disciplines">
-    ${event.disciplina.length > 3 ? `<button class="disc-arrow left" onclick="changeDiscPage(this, -1)">‹</button>` : ''}
+    
+    <div class="event-disciplines">
+
+    ${event.disciplina.length > 3
+        ? `<button class="disc-arrow left" onclick="scrollDisciplines(this, -1)">‹</button>`
+        : ''
+    }
 
     <div class="disc-window">
+
         <div class="disc-track">
+
             ${event.disciplina.map(disc => {
+
                 const icon = getDisciplineIcon(disc);
+
                 return `
                     <span class="event-discipline" data-name="${disc}">
                         ${icon}
-                        <span class="disc-tooltip">${disc}</span>
                     </span>
                 `;
+
             }).join('')}
+
         </div>
+
     </div>
 
-    ${event.disciplina.length > 3 ? `<button class="disc-arrow right" onclick="changeDiscPage(this, 1)">›</button>` : ''}
+    ${event.disciplina.length > 3
+        ? `<button class="disc-arrow right" onclick="scrollDisciplines(this, 1)">›</button>`
+        : ''
+    }
+
 </div>
                         </div>
                         <div class="event-body">
@@ -911,28 +955,33 @@ if (hasImage) {
 
         renderEvents(eventsData);
         }
-function changeDiscPage(button, direction) {
+function scrollDisciplines(button, direction) {
+
     const container = button.parentElement;
+
     const track = container.querySelector('.disc-track');
-    const items = container.querySelectorAll('.event-discipline');
 
-    const visible = 3;
-    const itemWidth = 46; // 40px + gap
+    const windowEl = container.querySelector('.disc-window');
 
-    let page = parseInt(track.dataset.page || "0");
+    const scrollAmount = windowEl.offsetWidth;
 
-    const maxPage = Math.max(0, Math.ceil(items.length / visible) - 1);
+    const currentTransform = getComputedStyle(track).transform;
 
-    page += direction;
+    let currentX = 0;
 
-    if (page < 0) page = 0;
-    if (page > maxPage) page = maxPage;
+    if (currentTransform !== 'none') {
+        currentX = parseInt(currentTransform.split(',')[4]);
+    }
 
-    track.dataset.page = page;
+    let newX = currentX - (scrollAmount * direction);
 
-    const offset = -(page * visible * itemWidth);
+    const maxScroll = -(track.scrollWidth - windowEl.offsetWidth);
 
-    track.style.transform = `translateX(${offset}px)`;
+    if (newX > 0) newX = 0;
+
+    if (newX < maxScroll) newX = maxScroll;
+
+    track.style.transform = `translateX(${newX}px)`;
 }
         // Event listeners
         document.getElementById('filterDiscipline').addEventListener('change', applyFilters);
