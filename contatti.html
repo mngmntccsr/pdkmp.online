@@ -218,6 +218,25 @@
     <p>&copy; 2026 PaddockMap · Il calendario del motorsport italiano</p>
     <p>📧 managementcesar37@gmail.com</p>
 </footer>
+<script>
 
+fetch("https://script.google.com/macros/s/AKfycbxg8zNeIMRDiYPbNiUaAUBgR2keIYVljj7vNyJDN2gkrqHsWA4WfndmHgjuwNEPO2fA/exec", {
+    method: "POST",
+    body: JSON.stringify({
+        titolo: "TEST EVENTO",
+        dataInizio: "2026-05-10",
+        circuito: "Monza",
+        citta: "Monza"
+    })
+})
+.then(res => res.json())
+.then(data => {
+    console.log("SUCCESSO:", data);
+})
+.catch(err => {
+    console.error("ERRORE:", err);
+});
+
+</script>
 </body>
 </html>
