@@ -220,14 +220,26 @@
 </footer>
 <script>
 
+<script>
+
 fetch("https://script.google.com/macros/s/AKfycbxg8zNeIMRDiYPbNiUaAUBgR2keIYVljj7vNyJDN2gkrqHsWA4WfndmHgjuwNEPO2fA/exec", {
     method: "POST",
-    mode: "no-cors", 
+    mode: "no-cors",
     body: JSON.stringify({
         titolo: "TEST EVENTO",
         dataInizio: "2026-05-10",
         circuito: "Monza",
         citta: "Monza"
+    })
+})
+.then(() => {
+    console.log("SUCCESSO");
+})
+.catch(err => {
+    console.error("ERRORE:", err);
+});
+
+</script>
     })
 })
 .then(res => res.json())
