@@ -220,8 +220,6 @@
 </footer>
 <script>
 
-<script>
-
 fetch("https://script.google.com/macros/s/AKfycbxg8zNeIMRDiYPbNiUaAUBgR2keIYVljj7vNyJDN2gkrqHsWA4WfndmHgjuwNEPO2fA/exec", {
     method: "POST",
     mode: "no-cors",
@@ -234,17 +232,6 @@ fetch("https://script.google.com/macros/s/AKfycbxg8zNeIMRDiYPbNiUaAUBgR2keIYVljj
 })
 .then(() => {
     console.log("SUCCESSO");
-})
-.catch(err => {
-    console.error("ERRORE:", err);
-});
-
-</script>
-    })
-})
-.then(res => res.json())
-.then(data => {
-    console.log("SUCCESSO:", data);
 })
 .catch(err => {
     console.error("ERRORE:", err);
