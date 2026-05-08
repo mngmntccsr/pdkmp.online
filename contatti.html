@@ -186,27 +186,14 @@
         <h1>📣 Promuovi il tuo evento</h1>
         <p>Inserisci i dettagli del tuo evento e verrà valutato per la pubblicazione su PaddockMap.</p>
 
-        <form>
-            <label>Nome evento</label>
-            <input type="text" required>
-
-            <label>Data evento</label>
-            <input type="date" required>
-
-            <label>Circuito / Location</label>
-            <input type="text" required>
-
-            <label>Organizzatore</label>
-            <input type="text">
-
-            <label>Email contatto</label>
-            <input type="email" required>
-
-            <label>Link evento</label>
-            <input type="text">
-
-            <label>Descrizione</label>
-            <textarea rows="4"></textarea>
+        <form id="eventForm">
+           <input type="text" id="titolo" required>
+<input type="date" id="dataInizio" required>
+<input type="text" id="circuito" required>
+<input type="text" id="organizzatore">
+<input type="email" id="email" required>
+<input type="text" id="linkInfo">
+<textarea id="descrizione" rows="4"></textarea>
 
             <button type="submit">Invia richiesta</button>
         </form>
@@ -220,24 +207,36 @@
 </footer>
 
 <script>
+document.getElementById("eventForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-fetch("https://script.google.com/macros/s/AKfycbwlo-27y2T-5FGBRQArFZdFLLBmt23pUAmOjnoIuYsOu5QPCCF1fna2SS-NgQMk-dxu/exec", {
-    method: "POST",
-    mode: "no-cors",
-    body: JSON.stringify({
-        titolo: "TEST EVENTO",
-        dataInizio: "2026-05-10",
-        circuito: "Monza",
-        citta: "Monza"
-    })
-})
-.then(() => {
-    console.log("SUCCESSO");
-})
-.catch(err => {
-    console.error("ERRORE:", err);
+    const data = {
+        titolo: document.getElementById("titolo").value,
+        dataInizio: document.getElementById("dataInizio").value,
+        circuito: document.getElementById("circuito").value,
+        organizzatore: document.getElementById("organizzatore").value,
+        email: document.getElementById("email").value,
+        linkInfo: document.getElementById("linkInfo").value,
+        descrizione: document.getElementById("descrizione").value
+    };
+
+    try {
+        await fetch("https://script.google.com/macros/s/AKfycbwlo-27y2T-5FGBRQArFZdFLLBmt23pUAmOjnoIuYsOu5QPCCF1fna2SS-NgQMk-dxu/exec", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
+
+        alert("Evento inviato con successo!");
+        document.getElementById("eventForm").reset();
+
+    } catch (err) {
+        console.error(err);
+        alert("Errore invio evento");
+    }
 });
-
 </script>
 
 </body>
