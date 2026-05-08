@@ -161,6 +161,58 @@
                 font-size: 1.6rem;
             }
         }
+        .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 320px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.modal-content h2 {
+    margin-bottom: 0.5rem;
+}
+
+.modal-content p {
+    color: #555;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-content .check {
+    font-size: 2.5rem;
+    color: #2e7d32;
+    margin-bottom: 0.5rem;
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 6px;
+    background: #d32f2f;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
     </style>
 </head>
 
@@ -209,7 +261,8 @@
 <script>
 document.getElementById("eventForm").addEventListener("submit", async (e) => {
     e.preventDefault();
-
+    const modal = document.getElementById("successModal");
+    const closeModal = document.getElementById("closeModal");
     const data = {
         titolo: document.getElementById("titolo").value,
         dataInizio: document.getElementById("dataInizio").value,
@@ -223,6 +276,10 @@ document.getElementById("eventForm").addEventListener("submit", async (e) => {
     const button = e.target.querySelector("button");
     button.disabled = true;
     button.innerText = "Invio...";
+    
+    closeModal.addEventListener("click", () => {
+    modal.classList.add("hidden");
+    });
 
     try {
         const res = await fetch("https://script.google.com/macros/s/AKfycbwlo-27y2T-5FGBRQArFZdFLLBmt23pUAmOjnoIuYsOu5QPCCF1fna2SS-NgQMk-dxu/exec", {
@@ -231,7 +288,10 @@ document.getElementById("eventForm").addEventListener("submit", async (e) => {
         });
 
         // NON blocchiamo su response (Apps Script non affidabile)
-        alert("Evento inviato con successo!");
+        modal.classList.remove("hidden");
+        setTimeout(() => {
+    modal.classList.add("hidden");
+}, 4000);
         document.getElementById("eventForm").reset();
 
     } catch (err) {
@@ -243,6 +303,15 @@ document.getElementById("eventForm").addEventListener("submit", async (e) => {
     button.innerText = "Invia richiesta";
 });
 </script>
+<div id="successModal" class="modal hidden">
+    <div class="modal-content">
+        <div class="check">✔</div>
+        <h2>Grazie!</h2>
+        <p>Il tuo evento è stato inviato correttamente.<br>
+        Verrà valutato e pubblicato su PaddockMap.</p>
 
+        <button id="closeModal">OK</button>
+    </div>
+</div>
 </body>
 </html>
