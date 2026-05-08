@@ -18,7 +18,7 @@
             --gray-dark: #424242;
             --gray-medium: #757575;
             --gray-light: #bdbdbd;
-            --background: #fafafa;
+            --background: #f2f4f7;
             --white: #ffffff;
         }
 
@@ -213,6 +213,15 @@
     font-weight: 600;
     cursor: pointer;
 }
+.container {
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+}
+
+.form-card {
+    padding: 1.2rem;
+    border-radius: 8px;
+}
     </style>
 </head>
 
@@ -239,13 +248,13 @@
         <p>Inserisci i dettagli del tuo evento e verrà valutato per la pubblicazione su PaddockMap.</p>
 
         <form id="eventForm">
-           <input type="text" id="titolo" required>
+<input type="text" id="titolo" placeholder="Nome evento" required>
 <input type="date" id="dataInizio" required>
-<input type="text" id="circuito" required>
-<input type="text" id="organizzatore">
-<input type="email" id="email" required>
-<input type="text" id="linkInfo">
-<textarea id="descrizione" rows="4"></textarea>
+<input type="text" id="circuito" placeholder="Circuito / Location" required>
+<input type="text" id="organizzatore" placeholder="Organizzatore (opzionale)">
+<input type="email" id="email" placeholder="Email di contatto" required>
+<input type="text" id="linkInfo" placeholder="Link evento o pagina info">
+<textarea id="descrizione" rows="4" placeholder="Descrizione evento"></textarea>
 
             <button type="submit">Invia richiesta</button>
         </form>
