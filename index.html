@@ -57,9 +57,8 @@ gtag('config', 'G-F54J4RR4YY');
             top: 0;
             z-index: 100;
             transition: padding 0.25s ease, min-height 0.25s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
             min-height: 140px;
-            will-change: transform;
+            will-change: padding, min-height;
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.25);
         }
@@ -514,7 +513,8 @@ gtag('config', 'G-F54J4RR4YY');
 
     padding: 0;
 
-    flex: 0 0 calc(100% / 3);
+    flex: 0 0 33.333%;
+    min-width: 60px;
 
     font-size: 0.7rem;
     font-weight: 600;
@@ -585,8 +585,15 @@ gtag('config', 'G-F54J4RR4YY');
         <div class="header-content">
             <div class="logo">Paddock<span>Map</span></div>
             <nav class="nav-menu">
-                <a href="index.html">Home</a>
-                <a href="contatti.html">Promuovi Evento</a>
+                <a href="index.html"
+   onclick="gtag('event', 'nav_click', { nav_item: 'home' })">
+   Home
+</a>
+
+<a href="contatti.html"
+   onclick="gtag('event', 'nav_click', { nav_item: 'promuovi_evento' })">
+   Promuovi Evento
+</a>
             </nav>
             <p class="tagline">🏁 Il calendario completo del motorsport italiano</p>
 
@@ -834,7 +841,11 @@ if (hasImage) {
     }
 
                 return `
-                    <div class="event-card">
+                    <div class="event-card"
+     data-is-promo="${event.isPromo ? 'true' : 'false'}"
+     data-event-title="${event.titolo}"
+     data-discipline="${event.disciplina.join(',')}"
+     data-circuit="${event.circuito || ''}">
                         <div class="event-image-container">
                             ${imageHtml}
                         </div>
@@ -907,7 +918,8 @@ ${event.linkBiglietti ? `
     <a href="${event.linkBiglietti}"
        target="_blank"
        class="btn btn-primary"
-       onclick="trackBiglietti('${event.titolo}')">
+       data-event='${encodeURIComponent(JSON.stringify(event))}'
+onclick='trackBiglietti(this)'>
         🎫 Biglietti
     </a>
 ` : event.eventoGratuito ? `
@@ -924,7 +936,8 @@ ${event.linkBiglietti ? `
             <a href="${event.linkInfo}"
    target="_blank"
    class="btn btn-secondary"
-   onclick="trackInfo('${event.titolo}')">
+   data-event='${encodeURIComponent(JSON.stringify(event))}'
+onclick='trackInfo(this)'>
     ℹ️ Maggiori informazioni
 </a>
         ` : `
@@ -940,6 +953,8 @@ ${event.linkBiglietti ? `
 
             // Update counter
             document.getElementById('totalEvents').textContent = sortedEvents.length;
+
+initEventTracking();
         }
 
         // Filtri
@@ -966,7 +981,11 @@ ${event.linkBiglietti ? `
 
                 return matchDiscipline && matchCircuit && matchOrganizer && matchMonth && matchSearch;
             });
+gtag('event', 'filter_results', {
 
+    results_count: filtered.length
+
+});
             renderEvents(filtered);
         }
 
@@ -1008,11 +1027,50 @@ function scrollDisciplines(button, direction) {
     track.style.transform = `translateX(${newX}px)`;
 }
         // Event listeners
-        document.getElementById('filterDiscipline').addEventListener('change', applyFilters);
-        document.getElementById('filterCircuit').addEventListener('change', applyFilters);
-        document.getElementById('filterOrganizer').addEventListener('change', applyFilters);
-        document.getElementById('filterMonth').addEventListener('change', applyFilters);
-        document.getElementById('filterSearch').addEventListener('input', applyFilters);
+        let searchTimeout;
+        document.getElementById('filterDiscipline')
+.addEventListener('change', function() {
+
+    trackFilter('disciplina', this.value);
+
+    applyFilters();
+});
+        document.getElementById('filterCircuit')
+.addEventListener('change', function() {
+
+    trackFilter('circuito', this.value);
+
+    applyFilters();
+});
+        document.getElementById('filterOrganizer')
+.addEventListener('change', function() {
+
+    trackFilter('organizer', this.value);
+
+    applyFilters();
+});
+        document.getElementById('filterMonth')
+.addEventListener('change', function() {
+
+    trackFilter('month', this.value);
+
+    applyFilters();
+});
+        document.getElementById('filterSearch')
+.addEventListener('input', function() {
+
+    clearTimeout(searchTimeout);
+
+    const value = this.value;
+
+    searchTimeout = setTimeout(() => {
+
+        trackSearch(value);
+
+    }, 800);
+
+    applyFilters();
+});
 
 document.addEventListener('DOMContentLoaded', async function() {
 
@@ -1046,24 +1104,110 @@ document.addEventListener('DOMContentLoaded', async function() {
             year: 'numeric'
         }).toLowerCase();
 });
-function trackBiglietti(nomeEvento) {
+function trackBiglietti(element) {
+
+    const event = JSON.parse(
+        decodeURIComponent(element.dataset.event)
+    );
 
     gtag('event', 'click_biglietti', {
-        event_name: nomeEvento
+
+        event_title: event.titolo,
+        discipline: event.disciplina.join(','),
+        circuit: event.circuito || 'unknown',
+        city: event.citta || 'unknown',
+        organizer: event.organizzatore || 'unknown',
+        free_event: event.eventoGratuito ? 'yes' : 'no'
+
     });
 
-    console.log("🎫 Click biglietti:", nomeEvento);
+    console.log("🎫 Click biglietti:", event.titolo);
 }
-function trackInfo(nomeEvento) {
+function trackInfo(element) {
+
+    const event = JSON.parse(
+        decodeURIComponent(element.dataset.event)
+    );
 
     gtag('event', 'click_info', {
-        event_name: nomeEvento
+
+        event_title: event.titolo,
+        discipline: event.disciplina.join(','),
+        circuit: event.circuito || 'unknown',
+        city: event.citta || 'unknown',
+        organizer: event.organizzatore || 'unknown'
+
     });
+
+    console.log("ℹ️ Click info:", event.titolo);
 }
 function trackPromo() {
 
     gtag('event', 'click_promuovi_evento');
 }
+function trackFilter(filterType, filterValue) {
+
+    if (!filterValue) return;
+
+    gtag('event', 'filter_used', {
+
+        filter_type: filterType,
+        filter_value: filterValue
+
+    });
+
+    console.log("🔍 Filtro:", filterType, filterValue);
+}      
+function trackSearch(searchTerm) {
+
+    if (!searchTerm || searchTerm.length < 2) return;
+
+    gtag('event', 'search', {
+
+        search_term: searchTerm
+
+    });
+
+    console.log("🔎 Ricerca:", searchTerm);
+}
+function initEventTracking() {
+
+    const cards = document.querySelectorAll('.event-card');
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting && !entry.target.dataset.viewTracked) {
+
+    entry.target.dataset.viewTracked = 'true';
+
+                const card = entry.target;
+
+                gtag('event', 'event_card_view', {
+
+                    event_title: card.dataset.eventTitle,
+                    discipline: card.dataset.discipline,
+                    circuit: card.dataset.circuit
+
+                });
+
+                observer.unobserve(card);
+            }
+        });
+
+    },
+    {
+        threshold: 0.5
+    });
+
+    cards.forEach(card => {
+
+    if (card.dataset.isPromo !== 'true') {
+        observer.observe(card);
+    }
+ });
+}    
 
 </script>
 </body>
