@@ -919,7 +919,7 @@ ${event.linkBiglietti ? `
        target="_blank"
        class="btn btn-primary"
        data-event='${encodeURIComponent(JSON.stringify(event))}'
-onclick='trackBiglietti(this)'>
+onclick='trackBiglietti(event, this)'>
         🎫 Biglietti
     </a>
 ` : event.eventoGratuito ? `
@@ -1104,11 +1104,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             year: 'numeric'
         }).toLowerCase();
 });
-function trackBiglietti(element) {
-
-    event.preventDefault();
-
-    const link = element.href;
+function trackBiglietti(event, element) {
 
     const eventData = JSON.parse(
         decodeURIComponent(element.dataset.event)
@@ -1121,11 +1117,7 @@ function trackBiglietti(element) {
         circuit: eventData.circuito || 'unknown',
         city: eventData.citta || 'unknown',
         organizer: eventData.organizzatore || 'unknown',
-        free_event: eventData.eventoGratuito ? 'yes' : 'no',
-
-        event_callback: function() {
-            window.open(link, '_blank');
-        }
+        free_event: eventData.eventoGratuito ? 'yes' : 'no'
 
     });
 
