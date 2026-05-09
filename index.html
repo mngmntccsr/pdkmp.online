@@ -1106,22 +1106,30 @@ document.addEventListener('DOMContentLoaded', async function() {
 });
 function trackBiglietti(element) {
 
-    const event = JSON.parse(
+    event.preventDefault();
+
+    const link = element.href;
+
+    const eventData = JSON.parse(
         decodeURIComponent(element.dataset.event)
     );
 
     gtag('event', 'click_biglietti', {
 
-        event_title: event.titolo,
-        discipline: event.disciplina.join(','),
-        circuit: event.circuito || 'unknown',
-        city: event.citta || 'unknown',
-        organizer: event.organizzatore || 'unknown',
-        free_event: event.eventoGratuito ? 'yes' : 'no'
+        event_title: eventData.titolo,
+        discipline: eventData.disciplina.join(','),
+        circuit: eventData.circuito || 'unknown',
+        city: eventData.citta || 'unknown',
+        organizer: eventData.organizzatore || 'unknown',
+        free_event: eventData.eventoGratuito ? 'yes' : 'no',
+
+        event_callback: function() {
+            window.open(link, '_blank');
+        }
 
     });
 
-    console.log("🎫 Click biglietti:", event.titolo);
+    console.log("🎫 Click biglietti:", eventData.titolo);
 }
 function trackInfo(element) {
 
