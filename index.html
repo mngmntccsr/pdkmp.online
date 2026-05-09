@@ -903,14 +903,14 @@ if (hasImage) {
     📢 Promuovi il tuo evento
 </a>
     ` : `
-        ${event.linkBiglietti ? `
-            <a href="${event.linkBiglietti}" target="_blank" class="btn btn-primary"><a href="${event.linkBiglietti}"
-   target="_blank"
-   class="btn btn-primary"
-   onclick="trackBiglietti('${event.titolo}')">
-                🎫 Biglietti
-            </a>
-        ` : event.eventoGratuito ? `
+${event.linkBiglietti ? `
+    <a href="${event.linkBiglietti}"
+       target="_blank"
+       class="btn btn-primary"
+       onclick="trackBiglietti('${event.titolo}')">
+        🎫 Biglietti
+    </a>
+` : event.eventoGratuito ? `
             <div class="btn btn-primary" style="background: var(--accent-green); cursor: default;">
                 ✨ Ingresso gratuito
             </div>
