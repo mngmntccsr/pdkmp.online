@@ -730,6 +730,18 @@ window.addEventListener('scroll', () => {
         // DATI EVENTI - TUTTI I TUOI DATI ORIGINALI MANTENUTI
 let eventsData = [];
 
+const organizerImages = {
+
+    "FX Racing Weekend": "image/fxwk.jpg",
+
+    "ACI Sport": "image/AciSport.jpg",
+
+    "European Le Mans Series": "image/elms.jpg",
+
+    "Red Bull": "image/redbullKOS.png"
+
+};
+        
 const randomImages = [
     "image/random1.png",
     "image/random2.png",
@@ -739,6 +751,31 @@ const randomImages = [
 
 let lastRandomIndex = -1;
 
+function assignAutomaticImages(events) {
+
+    return events.map(event => {
+
+        // se l'evento ha già immagine, la mantiene
+        if (event.immagine && event.immagine.trim() !== '') {
+            return event;
+        }
+
+        // prova tramite organizzatore
+        const organizerImage = organizerImages[event.organizzatore];
+
+        if (organizerImage) {
+
+            return {
+                ...event,
+                immagine: organizerImage
+            };
+        }
+
+        // nessuna immagine trovata
+        return event;
+    });
+}
+        
 function getRandomImage() {
     let index;
 
@@ -1090,9 +1127,11 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     const today = new Date();
 
-    eventsData = data.filter(event => {
-        return new Date(event.dataFine || event.dataInizio) >= today;
-    });
+eventsData = data.filter(event => {
+    return new Date(event.dataFine || event.dataInizio) >= today;
+});
+
+eventsData = assignAutomaticImages(eventsData);
 
     populateCircuitFilter();
     populateOrganizerFilter();
