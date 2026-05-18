@@ -576,7 +576,73 @@ gtag('config', 'G-F54J4RR4YY');
 .disc-arrow:hover {
     color: var(--dark);
 }
+/* Multi-select personalizzato */
+.multi-select {
+    position: relative;
+}
 
+.multi-select-display {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    background: var(--white);
+    cursor: pointer;
+    transition: all 0.2s;
+    min-height: 42px;
+}
+
+.multi-select-display:hover {
+    border-color: var(--gray-medium);
+}
+
+.multi-select-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border: 1.5px solid var(--racing-red);
+    border-radius: 6px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+    margin-top: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.multi-select-options.active {
+    display: block;
+}
+
+.multi-select-option {
+    padding: 0.6rem 0.85rem;
+    cursor: pointer;
+    transition: background 0.15s;
+    font-size: 0.9rem;
+}
+
+.multi-select-option:hover {
+    background: #f5f5f5;
+}
+
+.multi-select-option.selected {
+    background: var(--racing-red);
+    color: white;
+    font-weight: 600;
+}
+
+.selected-tag {
+    display: inline-block;
+    background: var(--racing-red);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin: 0.2rem;
+}
     </style>
 </head>
 <body>
@@ -613,60 +679,78 @@ gtag('config', 'G-F54J4RR4YY');
     <!-- Main Content -->
     <div class="container">
 
-        <!-- Filters -->
-        <section class="filters">
-            <h3>Filtra eventi</h3>
-            <div class="filter-grid">
-                <div class="filter-group">
-                    <label for="filterDiscipline">Disciplina</label>
-                    <select id="filterDiscipline">
-                        <option value="">Tutte le discipline</option>
-                              <option value="Gt">🏁 GT</option>
-                              <option value="Formula">🏎️ Formula</option>
-                              <option value="Misto">🚗 Misto</option>
-                              <option value="Storico">🏛️ Storico</option>
-                              <option value="Rally">🚗 Rally</option>
-                              <option value="Le Mans Prototype">🚗 LMP</option>
-                              <option value="Cronoscalata">⛰️ Cronoscalata</option>
-                               </select>
+<section class="filters">
+    <h3>Filtra eventi</h3>
+    <div class="filter-grid">
+        <div class="filter-group">
+            <label>Disciplina</label>
+            <div class="multi-select" data-filter="discipline">
+                <div class="multi-select-display" onclick="toggleMultiSelect(this)">
+                    <span class="placeholder">Tutte le discipline</span>
                 </div>
-                <div class="filter-group">
-                    <label for="filterCircuit">Circuito</label>
-                    <select id="filterCircuit">
-                        <option value="">Tutti i circuiti</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="filterOrganizer">Organizzatore</label>
-                    <select id="filterOrganizer">
-                        <option value="">Tutti gli organizzatori</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="filterMonth">Mese</label>
-                    <select id="filterMonth">
-                        <option value="">Tutti i mesi</option>
-                        <option value="01">Gennaio</option>
-                        <option value="02">Febbraio</option>
-                        <option value="03">Marzo</option>
-                        <option value="04">Aprile</option>
-                        <option value="05">Maggio</option>
-                        <option value="06">Giugno</option>
-                        <option value="07">Luglio</option>
-                        <option value="08">Agosto</option>
-                        <option value="09">Settembre</option>
-                        <option value="10">Ottobre</option>
-                        <option value="11">Novembre</option>
-                        <option value="12">Dicembre</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="filterSearch">Cerca</label>
-                    <input type="text" id="filterSearch" placeholder="Nome evento, circuito...">
+                <div class="multi-select-options">
+                    <div class="multi-select-option" data-value="Gt">🏁 GT</div>
+                    <div class="multi-select-option" data-value="Formula">🏎️ Formula</div>
+                    <div class="multi-select-option" data-value="Misto">🚗 Misto</div>
+                    <div class="multi-select-option" data-value="Storico">🏛️ Storico</div>
+                    <div class="multi-select-option" data-value="Rally">🚗 Rally</div>
+                    <div class="multi-select-option" data-value="Le Mans Prototype">🚗 LMP</div>
+                    <div class="multi-select-option" data-value="Cronoscalata">⛰️ Cronoscalata</div>
                 </div>
             </div>
-            <button class="reset-filters" onclick="resetFilters()">Cancella filtri</button>
-        </section>
+        </div>
+
+        <div class="filter-group">
+            <label>Circuito</label>
+            <div class="multi-select" data-filter="circuit">
+                <div class="multi-select-display" onclick="toggleMultiSelect(this)">
+                    <span class="placeholder">Tutti i circuiti</span>
+                </div>
+                <div class="multi-select-options"></div>
+            </div>
+        </div>
+
+        <div class="filter-group">
+            <label>Organizzatore</label>
+            <div class="multi-select" data-filter="organizer">
+                <div class="multi-select-display" onclick="toggleMultiSelect(this)">
+                    <span class="placeholder">Tutti gli organizzatori</span>
+                </div>
+                <div class="multi-select-options"></div>
+            </div>
+        </div>
+
+        <div class="filter-group">
+            <label>Mese</label>
+            <div class="multi-select" data-filter="month">
+                <div class="multi-select-display" onclick="toggleMultiSelect(this)">
+                    <span class="placeholder">Tutti i mesi</span>
+                </div>
+                <div class="multi-select-options">
+                    <div class="multi-select-option" data-value="01">Gennaio</div>
+                    <div class="multi-select-option" data-value="02">Febbraio</div>
+                    <div class="multi-select-option" data-value="03">Marzo</div>
+                    <div class="multi-select-option" data-value="04">Aprile</div>
+                    <div class="multi-select-option" data-value="05">Maggio</div>
+                    <div class="multi-select-option" data-value="06">Giugno</div>
+                    <div class="multi-select-option" data-value="07">Luglio</div>
+                    <div class="multi-select-option" data-value="08">Agosto</div>
+                    <div class="multi-select-option" data-value="09">Settembre</div>
+                    <div class="multi-select-option" data-value="10">Ottobre</div>
+                    <div class="multi-select-option" data-value="11">Novembre</div>
+                    <div class="multi-select-option" data-value="12">Dicembre</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-group">
+            <label for="filterSearch">Cerca</label>
+            <input type="text" id="filterSearch" placeholder="Nome evento, circuito...">
+        </div>
+    </div>
+
+    <button class="reset-filters" onclick="resetFilters()">Cancella filtri</button>
+</section>
 
         <!-- Events Grid -->
         <div id="eventsContainer" class="events-grid">
@@ -813,29 +897,31 @@ function getDisciplineIcon(disciplina) {
 }
 
         // Popola filtri
-        function populateCircuitFilter() {
-            const circuits = [...new Set(eventsData.map(e => e.circuito).filter(c => c))].sort();
-            const select = document.getElementById('filterCircuit');
+function populateCircuitFilter() {
+    const circuits = [...new Set(eventsData.map(e => e.circuito).filter(c => c))].sort();
+    const container = document.querySelector('[data-filter="circuit"] .multi-select-options');
+    
+    container.innerHTML = circuits.map(circuit => 
+        `<div class="multi-select-option" data-value="${circuit}">${circuit}</div>`
+    ).join('');
+    
+    container.querySelectorAll('.multi-select-option').forEach(opt => {
+        opt.onclick = () => selectMultiOption(opt);
+    });
+}
 
-            circuits.forEach(circuit => {
-                const option = document.createElement('option');
-                option.value = circuit;
-                option.textContent = circuit;
-                select.appendChild(option);
-            });
-        }
-
-        function populateOrganizerFilter() {
-            const organizers = [...new Set(eventsData.map(e => e.organizzatore).filter(o => o))].sort();
-            const select = document.getElementById('filterOrganizer');
-
-            organizers.forEach(organizer => {
-                const option = document.createElement('option');
-                option.value = organizer;
-                option.textContent = organizer;
-                select.appendChild(option);
-            });
-        }
+function populateOrganizerFilter() {
+    const organizers = [...new Set(eventsData.map(e => e.organizzatore).filter(o => o))].sort();
+    const container = document.querySelector('[data-filter="organizer"] .multi-select-options');
+    
+    container.innerHTML = organizers.map(organizer => 
+        `<div class="multi-select-option" data-value="${organizer}">${organizer}</div>`
+    ).join('');
+    
+    container.querySelectorAll('.multi-select-option').forEach(opt => {
+        opt.onclick = () => selectMultiOption(opt);
+    });
+}
 
         // Render eventi
         function renderEvents(events = eventsData) {
@@ -1010,47 +1096,123 @@ document.getElementById('totalCircuits').textContent = uniqueCircuits.length;
 initEventTracking();
         }
 
-        // Filtri
-        function applyFilters() {
-            const disciplineFilter = document.getElementById('filterDiscipline').value.toLowerCase();
-            const circuitFilter = document.getElementById('filterCircuit').value.toLowerCase();
-            const organizerFilter = document.getElementById('filterOrganizer').value.toLowerCase();
-            const monthFilter = document.getElementById('filterMonth').value;
-            const searchFilter = document.getElementById('filterSearch').value.toLowerCase();
+ const selectedFilters = {
+    discipline: [],
+    circuit: [],
+    organizer: [],
+    month: []
+};
 
-            const filtered = eventsData.filter(event => {
-                const matchDiscipline = !disciplineFilter || 
-                    event.disciplina.some(disc => disc.toLowerCase() === disciplineFilter);
+function toggleMultiSelect(display) {
+    const dropdown = display.nextElementSibling;
+    const allDropdowns = document.querySelectorAll('.multi-select-options');
+    
+    allDropdowns.forEach(d => {
+        if (d !== dropdown) d.classList.remove('active');
+    });
+    
+    dropdown.classList.toggle('active');
+}
 
-                const matchCircuit = !circuitFilter || (event.circuito || '').toLowerCase() === circuitFilter;
-                const matchOrganizer = !organizerFilter || (event.organizzatore || '').toLowerCase() === organizerFilter;
-                const matchMonth = !monthFilter || event.dataInizio.substring(5, 7) === monthFilter;
-                const matchSearch = !searchFilter || 
-    event.titolo.toLowerCase().includes(searchFilter) ||
-    (event.circuito || '').toLowerCase().includes(searchFilter) ||
-    (event.citta || '').toLowerCase().includes(searchFilter) ||
-    event.disciplina.some(disc => disc.toLowerCase().includes(searchFilter)) ||
-    (event.organizzatore || '').toLowerCase().includes(searchFilter);
+function selectMultiOption(option) {
+    const container = option.closest('.multi-select');
+    const filterType = container.dataset.filter;
+    const value = option.dataset.value;
+    
+    option.classList.toggle('selected');
+    
+    if (option.classList.contains('selected')) {
+        selectedFilters[filterType].push(value);
+    } else {
+        selectedFilters[filterType] = selectedFilters[filterType].filter(v => v !== value);
+    }
+    
+    updateDisplay(container, filterType);
+    applyFilters();
+}
 
-                return matchDiscipline && matchCircuit && matchOrganizer && matchMonth && matchSearch;
-            });
-gtag('event', 'filter_results', {
+function updateDisplay(container, filterType) {
+    const display = container.querySelector('.multi-select-display');
+    const selected = selectedFilters[filterType];
+    
+    if (selected.length === 0) {
+        display.innerHTML = '<span class="placeholder">' + 
+            (filterType === 'discipline' ? 'Tutte le discipline' :
+             filterType === 'circuit' ? 'Tutti i circuiti' :
+             filterType === 'organizer' ? 'Tutti gli organizzatori' :
+             'Tutti i mesi') + '</span>';
+    } else {
+        display.innerHTML = selected.map(v => 
+            `<span class="selected-tag">${v}</span>`
+        ).join('');
+    }
+}
 
-    results_count: filtered.length
-
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.multi-select')) {
+        document.querySelectorAll('.multi-select-options').forEach(d => {
+            d.classList.remove('active');
+        });
+    }
 });
-            renderEvents(filtered);
-        }
+
+document.querySelectorAll('.multi-select-option').forEach(opt => {
+    opt.onclick = () => selectMultiOption(opt);
+});       
+        
+        // Filtri
+function applyFilters() {
+    const searchFilter = document.getElementById('filterSearch').value.toLowerCase();
+
+    const filtered = eventsData.filter(event => {
+        const matchDiscipline = selectedFilters.discipline.length === 0 || 
+            event.disciplina.some(disc => selectedFilters.discipline.includes(disc));
+
+        const matchCircuit = selectedFilters.circuit.length === 0 || 
+            selectedFilters.circuit.includes(event.circuito);
+
+        const matchOrganizer = selectedFilters.organizer.length === 0 || 
+            selectedFilters.organizer.includes(event.organizzatore);
+
+        const matchMonth = selectedFilters.month.length === 0 || 
+            selectedFilters.month.includes(event.dataInizio.substring(5, 7));
+
+        const matchSearch = !searchFilter || 
+            event.titolo.toLowerCase().includes(searchFilter) ||
+            (event.circuito || '').toLowerCase().includes(searchFilter) ||
+            (event.citta || '').toLowerCase().includes(searchFilter) ||
+            event.disciplina.some(disc => disc.toLowerCase().includes(searchFilter)) ||
+            (event.organizzatore || '').toLowerCase().includes(searchFilter);
+
+        return matchDiscipline && matchCircuit && matchOrganizer && matchMonth && matchSearch;
+    });
+
+    gtag('event', 'filter_results', {
+        results_count: filtered.length
+    });
+
+    renderEvents(filtered);
+}
 
         function resetFilters() {
-            document.getElementById('filterDiscipline').value = '';
-            document.getElementById('filterCircuit').value = '';
-            document.getElementById('filterOrganizer').value = '';
-            document.getElementById('filterMonth').value = '';
-            document.getElementById('filterSearch').value = '';
-
-        renderEvents(eventsData);
-        }
+    selectedFilters.discipline = [];
+    selectedFilters.circuit = [];
+    selectedFilters.organizer = [];
+    selectedFilters.month = [];
+    
+    document.querySelectorAll('.multi-select-option').forEach(opt => {
+        opt.classList.remove('selected');
+    });
+    
+    document.querySelectorAll('.multi-select').forEach(container => {
+        updateDisplay(container, container.dataset.filter);
+    });
+    
+    document.getElementById('filterSearch').value = '';
+    
+    renderEvents(eventsData);
+}
+        
 function scrollDisciplines(button, direction) {
 
     const container = button.parentElement;
@@ -1081,34 +1243,6 @@ function scrollDisciplines(button, direction) {
 }
         // Event listeners
         let searchTimeout;
-        document.getElementById('filterDiscipline')
-.addEventListener('change', function() {
-
-    trackFilter('disciplina', this.value);
-
-    applyFilters();
-});
-        document.getElementById('filterCircuit')
-.addEventListener('change', function() {
-
-    trackFilter('circuito', this.value);
-
-    applyFilters();
-});
-        document.getElementById('filterOrganizer')
-.addEventListener('change', function() {
-
-    trackFilter('organizer', this.value);
-
-    applyFilters();
-});
-        document.getElementById('filterMonth')
-.addEventListener('change', function() {
-
-    trackFilter('month', this.value);
-
-    applyFilters();
-});
         document.getElementById('filterSearch')
 .addEventListener('input', function() {
 
