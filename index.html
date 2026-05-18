@@ -603,8 +603,8 @@ gtag('config', 'G-F54J4RR4YY');
                     <span class="stat-label">eventi</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-number">8</span>
-                    <span class="stat-label">circuiti</span>
+    <span class="stat-number" id="totalCircuits">0</span>
+    <span class="stat-label">circuiti</span>
                 </div>
             </div>
         </div>
@@ -992,7 +992,16 @@ onclick='trackInfo(this)'>
 
             // Update counter
             document.getElementById('totalEvents').textContent = sortedEvents.length;
+            // Conta circuiti unici visibili
+const uniqueCircuits = [
+    ...new Set(
+        sortedEvents
+            .map(event => event.circuito)
+            .filter(c => c && c.trim() !== '')
+    )
+];
 
+document.getElementById('totalCircuits').textContent = uniqueCircuits.length;
 initEventTracking();
         }
 
