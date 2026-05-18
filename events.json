@@ -311,6 +311,19 @@
                 "immagine": "",
                 "eventoGratuito": true
             },
+             {
+                "titolo": "Vernasca Silver Flag",
+                "dataInizio": "2026-06-19",
+                "dataFine": "2026-06-21",
+                "disciplina": ["Misto", "Storico", "Gt", "Formula", "Le Mans Prototype"],
+                "circuito": "Vernasca",
+                "citta": "Vernasca",
+                "linkBiglietti": "",
+                "linkInfo": "https://www.vernascasilverflag.it/",
+                "organizzatore": "",
+                "immagine": "",
+                "eventoGratuito": true
+            },
               {
                 "titolo": "Eurocup-3",
                 "dataInizio": "2026-07-31",
