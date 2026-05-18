@@ -494,6 +494,19 @@
     "immagine": "",
     "eventoGratuito": false 
   },
+    {
+    "titolo": "WRC Rally Italia Sardegna 2026",
+    "dataInizio": "2026-10-01",
+    "dataFine": "2026-10-04",
+    "disciplina": ["Rally"],
+    "circuito": "Alghero",
+    "citta": "Alghero",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.wrc.com/en/events/wrc-rally-italia-sardegna-2026",
+    "organizzatore": "Fia World Rally Championship", 
+    "immagine": "",
+    "eventoGratuito": true 
+  },
   {
     "titolo": "Rally Lana",
     "dataInizio": "2026-10-23",
