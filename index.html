@@ -576,55 +576,64 @@ gtag('config', 'G-F54J4RR4YY');
 .disc-arrow:hover {
     color: var(--dark);
 }
-.multi-select {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    align-items: center;
-}
-
-/* CHIP più piccolo, stile “tag da filtro app” */
-.multi-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-
-    padding: 0.28rem 0.6rem;
-
-    border-radius: 999px;
-
-    font-size: 0.78rem;
-    font-weight: 600;
-
-    border: 1px solid #e0e0e0;
-    background: #fff;
-
-    cursor: pointer;
+.multi-dropdown {
+    position: relative;
+    width: 100%;
     user-select: none;
-
-    transition: all 0.18s ease;
-
-    white-space: nowrap;
 }
 
-/* hover soft */
-.multi-chip:hover {
-    border-color: var(--racing-red);
-    transform: translateY(-1px);
-}
-
-/* selezionato */
-.multi-chip.active {
-    background: var(--racing-red);
-    color: white;
-    border-color: var(--racing-red);
-    box-shadow: 0 2px 6px rgba(211,47,47,0.25);
-}
-
-/* emoji più pulita */
-.multi-chip .chip-icon {
+.multi-dropdown-header {
+    padding: 0.65rem 0.85rem;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
     font-size: 0.9rem;
-    line-height: 1;
+}
+
+.multi-dropdown-header:hover {
+    border-color: var(--gray-medium);
+}
+
+.multi-dropdown-menu {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    right: 0;
+
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+
+    max-height: 220px;
+    overflow-y: auto;
+
+    display: none;
+    z-index: 999;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.multi-dropdown.open .multi-dropdown-menu {
+    display: block;
+}
+
+.multi-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    padding: 0.6rem 0.75rem;
+    cursor: pointer;
+
+    font-size: 0.9rem;
+}
+
+.multi-option:hover {
+    background: #f5f5f5;
+}
+
+.multi-option input {
+    cursor: pointer;
 }
     </style>
 </head>
@@ -668,7 +677,16 @@ gtag('config', 'G-F54J4RR4YY');
             <div class="filter-grid">
                <div class="filter-group">
     <label>Disciplina</label>
-    <div id="disciplineMultiSelect" class="multi-select"></div>
+
+    <div class="multi-dropdown" id="disciplineDropdown">
+        <div class="multi-dropdown-header" id="disciplineDropdownHeader">
+            Seleziona discipline
+        </div>
+
+        <div class="multi-dropdown-menu" id="disciplineDropdownMenu">
+            <!-- checkbox inject JS -->
+        </div>
+    </div>
 </div>
                 <div class="filter-group">
                     <label for="filterCircuit">Circuito</label>
@@ -775,8 +793,6 @@ window.addEventListener('scroll', () => {
         // DATI EVENTI - TUTTI I TUOI DATI ORIGINALI MANTENUTI
 let eventsData = [];
 
-let selectedDisciplines = [];
-
 const organizerImages = {
 
     "FX Racing Weekend": "image/fxwk.jpg",
@@ -852,44 +868,6 @@ function getDisciplineIcon(disciplina) {
     }
 
     return `<span class="discipline-icon">${config.emoji}</span>`;
-}
-
-function initDisciplineMultiSelect() {
-    const container = document.getElementById("disciplineMultiSelect");
-
-    const disciplines = [
-        "Gt",
-        "Formula",
-        "Misto",
-        "Storico",
-        "Rally",
-        "Le Mans Prototype",
-        "Cronoscalata"
-    ];
-
-    container.innerHTML = disciplines.map(d => `
-        <div class="multi-chip" data-value="${d}">
-            <span class="chip-icon">${getDisciplineIcon(d)}</span>
-            <span class="chip-label">${d}</span>
-        </div>
-    `).join("");
-
-    container.querySelectorAll(".multi-chip").forEach(chip => {
-        chip.addEventListener("click", () => {
-            const value = chip.dataset.value;
-
-            // toggle selezione
-            if (selectedDisciplines.includes(value)) {
-                selectedDisciplines = selectedDisciplines.filter(x => x !== value);
-                chip.classList.remove("active");
-            } else {
-                selectedDisciplines.push(value);
-                chip.classList.add("active");
-            }
-
-            applyFilters();
-        });
-    });
 }
 
         // Popola filtri
@@ -1092,7 +1070,6 @@ initEventTracking();
 
         // Filtri
         function applyFilters() {
-            const disciplineFilter = selectedDisciplines;
             const circuitFilter = document.getElementById('filterCircuit').value.toLowerCase();
             const organizerFilter = document.getElementById('filterOrganizer').value.toLowerCase();
             const monthFilter = document.getElementById('filterMonth').value;
@@ -1100,9 +1077,9 @@ initEventTracking();
 
             const filtered = eventsData.filter(event => {
                 const matchDiscipline =
-    disciplineFilter.length === 0 ||
-    event.disciplina.some(disc =>
-        disciplineFilter.includes(disc)
+    selectedDisciplines.length === 0 ||
+    event.disciplina.some(d =>
+        selectedDisciplines.includes(d)
     );
 
                 const matchCircuit = !circuitFilter || (event.circuito || '').toLowerCase() === circuitFilter;
@@ -1132,13 +1109,14 @@ gtag('event', 'filter_results', {
     document.getElementById('filterMonth').value = '';
     document.getElementById('filterSearch').value = '';
 
-    // 🔥 RESET MULTI-SELECT DISCIPLINE
     selectedDisciplines = [];
 
-    document.querySelectorAll(".multi-chip").forEach(chip => {
-        chip.classList.remove("active");
-    });
+document.querySelectorAll("#disciplineDropdown input").forEach(i => {
+    i.checked = false;
+});
 
+updateDropdownHeader();        
+            
     renderEvents(eventsData);
 }
 function scrollDisciplines(button, direction) {
@@ -1235,7 +1213,6 @@ eventsData = assignAutomaticImages(eventsData);
     populateCircuitFilter();
     populateOrganizerFilter();
     renderEvents();
-    initDisciplineMultiSelect();
     
     document.getElementById('lastUpdate').textContent =
         today.toLocaleDateString('it-IT', {
