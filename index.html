@@ -576,6 +576,35 @@ gtag('config', 'G-F54J4RR4YY');
 .disc-arrow:hover {
     color: var(--dark);
 }
+.multi-select {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.multi-chip {
+    padding: 0.45rem 0.7rem;
+    border-radius: 999px;
+    border: 1.5px solid #ddd;
+    font-size: 0.85rem;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+    background: white;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.multi-chip:hover {
+    border-color: var(--racing-red);
+}
+
+.multi-chip.active {
+    background: var(--racing-red);
+    color: white;
+    border-color: var(--racing-red);
+}
 
     </style>
 </head>
@@ -617,19 +646,10 @@ gtag('config', 'G-F54J4RR4YY');
         <section class="filters">
             <h3>Filtra eventi</h3>
             <div class="filter-grid">
-                <div class="filter-group">
-                    <label for="filterDiscipline">Disciplina</label>
-                    <select id="filterDiscipline">
-                        <option value="">Tutte le discipline</option>
-                              <option value="Gt">🏁 GT</option>
-                              <option value="Formula">🏎️ Formula</option>
-                              <option value="Misto">🚗 Misto</option>
-                              <option value="Storico">🏛️ Storico</option>
-                              <option value="Rally">🚗 Rally</option>
-                              <option value="Le Mans Prototype">🚗 LMP</option>
-                              <option value="Cronoscalata">⛰️ Cronoscalata</option>
-                    </select>
-                </div>
+               <div class="filter-group">
+    <label>Disciplina</label>
+    <div id="disciplineMultiSelect" class="multi-select"></div>
+</div>
                 <div class="filter-group">
                     <label for="filterCircuit">Circuito</label>
                     <select id="filterCircuit">
@@ -735,6 +755,8 @@ window.addEventListener('scroll', () => {
         // DATI EVENTI - TUTTI I TUOI DATI ORIGINALI MANTENUTI
 let eventsData = [];
 
+let selectedDisciplines = [];
+
 const organizerImages = {
 
     "FX Racing Weekend": "image/fxwk.jpg",
@@ -810,6 +832,43 @@ function getDisciplineIcon(disciplina) {
     }
 
     return `<span class="discipline-icon">${config.emoji}</span>`;
+}
+
+function initDisciplineMultiSelect() {
+    const container = document.getElementById("disciplineMultiSelect");
+
+    const disciplines = [
+        "Gt",
+        "Formula",
+        "Misto",
+        "Storico",
+        "Rally",
+        "Le Mans Prototype",
+        "Cronoscalata"
+    ];
+
+    container.innerHTML = disciplines.map(d => `
+        <div class="multi-chip" data-value="${d}">
+            ${getDisciplineIcon(d)} ${d}
+        </div>
+    `).join("");
+
+    container.querySelectorAll(".multi-chip").forEach(chip => {
+        chip.addEventListener("click", () => {
+            const value = chip.dataset.value;
+
+            // toggle selezione
+            if (selectedDisciplines.includes(value)) {
+                selectedDisciplines = selectedDisciplines.filter(x => x !== value);
+                chip.classList.remove("active");
+            } else {
+                selectedDisciplines.push(value);
+                chip.classList.add("active");
+            }
+
+            applyFilters();
+        });
+    });
 }
 
         // Popola filtri
@@ -1012,15 +1071,18 @@ initEventTracking();
 
         // Filtri
         function applyFilters() {
-            const disciplineFilter = document.getElementById('filterDiscipline').value.toLowerCase();
+            const disciplineFilter = selectedDisciplines;
             const circuitFilter = document.getElementById('filterCircuit').value.toLowerCase();
             const organizerFilter = document.getElementById('filterOrganizer').value.toLowerCase();
             const monthFilter = document.getElementById('filterMonth').value;
             const searchFilter = document.getElementById('filterSearch').value.toLowerCase();
 
             const filtered = eventsData.filter(event => {
-                const matchDiscipline = !disciplineFilter || 
-                    event.disciplina.some(disc => disc.toLowerCase() === disciplineFilter);
+                const matchDiscipline =
+    disciplineFilter.length === 0 ||
+    event.disciplina.some(disc =>
+        disciplineFilter.includes(disc)
+    );
 
                 const matchCircuit = !circuitFilter || (event.circuito || '').toLowerCase() === circuitFilter;
                 const matchOrganizer = !organizerFilter || (event.organizzatore || '').toLowerCase() === organizerFilter;
@@ -1043,14 +1105,21 @@ gtag('event', 'filter_results', {
         }
 
         function resetFilters() {
-            document.getElementById('filterDiscipline').value = '';
-            document.getElementById('filterCircuit').value = '';
-            document.getElementById('filterOrganizer').value = '';
-            document.getElementById('filterMonth').value = '';
-            document.getElementById('filterSearch').value = '';
 
-        renderEvents(eventsData);
-        }
+    document.getElementById('filterCircuit').value = '';
+    document.getElementById('filterOrganizer').value = '';
+    document.getElementById('filterMonth').value = '';
+    document.getElementById('filterSearch').value = '';
+
+    // 🔥 RESET MULTI-SELECT DISCIPLINE
+    selectedDisciplines = [];
+
+    document.querySelectorAll(".multi-chip").forEach(chip => {
+        chip.classList.remove("active");
+    });
+
+    renderEvents(eventsData);
+}
 function scrollDisciplines(button, direction) {
 
     const container = button.parentElement;
@@ -1081,13 +1150,6 @@ function scrollDisciplines(button, direction) {
 }
         // Event listeners
         let searchTimeout;
-        document.getElementById('filterDiscipline')
-.addEventListener('change', function() {
-
-    trackFilter('disciplina', this.value);
-
-    applyFilters();
-});
         document.getElementById('filterCircuit')
 .addEventListener('change', function() {
 
@@ -1152,6 +1214,7 @@ eventsData = assignAutomaticImages(eventsData);
     populateCircuitFilter();
     populateOrganizerFilter();
     renderEvents();
+    initDisciplineMultiSelect();
     
     document.getElementById('lastUpdate').textContent =
         today.toLocaleDateString('it-IT', {
