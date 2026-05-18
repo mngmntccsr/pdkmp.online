@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    
+
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-F54J4RR4YY"></script>
 
@@ -16,7 +16,7 @@ gtag('js', new Date());
 
 gtag('config', 'G-F54J4RR4YY');
 </script>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PaddockMap - Calendario Eventi Motorsport Italia</title>
@@ -576,65 +576,7 @@ gtag('config', 'G-F54J4RR4YY');
 .disc-arrow:hover {
     color: var(--dark);
 }
-.multi-dropdown {
-    position: relative;
-    width: 100%;
-    user-select: none;
-}
 
-.multi-dropdown-header {
-    padding: 0.65rem 0.85rem;
-    border: 1.5px solid #e0e0e0;
-    border-radius: 6px;
-    background: white;
-    cursor: pointer;
-    font-size: 0.9rem;
-}
-
-.multi-dropdown-header:hover {
-    border-color: var(--gray-medium);
-}
-
-.multi-dropdown-menu {
-    position: absolute;
-    top: 110%;
-    left: 0;
-    right: 0;
-
-    background: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-
-    max-height: 220px;
-    overflow-y: auto;
-
-    display: none;
-    z-index: 999;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
-
-.multi-dropdown.open .multi-dropdown-menu {
-    display: block;
-}
-
-.multi-option {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-
-    padding: 0.6rem 0.75rem;
-    cursor: pointer;
-
-    font-size: 0.9rem;
-}
-
-.multi-option:hover {
-    background: #f5f5f5;
-}
-
-.multi-option input {
-    cursor: pointer;
-}
     </style>
 </head>
 <body>
@@ -675,19 +617,19 @@ gtag('config', 'G-F54J4RR4YY');
         <section class="filters">
             <h3>Filtra eventi</h3>
             <div class="filter-grid">
-               <div class="filter-group">
-    <label>Disciplina</label>
-
-    <div class="multi-dropdown" id="disciplineDropdown">
-        <div class="multi-dropdown-header" id="disciplineDropdownHeader">
-            Seleziona discipline
-        </div>
-
-        <div class="multi-dropdown-menu" id="disciplineDropdownMenu">
-            <!-- checkbox inject JS -->
-        </div>
-    </div>
-</div>
+                <div class="filter-group">
+                    <label for="filterDiscipline">Disciplina</label>
+                    <select id="filterDiscipline">
+                        <option value="">Tutte le discipline</option>
+                              <option value="Gt">🏁 GT</option>
+                              <option value="Formula">🏎️ Formula</option>
+                              <option value="Misto">🚗 Misto</option>
+                              <option value="Storico">🏛️ Storico</option>
+                              <option value="Rally">🚗 Rally</option>
+                              <option value="Le Mans Prototype">🚗 LMP</option>
+                              <option value="Cronoscalata">⛰️ Cronoscalata</option>
+                               </select>
+                </div>
                 <div class="filter-group">
                     <label for="filterCircuit">Circuito</label>
                     <select id="filterCircuit">
@@ -777,9 +719,9 @@ window.addEventListener('scroll', () => {
                 customIcon: 'image/icons/pdkmp.icon.misto.png'
             },
             'Cronoscalata': {
-               emoji: '⛰️',
-               customIcon: 'image/icons/pdkmp.icon.Cronoscalata.png'  // DA AGGIUNGERE
-            },
+                emoji: '⛰️',
+                customIcon: 'image/icons/pdkmp.icon.Cronoscalata.png'  // DA AGGIUNGERE
+                   },
              'Le Mans Prototype': {
                 emoji: '🚗',
                 customIcon: 'image/icons/pdkmp.icon.lmp.png'
@@ -806,7 +748,7 @@ const organizerImages = {
     "SRO Motorsports": "image/GtWcEurope.jpg"
 
 };
-        
+
 const randomImages = [
     "image/random1.png",
     "image/random2.png",
@@ -840,7 +782,7 @@ function assignAutomaticImages(events) {
         return event;
     });
 }
-        
+
 function getRandomImage() {
     let index;
 
@@ -1070,17 +1012,15 @@ initEventTracking();
 
         // Filtri
         function applyFilters() {
+            const disciplineFilter = document.getElementById('filterDiscipline').value.toLowerCase();
             const circuitFilter = document.getElementById('filterCircuit').value.toLowerCase();
             const organizerFilter = document.getElementById('filterOrganizer').value.toLowerCase();
             const monthFilter = document.getElementById('filterMonth').value;
             const searchFilter = document.getElementById('filterSearch').value.toLowerCase();
 
             const filtered = eventsData.filter(event => {
-                const matchDiscipline =
-    selectedDisciplines.length === 0 ||
-    event.disciplina.some(d =>
-        selectedDisciplines.includes(d)
-    );
+                const matchDiscipline = !disciplineFilter || 
+                    event.disciplina.some(disc => disc.toLowerCase() === disciplineFilter);
 
                 const matchCircuit = !circuitFilter || (event.circuito || '').toLowerCase() === circuitFilter;
                 const matchOrganizer = !organizerFilter || (event.organizzatore || '').toLowerCase() === organizerFilter;
@@ -1103,22 +1043,14 @@ gtag('event', 'filter_results', {
         }
 
         function resetFilters() {
+            document.getElementById('filterDiscipline').value = '';
+            document.getElementById('filterCircuit').value = '';
+            document.getElementById('filterOrganizer').value = '';
+            document.getElementById('filterMonth').value = '';
+            document.getElementById('filterSearch').value = '';
 
-    document.getElementById('filterCircuit').value = '';
-    document.getElementById('filterOrganizer').value = '';
-    document.getElementById('filterMonth').value = '';
-    document.getElementById('filterSearch').value = '';
-
-    selectedDisciplines = [];
-
-document.querySelectorAll("#disciplineDropdown input").forEach(i => {
-    i.checked = false;
-});
-
-updateDropdownHeader();        
-            
-    renderEvents(eventsData);
-}
+        renderEvents(eventsData);
+        }
 function scrollDisciplines(button, direction) {
 
     const container = button.parentElement;
@@ -1149,6 +1081,13 @@ function scrollDisciplines(button, direction) {
 }
         // Event listeners
         let searchTimeout;
+        document.getElementById('filterDiscipline')
+.addEventListener('change', function() {
+
+    trackFilter('disciplina', this.value);
+
+    applyFilters();
+});
         document.getElementById('filterCircuit')
 .addEventListener('change', function() {
 
@@ -1213,7 +1152,7 @@ eventsData = assignAutomaticImages(eventsData);
     populateCircuitFilter();
     populateOrganizerFilter();
     renderEvents();
-    
+
     document.getElementById('lastUpdate').textContent =
         today.toLocaleDateString('it-IT', {
             month: 'long',
