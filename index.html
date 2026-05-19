@@ -1103,6 +1103,53 @@ initEventTracking();
     month: []
 };
 
+// =====================
+// URL SYNC (NUOVO)
+// =====================
+
+function updateURLFromFilters() {
+    const params = new URLSearchParams();
+
+    if (selectedFilters.discipline.length)
+        params.set('discipline', selectedFilters.discipline.join(','));
+
+    if (selectedFilters.circuit.length)
+        params.set('circuit', selectedFilters.circuit.join(','));
+
+    if (selectedFilters.organizer.length)
+        params.set('organizer', selectedFilters.organizer.join(','));
+
+    if (selectedFilters.month.length)
+        params.set('month', selectedFilters.month.join(','));
+
+    const search = document.getElementById('filterSearch').value;
+    if (search) params.set('search', search);
+
+    const newUrl =
+        window.location.pathname +
+        (params.toString() ? '?' + params.toString() : '');
+
+    history.replaceState({}, '', newUrl);
+}
+
+function applyFiltersFromURL() {
+    const params = new URLSearchParams(window.location.search);
+
+    const map = ['discipline', 'circuit', 'organizer', 'month'];
+
+    map.forEach(key => {
+        const value = params.get(key);
+        if (value) {
+            selectedFilters[key] = value.split(',');
+        }
+    });
+
+    const search = params.get('search');
+    if (search) {
+        document.getElementById('filterSearch').value = search;
+    }
+}        
+
 function toggleMultiSelect(display) {
     const dropdown = display.nextElementSibling;
     const allDropdowns = document.querySelectorAll('.multi-select-options');
@@ -1192,6 +1239,8 @@ function applyFilters() {
     });
 
     renderEvents(filtered);
+    
+    updateURLFromFilters();
 }
 
         function resetFilters() {
@@ -1211,6 +1260,7 @@ function applyFilters() {
     document.getElementById('filterSearch').value = '';
     
     renderEvents(eventsData);
+    updateURLFromFilters();
 }
         
 function scrollDisciplines(button, direction) {
@@ -1254,9 +1304,11 @@ function scrollDisciplines(button, direction) {
 
         trackSearch(value);
 
+        applyFilters();              // aggiorna risultati
+        updateURLFromFilters();     // 🔥 aggiorna URL
+
     }, 800);
 
-    applyFilters();
 });
 
 document.addEventListener('DOMContentLoaded', async function() {
@@ -1285,7 +1337,8 @@ eventsData = assignAutomaticImages(eventsData);
 
     populateCircuitFilter();
     populateOrganizerFilter();
-    renderEvents();
+    applyFiltersFromURL();
+    applyFilters();
 
     document.getElementById('lastUpdate').textContent =
         today.toLocaleDateString('it-IT', {
