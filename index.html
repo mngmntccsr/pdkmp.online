@@ -1212,8 +1212,8 @@ function applyFilters() {
     const searchFilter = document.getElementById('filterSearch').value.toLowerCase();
 
     const filtered = eventsData.filter(event => {
-        const matchDiscipline = selectedFilters.discipline.length === 0 || 
-            event.disciplina.some(disc => selectedFilters.discipline.includes(disc));
+        const matchDiscipline = selectedFilters.discipline.length === 0 ||
+         selectedFilters.discipline.every(disc => event.disciplina.includes(disc));
 
         const matchCircuit = selectedFilters.circuit.length === 0 || 
             selectedFilters.circuit.includes(event.circuito);
