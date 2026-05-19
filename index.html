@@ -1148,8 +1148,34 @@ function applyFiltersFromURL() {
     if (search) {
         document.getElementById('filterSearch').value = search;
     }
+    syncFiltersToUI();
 }        
 
+function syncFiltersToUI() {
+    Object.keys(selectedFilters).forEach(filterType => {
+
+        const container = document.querySelector(
+            `.multi-select[data-filter="${filterType}"]`
+        );
+
+        if (!container) return;
+
+        const options = container.querySelectorAll('.multi-select-option');
+
+        options.forEach(opt => {
+            const value = opt.dataset.value;
+
+            if (selectedFilters[filterType].includes(value)) {
+                opt.classList.add('selected');
+            } else {
+                opt.classList.remove('selected');
+            }
+        });
+
+        updateDisplay(container, filterType);
+    });
+}
+        
 function toggleMultiSelect(display) {
     const dropdown = display.nextElementSibling;
     const allDropdowns = document.querySelectorAll('.multi-select-options');
