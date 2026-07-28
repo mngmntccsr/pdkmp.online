@@ -99,12 +99,29 @@ gtag('config', 'G-F54J4RR4YY');
             margin: 0 auto;
         }
 
+        /* Riga superiore stile YouTube: logo + statistiche affiancate */
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem 2rem;
+        }
+
+        .brand-stats {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
         .logo {
             font-size: 2rem;
             font-weight: 800;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0;
             letter-spacing: -0.02em;
             transition: font-size 0.25s ease-out;
+            white-space: nowrap;
         }
 
         .logo span {
@@ -113,7 +130,7 @@ gtag('config', 'G-F54J4RR4YY');
         }
 
         .nav-menu {
-            margin: 0.8rem 0;
+            margin: 0.8rem 0 0 0;
             transition: all 0.25s ease-out;
         }
 
@@ -131,10 +148,10 @@ gtag('config', 'G-F54J4RR4YY');
         }
 
         .tagline {
-            font-size: 1rem;
+            font-size: 0.85rem;
             color: var(--gray-light);
             font-weight: 400;
-            margin-bottom: 1rem;
+            margin: 0.5rem 0 0 0;
             transition: all 0.25s ease-out;
         }
 
@@ -165,18 +182,38 @@ gtag('config', 'G-F54J4RR4YY');
 
         /* Container */
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
             padding: 2rem 1.5rem;
+        }
+
+        /* Layout stile YouTube: sidebar filtri a sinistra + contenuto centrale */
+        .youtube-layout {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .sidebar-filters {
+            width: 260px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 100px;
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+
+        .main-content {
+            flex: 1;
+            min-width: 0;
         }
 
         /* Filters */
         .filters {
             background: var(--white);
-            padding: 1.75rem;
+            padding: 1.5rem;
             border-radius: 12px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-            margin-bottom: 2rem;
         }
 
         .filters h3 {
@@ -190,6 +227,11 @@ gtag('config', 'G-F54J4RR4YY');
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
+        }
+
+        /* Nella sidebar i filtri stanno impilati in colonna */
+        .sidebar-filters .filter-grid {
+            grid-template-columns: 1fr;
         }
 
         .filter-group label {
@@ -242,12 +284,18 @@ gtag('config', 'G-F54J4RR4YY');
             background: var(--dark);
         }
 
-        /* Events Grid - DIMENSIONI FISSE */
+        /* Events Grid - DIMENSIONI FISSE, 3 per riga come le card di YouTube */
         .events-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
             margin-bottom: 2rem;
+        }
+
+        @media (max-width: 1100px) {
+            .events-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .event-card {
@@ -456,6 +504,16 @@ gtag('config', 'G-F54J4RR4YY');
                 font-size: 1.6rem;
             }
 
+            .youtube-layout {
+                flex-direction: column;
+            }
+
+            .sidebar-filters {
+                width: 100%;
+                position: static;
+                max-height: none;
+            }
+
             .events-grid {
                 grid-template-columns: 1fr;
             }
@@ -649,7 +707,25 @@ gtag('config', 'G-F54J4RR4YY');
     <!-- Header -->
     <header class="header" id="mainHeader">
         <div class="header-content">
-            <div class="logo">Paddock<span>Map</span></div>
+            <div class="header-top">
+                <div class="brand-stats">
+                    <div class="logo">Paddock<span>Map</span></div>
+
+                    <div class="stats-bar">
+                        <div class="stat">
+                            <span class="stat-number" id="totalEvents">15</span>
+                            <span class="stat-label">eventi</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" id="totalCircuits">0</span>
+                            <span class="stat-label">circuiti</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="tagline">🏁 Il calendario completo del motorsport italiano</p>
+
             <nav class="nav-menu">
                 <a href="index.html"
    onclick="gtag('event', 'nav_click', { nav_item: 'home' })">
@@ -661,102 +737,97 @@ gtag('config', 'G-F54J4RR4YY');
    Promuovi Evento
 </a>
             </nav>
-            <p class="tagline">🏁 Il calendario completo del motorsport italiano</p>
-
-            <div class="stats-bar">
-                <div class="stat">
-                    <span class="stat-number" id="totalEvents">15</span>
-                    <span class="stat-label">eventi</span>
-                </div>
-                <div class="stat">
-    <span class="stat-number" id="totalCircuits">0</span>
-    <span class="stat-label">circuiti</span>
-                </div>
-            </div>
         </div>
     </header>
 
     <!-- Main Content -->
     <div class="container">
+        <div class="youtube-layout">
 
-<section class="filters">
-    <h3>Filtra eventi</h3>
-    <div class="filter-grid">
-        <div class="filter-group">
-            <label>Disciplina</label>
-            <div class="multi-select" data-filter="discipline">
-                <div class="multi-select-display" onclick="toggleMultiSelect(this)">
-                    <span class="placeholder">Tutte le discipline</span>
+            <!-- Sidebar filtri (a sinistra, in colonna) -->
+            <aside class="sidebar-filters">
+                <section class="filters">
+                    <h3>Filtra eventi</h3>
+                    <div class="filter-grid">
+                        <div class="filter-group">
+                            <label>Disciplina</label>
+                            <div class="multi-select" data-filter="discipline">
+                                <div class="multi-select-display" onclick="toggleMultiSelect(this)">
+                                    <span class="placeholder">Tutte le discipline</span>
+                                </div>
+                                <div class="multi-select-options">
+                                    <div class="multi-select-option" data-value="Gt">🏁 GT</div>
+                                    <div class="multi-select-option" data-value="Formula">🏎️ Formula</div>
+                                    <div class="multi-select-option" data-value="Misto">🚗 Misto</div>
+                                    <div class="multi-select-option" data-value="Storico">🏛️ Storico</div>
+                                    <div class="multi-select-option" data-value="Rally">🚗 Rally</div>
+                                    <div class="multi-select-option" data-value="Le Mans Prototype">🚗 LMP</div>
+                                    <div class="multi-select-option" data-value="Cronoscalata">⛰️ Cronoscalata</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>Circuito</label>
+                            <div class="multi-select" data-filter="circuit">
+                                <div class="multi-select-display" onclick="toggleMultiSelect(this)">
+                                    <span class="placeholder">Tutti i circuiti</span>
+                                </div>
+                                <div class="multi-select-options"></div>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>Organizzatore</label>
+                            <div class="multi-select" data-filter="organizer">
+                                <div class="multi-select-display" onclick="toggleMultiSelect(this)">
+                                    <span class="placeholder">Tutti gli organizzatori</span>
+                                </div>
+                                <div class="multi-select-options"></div>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>Mese</label>
+                            <div class="multi-select" data-filter="month">
+                                <div class="multi-select-display" onclick="toggleMultiSelect(this)">
+                                    <span class="placeholder">Tutti i mesi</span>
+                                </div>
+                                <div class="multi-select-options">
+                                    <div class="multi-select-option" data-value="01">Gennaio</div>
+                                    <div class="multi-select-option" data-value="02">Febbraio</div>
+                                    <div class="multi-select-option" data-value="03">Marzo</div>
+                                    <div class="multi-select-option" data-value="04">Aprile</div>
+                                    <div class="multi-select-option" data-value="05">Maggio</div>
+                                    <div class="multi-select-option" data-value="06">Giugno</div>
+                                    <div class="multi-select-option" data-value="07">Luglio</div>
+                                    <div class="multi-select-option" data-value="08">Agosto</div>
+                                    <div class="multi-select-option" data-value="09">Settembre</div>
+                                    <div class="multi-select-option" data-value="10">Ottobre</div>
+                                    <div class="multi-select-option" data-value="11">Novembre</div>
+                                    <div class="multi-select-option" data-value="12">Dicembre</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="filterSearch">Cerca</label>
+                            <input type="text" id="filterSearch" placeholder="Nome evento, circuito...">
+                        </div>
+                    </div>
+
+                    <button class="reset-filters" onclick="resetFilters()">Cancella filtri</button>
+                </section>
+            </aside>
+
+            <!-- Colonna centrale: griglia eventi, 3 per riga -->
+            <main class="main-content">
+                <div id="eventsContainer" class="events-grid">
+                    <div class="loading">Caricamento eventi...</div>
                 </div>
-                <div class="multi-select-options">
-                    <div class="multi-select-option" data-value="Gt">🏁 GT</div>
-                    <div class="multi-select-option" data-value="Formula">🏎️ Formula</div>
-                    <div class="multi-select-option" data-value="Misto">🚗 Misto</div>
-                    <div class="multi-select-option" data-value="Storico">🏛️ Storico</div>
-                    <div class="multi-select-option" data-value="Rally">🚗 Rally</div>
-                    <div class="multi-select-option" data-value="Le Mans Prototype">🚗 LMP</div>
-                    <div class="multi-select-option" data-value="Cronoscalata">⛰️ Cronoscalata</div>
-                </div>
-            </div>
+            </main>
+
         </div>
-
-        <div class="filter-group">
-            <label>Circuito</label>
-            <div class="multi-select" data-filter="circuit">
-                <div class="multi-select-display" onclick="toggleMultiSelect(this)">
-                    <span class="placeholder">Tutti i circuiti</span>
-                </div>
-                <div class="multi-select-options"></div>
-            </div>
-        </div>
-
-        <div class="filter-group">
-            <label>Organizzatore</label>
-            <div class="multi-select" data-filter="organizer">
-                <div class="multi-select-display" onclick="toggleMultiSelect(this)">
-                    <span class="placeholder">Tutti gli organizzatori</span>
-                </div>
-                <div class="multi-select-options"></div>
-            </div>
-        </div>
-
-        <div class="filter-group">
-            <label>Mese</label>
-            <div class="multi-select" data-filter="month">
-                <div class="multi-select-display" onclick="toggleMultiSelect(this)">
-                    <span class="placeholder">Tutti i mesi</span>
-                </div>
-                <div class="multi-select-options">
-                    <div class="multi-select-option" data-value="01">Gennaio</div>
-                    <div class="multi-select-option" data-value="02">Febbraio</div>
-                    <div class="multi-select-option" data-value="03">Marzo</div>
-                    <div class="multi-select-option" data-value="04">Aprile</div>
-                    <div class="multi-select-option" data-value="05">Maggio</div>
-                    <div class="multi-select-option" data-value="06">Giugno</div>
-                    <div class="multi-select-option" data-value="07">Luglio</div>
-                    <div class="multi-select-option" data-value="08">Agosto</div>
-                    <div class="multi-select-option" data-value="09">Settembre</div>
-                    <div class="multi-select-option" data-value="10">Ottobre</div>
-                    <div class="multi-select-option" data-value="11">Novembre</div>
-                    <div class="multi-select-option" data-value="12">Dicembre</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="filter-group">
-            <label for="filterSearch">Cerca</label>
-            <input type="text" id="filterSearch" placeholder="Nome evento, circuito...">
-        </div>
-    </div>
-
-    <button class="reset-filters" onclick="resetFilters()">Cancella filtri</button>
-</section>
-
-        <!-- Events Grid -->
-        <div id="eventsContainer" class="events-grid">
-            <div class="loading">Caricamento eventi...</div>
-        </div>
-
     </div>
 
     <!-- Footer -->
