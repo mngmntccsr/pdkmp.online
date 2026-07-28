@@ -12,6 +12,19 @@
     "immagine": "",
     "eventoGratuito": true
   },
+   {
+    "titolo": "WEC - 6 ore di Monza",
+    "dataInizio": "2026-11-06",
+    "dataFine": "2026-11-08",
+    "disciplina": ["Le Mans Prototype"],
+    "circuito": "Autodromo Nazionale Monza",
+    "citta": "Monza",
+    "linkBiglietti": "https://www.ticketone.it/artist/world-endurance-championship/wec-6-hours-of-monza-2026-4204139/",
+    "linkInfo": "https://www.ticketone.it/artist/world-endurance-championship/wec-6-hours-of-monza-2026-4204139/",
+    "organizzatore": "World Endurance Championship",
+    "immagine": "",
+    "eventoGratuito": false
+  },
   {
     "titolo": "75ª Trento–Bondone",
     "dataInizio": "2026-06-13",
