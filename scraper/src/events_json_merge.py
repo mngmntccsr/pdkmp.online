@@ -1,87 +1,46 @@
-"""Caricamento della configurazione da config/tracks.yaml e variabili d'ambiente."""
+"""Fusione degli eventi scrapati dentro il file events.json del sito PaddockMap.
+
+Regola fondamentale: gli eventi inseriti A MANO da te in events.json (quelli
+senza il campo "fonteAuto": true) non vengono MAI toccati da questo script,
+né modificati né rimossi. Lo script gestisce solo gli eventi che porta
+"fonteAuto": true, cioè quelli aggiunti automaticamente da lui in un run
+precedente:
+  - se uno di questi eventi non viene più trovato sul sito dell'autodromo
+    (es. evento cancellato) -> viene rimosso da events.json
+  - se un evento nuovo viene trovato -> viene aggiunto
+  - se un evento già presente (stesso idAuto) resta invariato -> non fa nulla
+"""
 from __future__ import annotations
 
-import os
-from dataclasses import dataclass
+import json
 from pathlib import Path
-from typing import Any
-
-import yaml
-from dotenv import load_dotenv
-
-ROOT_DIR = Path(__file__).resolve().parent.parent
-CONFIG_PATH = ROOT_DIR / "config" / "tracks.yaml"
-STATE_DIR = ROOT_DIR / "data" / "state"
-
-load_dotenv(ROOT_DIR / ".env")
 
 
-@dataclass
-class TrackConfig:
-    slug: str
-    name: str
-    url: str
-    parser: str            # "static" o "dynamic"
-    selectors: dict
-    citta: str = ""
-    wait_selector: str | None = None
-    date_hint_language: str = "it"
+def load_events_json(path: Path) -> list[dict]:
+    if not path.exists():
+        return []
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 
-@dataclass
-class EmailConfig:
-    smtp_host: str
-    smtp_port: int
-    smtp_user: str
-    smtp_pass: str
-    email_from: str
-    email_to: str
-    always_send: bool
+def save_events_json(path: Path, events: list[dict]) -> None:
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(events, f, ensure_ascii=False, indent=2)
+        f.write("\n")
 
 
-def load_tracks() -> list[TrackConfig]:
-    with open(CONFIG_PATH, "r", encoding="utf-8") as f:
-        raw = yaml.safe_load(f)
+def merge_auto_events(existing: list[dict], new_auto_events: list[dict]) -> tuple[list[dict], list[dict], list[dict]]:
+    """Restituisce (merged, added, removed).
 
-    tracks = []
-    for t in raw["tracks"]:
-        tracks.append(
-            TrackConfig(
-                slug=t["slug"],
-                name=t["name"],
-                url=t["url"],
-                parser=t["parser"],
-                selectors=t.get("selectors", {}),
-                citta=t.get("citta", ""),
-                wait_selector=t.get("wait_selector"),
-                date_hint_language=t.get("date_hint_language", "it"),
-            )
-        )
-    return tracks
+    - manual: eventi senza "fonteAuto" -> sempre mantenuti così come sono
+    - auto esistenti: sostituiti dal nuovo set new_auto_events
+    """
+    manual_events = [e for e in existing if not e.get("fonteAuto")]
+    old_auto_by_id = {e.get("idAuto"): e for e in existing if e.get("fonteAuto")}
+    new_auto_by_id = {e.get("idAuto"): e for e in new_auto_events}
 
+    added = [e for eid, e in new_auto_by_id.items() if eid not in old_auto_by_id]
+    removed = [e for eid, e in old_auto_by_id.items() if eid not in new_auto_by_id]
 
-def load_keywords() -> dict[str, list[str]]:
-    with open(CONFIG_PATH, "r", encoding="utf-8") as f:
-        raw = yaml.safe_load(f)
-    return raw.get("keywords", {"include": [], "exclude": []})
-
-
-def load_email_config() -> EmailConfig:
-    def _req(name: str) -> str:
-        val = os.environ.get(name)
-        if not val:
-            raise RuntimeError(
-                f"Variabile d'ambiente mancante: {name}. "
-                f"Controlla il tuo file .env o i Secrets di GitHub Actions."
-            )
-        return val
-
-    return EmailConfig(
-        smtp_host=_req("SMTP_HOST"),
-        smtp_port=int(os.environ.get("SMTP_PORT", "587")),
-        smtp_user=_req("SMTP_USER"),
-        smtp_pass=_req("SMTP_PASS"),
-        email_from=os.environ.get("EMAIL_FROM", os.environ.get("SMTP_USER", "")),
-        email_to=_req("EMAIL_TO"),
-        always_send=os.environ.get("ALWAYS_SEND", "true").strip().lower() == "true",
-    )
+    merged = manual_events + list(new_auto_by_id.values())
+    return merged, added, removed
