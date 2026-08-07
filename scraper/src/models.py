@@ -1,34 +1,41 @@
-"""Filtro degli eventi: tiene solo gare motoristiche / trackday.
-
-Regola di classificazione (semplice e volutamente trasparente, così è facile
-correggerla): un evento viene TENUTO se il suo titolo contiene almeno una
-keyword della lista "include" e NESSUNA keyword della lista "exclude".
-L'exclude ha sempre precedenza sull'include.
-
-Le keyword si modificano in config/tracks.yaml, sezione "keywords".
-"""
+"""Modelli dati condivisi dal progetto."""
 from __future__ import annotations
 
-from src.models import Event
+import hashlib
+from dataclasses import dataclass, field, asdict
+from typing import Optional
 
 
-def _normalize(text: str) -> str:
-    return f" {text.strip().lower()} "
+def _make_event_id(track_slug: str, title: str, date_text: str, url: str) -> str:
+    """ID stabile e deterministico per un evento.
+
+    Usato per capire se un evento è "lo stesso" tra due scraping successivi,
+    anche se il sito cambia leggermente l'ordine o alcuni dettagli grafici.
+    """
+    raw = f"{track_slug}|{title.strip().lower()}|{date_text.strip().lower()}|{url.strip()}"
+    return hashlib.sha1(raw.encode("utf-8")).hexdigest()[:16]
 
 
-def is_motorsport_event(title: str, keywords: dict[str, list[str]]) -> bool:
-    text = _normalize(title)
+@dataclass
+class Event:
+    track_slug: str
+    track_name: str
+    title: str
+    date_text: str            # testo grezzo della data così come appare sul sito
+    url: str = ""
+    date_start: Optional[str] = None   # ISO date se siamo riusciti a parsarla
+    date_end: Optional[str] = None
+    event_id: str = field(default="")
 
-    for kw in keywords.get("exclude", []):
-        if kw.lower() in text:
-            return False
+    def __post_init__(self):
+        if not self.event_id:
+            self.event_id = _make_event_id(
+                self.track_slug, self.title, self.date_text, self.url
+            )
 
-    for kw in keywords.get("include", []):
-        if kw.lower() in text:
-            return True
+    def to_dict(self) -> dict:
+        return asdict(self)
 
-    return False
-
-
-def filter_events(events: list[Event], keywords: dict[str, list[str]]) -> list[Event]:
-    return [e for e in events if is_motorsport_event(e.title, keywords)]
+    @staticmethod
+    def from_dict(d: dict) -> "Event":
+        return Event(**d)
