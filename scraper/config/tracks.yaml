@@ -1,0 +1,151 @@
+# =============================================================================
+# CONFIGURAZIONE AUTODROMI
+# =============================================================================
+# Per aggiungere un nuovo autodromo in futuro basta aggiungere un nuovo blocco
+# qui sotto (vedi README.md -> "Aggiungere un nuovo autodromo").
+#
+# parser:
+#   - "static"  -> pagina HTML semplice, scraping via requests + BeautifulSoup
+#   - "dynamic" -> pagina che carica gli eventi via JavaScript, richiede
+#                  Playwright (browser headless) per essere renderizzata
+#
+# selectors: selettori CSS usati per estrarre gli eventi dalla pagina.
+#   Questi selettori sono un PUNTO DI PARTENZA basato sull'analisi della
+#   struttura attuale dei siti. I siti cambiano nel tempo: se lo scraper
+#   smette di trovare eventi, usa `tools/inspect_page.py` per ispezionare
+#   l'HTML renderizzato e aggiornare i selettori qui sotto.
+# =============================================================================
+
+tracks:
+
+  - slug: imola
+    name: "Autodromo di Imola"
+    citta: "Imola"
+    url: "https://www.autodromoimola.it/en/events/"
+    parser: static
+    selectors:
+      # ogni evento è un link dentro il blocco "All events" / "Past events"
+      event_container: "a[href*='/en/events/']"
+      title: "self"          # il testo del link stesso contiene titolo + data
+      link: "self"
+    date_hint_language: en
+
+  - slug: monza
+    name: "Autodromo Nazionale Monza"
+    citta: "Monza"
+    url: "https://www.monzanet.it/gare-eventi/"
+    parser: dynamic
+    wait_selector: ".eventon_list_event, .evo_event"
+    selectors:
+      event_container: ".eventon_list_event, .evcal_evdata_row, .evo_event"
+      title: ".evcal_event_title, .evoet_evtitle"
+      date: ".evcal_desc4, .evcal_date, .evcal_event_time"
+      link: "a"
+    date_hint_language: it
+
+  - slug: misano
+    name: "Misano World Circuit"
+    citta: "Misano Adriatico"
+    url: "https://www.misanocircuit.com/biglietteria/"
+    parser: dynamic
+    wait_selector: "[class*='event'], [class*='card']"
+    selectors:
+      event_container: "[class*='event-card'], [class*='EventCard'], article"
+      title: "h2, h3, [class*='title']"
+      date: "[class*='date'], time"
+      link: "a"
+    date_hint_language: it
+
+# =============================================================================
+# PAROLE CHIAVE PER LA CLASSIFICAZIONE DEGLI EVENTI
+# =============================================================================
+# Un evento viene TENUTO se contiene almeno una keyword di "include" e
+# NESSUNA keyword di "exclude" (l'exclude ha sempre la precedenza).
+# Tutto case-insensitive, matching su titolo (+ categoria se disponibile).
+#
+# Modifica liberamente queste liste in base a cosa vuoi vedere/nascondere.
+# =============================================================================
+
+keywords:
+  include:
+    # gare / campionati
+    - "gran premio"
+    - "gp "
+    - "moto gp"
+    - "motogp"
+    - "superbike"
+    - "worldsbk"
+    - "sbk"
+    - "civ"
+    - "campionato italiano velocit"
+    - "gt world challenge"
+    - "gt open"
+    - "wec"
+    - "endurance"
+    - "le mans series"
+    - "formula "
+    - "f1"
+    - "f4"
+    - "f3"
+    - "eurocup"
+    - "porsche carrera cup"
+    - "porsche club"
+    - "tcr"
+    - "aci racing weekend"
+    - "coppa italia"
+    - "trofeo"
+    - "challenge"
+    - "revival"
+    - "historic"
+    - "classic"
+    - "rally"           # rally regolarità storiche su pista, valuta se tenerlo
+    - "karting"
+    - "kart"
+    # trackday / uso pista
+    - "track day"
+    - "trackday"
+    - "pista aperta"
+    - "prova libera"
+    - "test collettivo"
+    - "test ufficiali"
+    - "driving experience"
+    - "circuit experience"
+    - "raceday"
+    - "race day"
+
+  exclude:
+    # eventi non motoristici ospitati nell'impianto
+    - "cinema"
+    - "concerto"
+    - "live26"
+    - " live "
+    - "festival"
+    - "mostra scambio"
+    - "mostra-scambio"
+    - "comics"
+    - "halloween"
+    - "degusta"
+    - "food"
+    - "fiera"
+    - "mercatino"
+    - "villaggio"
+    - "yoga"
+    - "podistica"
+    - "corsa podistica"
+    - "marcia"
+    - "maratona"
+    - "run for life"
+    - "duathlon"
+    - "triathlon"
+    - "ciclismo"
+    - "bike day"
+    - "handcycling"
+    - "camminata"
+    - "cammina"
+    - "walk"
+    # raduni moto non agonistici (club, harley davidson, ecc.)
+    - "raduno moto"
+    - "chapter"
+    - "harley"
+    - "h.o.g."
+    - "hog rally"
