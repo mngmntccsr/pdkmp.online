@@ -56,17 +56,13 @@ tracks:
       link: "a"
     date_hint_language: it
 
- - slug: vallelunga
-    name: "Autodromo Vallelunga"
+  - slug: vallelunga
+    name: "Autodromo di Vallelunga"
     citta: "Campagnano di Roma"
     url: "https://motorsport.vallelunga.it/gare/"
     parser: static
-    selectors:
-      # ogni evento è un link dentro il blocco "All events" / "Past events"
-      event_container: "a[href*='/en/events/']"
-      title: "self"          # il testo del link stesso contiene titolo + data
-      link: "self"
-    date_hint_language: en
+    selectors: {}   # non usati: vallelunga.py fa parsing testuale dedicato
+    date_hint_language: it
 
 # =============================================================================
 # PAROLE CHIAVE PER LA CLASSIFICAZIONE DEGLI EVENTI
@@ -124,6 +120,15 @@ keywords:
     - "circuit experience"
     - "raceday"
     - "race day"
+    - "racing weekend"
+    - "drift"
+    - "nascar"
+    - "time attack"
+    - "storic"          # copre storico/storica/storiche/autostoriche
+    - "endurance"
+    - "24 ore"
+    - "12 ore"
+    - "2h di roma"
 
   exclude:
     # eventi non motoristici ospitati nell'impianto
