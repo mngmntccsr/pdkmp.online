@@ -1,7 +1,13 @@
 """Entry point per l'integrazione con PaddockMap (pdkmp.online).
 
 Aggiorna events.json (nella root del repo del sito) con gli eventi trovati
-sugli autodromi configurati, poi invia l'email settimanale di riepilogo.
+sugli autodromi configurati, e registra le variazioni in CHANGELOG.md.
+
+L'email via SMTP è FACOLTATIVA (disattivata di default): si attiva solo
+impostando la variabile d'ambiente SEND_EMAIL=true insieme ai secrets SMTP.
+Se non la configuri, non serve nessuna password/app-password: lo script
+scrive semplicemente CHANGELOG.md nel repo, che puoi controllare quando
+vuoi.
 
 Uso:
     python -m src.update_pdkmp
@@ -12,13 +18,14 @@ from __future__ import annotations
 
 import argparse
 import logging
+import os
 import sys
 from pathlib import Path
 
-from src.config import ROOT_DIR, load_email_config, load_keywords, load_tracks
+from src.changelog import append_changelog_entry, build_entry
+from src.config import ROOT_DIR, load_keywords, load_tracks
 from src.events_json_merge import load_events_json, merge_auto_events, save_events_json
 from src.filters import filter_events
-from src.notifier import send_email
 from src.pdkmp_schema import event_to_pdkmp_dict
 from src.scrapers.imola import ImolaScraper
 from src.scrapers.misano import MisanoScraper
@@ -44,54 +51,12 @@ SCRAPER_REGISTRY = {
 # in quel caso events.json si trova un livello sopra ROOT_DIR.
 # Se invece preferisci un'altra disposizione, imposta la variabile
 # d'ambiente EVENTS_JSON_PATH con il percorso assoluto/relativo corretto.
-import os
-
 _env_override = os.environ.get("EVENTS_JSON_PATH")
 EVENTS_JSON_PATH = Path(_env_override) if _env_override else (ROOT_DIR.parent / "events.json")
 
+CHANGELOG_PATH = ROOT_DIR / "CHANGELOG.md"
 
-def _build_email_body(added: list[dict], removed: list[dict], unparsed: list[tuple]) -> str:
-    from datetime import date
-    today = date.today().strftime("%d/%m/%Y")
-
-    def _li(e: dict) -> str:
-        link = e.get("linkInfo", "")
-        title = e.get("titolo", "")
-        date_range = f"{e.get('dataInizio','')} → {e.get('dataFine','')}"
-        inner = f"<b>{title}</b> — {date_range} <span style='color:#888'>[{e.get('circuito','')}]</span>"
-        if link:
-            inner = f'<a href="{link}">{inner}</a>'
-        return f"<li>{inner}</li>"
-
-    html = [f"<h2>Aggiornamento events.json — PaddockMap — {today}</h2>"]
-
-    if not added and not removed:
-        html.append("<p>Nessuna variazione questa settimana.</p>")
-    else:
-        if added:
-            html.append(f"<h3 style='color:#0a7d2c'>✅ Eventi aggiunti a events.json ({len(added)})</h3>")
-            html.append("<ul>" + "".join(_li(e) for e in added) + "</ul>")
-        if removed:
-            html.append(f"<h3 style='color:#b00020'>❌ Eventi rimossi da events.json ({len(removed)})</h3>")
-            html.append("<ul>" + "".join(_li(e) for e in removed) + "</ul>")
-
-    if unparsed:
-        html.append(
-            f"<h3 style='color:#b06d00'>⚠️ {len(unparsed)} eventi trovati ma NON aggiunti "
-            "(data non interpretabile, controlla a mano)</h3><ul>"
-        )
-        for track_name, ev in unparsed:
-            link = f' — <a href="{ev.url}">link</a>' if ev.url else ""
-            html.append(f"<li><b>{ev.title}</b> [{track_name}] data grezza: “{ev.date_text}”{link}</li>")
-        html.append("</ul>")
-
-    html.append(
-        "<hr><p style='color:#888;font-size:12px'>"
-        "Email generata automaticamente dallo scraper eventi PaddockMap. "
-        "Gli eventi inseriti a mano da te in events.json non vengono mai toccati."
-        "</p>"
-    )
-    return "\n".join(html)
+SEND_EMAIL = os.environ.get("SEND_EMAIL", "false").strip().lower() == "true"
 
 
 def run(dry_run: bool = False, only_track: str | None = None) -> int:
@@ -144,30 +109,33 @@ def run(dry_run: bool = False, only_track: str | None = None) -> int:
         len(added), len(removed), len(unparsed),
     )
 
-    html_body = _build_email_body(added, removed, unparsed)
-
     if dry_run:
-        print(html_body)
-        logger.info("[DRY RUN] events.json NON modificato, email NON inviata.")
+        print(build_entry(added, removed, unparsed))
+        logger.info("[DRY RUN] events.json e CHANGELOG.md NON modificati.")
         return 1 if had_errors else 0
 
     save_events_json(EVENTS_JSON_PATH, merged)
     logger.info("events.json aggiornato in %s", EVENTS_JSON_PATH)
 
-    if added or removed or unparsed:
-        email_config = load_email_config()
-        subject = f"🏁 PaddockMap: {len(added)} aggiunti, {len(removed)} rimossi"
-        if unparsed:
-            subject += f", {len(unparsed)} da rivedere"
-        send_email(email_config, subject, html_body)
-        logger.info("Email inviata.")
-    else:
-        email_config = load_email_config()
-        if email_config.always_send:
-            send_email(email_config, "🏁 PaddockMap: nessuna variazione questa settimana", html_body)
-            logger.info("Email inviata (nessuna variazione).")
-        else:
-            logger.info("Nessuna variazione: email non inviata (ALWAYS_SEND=false).")
+    append_changelog_entry(CHANGELOG_PATH, added, removed, unparsed)
+    logger.info("CHANGELOG.md aggiornato in %s", CHANGELOG_PATH)
+
+    if SEND_EMAIL:
+        # Email facoltativa: import locale così, se non la usi, non serve
+        # nemmeno che python-dotenv/smtplib siano configurati correttamente.
+        from src.config import load_email_config
+        from src.notifier import send_email
+
+        html_body = "<pre>" + build_entry(added, removed, unparsed) + "</pre>"
+        try:
+            email_config = load_email_config()
+            subject = f"🏁 PaddockMap: {len(added)} aggiunti, {len(removed)} rimossi"
+            send_email(email_config, subject, html_body)
+            logger.info("Email inviata (SEND_EMAIL=true).")
+        except Exception:
+            # Un problema con l'email non deve mai far fallire l'intero
+            # workflow: events.json e CHANGELOG.md sono già stati salvati.
+            logger.exception("Invio email fallito (events.json/CHANGELOG.md sono comunque aggiornati)")
 
     return 1 if had_errors else 0
 
