@@ -1,41 +1,70 @@
-"""Modelli dati condivisi dal progetto."""
+"""Invio dell'email settimanale di riepilogo via SMTP."""
 from __future__ import annotations
 
-import hashlib
-from dataclasses import dataclass, field, asdict
-from typing import Optional
+import smtplib
+from datetime import date
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+
+from src.config import EmailConfig
+from src.models import Event
 
 
-def _make_event_id(track_slug: str, title: str, date_text: str, url: str) -> str:
-    """ID stabile e deterministico per un evento.
+def _event_line(e: Event) -> str:
+    parts = [f"<b>{e.title}</b>"]
+    if e.date_text:
+        parts.append(f"— {e.date_text}")
+    line = " ".join(parts)
+    if e.url:
+        line = f'<a href="{e.url}">{line}</a>'
+    return f"<li>{line} <span style='color:#888'>[{e.track_name}]</span></li>"
 
-    Usato per capire se un evento è "lo stesso" tra due scraping successivi,
-    anche se il sito cambia leggermente l'ordine o alcuni dettagli grafici.
-    """
-    raw = f"{track_slug}|{title.strip().lower()}|{date_text.strip().lower()}|{url.strip()}"
-    return hashlib.sha1(raw.encode("utf-8")).hexdigest()[:16]
+
+def build_html_body(results: dict[str, dict[str, list[Event]]]) -> str:
+    """results: { track_slug: {"added": [...], "removed": [...], "current": [...]} }"""
+    today = date.today().strftime("%d/%m/%Y")
+
+    all_added = [e for r in results.values() for e in r["added"]]
+    all_removed = [e for r in results.values() for e in r["removed"]]
+
+    html = [f"<h2>Aggiornamento eventi motorsport — {today}</h2>"]
+
+    if not all_added and not all_removed:
+        html.append("<p>Nessuna variazione questa settimana rispetto allo scraping precedente.</p>")
+    else:
+        if all_added:
+            html.append(f"<h3 style='color:#0a7d2c'>✅ Eventi aggiunti ({len(all_added)})</h3>")
+            html.append("<ul>" + "".join(_event_line(e) for e in all_added) + "</ul>")
+        if all_removed:
+            html.append(f"<h3 style='color:#b00020'>❌ Eventi rimossi ({len(all_removed)})</h3>")
+            html.append("<ul>" + "".join(_event_line(e) for e in all_removed) + "</ul>")
+
+    html.append("<hr><h3>Situazione attuale per autodromo</h3>")
+    for slug, r in results.items():
+        current = sorted(r["current"], key=lambda e: e.date_text)
+        html.append(f"<h4>{r['track_name']} ({len(current)} eventi)</h4>")
+        if current:
+            html.append("<ul>" + "".join(_event_line(e) for e in current) + "</ul>")
+        else:
+            html.append("<p><i>Nessun evento trovato (verifica i selettori di scraping).</i></p>")
+
+    html.append(
+        "<hr><p style='color:#888;font-size:12px'>"
+        "Email generata automaticamente dallo scraper eventi motorsport. "
+        "Filtro applicato: solo gare/trackday, esclusi eventi non motoristici."
+        "</p>"
+    )
+    return "\n".join(html)
 
 
-@dataclass
-class Event:
-    track_slug: str
-    track_name: str
-    title: str
-    date_text: str            # testo grezzo della data così come appare sul sito
-    url: str = ""
-    date_start: Optional[str] = None   # ISO date se siamo riusciti a parsarla
-    date_end: Optional[str] = None
-    event_id: str = field(default="")
+def send_email(email_config: EmailConfig, subject: str, html_body: str) -> None:
+    msg = MIMEMultipart("alternative")
+    msg["Subject"] = subject
+    msg["From"] = email_config.email_from
+    msg["To"] = email_config.email_to
+    msg.attach(MIMEText(html_body, "html", "utf-8"))
 
-    def __post_init__(self):
-        if not self.event_id:
-            self.event_id = _make_event_id(
-                self.track_slug, self.title, self.date_text, self.url
-            )
-
-    def to_dict(self) -> dict:
-        return asdict(self)
-
-    @staticmethod
-    def from_dict(d: dict) -> "Event":
-        return Event(**d)
+    with smtplib.SMTP(email_config.smtp_host, email_config.smtp_port) as server:
+        server.starttls()
+        server.login(email_config.smtp_user, email_config.smtp_pass)
+        server.sendmail(email_config.email_from, [email_config.email_to], msg.as_string())
