@@ -1,0 +1,47 @@
+name: Weekly PaddockMap events update
+
+on:
+  schedule:
+    - cron: "0 7 * * 1"   # ogni lunedì alle 07:00 UTC
+  workflow_dispatch: {}    # bottone "Run workflow" per lanciarlo a mano
+
+permissions:
+  contents: write   # necessario per committare events.json aggiornato
+
+jobs:
+  update-events:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r scraper/requirements.txt
+          playwright install --with-deps chromium
+
+      - name: Update events.json and send email
+        working-directory: scraper
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          ALWAYS_SEND: ${{ vars.ALWAYS_SEND || 'true' }}
+        run: python -m src.update_pdkmp
+
+      - name: Commit updated events.json
+        run: |
+          git config user.name "paddockmap-scraper-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add events.json
+          git diff --cached --quiet || git commit -m "chore: aggiornamento automatico events.json [skip ci]"
+          git push
