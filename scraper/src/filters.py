@@ -1,46 +1,34 @@
-"""Fusione degli eventi scrapati dentro il file events.json del sito PaddockMap.
+"""Filtro degli eventi: tiene solo gare motoristiche / trackday.
 
-Regola fondamentale: gli eventi inseriti A MANO da te in events.json (quelli
-senza il campo "fonteAuto": true) non vengono MAI toccati da questo script,
-né modificati né rimossi. Lo script gestisce solo gli eventi che porta
-"fonteAuto": true, cioè quelli aggiunti automaticamente da lui in un run
-precedente:
-  - se uno di questi eventi non viene più trovato sul sito dell'autodromo
-    (es. evento cancellato) -> viene rimosso da events.json
-  - se un evento nuovo viene trovato -> viene aggiunto
-  - se un evento già presente (stesso idAuto) resta invariato -> non fa nulla
+Regola di classificazione (semplice e volutamente trasparente, così è facile
+correggerla): un evento viene TENUTO se il suo titolo contiene almeno una
+keyword della lista "include" e NESSUNA keyword della lista "exclude".
+L'exclude ha sempre precedenza sull'include.
+
+Le keyword si modificano in config/tracks.yaml, sezione "keywords".
 """
 from __future__ import annotations
 
-import json
-from pathlib import Path
+from src.models import Event
 
 
-def load_events_json(path: Path) -> list[dict]:
-    if not path.exists():
-        return []
-    with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
+def _normalize(text: str) -> str:
+    return f" {text.strip().lower()} "
 
 
-def save_events_json(path: Path, events: list[dict]) -> None:
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(events, f, ensure_ascii=False, indent=2)
-        f.write("\n")
+def is_motorsport_event(title: str, keywords: dict[str, list[str]]) -> bool:
+    text = _normalize(title)
+
+    for kw in keywords.get("exclude", []):
+        if kw.lower() in text:
+            return False
+
+    for kw in keywords.get("include", []):
+        if kw.lower() in text:
+            return True
+
+    return False
 
 
-def merge_auto_events(existing: list[dict], new_auto_events: list[dict]) -> tuple[list[dict], list[dict], list[dict]]:
-    """Restituisce (merged, added, removed).
-
-    - manual: eventi senza "fonteAuto" -> sempre mantenuti così come sono
-    - auto esistenti: sostituiti dal nuovo set new_auto_events
-    """
-    manual_events = [e for e in existing if not e.get("fonteAuto")]
-    old_auto_by_id = {e.get("idAuto"): e for e in existing if e.get("fonteAuto")}
-    new_auto_by_id = {e.get("idAuto"): e for e in new_auto_events}
-
-    added = [e for eid, e in new_auto_by_id.items() if eid not in old_auto_by_id]
-    removed = [e for eid, e in old_auto_by_id.items() if eid not in new_auto_by_id]
-
-    merged = manual_events + list(new_auto_by_id.values())
-    return merged, added, removed
+def filter_events(events: list[Event], keywords: dict[str, list[str]]) -> list[Event]:
+    return [e for e in events if is_motorsport_event(e.title, keywords)]
