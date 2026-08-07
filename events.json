@@ -592,11 +592,7 @@
     "titolo": "FX Racing Weekend Vallelunga 2",
     "dataInizio": "2026-09-12",
     "dataFine": "2026-09-13",
-    "disciplina": [
-      "Misto",
-      "Gt",
-      "Formula"
-    ],
+    "disciplina": [ "Misto", "Gt", "Formula"],
     "circuito": "Autodromo Vallelunga",
     "citta": "Campagnano di Roma",
     "linkBiglietti": "",
@@ -799,16 +795,14 @@
     "titolo": "ACI Racing Weekend",
     "dataInizio": "2026-09-04",
     "dataFine": "2026-09-06",
-    "disciplina": [
-      "Misto"
-    ],
+    "disciplina": ["Misto", "Gt", "Formula"],
     "circuito": "Autodromo di Imola",
     "citta": "Imola",
     "linkBiglietti": "",
     "linkInfo": "https://www.autodromoimola.it/en/events/aci-racing-weekend/",
     "organizzatore": "",
     "immagine": "",
-    "eventoGratuito": false,
+    "eventoGratuito": true,
     "fonteAuto": true,
     "idAuto": "4f4fc2f81a9481f0"
   },
@@ -817,13 +811,14 @@
     "dataInizio": "2026-09-19",
     "dataFine": "2026-09-20",
     "disciplina": [
-      "Storico"
+      "Storico", "Gt",
+      "Formula"
     ],
     "circuito": "Autodromo di Imola",
     "citta": "Imola",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autodromoimola.it/en/events/historic-minardi-day/",
-    "organizzatore": "",
+    "linkBiglietti": "https://www.ticketone.it/artist/historic-minardi-day/",
+    "linkInfo": "https://www.minardiday.it/evento-minardi-day/",
+    "organizzatore": "Minardi",
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
@@ -834,13 +829,14 @@
     "dataInizio": "2026-10-16",
     "dataFine": "2026-10-18",
     "disciplina": [
-      "Storico"
+      "Storico", 
+      "Formula",  "Le Mans Prototype"
     ],
     "circuito": "Autodromo di Imola",
     "citta": "Imola",
-    "linkBiglietti": "",
+    "linkBiglietti": "https://www.ticketone.it/event/imola-classic-2026-autodromo-internazionale-enzo-e-dino-ferrari-21933848/",
     "linkInfo": "https://www.autodromoimola.it/en/events/imola-classic-2/",
-    "organizzatore": "",
+    "organizzatore": "Le Mans Classic",
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
@@ -901,10 +897,8 @@
     "titolo": "FX Racing Weekend",
     "dataInizio": "2026-04-18",
     "dataFine": "2026-04-19",
-    "disciplina": [
-      "Misto"
-    ],
-    "circuito": "Autodromo di Vallelunga",
+    "disciplina": [ "Misto" ],
+    "circuito": "Autodromo Vallelunga",
     "citta": "Campagnano di Roma",
     "linkBiglietti": "",
     "linkInfo": "https://motorsport.vallelunga.it/gare/",
@@ -921,7 +915,7 @@
     "disciplina": [
       "Storico"
     ],
-    "circuito": "Autodromo di Vallelunga",
+    "circuito": "Autodromo Vallelunga",
     "citta": "Campagnano di Roma",
     "linkBiglietti": "",
     "linkInfo": "https://motorsport.vallelunga.it/gare/",
@@ -938,7 +932,7 @@
     "disciplina": [
       "Misto"
     ],
-    "circuito": "Autodromo di Vallelunga",
+    "circuito": "Autodromo Vallelunga",
     "citta": "Campagnano di Roma",
     "linkBiglietti": "",
     "linkInfo": "https://motorsport.vallelunga.it/gare/",
@@ -955,7 +949,7 @@
     "disciplina": [
       "Misto"
     ],
-    "circuito": "Autodromo di Vallelunga",
+    "circuito": "Autodromo Vallelunga",
     "citta": "Campagnano di Roma",
     "linkBiglietti": "",
     "linkInfo": "https://motorsport.vallelunga.it/gare/",
@@ -972,7 +966,7 @@
     "disciplina": [
       "Misto"
     ],
-    "circuito": "Autodromo di Vallelunga",
+    "circuito": "Autodromo Vallelunga",
     "citta": "Campagnano di Roma",
     "linkBiglietti": "",
     "linkInfo": "https://motorsport.vallelunga.it/gare/",
@@ -989,7 +983,7 @@
     "disciplina": [
       "Misto"
     ],
-    "circuito": "Autodromo di Vallelunga",
+    "circuito": "Autodromo Vallelunga",
     "citta": "Campagnano di Roma",
     "linkBiglietti": "",
     "linkInfo": "https://motorsport.vallelunga.it/gare/",
@@ -1006,7 +1000,7 @@
     "disciplina": [
       "Misto"
     ],
-    "circuito": "Autodromo di Vallelunga",
+    "circuito": "Autodromo Vallelunga",
     "citta": "Campagnano di Roma",
     "linkBiglietti": "",
     "linkInfo": "https://motorsport.vallelunga.it/gare/",
@@ -1023,13 +1017,13 @@
     "disciplina": [
       "Misto"
     ],
-    "circuito": "Autodromo di Vallelunga",
+    "circuito": "Autodromo Vallelunga",
     "citta": "Campagnano di Roma",
-    "linkBiglietti": "",
+    "linkBiglietti": "https://ticket.vallelunga.it/it/racing/american-festival-of-rome-2026",
     "linkInfo": "https://motorsport.vallelunga.it/gare/",
     "organizzatore": "",
     "immagine": "",
-    "eventoGratuito": false,
+    "eventoGratuito": true,
     "fonteAuto": true,
     "idAuto": "32acf748600068d0"
   },
@@ -1040,7 +1034,7 @@
     "disciplina": [
       "Misto"
     ],
-    "circuito": "Autodromo di Vallelunga",
+    "circuito": "Autodromo Vallelunga",
     "citta": "Campagnano di Roma",
     "linkBiglietti": "",
     "linkInfo": "https://motorsport.vallelunga.it/gare/",
@@ -1057,7 +1051,7 @@
     "disciplina": [
       "Misto"
     ],
-    "circuito": "Autodromo di Vallelunga",
+    "circuito": "Autodromo Vallelunga",
     "citta": "Campagnano di Roma",
     "linkBiglietti": "",
     "linkInfo": "https://motorsport.vallelunga.it/gare/",
@@ -1074,11 +1068,11 @@
     "disciplina": [
       "Misto"
     ],
-    "circuito": "Autodromo di Vallelunga",
+    "circuito": "Autodromo Vallelunga",
     "citta": "Campagnano di Roma",
     "linkBiglietti": "",
-    "linkInfo": "https://motorsport.vallelunga.it/gare/",
-    "organizzatore": "",
+    "linkInfo": "https://www.pnkmotorsport.it/2h-di-roma/",
+    "organizzatore": "PNK Motorsport",
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
