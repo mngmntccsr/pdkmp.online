@@ -6,7 +6,7 @@ on:
   workflow_dispatch: {}    # bottone "Run workflow" per lanciarlo a mano
 
 permissions:
-  contents: write   # necessario per committare events.json aggiornato
+  contents: write   # necessario per committare events.json e CHANGELOG.md
 
 jobs:
   update-events:
@@ -26,9 +26,14 @@ jobs:
           pip install -r scraper/requirements.txt
           playwright install --with-deps chromium
 
-      - name: Update events.json and send email
+      - name: Update events.json and CHANGELOG.md
         working-directory: scraper
         env:
+          # Email via SMTP è FACOLTATIVA. Di default è disattivata: lo
+          # script scrive solo CHANGELOG.md, non serve nessuna password.
+          # Per riattivarla: imposta SEND_EMAIL=true come Variable qui
+          # sotto E configura i 6 secrets SMTP_* nelle Settings del repo.
+          SEND_EMAIL: ${{ vars.SEND_EMAIL || 'false' }}
           SMTP_HOST: ${{ secrets.SMTP_HOST }}
           SMTP_PORT: ${{ secrets.SMTP_PORT }}
           SMTP_USER: ${{ secrets.SMTP_USER }}
@@ -38,10 +43,10 @@ jobs:
           ALWAYS_SEND: ${{ vars.ALWAYS_SEND || 'true' }}
         run: python -m src.update_pdkmp
 
-      - name: Commit updated events.json
+      - name: Commit updated events.json and CHANGELOG.md
         run: |
           git config user.name "paddockmap-scraper-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add events.json
-          git diff --cached --quiet || git commit -m "chore: aggiornamento automatico events.json [skip ci]"
+          git add events.json scraper/CHANGELOG.md
+          git diff --cached --quiet || git commit -m "chore: aggiornamento automatico eventi [skip ci]"
           git push
