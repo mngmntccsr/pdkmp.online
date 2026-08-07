@@ -56,6 +56,18 @@ tracks:
       link: "a"
     date_hint_language: it
 
+ - slug: vallelunga
+    name: "Autodromo Vallelunga"
+    citta: "Campagnano di Roma"
+    url: "https://motorsport.vallelunga.it/gare/"
+    parser: static
+    selectors:
+      # ogni evento è un link dentro il blocco "All events" / "Past events"
+      event_container: "a[href*='/en/events/']"
+      title: "self"          # il testo del link stesso contiene titolo + data
+      link: "self"
+    date_hint_language: en
+
 # =============================================================================
 # PAROLE CHIAVE PER LA CLASSIFICAZIONE DEGLI EVENTI
 # =============================================================================
