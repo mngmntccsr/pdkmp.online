@@ -5,7 +5,7 @@
 # qui sotto (vedi README.md -> "Aggiungere un nuovo autodromo").
 #
 # parser:
-#   - "static"  -> pagina HTML semplice, scraping via requests + BeautifulSoup 
+#   - "static"  -> pagina HTML semplice, scraping via requests + BeautifulSoup
 #   - "dynamic" -> pagina che carica gli eventi via JavaScript, richiede
 #                  Playwright (browser headless) per essere renderizzata
 #
@@ -84,6 +84,9 @@ keywords:
     - "superbike"
     - "worldsbk"
     - "sbk"
+    - "WEC"
+    - "European Le Mans Series"
+    - "ELMS"
     - "civ"
     - "campionato italiano velocit"
     - "gt world challenge"
@@ -94,9 +97,6 @@ keywords:
     - "formula "
     - "f1"
     - "f4"
-    - "WEC"
-    - "ELMS"
-    - "European Le Mans Series"
     - "f3"
     - "eurocup"
     - "porsche carrera cup"
@@ -169,3 +169,23 @@ keywords:
     - "harley"
     - "h.o.g."
     - "hog rally"
+
+  # =============================================================================
+  # INGRESSO GRATUITO (best-effort, VERIFICA SEMPRE A MANO)
+  # =============================================================================
+  # Se il titolo contiene una di queste parole, l'evento viene marcato come
+  # "eventoGratuito": true. In Italia i weekend amatoriali/trackday sono
+  # tipicamente a ingresso spettatori libero, mentre i campionati ufficiali
+  # (CIV, GT, WEC...) di solito richiedono un biglietto. Aggiungi/rimuovi
+  # voci in base a quello che sai sui singoli autodromi/eventi.
+  free_entry:
+    - "racing weekend"
+    - "trackday"
+    - "track day"
+    - "prova libera"
+    - "pista aperta"
+    - "driving experience"
+    - "circuit experience"
+    - "test collettivo"
+    - "raceday"
+    - "race day"
