@@ -27,6 +27,7 @@ a mano da te:
 from __future__ import annotations
 
 import re
+from datetime import date
 
 from dateutil import parser as dateparser
 
@@ -54,13 +55,21 @@ _DATE_CORE_RE = re.compile(
     r"(\d{1,2})\s*(?:[-–]\s*(\d{1,2}))?\s*([a-z]+)\s*(\d{4})"
 )
 
+# Un anno risultante fuori da questo intervallo (rispetto all'anno corrente)
+# viene considerato sospetto e l'evento viene scartato per revisione manuale,
+# invece di rischiare di pubblicare silenziosamente una data sbagliata
+# (es. un bug di parsing che mette l'anno corrente su un evento che in
+# realtà è dell'anno prossimo).
+_YEAR_TOLERANCE_PAST = 0
+_YEAR_TOLERANCE_FUTURE = 3
+
 
 def parse_date_range(date_text: str) -> tuple[str | None, str | None]:
     """Converte un testo tipo '4 - 6 September 2026' o '1° Maggio 2026'
     in una coppia di date ISO (dataInizio, dataFine).
-    Restituisce (None, None) se non riesce a interpretare il formato:
-    in quel caso l'evento va rivisto a mano (viene comunque segnalato
-    nel log e nell'email).
+    Restituisce (None, None) se non riesce a interpretare il formato, o se
+    l'anno risulta implausibile (vedi _YEAR_TOLERANCE_*): in quel caso
+    l'evento va rivisto a mano (viene comunque segnalato nel changelog).
     """
     if not date_text:
         return None, None
@@ -75,6 +84,10 @@ def parse_date_range(date_text: str) -> tuple[str | None, str | None]:
 
     day1, day2, month, year = m.groups()
     day2 = day2 or day1
+
+    current_year = date.today().year
+    if not (current_year - _YEAR_TOLERANCE_PAST <= int(year) <= current_year + _YEAR_TOLERANCE_FUTURE):
+        return None, None
 
     try:
         start = dateparser.parse(f"{day1} {month} {year}", dayfirst=True).date().isoformat()
@@ -102,10 +115,26 @@ def infer_disciplines(title: str) -> list[str]:
     return sorted(found) if found else ["Misto"]
 
 
-def event_to_pdkmp_dict(event: Event, track: TrackConfig) -> dict | None:
+def infer_free_entry(title: str, free_entry_keywords: list[str]) -> bool:
+    """Deduce se l'ingresso spettatori è gratuito, in base a parole chiave
+    nel titolo (es. "racing weekend", "trackday" sono tipicamente eventi
+    amatoriali a ingresso libero, mentre campionati ufficiali come CIV/GT/WEC
+    di solito richiedono un biglietto).
+
+    È una stima best-effort basata sulle keyword in config/tracks.yaml
+    (sezione "free_entry"): verifica sempre a mano, soprattutto per eventi
+    che non conosci bene.
+    """
+    t = title.lower()
+    return any(kw.lower() in t for kw in free_entry_keywords)
+
+
+def event_to_pdkmp_dict(
+    event: Event, track: TrackConfig, free_entry_keywords: list[str] | None = None,
+) -> dict | None:
     """Converte un Event nello schema PaddockMap.
-    Restituisce None se la data non è interpretabile (evento scartato,
-    ma segnalato via log/email per revisione manuale).
+    Restituisce None se la data non è interpretabile o implausibile
+    (evento scartato, ma segnalato via changelog per revisione manuale).
     """
     start, end = parse_date_range(event.date_text)
     if not start:
@@ -122,7 +151,7 @@ def event_to_pdkmp_dict(event: Event, track: TrackConfig) -> dict | None:
         "linkInfo": event.url,
         "organizzatore": "",
         "immagine": "",
-        "eventoGratuito": False,
+        "eventoGratuito": infer_free_entry(event.title, free_entry_keywords or []),
         # campi extra, ignorati dal sito, usati solo dallo script di merge:
         "fonteAuto": True,
         "idAuto": event.event_id,
