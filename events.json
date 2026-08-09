@@ -401,23 +401,6 @@
     "idAuto": "1c272eeaac4e8954"
   },
   {
-    "titolo": "Vallelunga Euro Nascar",
-    "dataInizio": "2026-09-19",
-    "dataFine": "2026-09-20",
-    "disciplina": [
-      "Misto"
-    ],
-    "circuito": "Autodromo di Vallelunga",
-    "citta": "Campagnano di Roma",
-    "linkBiglietti": "",
-    "linkInfo": "https://motorsport.vallelunga.it/gare/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "32acf748600068d0"
-  },
-  {
     "titolo": "TIME ATTACK",
     "dataInizio": "2026-10-03",
     "dataFine": "2026-10-04",
@@ -435,9 +418,9 @@
     "idAuto": "1c47e30b9fb68d58"
   },
   {
-    "titolo": "FMI CIV",
-    "dataInizio": "2026-10-10",
-    "dataFine": "2026-10-11",
+    "titolo": "Vallelunga Euro Nascar",
+    "dataInizio": "2026-09-19",
+    "dataFine": "2026-09-20",
     "disciplina": [
       "Misto"
     ],
@@ -449,7 +432,7 @@
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "be6b77f54d7abee4"
+    "idAuto": "32acf748600068d0"
   },
   {
     "titolo": "2H di Roma",
@@ -467,5 +450,22 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "526965136ea3af34"
+  },
+  {
+    "titolo": "FMI CIV",
+    "dataInizio": "2026-10-10",
+    "dataFine": "2026-10-11",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Autodromo di Vallelunga",
+    "citta": "Campagnano di Roma",
+    "linkBiglietti": "",
+    "linkInfo": "https://motorsport.vallelunga.it/gare/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "be6b77f54d7abee4"
   }
 ]

@@ -2,6 +2,25 @@
 
 Questo file viene aggiornato automaticamente ogni settimana dallo scraper.
 
+## 2026-08-09 23:21 UTC
+
+✅ **Aggiunti (5)**
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **Imola Classic** — 2026-10-16 → 2026-10-18 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/imola-classic-2/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+
+🔁 **Duplicati rimossi (5)** — stesso circuito+data di un evento già presente
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **Imola Classic** — 2026-10-16 → 2026-10-18 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/imola-classic-2/
+
+
+---
+
 ## 2026-08-09 10:15 UTC
 
 ✅ **Aggiunti (3)**
