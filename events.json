@@ -384,23 +384,6 @@
     "eventoGratuito": true
   },
   {
-    "titolo": "Imola Classic",
-    "dataInizio": "2026-10-16",
-    "dataFine": "2026-10-18",
-    "disciplina": [
-      "Storico"
-    ],
-    "circuito": "Autodromo di Imola",
-    "citta": "Imola",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autodromoimola.it/en/events/imola-classic-2/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "efe7ae7b7adefd8e"
-  },
-  {
     "titolo": "WEC 6 Hours of Imola",
     "dataInizio": "2027-04-09",
     "dataFine": "2027-04-11",
