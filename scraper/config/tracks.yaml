@@ -5,7 +5,7 @@
 # qui sotto (vedi README.md -> "Aggiungere un nuovo autodromo").
 #
 # parser:
-#   - "static"  -> pagina HTML semplice, scraping via requests + BeautifulSoup
+#   - "static"  -> pagina HTML semplice, scraping via requests + BeautifulSoup 
 #   - "dynamic" -> pagina che carica gli eventi via JavaScript, richiede
 #                  Playwright (browser headless) per essere renderizzata
 #
