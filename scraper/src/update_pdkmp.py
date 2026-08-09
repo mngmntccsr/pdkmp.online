@@ -1,7 +1,7 @@
 """Entry point per l'integrazione con PaddockMap (pdkmp.online).
 
 Aggiorna events.json (nella root del repo del sito) con gli eventi trovati
-sugli autodromi configurati, e registra le variazioni in CHANGELOG.md.
+sugli autodromi configurati, e registra le variazioni in CHANGELOG.md. 
 
 L'email via SMTP è FACOLTATIVA (disattivata di default): si attiva solo
 impostando la variabile d'ambiente SEND_EMAIL=true insieme ai secrets SMTP.
