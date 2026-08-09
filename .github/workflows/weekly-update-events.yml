@@ -47,6 +47,6 @@ jobs:
         run: |
           git config user.name "paddockmap-scraper-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add events.json scraper/CHANGELOG.md
+          git add events.json events-archive.json scraper/CHANGELOG.md
           git diff --cached --quiet || git commit -m "chore: aggiornamento automatico eventi [skip ci]"
           git push
