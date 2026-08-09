@@ -22,12 +22,13 @@ def _fmt_event(e: dict) -> str:
     return line
 
 
-def build_entry(added: list[dict], removed: list[dict], unparsed: list[tuple], archived: list[dict] | None = None) -> str:
+def build_entry(added: list[dict], removed: list[dict], unparsed: list[tuple], archived: list[dict] | None = None, duplicates: list[dict] | None = None) -> str:
     archived = archived or []
+    duplicates = duplicates or []
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     lines = [f"## {ts}", ""]
 
-    if not added and not removed and not unparsed and not archived:
+    if not added and not removed and not unparsed and not archived and not duplicates:
         lines.append("Nessuna variazione questa settimana.")
     else:
         if added:
@@ -37,6 +38,10 @@ def build_entry(added: list[dict], removed: list[dict], unparsed: list[tuple], a
         if removed:
             lines.append(f"❌ **Rimossi ({len(removed)})**")
             lines.extend(_fmt_event(e) for e in removed)
+            lines.append("")
+        if duplicates:
+            lines.append(f"🔁 **Duplicati rimossi ({len(duplicates)})** — stesso circuito+data di un evento già presente")
+            lines.extend(_fmt_event(e) for e in duplicates)
             lines.append("")
         if archived:
             lines.append(f"📦 **Archiviati ({len(archived)})** — conclusi da oltre una settimana, spostati in events-archive.json")
@@ -51,8 +56,8 @@ def build_entry(added: list[dict], removed: list[dict], unparsed: list[tuple], a
     return "\n".join(lines)
 
 
-def append_changelog_entry(path: Path, added: list[dict], removed: list[dict], unparsed: list[tuple], archived: list[dict] | None = None) -> None:
-    entry = build_entry(added, removed, unparsed, archived)
+def append_changelog_entry(path: Path, added: list[dict], removed: list[dict], unparsed: list[tuple], archived: list[dict] | None = None, duplicates: list[dict] | None = None) -> None:
+    entry = build_entry(added, removed, unparsed, archived, duplicates)
 
     if path.exists():
         existing = path.read_text(encoding="utf-8")
