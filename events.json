@@ -384,23 +384,6 @@
     "eventoGratuito": true
   },
   {
-    "titolo": "ACI Racing Weekend",
-    "dataInizio": "2026-09-04",
-    "dataFine": "2026-09-06",
-    "disciplina": [
-      "Misto"
-    ],
-    "circuito": "Autodromo di Imola",
-    "citta": "Imola",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autodromoimola.it/en/events/aci-racing-weekend/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": true,
-    "fonteAuto": true,
-    "idAuto": "4f4fc2f81a9481f0"
-  },
-  {
     "titolo": "Imola Classic",
     "dataInizio": "2026-10-16",
     "dataFine": "2026-10-18",
@@ -416,23 +399,6 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "efe7ae7b7adefd8e"
-  },
-  {
-    "titolo": "ACI Racing Weekend",
-    "dataInizio": "2026-09-04",
-    "dataFine": "2026-09-06",
-    "disciplina": [
-      "Misto"
-    ],
-    "circuito": "Autodromo di Imola",
-    "citta": "Imola",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autodromoimola.it/en/events/aci-racing-weekend/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": true,
-    "fonteAuto": true,
-    "idAuto": "ee106fc49346cde1"
   },
   {
     "titolo": "WEC 6 Hours of Imola",
