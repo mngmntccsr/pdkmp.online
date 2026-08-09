@@ -98,7 +98,11 @@ def run(dry_run: bool = False, only_track: str | None = None) -> int:
         )
 
         for ev in current:
-            pdkmp_dict = event_to_pdkmp_dict(ev, track, keywords.get("free_entry", []))
+            pdkmp_dict = event_to_pdkmp_dict(
+                ev, track,
+                keywords.get("free_entry", []),
+                keywords.get("organizer_rules", []),
+            )
             if pdkmp_dict is None:
                 unparsed.append((track.name, ev))
             else:
