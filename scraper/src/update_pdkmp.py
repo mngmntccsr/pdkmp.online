@@ -1,7 +1,7 @@
 """Entry point per l'integrazione con PaddockMap (pdkmp.online).
 
 Aggiorna events.json (nella root del repo del sito) con gli eventi trovati
-sugli autodromi configurati, e registra le variazioni in CHANGELOG.md. 
+sugli autodromi configurati, e registra le variazioni in CHANGELOG.md.
 
 L'email via SMTP è FACOLTATIVA (disattivata di default): si attiva solo
 impostando la variabile d'ambiente SEND_EMAIL=true insieme ai secrets SMTP.
@@ -21,6 +21,8 @@ import logging
 import os
 import sys
 from pathlib import Path
+
+from datetime import date
 
 from src.changelog import append_changelog_entry, build_entry
 from src.config import ROOT_DIR, load_keywords, load_tracks
@@ -94,11 +96,21 @@ def run(dry_run: bool = False, only_track: str | None = None) -> int:
         )
 
         for ev in current:
-            pdkmp_dict = event_to_pdkmp_dict(ev, track)
+            pdkmp_dict = event_to_pdkmp_dict(ev, track, keywords.get("free_entry", []))
             if pdkmp_dict is None:
                 unparsed.append((track.name, ev))
             else:
                 all_pdkmp_events.append(pdkmp_dict)
+
+    # Tiene solo gli eventi ancora da svolgere: scarta quelli la cui data di
+    # fine è già passata rispetto a OGGI (data di esecuzione del workflow),
+    # così un evento concluso non resta/ricompare nel sito.
+    today_iso = date.today().isoformat()
+    before_count = len(all_pdkmp_events)
+    all_pdkmp_events = [e for e in all_pdkmp_events if e["dataFine"] >= today_iso]
+    skipped_past = before_count - len(all_pdkmp_events)
+    if skipped_past:
+        logger.info("%d eventi scartati perché già conclusi (prima di %s)", skipped_past, today_iso)
 
     existing = load_events_json(EVENTS_JSON_PATH)
     merged, added, removed = merge_auto_events(existing, all_pdkmp_events)
