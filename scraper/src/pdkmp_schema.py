@@ -129,8 +129,28 @@ def infer_free_entry(title: str, free_entry_keywords: list[str]) -> bool:
     return any(kw.lower() in t for kw in free_entry_keywords)
 
 
+def infer_organizer(title: str, organizer_rules: list[dict]) -> str:
+    """Deduce l'organizzatore dal titolo, in base alle regole in
+    config/tracks.yaml (sezione "organizer_rules").
+
+    Questo campo NON serve solo per mostrarlo sul sito: index.html usa già
+    "organizzatore" per assegnare automaticamente un'immagine fissa agli
+    eventi ricorrenti (vedi "organizerImages" in index.html). Popolandolo
+    correttamente, un evento come "ACI Racing Weekend" mantiene la stessa
+    immagine ovunque si svolga, senza doverla reimpostare ogni volta.
+    """
+    t = title.lower()
+    for rule in organizer_rules:
+        if rule.get("match", "").lower() in t:
+            return rule.get("organizzatore", "")
+    return ""
+
+
 def event_to_pdkmp_dict(
-    event: Event, track: TrackConfig, free_entry_keywords: list[str] | None = None,
+    event: Event,
+    track: TrackConfig,
+    free_entry_keywords: list[str] | None = None,
+    organizer_rules: list[dict] | None = None,
 ) -> dict | None:
     """Converte un Event nello schema PaddockMap.
     Restituisce None se la data non è interpretabile o implausibile
@@ -149,7 +169,7 @@ def event_to_pdkmp_dict(
         "citta": track.citta,
         "linkBiglietti": "",
         "linkInfo": event.url,
-        "organizzatore": "",
+        "organizzatore": infer_organizer(event.title, organizer_rules or []),
         "immagine": "",
         "eventoGratuito": infer_free_entry(event.title, free_entry_keywords or []),
         # campi extra, ignorati dal sito, usati solo dallo script di merge:
