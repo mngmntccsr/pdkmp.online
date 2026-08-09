@@ -84,9 +84,6 @@ keywords:
     - "superbike"
     - "worldsbk"
     - "sbk"
-    - "WEC"
-    - "European Le Mans Series"
-    - "ELMS"
     - "civ"
     - "campionato italiano velocit"
     - "gt world challenge"
@@ -189,3 +186,18 @@ keywords:
     - "test collettivo"
     - "raceday"
     - "race day"
+
+  # =============================================================================
+  # ORGANIZZATORE (usato anche per l'immagine automatica sul sito)
+  # =============================================================================
+  # index.html assegna un'immagine fissa in base al campo "organizzatore"
+  # (vedi "organizerImages" in index.html). Popolando qui questo campo per
+  # gli eventi ricorrenti, l'immagine resta la stessa ovunque l'evento si
+  # svolga, senza doverla reimpostare ogni volta. "match" deve essere una
+  # sottostringa del titolo (case-insensitive); "organizzatore" deve
+  # combaciare ESATTAMENTE con una chiave di organizerImages in index.html.
+  organizer_rules:
+    - match: "aci racing weekend"
+      organizzatore: "ACI Sport"
+    - match: "fx racing weekend"
+      organizzatore: "FX Racing Weekend"
