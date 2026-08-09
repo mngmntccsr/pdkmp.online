@@ -2,8 +2,20 @@
 from __future__ import annotations
 
 import hashlib
+import re
 from dataclasses import dataclass, field, asdict
 from typing import Optional
+
+
+def _normalize_for_id(text: str) -> str:
+    """Normalizza un testo prima di usarlo nell'hash dell'ID, così piccole
+    differenze di formattazione (spazi doppi, tipo di trattino usato dal
+    sito) non generano due ID diversi per lo stesso evento reale.
+    """
+    text = text.strip().lower()
+    text = text.replace("–", "-").replace("—", "-").replace("−", "-")
+    text = re.sub(r"\s+", " ", text)
+    return text
 
 
 def _make_event_id(track_slug: str, title: str, date_text: str, url: str) -> str:
@@ -12,7 +24,10 @@ def _make_event_id(track_slug: str, title: str, date_text: str, url: str) -> str
     Usato per capire se un evento è "lo stesso" tra due scraping successivi,
     anche se il sito cambia leggermente l'ordine o alcuni dettagli grafici.
     """
-    raw = f"{track_slug}|{title.strip().lower()}|{date_text.strip().lower()}|{url.strip()}"
+    raw = (
+        f"{track_slug}|{_normalize_for_id(title)}|"
+        f"{_normalize_for_id(date_text)}|{url.strip()}"
+    )
     return hashlib.sha1(raw.encode("utf-8")).hexdigest()[:16]
 
 
