@@ -2,6 +2,12 @@
 
 Questo file viene aggiornato automaticamente ogni settimana dallo scraper.
 
+## 2026-08-09 08:46 UTC
+
+Nessuna variazione questa settimana.
+
+---
+
 ## 2026-08-07 21:44 UTC
 
 ✅ **Aggiunti (17)**
@@ -22,4 +28,3 @@ Questo file viene aggiornato automaticamente ogni settimana dallo scraper.
 - **TIME ATTACK** — 2026-10-03 → 2026-10-04 _[Autodromo di Vallelunga]_ — https://motorsport.vallelunga.it/gare/
 - **FMI CIV** — 2026-10-10 → 2026-10-11 _[Autodromo di Vallelunga]_ — https://motorsport.vallelunga.it/gare/
 - **2H di Roma** — 2026-11-21 → 2026-11-22 _[Autodromo di Vallelunga]_ — https://motorsport.vallelunga.it/gare/
-
