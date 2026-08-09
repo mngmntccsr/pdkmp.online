@@ -1,0 +1,414 @@
+[
+  {
+    "titolo": "67ª Coppa Selva di Fasano",
+    "dataInizio": "2026-05-29",
+    "dataFine": "2026-05-31",
+    "disciplina": [
+      "Cronoscalata",
+      "Gt",
+      "Formula",
+      "Storico",
+      "Misto"
+    ],
+    "circuito": "Fasano",
+    "citta": "Fasano",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.fasanoselva.com/",
+    "organizzatore": "A.S. Egnathia",
+    "immagine": "",
+    "eventoGratuito": true
+  },
+  {
+    "titolo": "75ª Trento–Bondone",
+    "dataInizio": "2026-06-13",
+    "dataFine": "2026-06-14",
+    "disciplina": [
+      "Cronoscalata",
+      "Gt",
+      "Formula",
+      "Storico",
+      "Misto"
+    ],
+    "circuito": "Trento",
+    "citta": "Trento",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.trentobondone.it/",
+    "organizzatore": "A.S.D Scuderia Trentina",
+    "immagine": "",
+    "eventoGratuito": true
+  },
+  {
+    "titolo": "65ª Coppa Paolino Teodori",
+    "dataInizio": "2026-06-27",
+    "dataFine": "2026-06-28",
+    "disciplina": [
+      "Cronoscalata",
+      "Gt",
+      "Formula",
+      "Storico",
+      "Misto"
+    ],
+    "circuito": "Ascoli Piceno",
+    "citta": "Ascoli Piceno",
+    "linkBiglietti": "",
+    "linkInfo": "http://www.coppateodori.org/",
+    "organizzatore": "Gruppo Sportivo Ac Ascoli Piceno",
+    "immagine": "",
+    "eventoGratuito": true
+  },
+  {
+    "titolo": "61ª Rieti–Terminillo Coppa Carotti",
+    "dataInizio": "2026-07-11",
+    "dataFine": "2026-07-12",
+    "disciplina": [
+      "Cronoscalata",
+      "Gt",
+      "Formula",
+      "Storico",
+      "Misto"
+    ],
+    "circuito": "Rieti",
+    "citta": "Rieti",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.rietiterminillo.it/",
+    "organizzatore": "Automobile Club Rieti",
+    "immagine": "",
+    "eventoGratuito": true
+  },
+  {
+    "titolo": "FX Racing Weekend Varano",
+    "dataInizio": "2026-05-16",
+    "dataFine": "2026-05-17",
+    "disciplina": [
+      "Misto",
+      "Gt",
+      "Formula"
+    ],
+    "circuito": "Autodromo Riccardo Paletti",
+    "citta": "Varano de' Melegari",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.formulaxitalianseries.it/calendario/",
+    "organizzatore": "FX Racing Weekend",
+    "immagine": null,
+    "eventoGratuito": true
+  },
+  {
+    "titolo": "Lamborghini Arena 2026",
+    "dataInizio": "2026-05-09",
+    "dataFine": "2026-05-10",
+    "disciplina": [
+      "Gt"
+    ],
+    "circuito": "Autodromo di Imola",
+    "citta": "Imola",
+    "linkBiglietti": "https://www.ticketone.it/artist/lamborghini-arena/",
+    "linkInfo": "https://www.autodromoimola.it/eventi/lamborghini-arena/",
+    "organizzatore": "Lamborghini",
+    "immagine": "",
+    "eventoGratuito": false
+  },
+  {
+    "titolo": "Misano Grand Prix Truck",
+    "dataInizio": "2026-05-30",
+    "dataFine": "2026-05-31",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Misano World Circuit",
+    "citta": "Misano Adriatico",
+    "linkBiglietti": "https://www.ticketone.it/artist/truck-racing/?affiliate=CUI",
+    "linkInfo": "https://www.misanocircuit.com/events/84718f2e-4b89-4781-bc60-b9ff68e32770",
+    "organizzatore": "FIA European Truck Racing Championship",
+    "immagine": "",
+    "eventoGratuito": false
+  },
+  {
+    "titolo": "International GT Open",
+    "dataInizio": "2026-06-05",
+    "dataFine": "2026-06-07",
+    "disciplina": [
+      "Gt"
+    ],
+    "circuito": "Misano World Circuit",
+    "citta": "Misano Adriatico",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.misanocircuit.com/events/b03ce3b9-bee4-43bc-9c72-acfb59f58c9b",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true
+  },
+  {
+    "titolo": "44° Rally Due Valli",
+    "dataInizio": "2026-06-04",
+    "dataFine": "2026-06-06",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Verona",
+    "citta": "Verona",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.rallyduevalli.it/",
+    "organizzatore": "Automobile Club Verona",
+    "immagine": "",
+    "eventoGratuito": false
+  },
+  {
+    "titolo": "Rally di Roma Capitale",
+    "dataInizio": "2026-07-03",
+    "dataFine": "2026-07-05",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Roma",
+    "citta": "Roma",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.rallydiromacapitale.it/",
+    "organizzatore": "FIA European Rally Championship",
+    "immagine": "",
+    "eventoGratuito": false
+  },
+  {
+    "titolo": "Red Bull Showrun Imola",
+    "dataInizio": "2026-06-02",
+    "dataFine": "2026-06-02",
+    "disciplina": [
+      "Formula",
+      "Misto"
+    ],
+    "circuito": "Autodromo di Imola",
+    "citta": "Imola",
+    "linkBiglietti": "https://www.eventbrite.com/e/biglietti-red-bull-kingdom-of-speed-1986062848443?aff=RedBull",
+    "linkInfo": "https://www.redbull.com/it-it/events/red-bull-kingdom-of-speed/",
+    "organizzatore": "Red Bull",
+    "immagine": null,
+    "eventoGratuito": false
+  },
+  {
+    "titolo": "European Le Mans Series - 4 hours of Imola",
+    "dataInizio": "2026-07-03",
+    "dataFine": "2026-07-05",
+    "disciplina": [
+      "Misto",
+      "Gt",
+      "Le Mans Prototype"
+    ],
+    "circuito": "Autodromo di Imola",
+    "citta": "Imola",
+    "linkBiglietti": "https://www.ticketone.it/event/elms-4-hours-of-imola-2026-autodromo-internazionale-enzo-e-dino-ferrari-21212815/",
+    "linkInfo": "https://www.autodromoimola.it/eventi/elms-european-le-mans-series/",
+    "organizzatore": "European Le Mans Series",
+    "immagine": null,
+    "eventoGratuito": false
+  },
+  {
+    "titolo": "FX Racing Weekend Magione",
+    "dataInizio": "2026-06-13",
+    "dataFine": "2026-06-14",
+    "disciplina": [
+      "Misto",
+      "Gt",
+      "Formula"
+    ],
+    "circuito": "Autodromo Nazionale dell'Umbria",
+    "citta": "Magione",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.formulaxitalianseries.it/calendario/",
+    "organizzatore": "FX Racing Weekend",
+    "immagine": null,
+    "eventoGratuito": true
+  },
+  {
+    "titolo": "Alfa Romeo Day 2026",
+    "dataInizio": "2026-06-21",
+    "dataFine": "2026-06-21",
+    "disciplina": [
+      "Storico"
+    ],
+    "circuito": "Museo Alfa Romeo",
+    "citta": "Arese",
+    "linkBiglietti": "",
+    "linkInfo": "",
+    "organizzatore": "Alfa Romeo",
+    "immagine": "",
+    "eventoGratuito": false
+  },
+  {
+    "titolo": "Aci Racing Weekend Misano",
+    "dataInizio": "2026-05-08",
+    "dataFine": "2026-05-10",
+    "disciplina": [
+      "Misto",
+      "Gt",
+      "Formula"
+    ],
+    "circuito": "Misano World Circuit",
+    "citta": "Misano Adriatico",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.misanocircuit.com/events/8a17ae87-de14-4ca0-b734-76e237414acb",
+    "organizzatore": "ACI Sport",
+    "immagine": null,
+    "eventoGratuito": true
+  },
+  {
+    "titolo": "GT World Challenge Europe",
+    "dataInizio": "2026-07-17",
+    "dataFine": "2026-07-19",
+    "disciplina": [
+      "Gt"
+    ],
+    "circuito": "Misano World Circuit",
+    "citta": "Misano Adriatico",
+    "linkBiglietti": "https://www.ticketone.it/event/gt-world-challenge-europe-powered-by-aws-misano-world-circuit-20945205/",
+    "linkInfo": "https://www.gt-world-challenge-europe.com/event/250/misano",
+    "organizzatore": "SRO Motorsports",
+    "immagine": null,
+    "eventoGratuito": false
+  },
+  {
+    "titolo": "GT World Challenge Europe",
+    "dataInizio": "2026-05-29",
+    "dataFine": "2026-05-31",
+    "disciplina": [
+      "Gt"
+    ],
+    "circuito": "Autodromo Nazionale Monza",
+    "citta": "Monza",
+    "linkBiglietti": "https://www.ticketone.it/artist/gt-world-challenge-europe/gt-world-challenge-powered-by-aws-4081064/?_gl=1*1w0waef*_gcl_au*OTEyNDY3MTkuMTc3NzQ4MjcwNg..",
+    "linkInfo": "https://www.monzanet.it/evento/gt-world-challenge-powered-by-aws/",
+    "organizzatore": "SRO Motorsports",
+    "immagine": null,
+    "eventoGratuito": false
+  },
+  {
+    "titolo": "Aci Racing Weekend Monza",
+    "dataInizio": "2026-06-19",
+    "dataFine": "2026-06-21",
+    "disciplina": [
+      "Misto",
+      "Gt",
+      "Formula"
+    ],
+    "circuito": "Autodromo Nazionale Monza",
+    "citta": "Monza",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.monzanet.it/evento/aci-racing-weekend-3/",
+    "organizzatore": "ACI Sport",
+    "immagine": null,
+    "eventoGratuito": true
+  },
+  {
+    "titolo": "Monza Revival",
+    "dataInizio": "2026-07-25",
+    "dataFine": "2026-07-26",
+    "disciplina": [
+      "Misto",
+      "Storico",
+      "Gt",
+      "Formula",
+      "Le Mans Prototype"
+    ],
+    "circuito": "Autodromo Nazionale Monza",
+    "citta": "Monza",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.monzanet.it/evento/monza-revival/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true
+  },
+  {
+    "titolo": "Vernasca Silver Flag",
+    "dataInizio": "2026-06-19",
+    "dataFine": "2026-06-21",
+    "disciplina": [
+      "Misto",
+      "Storico",
+      "Gt",
+      "Formula",
+      "Le Mans Prototype"
+    ],
+    "circuito": "Vernasca",
+    "citta": "Vernasca",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.vernascasilverflag.it/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true
+  },
+  {
+    "titolo": "Track Day Experience Italia",
+    "dataInizio": "2026-07-10",
+    "dataFine": "2026-07-11",
+    "disciplina": [
+      "Misto",
+      "Gt"
+    ],
+    "circuito": "",
+    "citta": "Italia",
+    "linkBiglietti": "",
+    "linkInfo": "",
+    "organizzatore": "PaddockMap",
+    "immagine": "",
+    "eventoGratuito": false,
+    "isPromo": true
+  },
+  {
+    "titolo": "Rally Targa Florio",
+    "dataInizio": "2026-05-14",
+    "dataFine": "2026-05-16",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Palermo",
+    "citta": "Palermo",
+    "linkBiglietti": "",
+    "linkInfo": "https://targa-florio.it/targafloriorally/",
+    "organizzatore": "Automobile Club Palermo",
+    "immagine": "",
+    "eventoGratuito": true
+  },
+  {
+    "titolo": "Rally San Marino",
+    "dataInizio": "2026-06-19",
+    "dataFine": "2026-06-21",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "San Marino",
+    "citta": "San Marino",
+    "linkBiglietti": "",
+    "linkInfo": "",
+    "organizzatore": "Federazione Auto Motoristica Sammarinese",
+    "immagine": "",
+    "eventoGratuito": true
+  },
+  {
+    "titolo": "Rally Coppa Valtellina",
+    "dataInizio": "2026-05-09",
+    "dataFine": "2026-05-10",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Sondrio",
+    "citta": "Sondrio",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.coppavaltellina.it/",
+    "organizzatore": "Automobile Club Sondrio",
+    "immagine": "",
+    "eventoGratuito": true
+  },
+  {
+    "titolo": "Rally Appennino Reggiano",
+    "dataInizio": "2026-06-13",
+    "dataFine": "2026-06-14",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Castelnovo ne' Monti",
+    "citta": "Castelnovo ne' Monti",
+    "linkBiglietti": "",
+    "linkInfo": "",
+    "organizzatore": "Maremma Corse 2.0 A.S.D.",
+    "immagine": "",
+    "eventoGratuito": false
+  }
+]
