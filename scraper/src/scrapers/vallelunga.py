@@ -4,7 +4,7 @@ La pagina https://motorsport.vallelunga.it/gare/ è server-rendered (niente
 JavaScript necessario). A differenza di Imola, qui il sito pubblica un
 elenco compatto "CALENDARIO GARE <anno>" con righe nel formato:
 
-    18 – 19 Aprile FX Racing Weekend
+    18 – 19 Aprile FX Racing Weekend 
     03-04 Ottobre TIME ATTACK
 
 cioè DATA seguita dal titolo (ordine opposto rispetto a Imola, dove il
