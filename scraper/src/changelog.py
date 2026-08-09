@@ -22,11 +22,12 @@ def _fmt_event(e: dict) -> str:
     return line
 
 
-def build_entry(added: list[dict], removed: list[dict], unparsed: list[tuple]) -> str:
+def build_entry(added: list[dict], removed: list[dict], unparsed: list[tuple], archived: list[dict] | None = None) -> str:
+    archived = archived or []
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     lines = [f"## {ts}", ""]
 
-    if not added and not removed and not unparsed:
+    if not added and not removed and not unparsed and not archived:
         lines.append("Nessuna variazione questa settimana.")
     else:
         if added:
@@ -37,6 +38,10 @@ def build_entry(added: list[dict], removed: list[dict], unparsed: list[tuple]) -
             lines.append(f"❌ **Rimossi ({len(removed)})**")
             lines.extend(_fmt_event(e) for e in removed)
             lines.append("")
+        if archived:
+            lines.append(f"📦 **Archiviati ({len(archived)})** — conclusi da oltre una settimana, spostati in events-archive.json")
+            lines.extend(_fmt_event(e) for e in archived)
+            lines.append("")
         if unparsed:
             lines.append(f"⚠️ **Da rivedere a mano ({len(unparsed)})** — data non interpretabile automaticamente")
             for track_name, ev in unparsed:
@@ -46,8 +51,8 @@ def build_entry(added: list[dict], removed: list[dict], unparsed: list[tuple]) -
     return "\n".join(lines)
 
 
-def append_changelog_entry(path: Path, added: list[dict], removed: list[dict], unparsed: list[tuple]) -> None:
-    entry = build_entry(added, removed, unparsed)
+def append_changelog_entry(path: Path, added: list[dict], removed: list[dict], unparsed: list[tuple], archived: list[dict] | None = None) -> None:
+    entry = build_entry(added, removed, unparsed, archived)
 
     if path.exists():
         existing = path.read_text(encoding="utf-8")
