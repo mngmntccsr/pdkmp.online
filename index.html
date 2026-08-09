@@ -950,11 +950,12 @@ function getRandomImage() {
 }
         // Funzioni Helper
         function formatDateShort(dateString) {
-            const date = new Date(dateString);
-            const day = date.getDate();
-            const month = date.toLocaleDateString('it-IT', { month: 'short' });
-            return `${day} ${month}`;
-        }
+  const date = new Date(dateString);
+  const day = date.getDate();
+  const month = date.toLocaleDateString('it-IT', { month: 'short' });
+  const year = date.getFullYear();
+  return `${day} ${month} ${year}`;
+}
 
 function getDisciplineIcon(disciplina) {
     const config = disciplineIcons[disciplina];
