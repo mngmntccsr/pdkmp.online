@@ -26,6 +26,7 @@ from datetime import date
 
 from src.changelog import append_changelog_entry, build_entry
 from src.config import ROOT_DIR, load_keywords, load_tracks
+from src.events_archive import split_and_archive
 from src.events_json_merge import load_events_json, merge_auto_events, save_events_json
 from src.filters import filter_events
 from src.pdkmp_schema import event_to_pdkmp_dict
@@ -57,6 +58,7 @@ _env_override = os.environ.get("EVENTS_JSON_PATH")
 EVENTS_JSON_PATH = Path(_env_override) if _env_override else (ROOT_DIR.parent / "events.json")
 
 CHANGELOG_PATH = ROOT_DIR / "CHANGELOG.md"
+ARCHIVE_JSON_PATH = EVENTS_JSON_PATH.parent / "events-archive.json"
 
 SEND_EMAIL = os.environ.get("SEND_EMAIL", "false").strip().lower() == "true"
 
@@ -115,21 +117,36 @@ def run(dry_run: bool = False, only_track: str | None = None) -> int:
     existing = load_events_json(EVENTS_JSON_PATH)
     merged, added, removed = merge_auto_events(existing, all_pdkmp_events)
 
+    # Archiviazione: sposta in events-archive.json gli eventi (manuali O
+    # automatici, senza distinzione) conclusi da più di una settimana,
+    # per tenere events.json snello (SEO, performance del sito) mantenendo
+    # comunque uno storico consultabile.
+    if dry_run:
+        # in dry-run non scriviamo file: calcoliamo solo cosa VERREBBE
+        # archiviato, senza toccare events-archive.json su disco
+        cutoff_preview = [e for e in merged if e.get("dataFine", "") and e["dataFine"] < date.today().isoformat()]
+        archived = cutoff_preview
+    else:
+        merged, archived = split_and_archive(merged, ARCHIVE_JSON_PATH)
+
     logger.info(
-        "events.json: %d eventi totali (%d manuali + %d auto), %d aggiunti, %d rimossi, %d scartati (data illeggibile)",
+        "events.json: %d eventi totali (%d manuali + %d auto), %d aggiunti, %d rimossi, "
+        "%d archiviati (>7gg da oggi), %d scartati (data illeggibile/implausibile)",
         len(merged), len(merged) - len(all_pdkmp_events), len(all_pdkmp_events),
-        len(added), len(removed), len(unparsed),
+        len(added), len(removed), len(archived), len(unparsed),
     )
 
     if dry_run:
-        print(build_entry(added, removed, unparsed))
-        logger.info("[DRY RUN] events.json e CHANGELOG.md NON modificati.")
+        print(build_entry(added, removed, unparsed, archived))
+        logger.info("[DRY RUN] events.json, events-archive.json e CHANGELOG.md NON modificati.")
         return 1 if had_errors else 0
 
     save_events_json(EVENTS_JSON_PATH, merged)
     logger.info("events.json aggiornato in %s", EVENTS_JSON_PATH)
+    if archived:
+        logger.info("%d eventi archiviati in %s", len(archived), ARCHIVE_JSON_PATH)
 
-    append_changelog_entry(CHANGELOG_PATH, added, removed, unparsed)
+    append_changelog_entry(CHANGELOG_PATH, added, removed, unparsed, archived)
     logger.info("CHANGELOG.md aggiornato in %s", CHANGELOG_PATH)
 
     if SEND_EMAIL:
@@ -138,7 +155,7 @@ def run(dry_run: bool = False, only_track: str | None = None) -> int:
         from src.config import load_email_config
         from src.notifier import send_email
 
-        html_body = "<pre>" + build_entry(added, removed, unparsed) + "</pre>"
+        html_body = "<pre>" + build_entry(added, removed, unparsed, archived) + "</pre>"
         try:
             email_config = load_email_config()
             subject = f"🏁 PaddockMap: {len(added)} aggiunti, {len(removed)} rimossi"
