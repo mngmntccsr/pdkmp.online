@@ -146,6 +146,15 @@ def infer_organizer(title: str, organizer_rules: list[dict]) -> str:
     return ""
 
 
+def _year_is_plausible(iso_date: str) -> bool:
+    try:
+        year = int(iso_date[:4])
+    except (ValueError, TypeError):
+        return False
+    current_year = date.today().year
+    return current_year - _YEAR_TOLERANCE_PAST <= year <= current_year + _YEAR_TOLERANCE_FUTURE
+
+
 def event_to_pdkmp_dict(
     event: Event,
     track: TrackConfig,
@@ -155,10 +164,21 @@ def event_to_pdkmp_dict(
     """Converte un Event nello schema PaddockMap.
     Restituisce None se la data non è interpretabile o implausibile
     (evento scartato, ma segnalato via changelog per revisione manuale).
+
+    Se lo scraper ha già calcolato date ISO affidabili (event.date_start /
+    event.date_end — es. Mugello, che le ricava direttamente dall'URL della
+    pagina evento), le usa direttamente invece di re-interpretare
+    event.date_text con l'espressione regolare sui nomi dei mesi.
     """
-    start, end = parse_date_range(event.date_text)
-    if not start:
-        return None
+    if event.date_start:
+        start = event.date_start
+        end = event.date_end or event.date_start
+        if not _year_is_plausible(start):
+            return None
+    else:
+        start, end = parse_date_range(event.date_text)
+        if not start:
+            return None
 
     return {
         "titolo": event.title,
