@@ -60,10 +60,10 @@ def load_tracks() -> list[TrackConfig]:
     return tracks
 
 
-def load_keywords() -> dict[str, list[str]]:
+def load_keywords() -> dict:
     with open(CONFIG_PATH, "r", encoding="utf-8") as f:
         raw = yaml.safe_load(f)
-    return raw.get("keywords", {"include": [], "exclude": []})
+    return raw.get("keywords", {"include": [], "exclude": [], "free_entry": [], "organizer_rules": []})
 
 
 def load_email_config() -> EmailConfig:
