@@ -401,23 +401,6 @@
     "idAuto": "4f4fc2f81a9481f0"
   },
   {
-    "titolo": "Historic Minardi Day",
-    "dataInizio": "2026-09-19",
-    "dataFine": "2026-09-20",
-    "disciplina": [
-      "Storico"
-    ],
-    "circuito": "Autodromo di Imola",
-    "citta": "Imola",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autodromoimola.it/en/events/historic-minardi-day/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "a43ace8e97db3e84"
-  },
-  {
     "titolo": "Imola Classic",
     "dataInizio": "2026-10-16",
     "dataFine": "2026-10-18",
@@ -433,23 +416,6 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "efe7ae7b7adefd8e"
-  },
-  {
-    "titolo": "Historic Minardi Day",
-    "dataInizio": "2026-09-19",
-    "dataFine": "2026-09-20",
-    "disciplina": [
-      "Storico"
-    ],
-    "circuito": "Autodromo di Imola",
-    "citta": "Imola",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autodromoimola.it/en/events/historic-minardi-day/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "ec26b94fafeac87e"
   },
   {
     "titolo": "ACI Racing Weekend",
