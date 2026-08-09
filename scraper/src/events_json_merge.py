@@ -70,3 +70,39 @@ def merge_auto_events(existing: list[dict], new_auto_events: list[dict]) -> tupl
     final_auto = {**concluded_not_found, **new_auto_by_id}
     merged = manual_events + list(final_auto.values())
     return merged, added, removed
+
+
+def dedupe_events(events: list[dict]) -> tuple[list[dict], list[dict]]:
+    """Rimuove i doppioni tra eventi AUTOMATICI (non tocca mai gli eventi
+    manuali, che restano tutti). Un evento automatico è considerato un
+    doppione se condivide (circuito, dataInizio) con:
+      - un evento manuale già esistente (es. lo hai già inserito tu con un
+        titolo diverso, tipo "10mo Minardi Day" vs "Historic Minardi Day"
+        trovato dallo scraper con lo stesso circuito e la stessa data)
+      - un altro evento automatico già tenuto in questa stessa passata
+
+    Restituisce (eventi_puliti, doppioni_rimossi). Si applica ad OGNI run,
+    quindi ripulisce anche doppioni già presenti in events.json da run
+    precedenti a questa correzione.
+    """
+    manual = [e for e in events if not e.get("fonteAuto")]
+    seen_keys = {(e.get("circuito"), e.get("dataInizio")) for e in manual}
+
+    cleaned = list(manual)
+    duplicates_removed: list[dict] = []
+
+    # ordina per idAuto per un risultato deterministico (stesso risultato
+    # ad ogni run, a parità di dati in ingresso)
+    auto_events = sorted(
+        (e for e in events if e.get("fonteAuto")),
+        key=lambda e: e.get("idAuto", ""),
+    )
+    for e in auto_events:
+        key = (e.get("circuito"), e.get("dataInizio"))
+        if key in seen_keys:
+            duplicates_removed.append(e)
+            continue
+        seen_keys.add(key)
+        cleaned.append(e)
+
+    return cleaned, duplicates_removed
