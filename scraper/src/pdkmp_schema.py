@@ -127,7 +127,3 @@ def event_to_pdkmp_dict(event: Event, track: TrackConfig) -> dict | None:
         "fonteAuto": True,
         "idAuto": event.event_id,
     }
-    with smtplib.SMTP(email_config.smtp_host, email_config.smtp_port) as server:
-        server.starttls()
-        server.login(email_config.smtp_user, email_config.smtp_pass)
-        server.sendmail(email_config.email_from, [email_config.email_to], msg.as_string())
