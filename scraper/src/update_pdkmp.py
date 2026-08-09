@@ -27,7 +27,7 @@ from datetime import date
 from src.changelog import append_changelog_entry, build_entry
 from src.config import ROOT_DIR, load_keywords, load_tracks
 from src.events_archive import split_and_archive
-from src.events_json_merge import load_events_json, merge_auto_events, save_events_json
+from src.events_json_merge import dedupe_events, load_events_json, merge_auto_events, save_events_json
 from src.filters import filter_events
 from src.pdkmp_schema import event_to_pdkmp_dict
 from src.scrapers.imola import ImolaScraper
@@ -117,6 +117,14 @@ def run(dry_run: bool = False, only_track: str | None = None) -> int:
     existing = load_events_json(EVENTS_JSON_PATH)
     merged, added, removed = merge_auto_events(existing, all_pdkmp_events)
 
+    # Deduplica: rimuove eventi automatici che condividono circuito+data con
+    # un evento manuale (es. lo hai già inserito tu con un titolo diverso)
+    # o con un altro evento automatico. Ripulisce anche doppioni già
+    # presenti in events.json da run precedenti a questa correzione.
+    merged, duplicates = dedupe_events(merged)
+    if duplicates:
+        logger.info("%d doppioni rimossi (stesso circuito+data di un evento già presente)", len(duplicates))
+
     # Archiviazione: sposta in events-archive.json gli eventi (manuali O
     # automatici, senza distinzione) conclusi da più di una settimana,
     # per tenere events.json snello (SEO, performance del sito) mantenendo
@@ -130,14 +138,14 @@ def run(dry_run: bool = False, only_track: str | None = None) -> int:
         merged, archived = split_and_archive(merged, ARCHIVE_JSON_PATH)
 
     logger.info(
-        "events.json: %d eventi totali (%d manuali + %d auto), %d aggiunti, %d rimossi, "
+        "events.json: %d eventi totali (%d manuali + %d auto), %d aggiunti, %d rimossi, %d doppioni rimossi, "
         "%d archiviati (>7gg da oggi), %d scartati (data illeggibile/implausibile)",
         len(merged), len(merged) - len(all_pdkmp_events), len(all_pdkmp_events),
-        len(added), len(removed), len(archived), len(unparsed),
+        len(added), len(removed), len(duplicates), len(archived), len(unparsed),
     )
 
     if dry_run:
-        print(build_entry(added, removed, unparsed, archived))
+        print(build_entry(added, removed, unparsed, archived, duplicates))
         logger.info("[DRY RUN] events.json, events-archive.json e CHANGELOG.md NON modificati.")
         return 1 if had_errors else 0
 
@@ -146,7 +154,7 @@ def run(dry_run: bool = False, only_track: str | None = None) -> int:
     if archived:
         logger.info("%d eventi archiviati in %s", len(archived), ARCHIVE_JSON_PATH)
 
-    append_changelog_entry(CHANGELOG_PATH, added, removed, unparsed, archived)
+    append_changelog_entry(CHANGELOG_PATH, added, removed, unparsed, archived, duplicates)
     logger.info("CHANGELOG.md aggiornato in %s", CHANGELOG_PATH)
 
     if SEND_EMAIL:
@@ -155,7 +163,7 @@ def run(dry_run: bool = False, only_track: str | None = None) -> int:
         from src.config import load_email_config
         from src.notifier import send_email
 
-        html_body = "<pre>" + build_entry(added, removed, unparsed, archived) + "</pre>"
+        html_body = "<pre>" + build_entry(added, removed, unparsed, archived, duplicates) + "</pre>"
         try:
             email_config = load_email_config()
             subject = f"🏁 PaddockMap: {len(added)} aggiunti, {len(removed)} rimossi"
