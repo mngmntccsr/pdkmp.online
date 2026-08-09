@@ -64,6 +64,14 @@ tracks:
     selectors: {}   # non usati: vallelunga.py fa parsing testuale dedicato
     date_hint_language: it
 
+  - slug: mugello
+    name: "Mugello Circuit"
+    citta: "Scarperia e San Piero"
+    url: "https://mugellocircuit.com/it/gare"
+    parser: static
+    selectors: {}   # non usati: mugello.py fa parsing testuale dedicato (data affidabile dall'URL)
+    date_hint_language: it
+
 # =============================================================================
 # PAROLE CHIAVE PER LA CLASSIFICAZIONE DEGLI EVENTI
 # =============================================================================
@@ -98,6 +106,7 @@ keywords:
     - "eurocup"
     - "porsche carrera cup"
     - "porsche club"
+    - "porsche sports cup"
     - "tcr"
     - "aci racing weekend"
     - "coppa italia"
