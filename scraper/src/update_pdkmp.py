@@ -33,6 +33,7 @@ from src.pdkmp_schema import event_to_pdkmp_dict
 from src.scrapers.imola import ImolaScraper
 from src.scrapers.misano import MisanoScraper
 from src.scrapers.monza import MonzaScraper
+from src.scrapers.mugello import MugelloScraper
 from src.scrapers.vallelunga import VallelungaScraper
 
 logging.basicConfig(
@@ -46,6 +47,7 @@ SCRAPER_REGISTRY = {
     "monza": MonzaScraper,
     "misano": MisanoScraper,
     "vallelunga": VallelungaScraper,
+    "mugello": MugelloScraper,
 }
 
 # events.json vive nella ROOT del repo del sito (accanto a index.html).
