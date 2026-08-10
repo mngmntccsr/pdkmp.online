@@ -46,11 +46,11 @@ tracks:
   - slug: misano
     name: "Misano World Circuit"
     citta: "Misano Adriatico"
-    url: "https://www.misanocircuit.com/biglietteria/"
+    url: "https://www.misanocircuit.com/events"
     parser: dynamic
     wait_selector: "[class*='event'], [class*='card']"
     selectors:
-      event_container: "[class*='event-card'], [class*='EventCard'], article"
+      event_container: "[class*='event-card'], [class*='EventCard'], article, a[href*='/events/']"
       title: "h2, h3, [class*='title']"
       date: "[class*='date'], time"
       link: "a"
