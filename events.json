@@ -352,6 +352,40 @@
     "eventoGratuito": true
   },
   {
+    "titolo": "ACI RACING WEEKEND - C.I. AUTOMOBILISMO",
+    "dataInizio": "2026-10-30",
+    "dataFine": "2026-11-01",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Mugello Circuit",
+    "citta": "Scarperia e San Piero",
+    "linkBiglietti": "",
+    "linkInfo": "https://mugellocircuit.com/it/gare/details/2026-10-30/1753-aci-racing-weekend-c-i-automobilismo-5",
+    "organizzatore": "ACI Sport",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "186339fc7645d082"
+  },
+  {
+    "titolo": "PNK Motorsport",
+    "dataInizio": "2026-11-05",
+    "dataFine": "2026-11-08",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Misano World Circuit",
+    "citta": "Misano Adriatico",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.misanocircuit.com/events",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "1b3170b3d814d5b7"
+  },
+  {
     "titolo": "WEC 6 Hours of Imola",
     "dataInizio": "2027-04-09",
     "dataFine": "2027-04-11",
@@ -386,6 +420,23 @@
     "idAuto": "1c47e30b9fb68d58"
   },
   {
+    "titolo": "PORSCHE SPORTS CUP SUISSE",
+    "dataInizio": "2026-09-24",
+    "dataFine": "2026-09-26",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Mugello Circuit",
+    "citta": "Scarperia e San Piero",
+    "linkBiglietti": "",
+    "linkInfo": "https://mugellocircuit.com/it/gare/details/2026-09-24/1750-porsche-sports-cup-suisse",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "31de9b31155a8bbc"
+  },
+  {
     "titolo": "Vallelunga Euro Nascar",
     "dataInizio": "2026-09-19",
     "dataFine": "2026-09-20",
@@ -401,6 +452,23 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "32acf748600068d0"
+  },
+  {
+    "titolo": "Moto Junior FIM World Championship",
+    "dataInizio": "2026-10-15",
+    "dataFine": "2026-10-18",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Misano World Circuit",
+    "citta": "Misano Adriatico",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.misanocircuit.com/events",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "3d5781c28c2ba805"
   },
   {
     "titolo": "2H di Roma",
@@ -420,6 +488,74 @@
     "idAuto": "526965136ea3af34"
   },
   {
+    "titolo": "Coppa Italia",
+    "dataInizio": "2026-10-01",
+    "dataFine": "2026-10-04",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Misano World Circuit",
+    "citta": "Misano Adriatico",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.misanocircuit.com/events",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "69932b00c8c924d1"
+  },
+  {
+    "titolo": "COPPA ITALIA VELOCITA’ - Round 4",
+    "dataInizio": "2026-09-04",
+    "dataFine": "2026-09-06",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Mugello Circuit",
+    "citta": "Scarperia e San Piero",
+    "linkBiglietti": "",
+    "linkInfo": "https://mugellocircuit.com/it/gare/details/2026-09-04/1749-coppa-italia-di-velocita-3",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "7514d7d776208d96"
+  },
+  {
+    "titolo": "ACI Misano Racing Weekend",
+    "dataInizio": "2026-09-17",
+    "dataFine": "2026-09-20",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Misano World Circuit",
+    "citta": "Misano Adriatico",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.misanocircuit.com/events",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "9b3614d82be68276"
+  },
+  {
+    "titolo": "Formula X",
+    "dataInizio": "2026-11-12",
+    "dataFine": "2026-11-15",
+    "disciplina": [
+      "Formula"
+    ],
+    "circuito": "Misano World Circuit",
+    "citta": "Misano Adriatico",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.misanocircuit.com/events",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "a89f63bec31d8d82"
+  },
+  {
     "titolo": "FMI CIV",
     "dataInizio": "2026-10-10",
     "dataFine": "2026-10-11",
@@ -435,5 +571,22 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "be6b77f54d7abee4"
+  },
+  {
+    "titolo": "Gran Premio Red Bull di San Marino e della Riviera di Rimini",
+    "dataInizio": "2026-09-10",
+    "dataFine": "2026-09-13",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Misano World Circuit",
+    "citta": "Misano Adriatico",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.misanocircuit.com/events",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "fb657171f652d4f9"
   }
 ]
