@@ -19,43 +19,107 @@ from src.models import Event
 
 logger = logging.getLogger(__name__)
 
+# IMPORTANTE: uno User-Agent con un suffisso "da bot" (es. nome dello
+# scraper + link) è un segnale che molti sistemi anti-bot riconoscono e
+# bloccano subito. Usiamo uno user agent identico a un vero browser Chrome
+# aggiornato, senza alcuna firma che ci identifichi come script.
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 "
-    "MotorsportEventsScraper/1.0 (+https://github.com/)"
+    "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 )
+
+EXTRA_HTTP_HEADERS = {
+    "Accept-Language": "it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+}
+
+# Testi tipici dei bottoni "accetta i cookie" nei banner italiani/inglesi:
+# se compaiono li clicchiamo, così eventuali script bloccati dal banner
+# possono partire normalmente.
+_COOKIE_BUTTON_TEXTS = [
+    "Accetta tutti", "Accetta", "Accept all", "Accept All", "Accept",
+    "Consenti tutti", "Consenti", "OK", "Ho capito",
+]
 
 
 def fetch_html_static(url: str, timeout: int = 20) -> str:
     """Scarica l'HTML di una pagina server-rendered."""
-    resp = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=timeout)
+    headers = {"User-Agent": USER_AGENT, **EXTRA_HTTP_HEADERS}
+    resp = requests.get(url, headers=headers, timeout=timeout)
     resp.raise_for_status()
     return resp.text
 
 
-def fetch_html_dynamic(url: str, wait_selector: str | None = None, timeout_ms: int = 20000) -> str:
+def fetch_html_dynamic(
+    url: str, wait_selector: str | None = None, timeout_ms: int = 30000,
+    extra_wait_ms: int = 4000,
+) -> str:
     """Apre la pagina con Playwright (Chromium headless) e restituisce l'HTML
     dopo il rendering JavaScript. Necessario per calendari costruiti con
     plugin/framework client-side (es. EventON su WordPress, app React/Vue).
+
+    Include alcuni accorgimenti per siti con protezioni anti-bot o
+    caricamento asincrono lento:
+      - user agent "pulito" (vedi USER_AGENT sopra)
+      - navigator.webdriver mascherato (molte protezioni lo controllano)
+      - tentativo automatico di chiudere banner cookie che potrebbero
+        bloccare script/richieste successive
+      - una pausa extra dopo il "networkidle" per i siti che caricano i
+        dati con una chiamata asincrona tardiva
+      - uno scroll fino in fondo alla pagina, per attivare eventuale
+        contenuto caricato "on scroll" (lazy loading)
     """
     from playwright.sync_api import sync_playwright  # import locale: costoso, solo se serve
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-        page = browser.new_page(user_agent=USER_AGENT)
+        browser = p.chromium.launch(
+            headless=True,
+            args=["--disable-blink-features=AutomationControlled"],
+        )
+        page = browser.new_page(
+            user_agent=USER_AGENT,
+            viewport={"width": 1366, "height": 900},
+            locale="it-IT",
+            extra_http_headers=EXTRA_HTTP_HEADERS,
+        )
+        # maschera il segnale più comune usato per rilevare i browser
+        # automatizzati (navigator.webdriver === true di default con Playwright)
+        page.add_init_script(
+            "Object.defineProperty(navigator, 'webdriver', { get: () => undefined });"
+        )
         try:
             page.goto(url, timeout=timeout_ms, wait_until="networkidle")
+
+            # prova a chiudere un eventuale banner cookie
+            for text in _COOKIE_BUTTON_TEXTS:
+                try:
+                    btn = page.get_by_text(text, exact=False).first
+                    if btn.is_visible(timeout=1000):
+                        btn.click(timeout=1000)
+                        page.wait_for_timeout(500)
+                        break
+                except Exception:
+                    continue
+
+            # scroll fino in fondo, nel caso il contenuto sia caricato "on scroll"
+            try:
+                page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+                page.wait_for_timeout(1000)
+            except Exception:
+                pass
+
             if wait_selector:
                 try:
                     page.wait_for_selector(wait_selector, timeout=timeout_ms)
                 except Exception:
-                    # Non blocchiamo lo scraping se il selettore non compare:
-                    # verrà semplicemente restituita la pagina così com'è,
-                    # e a valle probabilmente 0 eventi -> utile per debug.
                     logger.warning(
                         "Selettore d'attesa '%s' non trovato su %s entro %sms",
                         wait_selector, url, timeout_ms,
                     )
+
+            # pausa extra per chiamate asincrone lente/tardive
+            page.wait_for_timeout(extra_wait_ms)
+
             html = page.content()
         finally:
             browser.close()
