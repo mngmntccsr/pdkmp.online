@@ -410,5 +410,37 @@
     "organizzatore": "Maremma Corse 2.0 A.S.D.",
     "immagine": "",
     "eventoGratuito": false
+  },
+  {
+    "titolo": "20° Rally Regione Piemonte",
+    "dataInizio": "2026-07-31",
+    "dataFine": "2026-08-02",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Alba",
+    "citta": "Alba",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.rallyalba.it/",
+    "organizzatore": "Automobile Club Cuneo",
+    "immagine": "",
+    "eventoGratuito": true
+  },
+  {
+    "titolo": "Eurocup-3",
+    "dataInizio": "2026-07-31",
+    "dataFine": "2026-08-02",
+    "disciplina": [
+      "Formula",
+      "Le Mans Prototype",
+      "Gt"
+    ],
+    "circuito": "Autodromo Nazionale Monza",
+    "citta": "Monza",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.monzanet.it/evento/eurocup-3-2/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true
   }
 ]

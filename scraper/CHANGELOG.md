@@ -2,6 +2,36 @@
 
 Questo file viene aggiornato automaticamente ogni settimana dallo scraper.
 
+## 2026-08-10 00:24 UTC
+
+✅ **Aggiunti (10)**
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **Imola Classic** — 2026-10-16 → 2026-10-18 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/imola-classic-2/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **COPPA ITALIA VELOCITA’ - Round 4** — 2026-09-04 → 2026-09-06 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-09-04/1749-coppa-italia-di-velocita-3
+- **PORSCHE SPORTS CUP SUISSE** — 2026-09-24 → 2026-09-26 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-09-24/1750-porsche-sports-cup-suisse
+- **GRAN PREMIO STORICO D’ITALIA** — 2026-10-02 → 2026-10-04 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-02/1751-gran-premio-storico-d-italia
+- **MUGELLO RACING WEEKEND** — 2026-10-16 → 2026-10-18 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-16/1752-mugello-racing-weekend-4
+- **ACI RACING WEEKEND - C.I. AUTOMOBILISMO** — 2026-10-30 → 2026-11-01 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-30/1753-aci-racing-weekend-c-i-automobilismo-5
+
+🔁 **Duplicati rimossi (7)** — stesso circuito+data di un evento già presente
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **GRAN PREMIO STORICO D’ITALIA** — 2026-10-02 → 2026-10-04 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-02/1751-gran-premio-storico-d-italia
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **MUGELLO RACING WEEKEND** — 2026-10-16 → 2026-10-18 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-16/1752-mugello-racing-weekend-4
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **Imola Classic** — 2026-10-16 → 2026-10-18 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/imola-classic-2/
+
+📦 **Archiviati (2)** — conclusi da oltre una settimana, spostati in events-archive.json
+- **20° Rally Regione Piemonte** — 2026-07-31 → 2026-08-02 _[Alba]_ — https://www.rallyalba.it/
+- **Eurocup-3** — 2026-07-31 → 2026-08-02 _[Autodromo Nazionale Monza]_ — https://www.monzanet.it/evento/eurocup-3-2/
+
+
+---
+
 ## 2026-08-09 23:21 UTC
 
 ✅ **Aggiunti (5)**
