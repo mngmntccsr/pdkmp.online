@@ -352,6 +352,142 @@
     "eventoGratuito": true
   },
   {
+    "titolo": "We Can Race - Guida in pista a Domenica",
+    "dataInizio": "2027-05-30",
+    "dataFine": "2027-05-30",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Domenica",
+    "citta": "Autodromo Nazionale dell'Umbria",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "0504ae63484b4b80"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a La Conca",
+    "dataInizio": "2026-10-11",
+    "dataFine": "2026-10-11",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "La Conca",
+    "citta": "Muro Leccese",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "0b93a06f1ccce8f9"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Piero Taruffi",
+    "dataInizio": "2026-12-12",
+    "dataFine": "2026-12-12",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Autodromo Piero Taruffi",
+    "citta": "Campagnano di Roma",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "0c2c37c0e233d9b6"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Franco di Suni",
+    "dataInizio": "2026-10-17",
+    "dataFine": "2026-10-17",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Autodromo Franco di Suni",
+    "citta": "Mores",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "0c7344ec619b1351"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Domenica",
+    "dataInizio": "2027-06-06",
+    "dataFine": "2027-06-06",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Domenica",
+    "citta": "Autodromo del Levante",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "0e30196c901e0bef"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-02-20",
+    "dataFine": "2027-02-20",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Autodromo Enzo e Dino Ferrari",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "103840a3d8631568"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo di Pomposa",
+    "dataInizio": "2026-10-25",
+    "dataFine": "2026-10-25",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Autodromo di Pomposa",
+    "citta": "S.G. di Comacchio",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "1196c1b0b810ee14"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo di Pergusa",
+    "dataInizio": "2026-09-13",
+    "dataFine": "2026-09-13",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Autodromo di Pergusa",
+    "citta": "Pergusa",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "16eb65343eb5b80b"
+  },
+  {
     "titolo": "ACI RACING WEEKEND - C.I. AUTOMOBILISMO",
     "dataInizio": "2026-10-30",
     "dataFine": "2026-11-01",
@@ -367,6 +503,57 @@
     "eventoGratuito": true,
     "fonteAuto": true,
     "idAuto": "186339fc7645d082"
+  },
+  {
+    "titolo": "PNK Motorsport",
+    "dataInizio": "2026-11-05",
+    "dataFine": "2026-11-08",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Misano World Circuit",
+    "citta": "Misano Adriatico",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.misanocircuit.com/events",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "1b3170b3d814d5b7"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Domenica",
+    "dataInizio": "2027-10-17",
+    "dataFine": "2027-10-17",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Domenica",
+    "citta": "Autodromo Franco di Suni",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "1b6fd4ea69870e62"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-06-26",
+    "dataFine": "2027-06-26",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Circuito Internazionale del Volturno",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "1bc0c5ccb31a71ec"
   },
   {
     "titolo": "WEC 6 Hours of Imola",
@@ -403,6 +590,57 @@
     "idAuto": "1c47e30b9fb68d58"
   },
   {
+    "titolo": "We Can Race - Guida in pista a Domenica",
+    "dataInizio": "2027-05-16",
+    "dataFine": "2027-05-16",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Domenica",
+    "citta": "Autodromo Enzo e Dino Ferrari",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "26cfdc9b5125cd04"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-09-25",
+    "dataFine": "2027-09-25",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Autodromo del Levante",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "2c19fc0ced854468"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Domenica",
+    "dataInizio": "2027-10-10",
+    "dataFine": "2027-10-10",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Domenica",
+    "citta": "La Conca",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "315449b4936c255a"
+  },
+  {
     "titolo": "PORSCHE SPORTS CUP SUISSE",
     "dataInizio": "2026-09-24",
     "dataFine": "2026-09-26",
@@ -437,6 +675,91 @@
     "idAuto": "32acf748600068d0"
   },
   {
+    "titolo": "We Can Race - Guida in pista a Domenica",
+    "dataInizio": "2027-07-04",
+    "dataFine": "2027-07-04",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Domenica",
+    "citta": "Autodromo di Arese",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "33e81007691f3736"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Domenica",
+    "dataInizio": "2027-10-31",
+    "dataFine": "2027-10-31",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Domenica",
+    "citta": "Autodromo di Arese",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "3625e5898ba3ef70"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-11-06",
+    "dataFine": "2027-11-06",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Circuito Internazionale del Volturno",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "3642cd39f30b70eb"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Domenica",
+    "dataInizio": "2027-06-13",
+    "dataFine": "2027-06-13",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Domenica",
+    "citta": "Autodromo Valle dei Templi",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "383e427ba7ab4571"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Mercoledì",
+    "dataInizio": "2027-07-07",
+    "dataFine": "2027-07-07",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Mercoledì",
+    "citta": "Autodromo Internazionale del Mugello",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "3b13128a1b6d5a8d"
+  },
+  {
     "titolo": "Moto Junior FIM World Championship",
     "dataInizio": "2026-10-15",
     "dataFine": "2026-10-18",
@@ -452,6 +775,159 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "3d5781c28c2ba805"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-05-29",
+    "dataFine": "2027-05-29",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Circuito Internazionale d'Abruzzo",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "3dcdbe12c80862c8"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Internazionale del Mugello",
+    "dataInizio": "2026-10-21",
+    "dataFine": "2026-10-21",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Autodromo Internazionale del Mugello",
+    "citta": "Scarperia S. Piero",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "3f458612c0d93ce7"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Domenica",
+    "dataInizio": "2027-03-07",
+    "dataFine": "2027-03-07",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Domenica",
+    "citta": "Autodromo del Levante",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "41a8d6abd1523589"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Circuito Internazionale del Volturno",
+    "dataInizio": "2026-09-05",
+    "dataFine": "2026-09-05",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Circuito Internazionale del Volturno",
+    "citta": "Limatola",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "41b5be6a1e7e6002"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Domenica",
+    "dataInizio": "2027-05-23",
+    "dataFine": "2027-05-23",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Domenica",
+    "citta": "Autodromo Franco di Suni",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "44a3dfe8ea2f2d06"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-07-24",
+    "dataFine": "2027-07-24",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Autodromo Piero Taruffi",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "4a5fe00028ce2afe"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo del Levante",
+    "dataInizio": "2026-09-26",
+    "dataFine": "2026-09-26",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Autodromo del Levante",
+    "citta": "Binetto",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "4c29417e48ebf391"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Nazionale dell'Umbria",
+    "dataInizio": "2026-11-14",
+    "dataFine": "2026-11-14",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Autodromo Nazionale dell'Umbria",
+    "citta": "Magione",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "4cb85afaf820ed17"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-10-09",
+    "dataFine": "2027-10-09",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "La Conca",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "50e2fdc4381264b6"
   },
   {
     "titolo": "2H di Roma",
@@ -471,6 +947,91 @@
     "idAuto": "526965136ea3af34"
   },
   {
+    "titolo": "We Can Race - Guida in pista a Autodromo Riccardo Paletti",
+    "dataInizio": "2026-10-24",
+    "dataFine": "2026-10-24",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Autodromo Riccardo Paletti",
+    "citta": "Varano de Melegari",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "5279f8c4926f5716"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Tazio Nuvolari 2.8",
+    "dataInizio": "2026-10-31",
+    "dataFine": "2026-10-31",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Tazio Nuvolari 2.8",
+    "citta": "Cervesina",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "5a935709e4f03480"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-09-18",
+    "dataFine": "2027-09-18",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Autodromo Valle dei Templi",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "5be0236cd4656bc9"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-10-23",
+    "dataFine": "2027-10-23",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Autodromo Riccardo Paletti",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "5cb68c17cbe80340"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-03-27",
+    "dataFine": "2027-03-27",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Autodromo Valle dei Templi",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "658ad21e5295db63"
+  },
+  {
     "titolo": "Coppa Italia",
     "dataInizio": "2026-10-01",
     "dataFine": "2026-10-04",
@@ -486,6 +1047,57 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "69932b00c8c924d1"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-06-12",
+    "dataFine": "2027-06-12",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Autodromo Valle dei Templi",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "6d045a233e14cc7a"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-04-10",
+    "dataFine": "2027-04-10",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Autodromo Gianni de Luca",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "73df185f4e9a84ca"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Domenica",
+    "dataInizio": "2027-07-18",
+    "dataFine": "2027-07-18",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Domenica",
+    "citta": "Autodromo Enzo e Dino Ferrari",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "74912089cc0b05f3"
   },
   {
     "titolo": "COPPA ITALIA VELOCITA’ - Round 4",
@@ -505,6 +1117,448 @@
     "idAuto": "7514d7d776208d96"
   },
   {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-03-20",
+    "dataFine": "2027-03-20",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Circuito Internazionale d'Abruzzo",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "7761244c153695bc"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-02-27",
+    "dataFine": "2027-02-27",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Autodromo Internazionale del Mugello",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "797fdd1941faf6ec"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-07-03",
+    "dataFine": "2027-07-03",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Tazio Nuvolari 2.8",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "7d131b72dd8de60b"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Enzo e Dino Ferrari",
+    "dataInizio": "2026-11-28",
+    "dataFine": "2026-11-28",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Autodromo Enzo e Dino Ferrari",
+    "citta": "Imola",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "7f8fa482472faacb"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Valle dei Templi",
+    "dataInizio": "2026-09-19",
+    "dataFine": "2026-09-19",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Autodromo Valle dei Templi",
+    "citta": "Racalmuto",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "847dc61274ce8888"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-10-16",
+    "dataFine": "2027-10-16",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Autodromo Franco di Suni",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "897cc8e27c6c63f3"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-12-11",
+    "dataFine": "2027-12-11",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Autodromo Piero Taruffi",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "8b49c608392e76f5"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-07-17",
+    "dataFine": "2027-07-17",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Autodromo Enzo e Dino Ferrari",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "962176c4a4bcbf5f"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Domenica",
+    "dataInizio": "2027-02-28",
+    "dataFine": "2027-02-28",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Domenica",
+    "citta": "Autodromo Piero Taruffi",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "99f55c5e1863b4cd"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-05-15",
+    "dataFine": "2027-05-15",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Autodromo Enzo e Dino Ferrari",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "9a00b5a00f334009"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo del Levante",
+    "dataInizio": "2026-09-27",
+    "dataFine": "2026-09-27",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Autodromo del Levante",
+    "citta": "Binetto",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "9b1911a0e33689d4"
+  },
+  {
+    "titolo": "ACI Misano Racing Weekend",
+    "dataInizio": "2026-09-17",
+    "dataFine": "2026-09-20",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Misano World Circuit",
+    "citta": "Misano Adriatico",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.misanocircuit.com/events",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "9b3614d82be68276"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Domenica",
+    "dataInizio": "2026-11-22",
+    "dataFine": "2026-11-22",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Domenica",
+    "citta": "Autodromo di Pergusa",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "9b6670ada52e2357"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Mercoledì",
+    "dataInizio": "2027-10-20",
+    "dataFine": "2027-10-20",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Mercoledì",
+    "citta": "Autodromo Internazionale del Mugello",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "9d928ca221a553a0"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-11-27",
+    "dataFine": "2027-11-27",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Autodromo Enzo e Dino Ferrari",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "a64484a56bd6a86d"
+  },
+  {
+    "titolo": "Formula X",
+    "dataInizio": "2026-11-12",
+    "dataFine": "2026-11-15",
+    "disciplina": [
+      "Formula"
+    ],
+    "circuito": "Misano World Circuit",
+    "citta": "Misano Adriatico",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.misanocircuit.com/events",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "a89f63bec31d8d82"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Enzo e Dino Ferrari",
+    "dataInizio": "2026-11-29",
+    "dataFine": "2026-11-29",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Autodromo Enzo e Dino Ferrari",
+    "citta": "Imola",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "a95bb1ca07455cba"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Domenica",
+    "dataInizio": "2027-12-19",
+    "dataFine": "2027-12-19",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Domenica",
+    "citta": "Autodromo Valle dei Templi",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "aaa311af32b9144f"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-05-08",
+    "dataFine": "2027-05-08",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Autodromo Gianni de Luca",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "afa443ab638383a6"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a La Conca",
+    "dataInizio": "2026-10-10",
+    "dataFine": "2026-10-10",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "La Conca",
+    "citta": "Muro Leccese",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "b077d0b6d2b1ef6e"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-10-30",
+    "dataFine": "2027-10-30",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Tazio Nuvolari 2.8",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "b164182a11a388ff"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Domenica",
+    "dataInizio": "2027-11-28",
+    "dataFine": "2027-11-28",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Domenica",
+    "citta": "Autodromo Enzo e Dino Ferrari",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "b55e669abe0d33c5"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Gianni de Luca",
+    "dataInizio": "2026-10-04",
+    "dataFine": "2026-10-04",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Autodromo Gianni de Luca",
+    "citta": "Airola",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "b91d4e450380570f"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Domenica",
+    "dataInizio": "2027-09-19",
+    "dataFine": "2027-09-19",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Domenica",
+    "citta": "Autodromo Valle dei Templi",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "b9d5d59532617069"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-03-06",
+    "dataFine": "2027-03-06",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Autodromo del Levante",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "ba001406a7c17486"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo di Pergusa",
+    "dataInizio": "2026-09-12",
+    "dataFine": "2026-09-12",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Autodromo di Pergusa",
+    "citta": "Pergusa",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "be473459ac449cbb"
+  },
+  {
     "titolo": "FMI CIV",
     "dataInizio": "2026-10-10",
     "dataFine": "2026-10-11",
@@ -522,6 +1576,261 @@
     "idAuto": "be6b77f54d7abee4"
   },
   {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2026-11-21",
+    "dataFine": "2026-11-21",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Autodromo di Pergusa",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "be98ca51172412bf"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Domenica",
+    "dataInizio": "2027-09-26",
+    "dataFine": "2027-09-26",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Domenica",
+    "citta": "Autodromo del Levante",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "c11466b6f4b97cd3"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-06-05",
+    "dataFine": "2027-06-05",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Autodromo del Levante",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "c1c209967f92bec9"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo di Arese",
+    "dataInizio": "2026-11-01",
+    "dataFine": "2026-11-01",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Autodromo di Arese",
+    "citta": "Lainate",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "c72cd7e0a7c6e776"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-11-13",
+    "dataFine": "2027-11-13",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Autodromo Nazionale dell'Umbria",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "cd75bd5233fa8c3c"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Franco di Suni",
+    "dataInizio": "2026-10-18",
+    "dataFine": "2026-10-18",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Autodromo Franco di Suni",
+    "citta": "Mores",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "d35f635c807ca984"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Domenica",
+    "dataInizio": "2027-03-28",
+    "dataFine": "2027-03-28",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Domenica",
+    "citta": "Autodromo Valle dei Templi",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "e28b656aa7d95752"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Circuito Internazionale del Volturno",
+    "dataInizio": "2026-11-07",
+    "dataFine": "2026-11-07",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Circuito Internazionale del Volturno",
+    "citta": "Limatola",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "e303de48cd769d33"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-05-22",
+    "dataFine": "2027-05-22",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Autodromo Franco di Suni",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "e873616f7ae62839"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Domenica",
+    "dataInizio": "2027-10-24",
+    "dataFine": "2027-10-24",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Domenica",
+    "citta": "Autodromo di Pomposa",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "ebcf172c9deace4f"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-10-02",
+    "dataFine": "2027-10-02",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Circuito Internazionale d'Abruzzo",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "f18099a1a6bbff71"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Valle dei Templi",
+    "dataInizio": "2026-12-20",
+    "dataFine": "2026-12-20",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Autodromo Valle dei Templi",
+    "citta": "Racalmuto",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "f531a3e8d2be5523"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Valle dei Templi",
+    "dataInizio": "2026-09-20",
+    "dataFine": "2026-09-20",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Autodromo Valle dei Templi",
+    "citta": "Racalmuto",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "f7b0f468b05d9138"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-03-13",
+    "dataFine": "2027-03-13",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Tazio Nuvolari 2.8",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "fa415b453d70d8b2"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Sabato",
+    "dataInizio": "2027-12-18",
+    "dataFine": "2027-12-18",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Sabato",
+    "citta": "Autodromo Valle dei Templi",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "fb2f737262288673"
+  },
+  {
     "titolo": "Gran Premio Red Bull di San Marino e della Riviera di Rimini",
     "dataInizio": "2026-09-10",
     "dataFine": "2026-09-13",
@@ -537,5 +1846,39 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "fb657171f652d4f9"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Valle dei Templi",
+    "dataInizio": "2026-12-19",
+    "dataFine": "2026-12-19",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Autodromo Valle dei Templi",
+    "citta": "Racalmuto",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "ff62adf99d443f4f"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Circuito Internazionale d'Abruzzo",
+    "dataInizio": "2026-10-03",
+    "dataFine": "2026-10-03",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Circuito Internazionale d'Abruzzo",
+    "citta": "Ortona",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "ff8f1de6371e2e3d"
   }
 ]
