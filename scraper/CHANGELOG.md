@@ -2,6 +2,29 @@
 
 Questo file viene aggiornato automaticamente ogni settimana dallo scraper.
 
+## 2026-08-10 08:44 UTC
+
+✅ **Aggiunti (7)**
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **Imola Classic** — 2026-10-16 → 2026-10-18 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/imola-classic-2/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **GRAN PREMIO STORICO D’ITALIA** — 2026-10-02 → 2026-10-04 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-02/1751-gran-premio-storico-d-italia
+- **MUGELLO RACING WEEKEND** — 2026-10-16 → 2026-10-18 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-16/1752-mugello-racing-weekend-4
+
+🔁 **Duplicati rimossi (7)** — stesso circuito+data di un evento già presente
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **GRAN PREMIO STORICO D’ITALIA** — 2026-10-02 → 2026-10-04 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-02/1751-gran-premio-storico-d-italia
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **MUGELLO RACING WEEKEND** — 2026-10-16 → 2026-10-18 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-16/1752-mugello-racing-weekend-4
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **Imola Classic** — 2026-10-16 → 2026-10-18 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/imola-classic-2/
+
+
+---
+
 ## 2026-08-10 07:59 UTC
 
 ✅ **Aggiunti (16)**
