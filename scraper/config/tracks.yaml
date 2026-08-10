@@ -15,9 +15,9 @@
 #   smette di trovare eventi, usa `tools/inspect_page.py` per ispezionare
 #   l'HTML renderizzato e aggiornare i selettori qui sotto.
 # =============================================================================
-
+ 
 tracks:
-
+ 
   - slug: imola
     name: "Autodromo di Imola"
     citta: "Imola"
@@ -29,7 +29,7 @@ tracks:
       title: "self"          # il testo del link stesso contiene titolo + data
       link: "self"
     date_hint_language: en
-
+ 
   - slug: monza
     name: "Autodromo Nazionale Monza"
     citta: "Monza"
@@ -42,7 +42,7 @@ tracks:
       date: ".evcal_desc4, .evcal_date, .evcal_event_time"
       link: "a"
     date_hint_language: it
-
+ 
   - slug: misano
     name: "Misano World Circuit"
     citta: "Misano Adriatico"
@@ -55,7 +55,7 @@ tracks:
       date: "[class*='date'], time"
       link: "a"
     date_hint_language: it
-
+ 
   - slug: vallelunga
     name: "Autodromo di Vallelunga"
     citta: "Campagnano di Roma"
@@ -63,7 +63,7 @@ tracks:
     parser: static
     selectors: {}   # non usati: vallelunga.py fa parsing testuale dedicato
     date_hint_language: it
-
+ 
   - slug: mugello
     name: "Mugello Circuit"
     citta: "Scarperia e San Piero"
@@ -71,7 +71,7 @@ tracks:
     parser: static
     selectors: {}   # non usati: mugello.py fa parsing testuale dedicato (data affidabile dall'URL)
     date_hint_language: it
-
+ 
 # =============================================================================
 # PAROLE CHIAVE PER LA CLASSIFICAZIONE DEGLI EVENTI
 # =============================================================================
@@ -81,7 +81,7 @@ tracks:
 #
 # Modifica liberamente queste liste in base a cosa vuoi vedere/nascondere.
 # =============================================================================
-
+ 
 keywords:
   include:
     # gare / campionati
@@ -107,6 +107,8 @@ keywords:
     - "porsche carrera cup"
     - "porsche club"
     - "porsche sports cup"
+    - "fim"
+    - "motorsport"
     - "tcr"
     - "aci racing weekend"
     - "coppa italia"
@@ -138,7 +140,7 @@ keywords:
     - "24 ore"
     - "12 ore"
     - "2h di roma"
-
+ 
   exclude:
     # eventi non motoristici ospitati nell'impianto
     - "cinema"
@@ -175,7 +177,7 @@ keywords:
     - "harley"
     - "h.o.g."
     - "hog rally"
-
+ 
   # =============================================================================
   # INGRESSO GRATUITO (best-effort, VERIFICA SEMPRE A MANO)
   # =============================================================================
@@ -195,7 +197,7 @@ keywords:
     - "test collettivo"
     - "raceday"
     - "race day"
-
+ 
   # =============================================================================
   # ORGANIZZATORE (usato anche per l'immagine automatica sul sito)
   # =============================================================================
