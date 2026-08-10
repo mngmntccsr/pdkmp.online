@@ -2,6 +2,30 @@
 
 Questo file viene aggiornato automaticamente ogni settimana dallo scraper.
 
+## 2026-08-10 07:44 UTC
+
+✅ **Aggiunti (5)**
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **Imola Classic** — 2026-10-16 → 2026-10-18 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/imola-classic-2/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+
+❌ **Rimossi (3)**
+- **ACI RACING WEEKEND - C.I. AUTOMOBILISMO** — 2026-10-30 → 2026-11-01 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-30/1753-aci-racing-weekend-c-i-automobilismo-5
+- **PORSCHE SPORTS CUP SUISSE** — 2026-09-24 → 2026-09-26 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-09-24/1750-porsche-sports-cup-suisse
+- **COPPA ITALIA VELOCITA’ - Round 4** — 2026-09-04 → 2026-09-06 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-09-04/1749-coppa-italia-di-velocita-3
+
+🔁 **Duplicati rimossi (5)** — stesso circuito+data di un evento già presente
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **Imola Classic** — 2026-10-16 → 2026-10-18 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/imola-classic-2/
+
+
+---
+
 ## 2026-08-10 00:24 UTC
 
 ✅ **Aggiunti (10)**

@@ -352,23 +352,6 @@
     "eventoGratuito": true
   },
   {
-    "titolo": "ACI RACING WEEKEND - C.I. AUTOMOBILISMO",
-    "dataInizio": "2026-10-30",
-    "dataFine": "2026-11-01",
-    "disciplina": [
-      "Misto"
-    ],
-    "circuito": "Mugello Circuit",
-    "citta": "Scarperia e San Piero",
-    "linkBiglietti": "",
-    "linkInfo": "https://mugellocircuit.com/it/gare/details/2026-10-30/1753-aci-racing-weekend-c-i-automobilismo-5",
-    "organizzatore": "ACI Sport",
-    "immagine": "",
-    "eventoGratuito": true,
-    "fonteAuto": true,
-    "idAuto": "186339fc7645d082"
-  },
-  {
     "titolo": "WEC 6 Hours of Imola",
     "dataInizio": "2027-04-09",
     "dataFine": "2027-04-11",
@@ -403,23 +386,6 @@
     "idAuto": "1c47e30b9fb68d58"
   },
   {
-    "titolo": "PORSCHE SPORTS CUP SUISSE",
-    "dataInizio": "2026-09-24",
-    "dataFine": "2026-09-26",
-    "disciplina": [
-      "Misto"
-    ],
-    "circuito": "Mugello Circuit",
-    "citta": "Scarperia e San Piero",
-    "linkBiglietti": "",
-    "linkInfo": "https://mugellocircuit.com/it/gare/details/2026-09-24/1750-porsche-sports-cup-suisse",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "31de9b31155a8bbc"
-  },
-  {
     "titolo": "Vallelunga Euro Nascar",
     "dataInizio": "2026-09-19",
     "dataFine": "2026-09-20",
@@ -452,23 +418,6 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "526965136ea3af34"
-  },
-  {
-    "titolo": "COPPA ITALIA VELOCITA’ - Round 4",
-    "dataInizio": "2026-09-04",
-    "dataFine": "2026-09-06",
-    "disciplina": [
-      "Misto"
-    ],
-    "circuito": "Mugello Circuit",
-    "citta": "Scarperia e San Piero",
-    "linkBiglietti": "",
-    "linkInfo": "https://mugellocircuit.com/it/gare/details/2026-09-04/1749-coppa-italia-di-velocita-3",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "7514d7d776208d96"
   },
   {
     "titolo": "FMI CIV",
