@@ -369,23 +369,6 @@
     "idAuto": "186339fc7645d082"
   },
   {
-    "titolo": "PNK Motorsport",
-    "dataInizio": "2026-11-05",
-    "dataFine": "2026-11-08",
-    "disciplina": [
-      "Misto"
-    ],
-    "circuito": "Misano World Circuit",
-    "citta": "Misano Adriatico",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.misanocircuit.com/events",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "1b3170b3d814d5b7"
-  },
-  {
     "titolo": "WEC 6 Hours of Imola",
     "dataInizio": "2027-04-09",
     "dataFine": "2027-04-11",
@@ -520,40 +503,6 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "7514d7d776208d96"
-  },
-  {
-    "titolo": "ACI Misano Racing Weekend",
-    "dataInizio": "2026-09-17",
-    "dataFine": "2026-09-20",
-    "disciplina": [
-      "Misto"
-    ],
-    "circuito": "Misano World Circuit",
-    "citta": "Misano Adriatico",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.misanocircuit.com/events",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": true,
-    "fonteAuto": true,
-    "idAuto": "9b3614d82be68276"
-  },
-  {
-    "titolo": "Formula X",
-    "dataInizio": "2026-11-12",
-    "dataFine": "2026-11-15",
-    "disciplina": [
-      "Formula"
-    ],
-    "circuito": "Misano World Circuit",
-    "citta": "Misano Adriatico",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.misanocircuit.com/events",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "a89f63bec31d8d82"
   },
   {
     "titolo": "FMI CIV",
