@@ -40,6 +40,12 @@ class Event:
     url: str = ""
     date_start: Optional[str] = None   # ISO date se siamo riusciti a parsarla
     date_end: Optional[str] = None
+    # Per sorgenti che aggregano PIÙ circuiti in un'unica pagina (es.
+    # WeCanRace, che elenca date su decine di autodromi diversi): se
+    # valorizzati, sovrascrivono track_name/citta della configurazione
+    # statica della pista per QUESTO singolo evento.
+    circuito_override: Optional[str] = None
+    citta_override: Optional[str] = None
     event_id: str = field(default="")
 
     def __post_init__(self):
