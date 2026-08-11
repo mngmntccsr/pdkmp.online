@@ -18,6 +18,16 @@ Il sito è una app React (serve Playwright) organizzata così:
     ...
   </div>
 
+IMPORTANTE: alcune card (tipicamente quelle più lontane nel tempo, es. per
+il 2027) hanno un elemento di testo IN PIÙ rispetto alle altre (es. un
+badge non sempre presente). Un parsing "posizionale" (campo N-esimo = X)
+si rompe in quei casi, spostando tutti i campi di una posizione e facendo
+finire — ad esempio — il giorno della settimana al posto del circuito.
+Per questo motivo identifichiamo ogni campo dal SUO CONTENUTO (giorno del
+mese, nome di un giorno della settimana, "Città (XX)", testo del
+contatore) invece che dalla sua posizione nell'elenco: è molto più
+robusto a variazioni della struttura.
+
 Il sito mostra un giorno per card anche quando in realtà si tratta di UN
 unico evento su più giorni (tipicamente sabato+domenica): dopo aver letto
 tutte le card, raggruppiamo quindi i giorni CONSECUTIVI dello STESSO
@@ -44,9 +54,54 @@ IT_MONTHS = {
     "gennaio": 1, "febbraio": 2, "marzo": 3, "aprile": 4, "maggio": 5, "giugno": 6,
     "luglio": 7, "agosto": 8, "settembre": 9, "ottobre": 10, "novembre": 11, "dicembre": 12,
 }
+WEEKDAYS_IT = {
+    "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato", "domenica",
+}
 
 MONTH_YEAR_RE = re.compile(r"^([a-zàèéìòù]+)\s+(\d{4})$", re.IGNORECASE)
 CITY_PROVINCE_RE = re.compile(r"^(.+?)\s*\(([A-Za-z]{2})\)$")
+COUNTER_RE = re.compile(r"evento\s+su\s+questo\s+circuito", re.IGNORECASE)
+
+
+def _parse_card_fields(parts: list[str]) -> tuple[str, str] | None:
+    """Identifica giorno del mese e "città (provincia)" dal contenuto dei
+    campi della card (non dalla posizione), poi assume che il CIRCUITO sia
+    il primo campo restante non riconosciuto come nessuno degli altri.
+    Restituisce (day_str, circuito, citta) oppure None se non interpretabile.
+    """
+    day_idx = weekday_idx = citta_idx = counter_idx = None
+    citta_prov = None
+
+    for idx, p in enumerate(parts):
+        if day_idx is None and p.isdigit() and 1 <= int(p) <= 31:
+            day_idx = idx
+        elif weekday_idx is None and p.strip().lower() in WEEKDAYS_IT:
+            weekday_idx = idx
+        elif citta_idx is None and CITY_PROVINCE_RE.match(p):
+            citta_idx = idx
+            citta_prov = p
+        elif counter_idx is None and COUNTER_RE.search(p):
+            counter_idx = idx
+
+    if day_idx is None or citta_idx is None:
+        return None   # card non interpretabile, meglio saltarla che sbagliare
+
+    known = {day_idx, weekday_idx, citta_idx, counter_idx} - {None}
+    # scarta simboli isolati (es. un asterisco di nota/disclaimer che alcune
+    # card hanno in più): un vero nome di circuito contiene sempre almeno
+    # un paio di lettere consecutive
+    remaining = [
+        p for i, p in enumerate(parts)
+        if i not in known and re.search(r"[A-Za-zÀ-ÿ]{2,}", p)
+    ]
+    if not remaining:
+        return None
+    circuito = remaining[0]
+
+    city_match = CITY_PROVINCE_RE.match(citta_prov)
+    citta = city_match.group(1).strip() if city_match else citta_prov
+
+    return parts[day_idx], circuito, citta
 
 
 class WeCanRaceScraper(BaseTrackScraper):
@@ -80,21 +135,54 @@ class WeCanRaceScraper(BaseTrackScraper):
                 continue
 
             parts = [p for p in el.get_text("|", strip=True).split("|") if p.strip()]
-            if len(parts) < 4:
+            parsed = _parse_card_fields(parts)
+            if parsed is None:
                 continue
-            day_str, _weekday, circuito, citta_prov = parts[0], parts[1], parts[2], parts[3]
-            if not day_str.isdigit():
-                continue
+            day_str, circuito, citta = parsed
 
             try:
                 day = date_cls(current_year, current_month, int(day_str))
             except ValueError:
                 continue
 
-            city_match = CITY_PROVINCE_RE.match(citta_prov)
-            citta = city_match.group(1).strip() if city_match else citta_prov
-
             raw_days.append({"circuito": circuito, "citta": citta, "day": day})
+
+        # --- passata 2: raggruppa i giorni consecutivi dello stesso circuito ---
+        raw_days.sort(key=lambda d: (d["circuito"], d["day"]))
+
+        events: dict[str, Event] = {}
+        i = 0
+        while i < len(raw_days):
+            group = [raw_days[i]]
+            j = i + 1
+            while (
+                j < len(raw_days)
+                and raw_days[j]["circuito"] == group[-1]["circuito"]
+                and raw_days[j]["day"] == group[-1]["day"] + timedelta(days=1)
+            ):
+                group.append(raw_days[j])
+                j += 1
+
+            circuito = group[0]["circuito"]
+            citta = group[0]["citta"]
+            start_iso = group[0]["day"].isoformat()
+            end_iso = group[-1]["day"].isoformat()
+
+            ev = Event(
+                track_slug=self.config.slug,
+                track_name=self.config.name,
+                title=f"We Can Race - Guida in pista a {circuito}",
+                date_text=f"{start_iso} - {end_iso}",   # solo riferimento/debug
+                url=self.config.url,
+                date_start=start_iso,
+                date_end=end_iso,
+                circuito_override=circuito,
+                citta_override=citta,
+            )
+            events[ev.event_id] = ev
+            i = j
+
+        return list(events.values())
 
         # --- passata 2: raggruppa i giorni consecutivi dello stesso circuito ---
         raw_days.sort(key=lambda d: (d["circuito"], d["day"]))
