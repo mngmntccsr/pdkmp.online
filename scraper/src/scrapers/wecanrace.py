@@ -8,7 +8,7 @@ commerciale, ripetuto su tante combinazioni data+circuito.
 Il sito è una app React (serve Playwright) organizzata così:
   <h3>Febbraio 2026</h3>                      <- intestazione mese, testo pieno
   <div class="grid ...">
-    <div class="group relative text-left">     <- una "card" per ogni data
+    <div class="group relative text-left">     <- una "card" per ogni SINGOLO GIORNO
       <div>21</div>                             giorno (SENZA anno/mese: vanno
       <div>Sabato</div>                         dedotti dall'ultima <h3> vista)
       <div>Autodromo Enzo e Dino Ferrari</div>   nome circuito (CAMBIA per evento!)
@@ -17,6 +17,12 @@ Il sito è una app React (serve Playwright) organizzata così:
     </div>
     ...
   </div>
+
+Il sito mostra un giorno per card anche quando in realtà si tratta di UN
+unico evento su più giorni (tipicamente sabato+domenica): dopo aver letto
+tutte le card, raggruppiamo quindi i giorni CONSECUTIVI dello STESSO
+circuito in un unico Event con date_start/date_end che coprono l'intero
+intervallo, così sul sito compare una sola card invece di una per giorno.
 
 Le date già passate hanno la classe CSS "line-through" (barrate a schermo):
 le scartiamo subito, non solo più avanti col filtro generale sulle date.
@@ -27,6 +33,7 @@ pagina generale del calendario.
 from __future__ import annotations
 
 import re
+from datetime import date as date_cls, timedelta
 
 from bs4 import BeautifulSoup
 
@@ -47,7 +54,8 @@ class WeCanRaceScraper(BaseTrackScraper):
         html = fetch_html_dynamic(self.config.url, wait_selector=self.config.wait_selector)
         soup = BeautifulSoup(html, "lxml")
 
-        events: dict[str, Event] = {}
+        # --- passata 1: raccoglie ogni singolo giorno-card ---
+        raw_days: list[dict] = []
         current_month: int | None = None
         current_year: int | None = None
 
@@ -78,22 +86,49 @@ class WeCanRaceScraper(BaseTrackScraper):
             if not day_str.isdigit():
                 continue
 
-            start_iso = f"{current_year}-{current_month:02d}-{int(day_str):02d}"
+            try:
+                day = date_cls(current_year, current_month, int(day_str))
+            except ValueError:
+                continue
 
             city_match = CITY_PROVINCE_RE.match(citta_prov)
             citta = city_match.group(1).strip() if city_match else citta_prov
+
+            raw_days.append({"circuito": circuito, "citta": citta, "day": day})
+
+        # --- passata 2: raggruppa i giorni consecutivi dello stesso circuito ---
+        raw_days.sort(key=lambda d: (d["circuito"], d["day"]))
+
+        events: dict[str, Event] = {}
+        i = 0
+        while i < len(raw_days):
+            group = [raw_days[i]]
+            j = i + 1
+            while (
+                j < len(raw_days)
+                and raw_days[j]["circuito"] == group[-1]["circuito"]
+                and raw_days[j]["day"] == group[-1]["day"] + timedelta(days=1)
+            ):
+                group.append(raw_days[j])
+                j += 1
+
+            circuito = group[0]["circuito"]
+            citta = group[0]["citta"]
+            start_iso = group[0]["day"].isoformat()
+            end_iso = group[-1]["day"].isoformat()
 
             ev = Event(
                 track_slug=self.config.slug,
                 track_name=self.config.name,
                 title=f"We Can Race - Guida in pista a {circuito}",
-                date_text=start_iso,   # solo riferimento/debug
+                date_text=f"{start_iso} - {end_iso}",   # solo riferimento/debug
                 url=self.config.url,
                 date_start=start_iso,
-                date_end=start_iso,    # eventi di un solo giorno
+                date_end=end_iso,
                 circuito_override=circuito,
                 citta_override=citta,
             )
             events[ev.event_id] = ev
+            i = j
 
         return list(events.values())
