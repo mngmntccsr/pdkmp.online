@@ -2,6 +2,125 @@
 
 Questo file viene aggiornato automaticamente ogni settimana dallo scraper.
 
+## 2026-08-11 01:28 UTC
+
+✅ **Aggiunti (47)**
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **Imola Classic** — 2026-10-16 → 2026-10-18 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/imola-classic-2/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **ACI Misano Racing Weekend** — 2026-09-17 → 2026-09-20 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **PNK Motorsport** — 2026-11-05 → 2026-11-08 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **Formula X** — 2026-11-12 → 2026-11-15 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **GRAN PREMIO STORICO D’ITALIA** — 2026-10-02 → 2026-10-04 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-02/1751-gran-premio-storico-d-italia
+- **MUGELLO RACING WEEKEND** — 2026-10-16 → 2026-10-18 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-16/1752-mugello-racing-weekend-4
+- **We Can Race - Guida in pista a Autodromo Enzo e Dino Ferrari** — 2027-02-20 → 2027-02-20 _[Autodromo Enzo e Dino Ferrari]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo Enzo e Dino Ferrari** — 2027-05-15 → 2027-05-16 _[Autodromo Enzo e Dino Ferrari]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo Enzo e Dino Ferrari** — 2027-07-17 → 2027-07-18 _[Autodromo Enzo e Dino Ferrari]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo Enzo e Dino Ferrari** — 2027-11-27 → 2027-11-28 _[Autodromo Enzo e Dino Ferrari]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo Franco di Suni** — 2027-05-22 → 2027-05-23 _[Autodromo Franco di Suni]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo Franco di Suni** — 2027-10-16 → 2027-10-17 _[Autodromo Franco di Suni]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo Gianni de Luca** — 2027-04-10 → 2027-04-10 _[Autodromo Gianni de Luca]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo Gianni de Luca** — 2027-05-08 → 2027-05-08 _[Autodromo Gianni de Luca]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo Internazionale del Mugello** — 2027-02-27 → 2027-02-27 _[Autodromo Internazionale del Mugello]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo Internazionale del Mugello** — 2027-07-07 → 2027-07-07 _[Autodromo Internazionale del Mugello]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo Internazionale del Mugello** — 2027-10-20 → 2027-10-20 _[Autodromo Internazionale del Mugello]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo Nazionale dell'Umbria** — 2027-05-30 → 2027-05-30 _[Autodromo Nazionale dell'Umbria]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo Nazionale dell'Umbria** — 2027-11-13 → 2027-11-13 _[Autodromo Nazionale dell'Umbria]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo Piero Taruffi** — 2027-02-28 → 2027-02-28 _[Autodromo Piero Taruffi]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo Piero Taruffi** — 2027-07-24 → 2027-07-24 _[Autodromo Piero Taruffi]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo Piero Taruffi** — 2027-12-11 → 2027-12-11 _[Autodromo Piero Taruffi]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo Riccardo Paletti** — 2027-10-23 → 2027-10-23 _[Autodromo Riccardo Paletti]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo Valle dei Templi** — 2027-03-27 → 2027-03-28 _[Autodromo Valle dei Templi]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo Valle dei Templi** — 2027-06-12 → 2027-06-13 _[Autodromo Valle dei Templi]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo Valle dei Templi** — 2027-09-18 → 2027-09-19 _[Autodromo Valle dei Templi]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo Valle dei Templi** — 2027-12-18 → 2027-12-19 _[Autodromo Valle dei Templi]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo del Levante** — 2027-03-06 → 2027-03-07 _[Autodromo del Levante]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo del Levante** — 2027-06-05 → 2027-06-06 _[Autodromo del Levante]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo del Levante** — 2027-09-25 → 2027-09-26 _[Autodromo del Levante]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo di Arese** — 2027-07-04 → 2027-07-04 _[Autodromo di Arese]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo di Arese** — 2027-10-31 → 2027-10-31 _[Autodromo di Arese]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo di Pergusa** — 2026-11-21 → 2026-11-22 _[Autodromo di Pergusa]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo di Pomposa** — 2027-10-24 → 2027-10-24 _[Autodromo di Pomposa]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Circuito Internazionale d'Abruzzo** — 2027-03-20 → 2027-03-20 _[Circuito Internazionale d'Abruzzo]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Circuito Internazionale d'Abruzzo** — 2027-05-29 → 2027-05-29 _[Circuito Internazionale d'Abruzzo]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Circuito Internazionale d'Abruzzo** — 2027-10-02 → 2027-10-02 _[Circuito Internazionale d'Abruzzo]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Circuito Internazionale del Volturno** — 2027-06-26 → 2027-06-26 _[Circuito Internazionale del Volturno]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Circuito Internazionale del Volturno** — 2027-11-06 → 2027-11-06 _[Circuito Internazionale del Volturno]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a La Conca** — 2027-10-09 → 2027-10-10 _[La Conca]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Tazio Nuvolari 2.8** — 2027-03-13 → 2027-03-13 _[Tazio Nuvolari 2.8]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Tazio Nuvolari 2.8** — 2027-07-03 → 2027-07-03 _[Tazio Nuvolari 2.8]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Tazio Nuvolari 2.8** — 2027-10-30 → 2027-10-30 _[Tazio Nuvolari 2.8]_ — https://wecanrace.it/calendario/
+
+❌ **Rimossi (51)**
+- **We Can Race - Guida in pista a Domenica** — 2027-09-26 → 2027-09-26 _[Domenica]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-05-08 → 2027-05-08 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-10-16 → 2027-10-16 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Domenica** — 2027-10-10 → 2027-10-10 _[Domenica]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-12-11 → 2027-12-11 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-04-10 → 2027-04-10 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Domenica** — 2027-05-23 → 2027-05-23 _[Domenica]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-11-27 → 2027-11-27 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Domenica** — 2027-10-17 → 2027-10-17 _[Domenica]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-02-20 → 2027-02-20 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-03-20 → 2027-03-20 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-05-15 → 2027-05-15 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2026-11-21 → 2026-11-21 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-07-03 → 2027-07-03 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-12-18 → 2027-12-18 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-09-25 → 2027-09-25 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-03-13 → 2027-03-13 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Domenica** — 2027-03-28 → 2027-03-28 _[Domenica]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-07-24 → 2027-07-24 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Domenica** — 2027-11-28 → 2027-11-28 _[Domenica]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Domenica** — 2027-05-30 → 2027-05-30 _[Domenica]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Domenica** — 2027-06-13 → 2027-06-13 _[Domenica]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-10-09 → 2027-10-09 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Mercoledì** — 2027-10-20 → 2027-10-20 _[Mercoledì]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Domenica** — 2027-07-18 → 2027-07-18 _[Domenica]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-05-22 → 2027-05-22 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-11-06 → 2027-11-06 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Domenica** — 2027-06-06 → 2027-06-06 _[Domenica]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Domenica** — 2026-11-22 → 2026-11-22 _[Domenica]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Domenica** — 2027-10-31 → 2027-10-31 _[Domenica]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Domenica** — 2027-02-28 → 2027-02-28 _[Domenica]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Domenica** — 2027-09-19 → 2027-09-19 _[Domenica]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-10-02 → 2027-10-02 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Mercoledì** — 2027-07-07 → 2027-07-07 _[Mercoledì]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-03-27 → 2027-03-27 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Domenica** — 2027-03-07 → 2027-03-07 _[Domenica]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-05-29 → 2027-05-29 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-06-05 → 2027-06-05 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-02-27 → 2027-02-27 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-06-12 → 2027-06-12 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Domenica** — 2027-07-04 → 2027-07-04 _[Domenica]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Domenica** — 2027-10-24 → 2027-10-24 _[Domenica]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-10-23 → 2027-10-23 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Domenica** — 2027-12-19 → 2027-12-19 _[Domenica]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-06-26 → 2027-06-26 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-07-17 → 2027-07-17 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Domenica** — 2027-05-16 → 2027-05-16 _[Domenica]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-03-06 → 2027-03-06 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-09-18 → 2027-09-18 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-11-13 → 2027-11-13 _[Sabato]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Sabato** — 2027-10-30 → 2027-10-30 _[Sabato]_ — https://wecanrace.it/calendario/
+
+🔁 **Duplicati rimossi (10)** — stesso circuito+data di un evento già presente
+- **PNK Motorsport** — 2026-11-05 → 2026-11-08 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **GRAN PREMIO STORICO D’ITALIA** — 2026-10-02 → 2026-10-04 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-02/1751-gran-premio-storico-d-italia
+- **ACI Misano Racing Weekend** — 2026-09-17 → 2026-09-20 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **Formula X** — 2026-11-12 → 2026-11-15 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **MUGELLO RACING WEEKEND** — 2026-10-16 → 2026-10-18 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-16/1752-mugello-racing-weekend-4
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **Imola Classic** — 2026-10-16 → 2026-10-18 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/imola-classic-2/
+
+
+---
+
 ## 2026-08-11 01:08 UTC
 
 ✅ **Aggiunti (76)**
