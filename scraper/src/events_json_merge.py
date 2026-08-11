@@ -72,22 +72,39 @@ def merge_auto_events(existing: list[dict], new_auto_events: list[dict]) -> tupl
     return merged, added, removed
 
 
+def _date_ranges_overlap(start1: str, end1: str, start2: str, end2: str) -> bool:
+    """True se i due intervalli di date [start1,end1] e [start2,end2] si
+    sovrappongono anche solo parzialmente (confronto tra stringhe ISO
+    'YYYY-MM-DD', valido perché ordinabili lessicograficamente come date).
+    """
+    if not start1 or not start2:
+        return False
+    end1 = end1 or start1
+    end2 = end2 or start2
+    return not (end1 < start2 or end2 < start1)
+
+
 def dedupe_events(events: list[dict]) -> tuple[list[dict], list[dict]]:
     """Rimuove i doppioni tra eventi AUTOMATICI (non tocca mai gli eventi
     manuali, che restano tutti). Un evento automatico è considerato un
-    doppione se condivide (circuito, dataInizio) con:
-      - un evento manuale già esistente (es. lo hai già inserito tu con un
-        titolo diverso, tipo "10mo Minardi Day" vs "Historic Minardi Day"
-        trovato dallo scraper con lo stesso circuito e la stessa data)
+    doppione se, sullo STESSO circuito, il suo intervallo [dataInizio,
+    dataFine] si SOVRAPPONE (anche solo parzialmente) con quello di:
+      - un evento manuale già esistente (es. "10mo Minardi Day" inserito a
+        mano vs "Historic Minardi Day" trovato dallo scraper, stesso
+        circuito, stesse date)
       - un altro evento automatico già tenuto in questa stessa passata
+
+    Il confronto per SOVRAPPOSIZIONE (invece che uguaglianza esatta delle
+    date) serve perché a volte due fonti diverse per lo stesso evento reale
+    riportano un giorno di inizio leggermente diverso (es. "Formula X 5-8
+    settembre" vs "FX Racing Weekend 6-8 settembre" allo stesso circuito:
+    sono lo stesso evento, ma con date di inizio non identiche).
 
     Restituisce (eventi_puliti, doppioni_rimossi). Si applica ad OGNI run,
     quindi ripulisce anche doppioni già presenti in events.json da run
     precedenti a questa correzione.
     """
     manual = [e for e in events if not e.get("fonteAuto")]
-    seen_keys = {(e.get("circuito"), e.get("dataInizio")) for e in manual}
-
     cleaned = list(manual)
     duplicates_removed: list[dict] = []
 
@@ -98,11 +115,19 @@ def dedupe_events(events: list[dict]) -> tuple[list[dict], list[dict]]:
         key=lambda e: e.get("idAuto", ""),
     )
     for e in auto_events:
-        key = (e.get("circuito"), e.get("dataInizio"))
-        if key in seen_keys:
+        circuito = e.get("circuito")
+        start = e.get("dataInizio", "")
+        end = e.get("dataFine", start)
+
+        is_duplicate = any(
+            kept.get("circuito") == circuito
+            and _date_ranges_overlap(start, end, kept.get("dataInizio", ""), kept.get("dataFine", ""))
+            for kept in cleaned
+        )
+
+        if is_duplicate:
             duplicates_removed.append(e)
             continue
-        seen_keys.add(key)
         cleaned.append(e)
 
     return cleaned, duplicates_removed
