@@ -442,5 +442,21 @@
     "organizzatore": "",
     "immagine": "",
     "eventoGratuito": true
+  },
+  {
+    "titolo": "Svolte di Popoli",
+    "dataInizio": "2026-08-07",
+    "dataFine": "2026-08-09",
+    "disciplina": [
+      "Gt",
+      "Misto"
+    ],
+    "circuito": "",
+    "citta": "Popoli",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.svoltedipopoli.it/",
+    "organizzatore": "A.S.D. Svolte di Popoli",
+    "immagine": "",
+    "eventoGratuito": false
   }
 ]
