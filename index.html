@@ -717,7 +717,7 @@ gtag('config', 'G-F54J4RR4YY');
 
 #interactiveMap {
   width: 100%;
-  height: 380px;
+  height: 340px;
   border-radius: 10px;
   margin-top: 0.75rem;
   z-index: 1;
@@ -743,6 +743,7 @@ gtag('config', 'G-F54J4RR4YY');
 
 .radius-value { font-weight: 700; color: var(--racing-red); }
 
+/* Pannelli comprimibili */
 .sidebar-filters.collapsed,
 .map-sidebar.collapsed {
   width: 0 !important;
@@ -754,11 +755,14 @@ gtag('config', 'G-F54J4RR4YY');
   pointer-events: none;
 }
 
+/* Pulsanti comprimi/espandi: SEMPRE visibili, agganciati al centro-basso dello schermo */
 .panel-toggle {
-  position: absolute;
-  top: 65%;
+  position: sticky;
+  top: 58vh;
   transform: translateY(-50%);
-  width: 34px;
+  align-self: flex-start;
+  flex-shrink: 0;
+  width: 30px;
   height: 68px;
   border-radius: 10px;
   border: none;
@@ -771,20 +775,21 @@ gtag('config', 'G-F54J4RR4YY');
   align-items: center;
   justify-content: center;
   box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-  transition: left 0.25s ease, right 0.25s ease, background 0.2s;
+  transition: background 0.2s;
 }
 .panel-toggle:hover { background: var(--racing-red); }
 
-.panel-toggle-left { left: 252px; }
-.panel-toggle-left.collapsed { left: -8px; }
-
-.panel-toggle-right { right: 332px; }
-.panel-toggle-right.collapsed { right: -8px; }
+/* A mappa aperta: 2 schede per riga. A mappa chiusa: resta il default a 3 (già esistente) */
+@media (min-width: 769px) {
+  .youtube-layout.map-open .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 @media (max-width: 1100px) {
   .map-sidebar { width: 100%; position: static; max-height: none; }
   .panel-toggle { display: none; }
-}        
+}       
     </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>    
@@ -828,7 +833,7 @@ gtag('config', 'G-F54J4RR4YY');
 
     <!-- Main Content -->
     <div class="container">
-        <div class="youtube-layout">
+        <div class="youtube-layout map-open" id="youtubeLayout">
 
             <!-- Sidebar filtri (a sinistra, in colonna) -->
             <aside class="sidebar-filters" id="sidebarFilters">
@@ -1663,8 +1668,6 @@ function initEventTracking() {
 </script>
 <script>
 (function () {
-  // Coordinate approssimative delle località presenti nel calendario.
-  // Se aggiungi eventi in nuove città, aggiungi qui la relativa voce [lat, lng].
   const cityCoordinates = {
     "Fasano": [40.833, 17.360],
     "Monza": [45.583, 9.274],
@@ -1694,6 +1697,8 @@ function initEventTracking() {
     "Biella": [45.566, 8.054]
   };
 
+  const ITALY_BOUNDS = L.latLngBounds([35.2, 6.5], [47.3, 18.6]);
+
   function haversineKm(lat1, lon1, lat2, lon2) {
     const R = 6371;
     const dLat = (lat2 - lat1) * Math.PI / 180;
@@ -1707,29 +1712,64 @@ function initEventTracking() {
   let map, searchCircle, centerMarker;
   let searchCenter = null;
   let searchRadiusKm = 50;
-  const eventMarkers = [];
+  let eventMarkers = [];
 
   function initMap() {
-    map = L.map('interactiveMap').setView([42.5, 12.5], 5.5);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors',
-      maxZoom: 18
+    map = L.map('interactiveMap', {
+      maxBounds: ITALY_BOUNDS.pad(0.15),
+      maxBoundsViscosity: 1.0,
+      minZoom: 5,
+      maxZoom: 10
+    });
+    map.fitBounds(ITALY_BOUNDS);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap &copy; CARTO',
+      subdomains: 'abcd',
+      maxZoom: 19
     }).addTo(map);
 
     map.on('click', (e) => setSearchCenter(e.latlng.lat, e.latlng.lng));
   }
 
-  function buildEventMarkers() {
-    eventMarkers.forEach(m => map.removeLayer(m.marker));
-    eventMarkers.length = 0;
+  // Prende solo le card della griglia che sono attualmente visibili
+  // (cioè quelle che superano già i tuoi filtri normali)
+  function getVisibleCards() {
+    return Array.from(document.querySelectorAll('#eventsContainer .event-card'))
+      .filter(card => card.style.display !== 'none');
+  }
 
-    eventsData.forEach(evento => {
-      const coords = cityCoordinates[evento.citta];
+  function syncMarkers() {
+    eventMarkers.forEach(m => map.removeLayer(m));
+    eventMarkers = [];
+
+    getVisibleCards().forEach(card => {
+      const coords = cityCoordinates[card.dataset.citta];
       if (!coords) return;
-      const marker = L.marker(coords).addTo(map);
-      marker.bindPopup(`<strong>${evento.titolo}</strong><br>${evento.circuito || evento.citta}`);
-      eventMarkers.push({ marker, citta: evento.citta });
+      const titleEl = card.querySelector('.event-title');
+      const title = titleEl ? titleEl.textContent.trim() : '';
+      const marker = L.circleMarker(coords, {
+        radius: 7,
+        weight: 2,
+        color: '#ffffff',
+        fillColor: '#d32f2f',
+        fillOpacity: 0.95
+      }).addTo(map);
+      if (title) marker.bindPopup(`<strong>${title}</strong>`);
+      eventMarkers.push(marker);
     });
+  }
+
+  function applyMapRadiusFilter() {
+    const cards = document.querySelectorAll('#eventsContainer .event-card');
+    cards.forEach(card => {
+      if (!searchCenter) { card.style.display = ''; return; }
+      const coords = cityCoordinates[card.dataset.citta];
+      if (!coords) { card.style.display = ''; return; }
+      const dist = haversineKm(searchCenter.lat, searchCenter.lng, coords[0], coords[1]);
+      card.style.display = (dist <= searchRadiusKm) ? '' : 'none';
+    });
+    syncMarkers();
   }
 
   function setSearchCenter(lat, lng) {
@@ -1743,37 +1783,28 @@ function initEventTracking() {
     if (centerMarker) map.removeLayer(centerMarker);
     if (!searchCenter) return;
 
-    centerMarker = L.marker([searchCenter.lat, searchCenter.lng], {
-      icon: L.divIcon({ className: '', html: '📍', iconSize: [24, 24] })
+    centerMarker = L.circleMarker([searchCenter.lat, searchCenter.lng], {
+      radius: 5,
+      weight: 2,
+      color: '#212121',
+      fillColor: '#212121',
+      fillOpacity: 1
     }).addTo(map);
 
     searchCircle = L.circle([searchCenter.lat, searchCenter.lng], {
       radius: searchRadiusKm * 1000,
       color: '#d32f2f',
+      weight: 1.5,
       fillColor: '#d32f2f',
-      fillOpacity: 0.1
+      fillOpacity: 0.08
     }).addTo(map);
 
     map.fitBounds(searchCircle.getBounds(), { maxZoom: 9 });
   }
 
-  function applyMapRadiusFilter() {
-    const cards = document.querySelectorAll('#eventsContainer .event-card');
-    cards.forEach(card => {
-      if (!searchCenter) { card.style.display = ''; return; }
-      const coords = cityCoordinates[card.dataset.citta];
-      if (!coords) { card.style.display = ''; return; } // città sconosciuta: non nascondere
-      const dist = haversineKm(searchCenter.lat, searchCenter.lng, coords[0], coords[1]);
-      card.style.display = (dist <= searchRadiusKm) ? '' : 'none';
-    });
-  }
-
-  // Riapplica il filtro raggio ogni volta che la griglia eventi cambia
-  // (perché l'utente ha usato uno degli altri filtri già esistenti)
-  const gridObserver = new MutationObserver(() => {
-    if (eventMarkers.length === 0 && eventsData.length > 0) buildEventMarkers();
-    applyMapRadiusFilter();
-  });
+  // Ricalcola il filtro raggio + i puntini sulla mappa ogni volta che la
+  // griglia eventi cambia (perché l'utente ha usato un filtro normale)
+  const gridObserver = new MutationObserver(() => applyMapRadiusFilter());
 
   initMap();
 
@@ -1811,30 +1842,30 @@ function initEventTracking() {
     if (centerMarker) map.removeLayer(centerMarker);
     document.getElementById('mapAddressInput').value = '';
     applyMapRadiusFilter();
+    map.fitBounds(ITALY_BOUNDS);
   });
 
-  // Pannelli comprimibili
   const sidebarFilters = document.getElementById('sidebarFilters');
   const mapSidebar = document.getElementById('mapSidebar');
   const toggleFiltersBtn = document.getElementById('toggleFiltersBtn');
   const toggleMapBtn = document.getElementById('toggleMapBtn');
+  const youtubeLayout = document.getElementById('youtubeLayout');
 
   toggleFiltersBtn.addEventListener('click', () => {
-    sidebarFilters.classList.toggle('collapsed');
-    toggleFiltersBtn.classList.toggle('collapsed');
-    toggleFiltersBtn.textContent = sidebarFilters.classList.contains('collapsed') ? '›' : '‹';
+    const collapsed = sidebarFilters.classList.toggle('collapsed');
+    toggleFiltersBtn.textContent = collapsed ? '›' : '‹';
   });
 
   toggleMapBtn.addEventListener('click', () => {
-    mapSidebar.classList.toggle('collapsed');
-    toggleMapBtn.classList.toggle('collapsed');
-    toggleMapBtn.textContent = mapSidebar.classList.contains('collapsed') ? '‹' : '›';
-    setTimeout(() => map.invalidateSize(), 260); // Leaflet deve ricalcolare le dimensioni
+    const collapsed = mapSidebar.classList.toggle('collapsed');
+    toggleMapBtn.textContent = collapsed ? '‹' : '›';
+    youtubeLayout.classList.toggle('map-open', !collapsed);
+    setTimeout(() => map.invalidateSize(), 260);
   });
 
   const container = document.getElementById('eventsContainer');
   if (container) gridObserver.observe(container, { childList: true, subtree: false });
 })();
-</script>    
+</script>  
 </body>
 </html>
