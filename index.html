@@ -701,7 +701,93 @@ gtag('config', 'G-F54J4RR4YY');
     font-size: 0.8rem;
     margin: 0.2rem;
 }
+.youtube-layout { position: relative; }
+
+.map-sidebar {
+  width: 340px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 100px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  transition: width 0.25s ease, opacity 0.2s ease, margin 0.25s ease;
+}
+
+.map-sidebar .filters { padding: 1.25rem; }
+
+#interactiveMap {
+  width: 100%;
+  height: 380px;
+  border-radius: 10px;
+  margin-top: 0.75rem;
+  z-index: 1;
+}
+
+.map-controls .filter-group { margin-bottom: 1rem; }
+
+.map-controls .btn-locate {
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  border-radius: 6px;
+  border: 1.5px solid var(--racing-red);
+  background: white;
+  color: var(--racing-red);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+.map-controls .btn-locate:hover { background: var(--racing-red); color: white; }
+
+.radius-value { font-weight: 700; color: var(--racing-red); }
+
+.sidebar-filters.collapsed,
+.map-sidebar.collapsed {
+  width: 0 !important;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.panel-toggle {
+  position: absolute;
+  top: 65%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 68px;
+  border-radius: 10px;
+  border: none;
+  background: var(--dark);
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  transition: left 0.25s ease, right 0.25s ease, background 0.2s;
+}
+.panel-toggle:hover { background: var(--racing-red); }
+
+.panel-toggle-left { left: 252px; }
+.panel-toggle-left.collapsed { left: -8px; }
+
+.panel-toggle-right { right: 332px; }
+.panel-toggle-right.collapsed { right: -8px; }
+
+@media (max-width: 1100px) {
+  .map-sidebar { width: 100%; position: static; max-height: none; }
+  .panel-toggle { display: none; }
+}        
     </style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>    
 </head>
 <body>
     <!-- Header -->
@@ -745,7 +831,7 @@ gtag('config', 'G-F54J4RR4YY');
         <div class="youtube-layout">
 
             <!-- Sidebar filtri (a sinistra, in colonna) -->
-            <aside class="sidebar-filters">
+            <aside class="sidebar-filters" id="sidebarFilters">
                 <section class="filters">
                     <h3>Filtra eventi</h3>
                     <div class="filter-grid">
@@ -820,12 +906,37 @@ gtag('config', 'G-F54J4RR4YY');
                 </section>
             </aside>
 
+<button class="panel-toggle panel-toggle-left" id="toggleFiltersBtn" title="Comprimi/espandi filtri">‹</button>
+            
             <!-- Colonna centrale: griglia eventi, 3 per riga -->
             <main class="main-content">
                 <div id="eventsContainer" class="events-grid">
                     <div class="loading">Caricamento eventi...</div>
                 </div>
             </main>
+<button class="panel-toggle panel-toggle-right" id="toggleMapBtn" title="Comprimi/espandi mappa">›</button>
+
+<aside class="map-sidebar" id="mapSidebar">
+  <section class="filters map-controls">
+    <h3>📍 Cerca per zona</h3>
+
+    <div class="filter-group">
+      <label for="mapAddressInput">Città o indirizzo</label>
+      <input type="text" id="mapAddressInput" placeholder="Es. Bologna, Milano...">
+    </div>
+    <button class="btn-locate" id="mapSearchBtn">🔎 Cerca zona</button>
+    <button class="btn-locate" id="mapLocateBtn">📌 Usa la mia posizione</button>
+
+    <div class="filter-group" style="margin-top:1rem;">
+      <label for="mapRadiusRange">Raggio di ricerca: <span class="radius-value" id="mapRadiusValue">50</span> km</label>
+      <input type="range" id="mapRadiusRange" min="5" max="300" step="5" value="50" style="width:100%;">
+    </div>
+
+    <div id="interactiveMap"></div>
+
+    <button class="reset-filters" id="mapResetBtn" style="width:100%; margin-top:0.75rem;">Cancella zona</button>
+  </section>
+</aside>       
 
         </div>
     </div>
@@ -1044,6 +1155,7 @@ if (hasImage) {
 
                 return `
                     <div class="event-card"
+     data-citta="${event.citta || ''}"               
      data-is-promo="${event.isPromo ? 'true' : 'false'}"
      data-event-title="${event.titolo}"
      data-discipline="${event.disciplina.join(',')}"
@@ -1548,7 +1660,181 @@ function initEventTracking() {
     }
  });
 }    
-
 </script>
+<script>
+(function () {
+  // Coordinate approssimative delle località presenti nel calendario.
+  // Se aggiungi eventi in nuove città, aggiungi qui la relativa voce [lat, lng].
+  const cityCoordinates = {
+    "Fasano": [40.833, 17.360],
+    "Monza": [45.583, 9.274],
+    "Trento": [46.068, 11.121],
+    "Ascoli Piceno": [42.854, 13.583],
+    "Rieti": [42.405, 12.861],
+    "Gubbio": [43.350, 12.577],
+    "Caltanissetta": [37.490, 14.062],
+    "Erice": [38.039, 12.587],
+    "Cosenza": [39.299, 16.254],
+    "Varano de' Melegari": [44.718, 10.102],
+    "Imola": [44.353, 11.715],
+    "Misano Adriatico": [43.962, 12.688],
+    "Verona": [45.438, 10.992],
+    "Alba": [44.701, 8.035],
+    "Sanremo": [43.816, 7.776],
+    "Roma": [41.903, 12.496],
+    "Arese": [45.549, 9.066],
+    "Popoli": [42.171, 13.830],
+    "Campagnano di Roma": [42.117, 12.406],
+    "Scarperia e San Piero": [43.998, 11.372],
+    "Palermo": [38.116, 13.362],
+    "San Marino": [43.942, 12.458],
+    "Sondrio": [46.171, 9.871],
+    "Castelnovo ne' Monti": [44.439, 10.403],
+    "Alghero": [40.559, 8.318],
+    "Biella": [45.566, 8.054]
+  };
+
+  function haversineKm(lat1, lon1, lat2, lon2) {
+    const R = 6371;
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = Math.sin(dLat / 2) ** 2 +
+      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+      Math.sin(dLon / 2) ** 2;
+    return 2 * R * Math.asin(Math.sqrt(a));
+  }
+
+  let map, searchCircle, centerMarker;
+  let searchCenter = null;
+  let searchRadiusKm = 50;
+  const eventMarkers = [];
+
+  function initMap() {
+    map = L.map('interactiveMap').setView([42.5, 12.5], 5.5);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors',
+      maxZoom: 18
+    }).addTo(map);
+
+    map.on('click', (e) => setSearchCenter(e.latlng.lat, e.latlng.lng));
+  }
+
+  function buildEventMarkers() {
+    eventMarkers.forEach(m => map.removeLayer(m.marker));
+    eventMarkers.length = 0;
+
+    eventsData.forEach(evento => {
+      const coords = cityCoordinates[evento.citta];
+      if (!coords) return;
+      const marker = L.marker(coords).addTo(map);
+      marker.bindPopup(`<strong>${evento.titolo}</strong><br>${evento.circuito || evento.citta}`);
+      eventMarkers.push({ marker, citta: evento.citta });
+    });
+  }
+
+  function setSearchCenter(lat, lng) {
+    searchCenter = { lat, lng };
+    drawCircle();
+    applyMapRadiusFilter();
+  }
+
+  function drawCircle() {
+    if (searchCircle) map.removeLayer(searchCircle);
+    if (centerMarker) map.removeLayer(centerMarker);
+    if (!searchCenter) return;
+
+    centerMarker = L.marker([searchCenter.lat, searchCenter.lng], {
+      icon: L.divIcon({ className: '', html: '📍', iconSize: [24, 24] })
+    }).addTo(map);
+
+    searchCircle = L.circle([searchCenter.lat, searchCenter.lng], {
+      radius: searchRadiusKm * 1000,
+      color: '#d32f2f',
+      fillColor: '#d32f2f',
+      fillOpacity: 0.1
+    }).addTo(map);
+
+    map.fitBounds(searchCircle.getBounds(), { maxZoom: 9 });
+  }
+
+  function applyMapRadiusFilter() {
+    const cards = document.querySelectorAll('#eventsContainer .event-card');
+    cards.forEach(card => {
+      if (!searchCenter) { card.style.display = ''; return; }
+      const coords = cityCoordinates[card.dataset.citta];
+      if (!coords) { card.style.display = ''; return; } // città sconosciuta: non nascondere
+      const dist = haversineKm(searchCenter.lat, searchCenter.lng, coords[0], coords[1]);
+      card.style.display = (dist <= searchRadiusKm) ? '' : 'none';
+    });
+  }
+
+  // Riapplica il filtro raggio ogni volta che la griglia eventi cambia
+  // (perché l'utente ha usato uno degli altri filtri già esistenti)
+  const gridObserver = new MutationObserver(() => {
+    if (eventMarkers.length === 0 && eventsData.length > 0) buildEventMarkers();
+    applyMapRadiusFilter();
+  });
+
+  initMap();
+
+  document.getElementById('mapRadiusRange').addEventListener('input', (e) => {
+    searchRadiusKm = parseInt(e.target.value, 10);
+    document.getElementById('mapRadiusValue').textContent = searchRadiusKm;
+    if (searchCircle) searchCircle.setRadius(searchRadiusKm * 1000);
+    applyMapRadiusFilter();
+  });
+
+  document.getElementById('mapSearchBtn').addEventListener('click', async () => {
+    const query = document.getElementById('mapAddressInput').value.trim();
+    if (!query) return;
+    try {
+      const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&countrycodes=it&q=${encodeURIComponent(query)}`);
+      const results = await res.json();
+      if (results.length === 0) { alert('Località non trovata, prova con un altro nome.'); return; }
+      setSearchCenter(parseFloat(results[0].lat), parseFloat(results[0].lon));
+    } catch (err) {
+      alert('Errore nella ricerca della località.');
+    }
+  });
+
+  document.getElementById('mapLocateBtn').addEventListener('click', () => {
+    if (!navigator.geolocation) { alert('Geolocalizzazione non supportata dal tuo browser.'); return; }
+    navigator.geolocation.getCurrentPosition(
+      (pos) => setSearchCenter(pos.coords.latitude, pos.coords.longitude),
+      () => alert('Impossibile ottenere la tua posizione.')
+    );
+  });
+
+  document.getElementById('mapResetBtn').addEventListener('click', () => {
+    searchCenter = null;
+    if (searchCircle) map.removeLayer(searchCircle);
+    if (centerMarker) map.removeLayer(centerMarker);
+    document.getElementById('mapAddressInput').value = '';
+    applyMapRadiusFilter();
+  });
+
+  // Pannelli comprimibili
+  const sidebarFilters = document.getElementById('sidebarFilters');
+  const mapSidebar = document.getElementById('mapSidebar');
+  const toggleFiltersBtn = document.getElementById('toggleFiltersBtn');
+  const toggleMapBtn = document.getElementById('toggleMapBtn');
+
+  toggleFiltersBtn.addEventListener('click', () => {
+    sidebarFilters.classList.toggle('collapsed');
+    toggleFiltersBtn.classList.toggle('collapsed');
+    toggleFiltersBtn.textContent = sidebarFilters.classList.contains('collapsed') ? '›' : '‹';
+  });
+
+  toggleMapBtn.addEventListener('click', () => {
+    mapSidebar.classList.toggle('collapsed');
+    toggleMapBtn.classList.toggle('collapsed');
+    toggleMapBtn.textContent = mapSidebar.classList.contains('collapsed') ? '‹' : '›';
+    setTimeout(() => map.invalidateSize(), 260); // Leaflet deve ricalcolare le dimensioni
+  });
+
+  const container = document.getElementById('eventsContainer');
+  if (container) gridObserver.observe(container, { childList: true, subtree: false });
+})();
+</script>    
 </body>
 </html>
