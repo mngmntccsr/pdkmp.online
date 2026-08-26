@@ -284,6 +284,13 @@ gtag('config', 'G-F54J4RR4YY');
             background: var(--dark);
         }
 
+        .reset-filters.active {
+  background: var(--racing-red);
+}
+.reset-filters.active:hover {
+  background: #c62828;
+}
+
         /* Events Grid - DIMENSIONI FISSE, 3 per riga come le card di YouTube */
         .events-grid {
             display: grid;
@@ -708,8 +715,6 @@ gtag('config', 'G-F54J4RR4YY');
   flex-shrink: 0;
   position: sticky;
   top: 100px;
-  max-height: calc(100vh - 120px);
-  overflow-y: auto;
   transition: width 0.25s ease, opacity 0.2s ease, margin 0.25s ease;
 }
 
@@ -923,13 +928,8 @@ gtag('config', 'G-F54J4RR4YY');
 
 <aside class="map-sidebar" id="mapSidebar">
   <section class="filters map-controls">
-    <h3>📍 Cerca per zona</h3>
+    <h3>📍 Filtra per zona</h3>
 
-    <div class="filter-group">
-      <label for="mapAddressInput">Città o indirizzo</label>
-      <input type="text" id="mapAddressInput" placeholder="Es. Bologna, Milano...">
-    </div>
-    <button class="btn-locate" id="mapSearchBtn">🔎 Cerca zona</button>
     <button class="btn-locate" id="mapLocateBtn">📌 Usa la mia posizione</button>
 
     <div class="filter-group" style="margin-top:1rem;">
@@ -939,10 +939,11 @@ gtag('config', 'G-F54J4RR4YY');
 
     <div id="interactiveMap"></div>
 
-    <button class="reset-filters" id="mapResetBtn" style="width:100%; margin-top:0.75rem;">Cancella zona</button>
+    <p style="font-size:0.78rem; color:var(--gray-medium); margin-top:0.6rem;">
+      Clicca sulla mappa per impostare un punto di ricerca.
+    </p>
   </section>
-</aside>       
-
+</aside>
         </div>
     </div>
 
@@ -1723,17 +1724,19 @@ function initEventTracking() {
     });
     map.fitBounds(ITALY_BOUNDS);
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; OpenStreetMap &copy; CARTO',
-      subdomains: 'abcd',
-      maxZoom: 19
+    // Mappa pulita e gratuita, nessuna API key richiesta (Esri Light Gray Canvas)
+    L.tileLayer('https://services.arcgisonline.com/arcgis/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+      attribution: 'Esri, HERE, Garmin, &copy; OpenStreetMap contributors',
+      maxZoom: 16
+    }).addTo(map);
+
+    L.tileLayer('https://services.arcgisonline.com/arcgis/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 16
     }).addTo(map);
 
     map.on('click', (e) => setSearchCenter(e.latlng.lat, e.latlng.lng));
   }
 
-  // Prende solo le card della griglia che sono attualmente visibili
-  // (cioè quelle che superano già i tuoi filtri normali)
   function getVisibleCards() {
     return Array.from(document.querySelectorAll('#eventsContainer .event-card'))
       .filter(card => card.style.display !== 'none');
@@ -1776,6 +1779,7 @@ function initEventTracking() {
     searchCenter = { lat, lng };
     drawCircle();
     applyMapRadiusFilter();
+    updateResetButtonState();
   }
 
   function drawCircle() {
@@ -1802,9 +1806,21 @@ function initEventTracking() {
     map.fitBounds(searchCircle.getBounds(), { maxZoom: 9 });
   }
 
-  // Ricalcola il filtro raggio + i puntini sulla mappa ogni volta che la
-  // griglia eventi cambia (perché l'utente ha usato un filtro normale)
-  const gridObserver = new MutationObserver(() => applyMapRadiusFilter());
+  // Il pulsante "Cancella filtri" a sinistra diventa rosso se c'è un filtro
+  // normale attivo OPPURE una zona selezionata sulla mappa
+  function updateResetButtonState() {
+    const anyMultiSelected = document.querySelector('.multi-select-option.selected') !== null;
+    const searchInput = document.getElementById('filterSearch');
+    const anySearchText = searchInput && searchInput.value.trim() !== '';
+    const resetBtn = document.querySelector('.reset-filters');
+    if (!resetBtn) return;
+    resetBtn.classList.toggle('active', anyMultiSelected || anySearchText || !!searchCenter);
+  }
+
+  const gridObserver = new MutationObserver(() => {
+    applyMapRadiusFilter();
+    updateResetButtonState();
+  });
 
   initMap();
 
@@ -1815,19 +1831,6 @@ function initEventTracking() {
     applyMapRadiusFilter();
   });
 
-  document.getElementById('mapSearchBtn').addEventListener('click', async () => {
-    const query = document.getElementById('mapAddressInput').value.trim();
-    if (!query) return;
-    try {
-      const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&countrycodes=it&q=${encodeURIComponent(query)}`);
-      const results = await res.json();
-      if (results.length === 0) { alert('Località non trovata, prova con un altro nome.'); return; }
-      setSearchCenter(parseFloat(results[0].lat), parseFloat(results[0].lon));
-    } catch (err) {
-      alert('Errore nella ricerca della località.');
-    }
-  });
-
   document.getElementById('mapLocateBtn').addEventListener('click', () => {
     if (!navigator.geolocation) { alert('Geolocalizzazione non supportata dal tuo browser.'); return; }
     navigator.geolocation.getCurrentPosition(
@@ -1836,14 +1839,29 @@ function initEventTracking() {
     );
   });
 
-  document.getElementById('mapResetBtn').addEventListener('click', () => {
-    searchCenter = null;
-    if (searchCircle) map.removeLayer(searchCircle);
-    if (centerMarker) map.removeLayer(centerMarker);
-    document.getElementById('mapAddressInput').value = '';
-    applyMapRadiusFilter();
-    map.fitBounds(ITALY_BOUNDS);
+  // Il pulsante "Cancella filtri" esistente (sinistra) ora pulisce anche la mappa.
+  // Il suo comportamento originale (onclick="resetFilters()" nell'HTML) resta invariato:
+  // qui aggiungiamo SOLO la pulizia della zona sulla mappa, in aggiunta.
+  const resetBtn = document.querySelector('.reset-filters');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      searchCenter = null;
+      if (searchCircle) map.removeLayer(searchCircle);
+      if (centerMarker) map.removeLayer(centerMarker);
+      applyMapRadiusFilter();
+      map.fitBounds(ITALY_BOUNDS);
+      updateResetButtonState();
+    });
+  }
+
+  // Aggiorna lo stato del pulsante anche quando l'utente usa i filtri normali
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.multi-select-option')) {
+      setTimeout(updateResetButtonState, 0);
+    }
   });
+  const searchInputEl = document.getElementById('filterSearch');
+  if (searchInputEl) searchInputEl.addEventListener('input', updateResetButtonState);
 
   const sidebarFilters = document.getElementById('sidebarFilters');
   const mapSidebar = document.getElementById('mapSidebar');
@@ -1866,6 +1884,6 @@ function initEventTracking() {
   const container = document.getElementById('eventsContainer');
   if (container) gridObserver.observe(container, { childList: true, subtree: false });
 })();
-</script>  
+</script>
 </body>
 </html>
