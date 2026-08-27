@@ -616,14 +616,15 @@ function updateHeaderStats(events) {
   initMap();
 
   fetch('events.json')
-    .then(res => res.json())
-    .then(data => {
-      allEvents = data;
-      applyFilters();
-    })
-    .catch(() => {
-      alert('Impossibile caricare gli eventi.');
-    });
+  .then(res => res.json())
+  .then(data => {
+    const today = new Date();
+    allEvents = data.filter(event => new Date(event.dataFine || event.dataInizio) >= today);
+    applyFilters();
+  })
+  .catch(() => {
+    alert('Impossibile caricare gli eventi.');
+  });
 })();
 </script>
 
