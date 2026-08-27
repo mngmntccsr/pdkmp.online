@@ -49,136 +49,64 @@ gtag('config', 'G-F54J4RR4YY');
         }
 
         /* Header con stile più naturale */
-        .header {
-            background: var(--dark);
-            color: var(--white);
-            padding: 2rem 1.5rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            transition: padding 0.25s ease, min-height 0.25s ease;
-            min-height: 140px;
-            will-change: padding, min-height;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-        }
-/* STATO CHIUSO (più piccolo di adesso) */
-.header.collapsed {
-    padding: 0.8rem 1.5rem;
-    min-height: 80px; /* 🔥 più piccolo rispetto ai 140px */
+.header {
+background: var(--dark);
+color: var(--white);
+padding: 0.9rem 1.5rem;
+position: sticky;
+top: 0;
+z-index: 100;
+box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
-/* LOGO più piccolo */
-.header.collapsed .logo {
-    font-size: 1.4rem;
+.header-content {
+max-width: 1600px;
+margin: 0 auto;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 1rem;
 }
 
-/* nascondi elementi non essenziali */
-.header.collapsed .tagline,
-.header.collapsed .stats-bar {
-    opacity: 0;
-    transform: translateY(-5px);
-    pointer-events: none;
-    height: 0;
-    overflow: hidden;
-    margin: 0;
+.logo {
+font-size: 1.4rem;
+font-weight: 800;
+letter-spacing: -0.02em;
+white-space: nowrap;
 }
+.logo span { color: var(--racing-red); font-weight: 900; }
 
-/* nav più compatta */
-.header.collapsed .nav-menu {
-    margin: 0.3rem 0;
+.nav-menu {
+display: flex;
+gap: 1.75rem;
+flex: 1;
+justify-content: center;
 }
-        .tagline,
-.stats-bar {
-    transition: all 0.25s ease;
-    will-change: opacity;
+.nav-menu a {
+color: var(--gray-light);
+text-decoration: none;
+font-weight: 500;
+font-size: 0.9rem;
+transition: color 0.2s;
+white-space: nowrap;
 }
+.nav-menu a:hover,
+.nav-menu a.active { color: var(--white); }
 
-        .header-content {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+.header-stats {
+display: flex;
+align-items: center;
+gap: 0.5rem;
+color: var(--gray-light);
+font-size: 0.85rem;
+font-weight: 600;
+white-space: nowrap;
+}
+.stats-sep { opacity: 0.5; }
 
-        /* Riga superiore stile YouTube: logo + statistiche affiancate */
-        .header-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem 2rem;
-        }
-
-        .brand-stats {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 0;
-            letter-spacing: -0.02em;
-            transition: font-size 0.25s ease-out;
-            white-space: nowrap;
-        }
-
-        .logo span {
-            color: var(--racing-red);
-            font-weight: 900;
-        }
-
-        .nav-menu {
-            margin: 0.8rem 0 0 0;
-            transition: all 0.25s ease-out;
-        }
-
-        .nav-menu a {
-            color: var(--gray-light);
-            text-decoration: none;
-            margin-right: 1.5rem;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-
-        .nav-menu a:hover {
-            color: var(--white);
-        }
-
-        .tagline {
-            font-size: 0.85rem;
-            color: var(--gray-light);
-            font-weight: 400;
-            margin: 0.5rem 0 0 0;
-            transition: all 0.25s ease-out;
-        }
-
-        .stats-bar {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-            transition: all 0.25s ease-out;
-        }
-
-        .stat {
-            display: flex;
-            align-items: baseline;
-            gap: 0.4rem;
-        }
-
-        .stat-number {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--racing-red);
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            color: var(--gray-light);
-            font-weight: 400;
-        }
+@media (max-width: 480px) {
+.header-stats { display: none; }
+}
 
         /* Container */
         .container {
@@ -805,13 +733,15 @@ gtag('config', 'G-F54J4RR4YY');
 </head>
 <body>
     <!-- Header -->
-    <header class="header" id="mainHeader">
-        <div class="header-content">
-            <div class="header-top">
-                <div class="brand-stats">
-                    <div class="logo">Paddock<span>Map</span></div>
-
-                    <div class="stats-bar">
+<header class="header">
+<div class="header-content">
+<div class="logo">Paddock<span>Map</span></div>
+<nav class="nav-menu">
+<a href="index.html" class="active" onclick="gtag('event', 'nav_click', { nav_item: 'home' })">Home</a>
+<a href="mappa.html" onclick="gtag('event', 'nav_click', { nav_item: 'mappa' })">Mappa</a>
+<a href="contatti.html" onclick="gtag('event', 'nav_click', { nav_item: 'promuovi_evento' })">Promuovi Evento</a>
+</nav>
+  <div class="header-stats">
                         <div class="stat">
                             <span class="stat-number" id="totalEvents">15</span>
                             <span class="stat-label">eventi</span>
@@ -819,31 +749,10 @@ gtag('config', 'G-F54J4RR4YY');
                         <div class="stat">
                             <span class="stat-number" id="totalCircuits">0</span>
                             <span class="stat-label">circuiti</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <p class="tagline">🏁 Il calendario completo del motorsport italiano</p>
-
-            <nav class="nav-menu">
-                <a href="index.html"
-   onclick="gtag('event', 'nav_click', { nav_item: 'home' })">
-   Home
-</a>
-
-<a href="mappa.html" 
-    onclick="gtag('event', 'nav_click', { nav_item: 'mappa' })">
-    Mappa
-</a>
-                
-<a href="contatti.html"
-   onclick="gtag('event', 'nav_click', { nav_item: 'promuovi_evento' })">
-   Promuovi Evento
-</a>
-            </nav>
-        </div>
-    </header>
+                            </div>
+</div>
+</div>
+</header>
 
     <!-- Main Content -->
     <div class="container">
