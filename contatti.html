@@ -28,55 +28,87 @@
             color: var(--dark);
         }
 
-        /* HEADER IDENTICO ALLA LANDING */
-        .header {
-            background: var(--dark);
-            color: var(--white);
-            padding: 2rem 1.5rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        }
+       /* HEADER IDENTICO ALLA LANDING */
+.header {
+  background: var(--dark);
+  color: var(--white);
+  padding: 0.9rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
 
-        .header-content {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+.header-content {
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40px;
+}
 
-        .logo {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 0.3rem;
-        }
+.logo {
+  position: absolute;
+  left: 25%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.logo span { color: var(--racing-red); font-weight: 900; }
 
-        .logo span {
-            color: var(--racing-red);
-            font-weight: 900;
-        }
+.nav-menu {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-menu a {
+  color: var(--gray-light);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.nav-menu a:hover,
+.nav-menu a.active { color: var(--white); }
 
-        .nav-menu {
-            margin: 0.8rem 0;
-        }
+.header-stats {
+  position: absolute;
+  left: 75%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  white-space: nowrap;
+}
+.stat {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+.stat-number {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--racing-red);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--gray-light);
+  line-height: 1;
+}
 
-        .nav-menu a {
-            color: var(--gray-light);
-            text-decoration: none;
-            margin-right: 1.5rem;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        .nav-menu a:hover {
-            color: var(--white);
-        }
-
-        .tagline {
-            font-size: 1rem;
-            color: var(--gray-light);
-            margin-top: 0.5rem;
-        }
-
+@media (max-width: 720px) {
+  .logo, .header-stats { position: static; transform: none; }
+  .header-content { flex-wrap: wrap; justify-content: space-between; }
+  .nav-menu { order: 3; width: 100%; justify-content: center; margin-top: 0.4rem; }
+  .header-stats { display: none; }
+}
         /* CONTENUTO */
         .container {
             max-width: 600px;
@@ -229,17 +261,24 @@
 
 <!-- HEADER -->
 <header class="header">
-    <div class="header-content">
-        <div class="logo">Paddock<span>Map</span></div>
-
-        <nav class="nav-menu">
-            <a href="index.html">Home</a>
-            <a href="mappa.html" onclick="gtag('event', 'nav_click', { nav_item: 'mappa' })">Mappa</a>
-            <a href="contatti.html">Promuovi Evento</a>
-        </nav>
-
-        <p class="tagline">🏁 Promuovi il tuo evento motorsport</p>
-    </div>
+<div class="header-content">
+<div class="logo">Paddock<span>Map</span></div>
+<nav class="nav-menu">
+<a href="index.html" onclick="gtag('event', 'nav_click', { nav_item: 'home' })">Home</a>
+<a href="mappa.html" onclick="gtag('event', 'nav_click', { nav_item: 'mappa' })">Mappa</a>
+<a href="contatti.html" class="active" onclick="gtag('event', 'nav_click', { nav_item: 'promuovi_evento' })">Promuovi Evento</a>
+</nav>
+<div class="header-stats">
+<div class="stat">
+<span class="stat-number" id="totalEvents">0</span>
+<span class="stat-label">eventi</span>
+</div>
+<div class="stat">
+<span class="stat-number" id="totalCircuits">0</span>
+<span class="stat-label">circuiti</span>
+</div>
+</div>
+</div>
 </header>
 
 <!-- CONTENUTO -->
@@ -269,6 +308,14 @@
 </footer>
 
 <script>
+    fetch('events.json')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('totalEvents').textContent = data.length;
+    const circuits = new Set(data.map(e => e.circuito || e.citta).filter(Boolean));
+    document.getElementById('totalCircuits').textContent = circuits.size;
+  })
+  .catch(() => {});
 document.getElementById("eventForm").addEventListener("submit", async (e) => {
     e.preventDefault();
     const modal = document.getElementById("successModal");
