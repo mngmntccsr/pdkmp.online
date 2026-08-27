@@ -227,6 +227,25 @@ font-family: inherit;
 
 .radius-value { font-weight: 700; color: var(--racing-red); }
 
+.map-popup { font-family: inherit; }
+.map-popup-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.popup-arrow {
+  background: none;
+  border: none;
+  color: #000000;
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+}
+.popup-arrow:hover { color: var(--racing-red); }
+.popup-counter { font-size: 0.72rem; color: var(--gray-medium); }  
+
 .map-hint {
 font-size: 0.78rem;
 color: var(--gray-medium);
@@ -488,28 +507,73 @@ margin: 0.12rem;
     updateResetButtonState(disciplines, months, searchText);
   }
 
-  function renderMarkers(events) {
-    markersLayer.clearLayers();
-    events.forEach(ev => {
-      const coords = cityCoordinates[ev.citta];
-      if (!coords) return;
-      const marker = L.circleMarker(coords, {
-        radius: 7,
-        weight: 2,
-        color: '#ffffff',
-        fillColor: '#d32f2f',
-        fillOpacity: 0.95
-      });
-      const dateLabel = ev.dataInizio ? formatDateShort(ev.dataInizio) : '';
-      marker.bindPopup(`
-        <strong>${ev.titolo}</strong><br>
-        ${dateLabel} · ${ev.circuito || ev.citta}<br>
-        ${ev.linkInfo ? `<a href="${ev.linkInfo}" target="_blank" rel="noopener">Maggiori info</a>` : ''}
-      `);
-      marker.addTo(markersLayer);
+  function groupByLocation(events) {
+  const groups = {};
+  events.forEach(ev => {
+    const coords = cityCoordinates[ev.citta];
+    if (!coords) return;
+    if (!groups[ev.citta]) groups[ev.citta] = { coords, items: [] };
+    groups[ev.citta].items.push(ev);
+  });
+  Object.values(groups).forEach(g => {
+    g.items.sort((a, b) => new Date(a.dataInizio) - new Date(b.dataInizio));
+  });
+  return Object.values(groups);
+}
+
+function renderMarkers(events) {
+  markersLayer.clearLayers();
+  const groups = groupByLocation(events);
+
+  groups.forEach(group => {
+    const marker = L.circleMarker(group.coords, {
+      radius: 7, weight: 2, color: '#ffffff', fillColor: '#d32f2f', fillOpacity: 0.95
     });
-    updateHeaderStats(events);
-  }
+    marker._groupEvents = group.items;
+    marker._groupIndex = 0;
+    marker.bindPopup(buildPopupHtml(marker));
+    marker.on('popupopen', () => {
+      marker._groupIndex = 0;
+      updateMarkerPopup(marker);
+    });
+    marker.addTo(markersLayer);
+  });
+
+  updateHeaderStats(events);
+}
+
+function buildPopupHtml(marker) {
+  const items = marker._groupEvents;
+  const idx = marker._groupIndex;
+  const ev = items[idx];
+  const dateLabel = ev.dataInizio ? formatDateShort(ev.dataInizio) : '';
+  const showPrev = idx > 0;
+  const showNext = idx < items.length - 1;
+  return `
+    <div class="map-popup">
+      ${items.length > 1 ? `
+      <div class="map-popup-nav">
+        <button class="popup-arrow popup-prev" style="${showPrev ? '' : 'visibility:hidden;'}">‹</button>
+        <span class="popup-counter">${idx + 1} / ${items.length}</span>
+        <button class="popup-arrow popup-next" style="${showNext ? '' : 'visibility:hidden;'}">›</button>
+      </div>` : ''}
+      <strong>${ev.titolo}</strong><br>
+      ${dateLabel} · ${ev.circuito || ev.citta}<br>
+      ${ev.linkInfo ? `<a href="${ev.linkInfo}" target="_blank" rel="noopener">Maggiori info</a>` : ''}
+    </div>`;
+}
+
+function updateMarkerPopup(marker) {
+  marker.setPopupContent(buildPopupHtml(marker));
+  requestAnimationFrame(() => {
+    const popupEl = marker.getPopup().getElement();
+    if (!popupEl) return;
+    const prevBtn = popupEl.querySelector('.popup-prev');
+    const nextBtn = popupEl.querySelector('.popup-next');
+    if (prevBtn) prevBtn.onclick = (e) => { e.stopPropagation(); marker._groupIndex--; updateMarkerPopup(marker); };
+    if (nextBtn) nextBtn.onclick = (e) => { e.stopPropagation(); marker._groupIndex++; updateMarkerPopup(marker); };
+  });
+}
 
 function updateHeaderStats(events) {
   const totalEventsEl = document.getElementById('totalEvents');
