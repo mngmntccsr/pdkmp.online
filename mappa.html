@@ -55,21 +55,60 @@ z-index: 10;
 }
 
 .header-content {
-max-width: 1600px;
-margin: 0 auto;
-display: flex;
-align-items: center;
-justify-content: space-between;
-flex-wrap: wrap;
-gap: 0.4rem 1.5rem;
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40px;
 }
 
 .logo {
-font-size: 1.4rem;
-font-weight: 800;
-letter-spacing: -0.02em;
-white-space: nowrap;
+  position: absolute;
+  left: 25%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
 }
+
+.header-stats {
+  position: absolute;
+  left: 75%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  white-space: nowrap;
+}
+.stat {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+.stat-number {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--racing-red);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--gray-light);
+  line-height: 1;
+}
+
+@media (max-width: 720px) {
+  .logo, .header-stats { position: static; transform: none; }
+  .header-content { flex-wrap: wrap; justify-content: space-between; }
+  .nav-menu { order: 3; width: 100%; justify-content: center; margin-top: 0.4rem; }
+  .header-stats { display: none; }
+}  
+  
 .logo span { color: var(--racing-red); font-weight: 900; }
 
 .nav-menu a {
@@ -260,6 +299,16 @@ margin: 0.12rem;
 <a href="mappa.html" class="active" onclick="gtag('event', 'nav_click', { nav_item: 'mappa' })">Mappa</a>
 <a href="contatti.html" onclick="gtag('event', 'nav_click', { nav_item: 'promuovi_evento' })">Promuovi Evento</a>
 </nav>
+  <div class="header-stats">
+  <div class="stat">
+    <span class="stat-number" id="totalEvents">0</span>
+    <span class="stat-label">eventi</span>
+  </div>
+  <div class="stat">
+    <span class="stat-number" id="totalCircuits">0</span>
+    <span class="stat-label">circuiti</span>
+  </div>
+</div>
 </div>
 </header>
 
@@ -459,8 +508,19 @@ margin: 0.12rem;
       `);
       marker.addTo(markersLayer);
     });
+    updateHeaderStats(events);
   }
 
+function updateHeaderStats(events) {
+  const totalEventsEl = document.getElementById('totalEvents');
+  const totalCircuitsEl = document.getElementById('totalCircuits');
+  if (totalEventsEl) totalEventsEl.textContent = events.length;
+  if (totalCircuitsEl) {
+    const circuits = new Set(events.map(e => e.circuito || e.citta).filter(Boolean));
+    totalCircuitsEl.textContent = circuits.size;
+  }
+}
+ 
   function updateResetButtonState(disciplines, months, searchText) {
     const btn = document.getElementById('resetFiltersBtn');
     const active = disciplines.length > 0 || months.length > 0 || !!searchText || !!searchCenter;
