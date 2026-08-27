@@ -312,7 +312,7 @@
   .then(res => res.json())
   .then(data => {
     document.getElementById('totalEvents').textContent = data.length;
-    const circuits = new Set(data.map(e => e.circuito || e.citta).filter(Boolean));
+    const circuits = new Set(data.map(e => e.circuito).filter(c => c && c.trim() !== ''));
     document.getElementById('totalCircuits').textContent = circuits.size;
   })
   .catch(() => {});
