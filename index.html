@@ -736,6 +736,25 @@ white-space: nowrap;
   pointer-events: none;
 }
 
+.map-popup { font-family: inherit; }
+.map-popup-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.popup-arrow {
+  background: none;
+  border: none;
+  color: #000000;
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+}
+.popup-arrow:hover { color: var(--racing-red); }
+.popup-counter { font-size: 0.72rem; color: var(--gray-medium); }        
+
 /* Pulsanti comprimi/espandi: SEMPRE visibili, agganciati al centro-basso dello schermo */
 .panel-toggle {
   position: sticky;
@@ -1123,7 +1142,8 @@ if (hasImage) {
 
                 return `
                     <div class="event-card"
-     data-citta="${event.citta || ''}"               
+     data-citta="${event.citta || ''}"  
+     data-datainizio="${evento.dataInizio || ''}"
      data-is-promo="${event.isPromo ? 'true' : 'false'}"
      data-event-title="${event.titolo}"
      data-discipline="${event.disciplina.join(',')}"
@@ -1705,25 +1725,75 @@ function initEventTracking() {
   }
 
   function syncMarkers() {
-    eventMarkers.forEach(m => map.removeLayer(m));
-    eventMarkers = [];
+  eventMarkers.forEach(m => map.removeLayer(m));
+  eventMarkers = [];
 
-    getVisibleCards().forEach(card => {
-      const coords = cityCoordinates[card.dataset.citta];
-      if (!coords) return;
-      const titleEl = card.querySelector('.event-title');
-      const title = titleEl ? titleEl.textContent.trim() : '';
-      const marker = L.circleMarker(coords, {
-        radius: 7,
-        weight: 2,
-        color: '#ffffff',
-        fillColor: '#d32f2f',
-        fillOpacity: 0.95
-      }).addTo(map);
-      if (title) marker.bindPopup(`<strong>${title}</strong>`);
-      eventMarkers.push(marker);
+  const groups = {};
+  getVisibleCards().forEach(card => {
+    const citta = card.dataset.citta;
+    const coords = cityCoordinates[citta];
+    if (!coords) return;
+    const titleEl = card.querySelector('.event-title');
+    const title = titleEl ? titleEl.textContent.trim() : '';
+    const dataInizio = card.dataset.datainizio || '';
+    if (!groups[citta]) groups[citta] = { coords, items: [] };
+    groups[citta].items.push({ titolo: title, dataInizio, citta });
+  });
+
+  Object.values(groups).forEach(group => {
+    group.items.sort((a, b) => new Date(a.dataInizio) - new Date(b.dataInizio));
+    const marker = L.circleMarker(group.coords, {
+      radius: 7, weight: 2, color: '#ffffff', fillColor: '#d32f2f', fillOpacity: 0.95
     });
-  }
+    marker._groupEvents = group.items;
+    marker._groupIndex = 0;
+    marker.bindPopup(buildPopupHtml(marker));
+    marker.on('popupopen', () => {
+      marker._groupIndex = 0;
+      updateMarkerPopup(marker);
+    });
+    marker.addTo(map);
+    eventMarkers.push(marker);
+  });
+}
+
+function formatDateShort(dateString) {
+  if (!dateString) return '';
+  const date = new Date(dateString);
+  return `${date.getDate()} ${date.toLocaleDateString('it-IT', { month: 'short' })}`;
+}
+
+function buildPopupHtml(marker) {
+  const items = marker._groupEvents;
+  const idx = marker._groupIndex;
+  const ev = items[idx];
+  const dateLabel = formatDateShort(ev.dataInizio);
+  const showPrev = idx > 0;
+  const showNext = idx < items.length - 1;
+  return `
+    <div class="map-popup">
+      ${items.length > 1 ? `
+      <div class="map-popup-nav">
+        <button class="popup-arrow popup-prev" style="${showPrev ? '' : 'visibility:hidden;'}">‹</button>
+        <span class="popup-counter">${idx + 1} / ${items.length}</span>
+        <button class="popup-arrow popup-next" style="${showNext ? '' : 'visibility:hidden;'}">›</button>
+      </div>` : ''}
+      <strong>${ev.titolo}</strong><br>
+      ${dateLabel}${ev.citta ? ' · ' + ev.citta : ''}
+    </div>`;
+}
+
+function updateMarkerPopup(marker) {
+  marker.setPopupContent(buildPopupHtml(marker));
+  requestAnimationFrame(() => {
+    const popupEl = marker.getPopup().getElement();
+    if (!popupEl) return;
+    const prevBtn = popupEl.querySelector('.popup-prev');
+    const nextBtn = popupEl.querySelector('.popup-next');
+    if (prevBtn) prevBtn.onclick = (e) => { e.stopPropagation(); marker._groupIndex--; updateMarkerPopup(marker); };
+    if (nextBtn) nextBtn.onclick = (e) => { e.stopPropagation(); marker._groupIndex++; updateMarkerPopup(marker); };
+  });
+}
 
   function applyMapRadiusFilter() {
     const cards = document.querySelectorAll('#eventsContainer .event-card');
