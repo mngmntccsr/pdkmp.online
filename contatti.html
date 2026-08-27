@@ -311,8 +311,10 @@
     fetch('events.json')
   .then(res => res.json())
   .then(data => {
-    document.getElementById('totalEvents').textContent = data.length;
-    const circuits = new Set(data.map(e => e.circuito).filter(c => c && c.trim() !== ''));
+    const today = new Date();
+    const validEvents = data.filter(event => new Date(event.dataFine || event.dataInizio) >= today);
+    document.getElementById('totalEvents').textContent = validEvents.length;
+    const circuits = new Set(validEvents.map(e => e.circuito).filter(c => c && c.trim() !== ''));
     document.getElementById('totalCircuits').textContent = circuits.size;
   })
   .catch(() => {});
