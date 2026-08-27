@@ -516,7 +516,7 @@ function updateHeaderStats(events) {
   const totalCircuitsEl = document.getElementById('totalCircuits');
   if (totalEventsEl) totalEventsEl.textContent = events.length;
   if (totalCircuitsEl) {
-    const circuits = new Set(events.map(e => e.circuito || e.citta).filter(Boolean));
+    const circuits = new Set(events.map(e => e.circuito).filter(c => c && c.trim() !== ''));
     totalCircuitsEl.textContent = circuits.size;
   }
 }
