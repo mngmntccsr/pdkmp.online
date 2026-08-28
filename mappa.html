@@ -403,79 +403,18 @@ margin: 0.12rem;
 
 <script>
 (function () {
-  const cityCoordinates = {
-    "Fasano": [40.833, 17.360],
-    "Monza": [45.583, 9.274],
-    "Trento": [46.068, 11.121],
-    "Ascoli Piceno": [42.854, 13.583],
-    "Rieti": [42.405, 12.861],
-    "Gubbio": [43.350, 12.577],
-    "Caltanissetta": [37.490, 14.062],
-    "Erice": [38.039, 12.587],
-    "Cosenza": [39.299, 16.254],
-    "Varano de' Melegari": [44.718, 10.102],
-    "Imola": [44.353, 11.715],
-    "Misano Adriatico": [43.962, 12.688],
-    "Verona": [45.438, 10.992],
-    "Alba": [44.701, 8.035],
-    "Sanremo": [43.816, 7.776],
-    "Roma": [41.903, 12.496],
-    "Arese": [45.549, 9.066],
-    "Popoli": [42.171, 13.830],
-    "Campagnano di Roma": [42.117, 12.406],
-    "Scarperia e San Piero": [43.998, 11.372],
-    "Palermo": [38.116, 13.362],
-    "San Marino": [43.942, 12.458],
-    "Sondrio": [46.171, 9.871],
-    "Castelnovo ne' Monti": [44.439, 10.403],
-    "Alghero": [40.559, 8.318],
-    "Biella": [45.566, 8.054]
-  };
-
-  const ITALY_BOUNDS = L.latLngBounds([36.5, 6.6], [47.1, 18.5]);
   let allEvents = [];
   let map, markersLayer, searchCircle, centerMarker;
   let searchCenter = null;
   let searchRadiusKm = 50;
 
-  function haversineKm(lat1, lon1, lat2, lon2) {
-    const R = 6371;
-    const dLat = (lat2 - lat1) * Math.PI / 180;
-    const dLon = (lon2 - lon1) * Math.PI / 180;
-    const a = Math.sin(dLat / 2) ** 2 +
-      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-      Math.sin(dLon / 2) ** 2;
-    return 2 * R * Math.asin(Math.sqrt(a));
-  }
-
   function initMap() {
-    map = L.map('interactiveMapFull', {
-      maxBounds: ITALY_BOUNDS.pad(0.05),
-      maxBoundsViscosity: 1.0,
-      minZoom: 5,
-      maxZoom: 12
-    });
-    map.setView([42.8, 12.5], 6);
-
-    L.tileLayer('https://services.arcgisonline.com/arcgis/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-      attribution: 'Esri, HERE, Garmin, &copy; OpenStreetMap contributors',
-      maxZoom: 16
-    }).addTo(map);
-
-    L.tileLayer('https://services.arcgisonline.com/arcgis/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
-      maxZoom: 16
-    }).addTo(map);
-
+    map = createBaseMap('interactiveMapFull');
     markersLayer = L.layerGroup().addTo(map);
     map.on('click', (e) => setSearchCenter(e.latlng.lat, e.latlng.lng));
 
     window.addEventListener('resize', () => map.invalidateSize());
     setTimeout(() => map.invalidateSize(), 200);
-  }
-
-  function formatDateShort(dateString) {
-    const date = new Date(dateString);
-    return `${date.getDate()} ${date.toLocaleDateString('it-IT', { month: 'short' })}`;
   }
 
   function getSelectedValues(filterName) {
@@ -507,84 +446,32 @@ margin: 0.12rem;
     updateResetButtonState(disciplines, months, searchText);
   }
 
-  function groupByLocation(events) {
-  const groups = {};
-  events.forEach(ev => {
-    const coords = cityCoordinates[ev.citta];
-    if (!coords) return;
-    if (!groups[ev.citta]) groups[ev.citta] = { coords, items: [] };
-    groups[ev.citta].items.push(ev);
-  });
-  Object.values(groups).forEach(g => {
-    g.items.sort((a, b) => new Date(a.dataInizio) - new Date(b.dataInizio));
-  });
-  return Object.values(groups);
-}
+  function renderMarkers(events) {
+    markersLayer.clearLayers();
+    const groups = groupEventsByLocation(events, ev => ev.citta);
 
-function renderMarkers(events) {
-  markersLayer.clearLayers();
-  const groups = groupByLocation(events);
-
-  groups.forEach(group => {
-    const marker = L.circleMarker(group.coords, {
-      radius: 7, weight: 2, color: '#ffffff', fillColor: '#d32f2f', fillOpacity: 0.95
+    groups.forEach(group => {
+      const marker = createGroupMarker(group, (ev) => `
+        <strong>${ev.titolo}</strong><br>
+        ${formatDateShort(ev.dataInizio)} · ${ev.circuito || ev.citta}<br>
+        ${ev.linkInfo ? `<a href="${ev.linkInfo}" target="_blank" rel="noopener">Maggiori info</a>` : ''}
+      `);
+      marker.addTo(markersLayer);
     });
-    marker._groupEvents = group.items;
-    marker._groupIndex = 0;
-    marker.bindPopup(buildPopupHtml(marker));
-    marker.on('popupopen', () => {
-      marker._groupIndex = 0;
-      updateMarkerPopup(marker);
-    });
-    marker.addTo(markersLayer);
-  });
 
-  updateHeaderStats(events);
-}
-
-function buildPopupHtml(marker) {
-  const items = marker._groupEvents;
-  const idx = marker._groupIndex;
-  const ev = items[idx];
-  const dateLabel = ev.dataInizio ? formatDateShort(ev.dataInizio) : '';
-  const showPrev = idx > 0;
-  const showNext = idx < items.length - 1;
-  return `
-    <div class="map-popup">
-      ${items.length > 1 ? `
-      <div class="map-popup-nav">
-        <button class="popup-arrow popup-prev" style="${showPrev ? '' : 'visibility:hidden;'}">‹</button>
-        <span class="popup-counter">${idx + 1} / ${items.length}</span>
-        <button class="popup-arrow popup-next" style="${showNext ? '' : 'visibility:hidden;'}">›</button>
-      </div>` : ''}
-      <strong>${ev.titolo}</strong><br>
-      ${dateLabel} · ${ev.circuito || ev.citta}<br>
-      ${ev.linkInfo ? `<a href="${ev.linkInfo}" target="_blank" rel="noopener">Maggiori info</a>` : ''}
-    </div>`;
-}
-
-function updateMarkerPopup(marker) {
-  marker.setPopupContent(buildPopupHtml(marker));
-  requestAnimationFrame(() => {
-    const popupEl = marker.getPopup().getElement();
-    if (!popupEl) return;
-    const prevBtn = popupEl.querySelector('.popup-prev');
-    const nextBtn = popupEl.querySelector('.popup-next');
-    if (prevBtn) prevBtn.onclick = (e) => { e.stopPropagation(); marker._groupIndex--; updateMarkerPopup(marker); };
-    if (nextBtn) nextBtn.onclick = (e) => { e.stopPropagation(); marker._groupIndex++; updateMarkerPopup(marker); };
-  });
-}
-
-function updateHeaderStats(events) {
-  const totalEventsEl = document.getElementById('totalEvents');
-  const totalCircuitsEl = document.getElementById('totalCircuits');
-  if (totalEventsEl) totalEventsEl.textContent = events.length;
-  if (totalCircuitsEl) {
-    const circuits = new Set(events.map(e => e.circuito).filter(c => c && c.trim() !== ''));
-    totalCircuitsEl.textContent = circuits.size;
+    updateHeaderStats(events);
   }
-}
- 
+
+  function updateHeaderStats(events) {
+    const totalEventsEl = document.getElementById('totalEvents');
+    const totalCircuitsEl = document.getElementById('totalCircuits');
+    if (totalEventsEl) totalEventsEl.textContent = events.length;
+    if (totalCircuitsEl) {
+      const circuits = new Set(events.map(e => e.circuito).filter(c => c && c.trim() !== ''));
+      totalCircuitsEl.textContent = circuits.size;
+    }
+  }
+
   function updateResetButtonState(disciplines, months, searchText) {
     const btn = document.getElementById('resetFiltersBtn');
     const active = disciplines.length > 0 || months.length > 0 || !!searchText || !!searchCenter;
@@ -677,17 +564,19 @@ function updateHeaderStats(events) {
     applyFilters();
   });
 
-  initMap();
+  loadCityCoordinates().then(() => {
+    initMap();
 
-  fetch('events.json')
-  .then(res => res.json())
-  .then(data => {
     const today = new Date();
-    allEvents = data.filter(event => new Date(event.dataFine || event.dataInizio) >= today);
-    applyFilters();
-  })
-  .catch(() => {
-    alert('Impossibile caricare gli eventi.');
+    fetch('events.json')
+      .then(res => res.json())
+      .then(data => {
+        allEvents = data.filter(event => new Date(event.dataFine || event.dataInizio) >= today);
+        applyFilters();
+      })
+      .catch(() => {
+        alert('Impossibile caricare gli eventi.');
+      });
   });
 })();
 </script>
