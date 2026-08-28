@@ -1651,75 +1651,14 @@ function initEventTracking() {
 </script>
 <script>
 (function () {
-  const cityCoordinates = {
-    "Fasano": [40.833, 17.360],
-    "Monza": [45.583, 9.274],
-    "Limatola": [41.156, 14.371],  
-    "Pergusa": [37.520, 14.304], 
-    "Racalmuto": [37.385, 13.753],   
-    "Binetto": [40.995, 16.742],   
-    "Trento": [46.068, 11.121],
-    "Ascoli Piceno": [42.854, 13.583],
-    "Rieti": [42.405, 12.861],
-    "Gubbio": [43.350, 12.577],
-    "Caltanissetta": [37.490, 14.062],
-    "Erice": [38.039, 12.587],
-    "Cosenza": [39.299, 16.254],
-    "Varano de' Melegari": [44.718, 10.102],
-    "Imola": [44.353, 11.715],
-    "Misano Adriatico": [43.962, 12.688],
-    "Verona": [45.438, 10.992],
-    "Alba": [44.701, 8.035],
-    "Sanremo": [43.816, 7.776],
-    "Roma": [41.903, 12.496],
-    "Arese": [45.549, 9.066],
-    "Popoli": [42.171, 13.830],
-    "Campagnano di Roma": [42.117, 12.406],
-    "Scarperia e San Piero": [43.998, 11.372],
-    "Palermo": [38.116, 13.362],
-    "San Marino": [43.942, 12.458],
-    "Sondrio": [46.171, 9.871],
-    "Castelnovo ne' Monti": [44.439, 10.403],
-    "Alghero": [40.559, 8.318],
-    "Biella": [45.566, 8.054]
-  };
-
-  const ITALY_BOUNDS = L.latLngBounds([35.2, 6.5], [47.3, 18.6]);
-
-  function haversineKm(lat1, lon1, lat2, lon2) {
-    const R = 6371;
-    const dLat = (lat2 - lat1) * Math.PI / 180;
-    const dLon = (lon2 - lon1) * Math.PI / 180;
-    const a = Math.sin(dLat / 2) ** 2 +
-      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-      Math.sin(dLon / 2) ** 2;
-    return 2 * R * Math.asin(Math.sqrt(a));
-  }
-
-  let map, searchCircle, centerMarker;
+  let map;
+  let searchCircle, centerMarker;
   let searchCenter = null;
   let searchRadiusKm = 50;
   let eventMarkers = [];
 
   function initMap() {
-    map = L.map('interactiveMap', {
-      maxBounds: ITALY_BOUNDS.pad(0.15),
-      maxBoundsViscosity: 1.0,
-      minZoom: 5,
-      maxZoom: 10
-    });
-    map.fitBounds(ITALY_BOUNDS);
-
-    // Mappa pulita e gratuita, nessuna API key richiesta (Esri Light Gray Canvas)
-    L.tileLayer('https://services.arcgisonline.com/arcgis/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-      attribution: 'Esri, HERE, Garmin, &copy; OpenStreetMap contributors',
-      maxZoom: 16
-    }).addTo(map);
-
-    L.tileLayer('https://services.arcgisonline.com/arcgis/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
-      maxZoom: 16
-    }).addTo(map);
-
+    map = createBaseMap('interactiveMap');
     map.on('click', (e) => setSearchCenter(e.latlng.lat, e.latlng.lng));
   }
 
@@ -1729,75 +1668,27 @@ function initEventTracking() {
   }
 
   function syncMarkers() {
-  eventMarkers.forEach(m => map.removeLayer(m));
-  eventMarkers = [];
+    eventMarkers.forEach(m => map.removeLayer(m));
+    eventMarkers = [];
 
-  const groups = {};
-  getVisibleCards().forEach(card => {
-    const citta = card.dataset.citta;
-    const coords = cityCoordinates[citta];
-    if (!coords) return;
-    const titleEl = card.querySelector('.event-title');
-    const title = titleEl ? titleEl.textContent.trim() : '';
-    const dataInizio = card.dataset.datainizio || '';
-    if (!groups[citta]) groups[citta] = { coords, items: [] };
-    groups[citta].items.push({ titolo: title, dataInizio, citta });
-  });
+    const cards = getVisibleCards();
+    const events = cards.map(card => ({
+      citta: card.dataset.citta,
+      dataInizio: card.dataset.datainizio,
+      titolo: card.querySelector('.event-title') ? card.querySelector('.event-title').textContent.trim() : ''
+    }));
 
-  Object.values(groups).forEach(group => {
-    group.items.sort((a, b) => new Date(a.dataInizio) - new Date(b.dataInizio));
-    const marker = L.circleMarker(group.coords, {
-      radius: 7, weight: 2, color: '#ffffff', fillColor: '#d32f2f', fillOpacity: 0.95
+    const groups = groupEventsByLocation(events, ev => ev.citta);
+
+    groups.forEach(group => {
+      const marker = createGroupMarker(group, (ev) => `
+        <strong>${ev.titolo}</strong><br>
+        ${formatDateShort(ev.dataInizio)}${ev.citta ? ' · ' + ev.citta : ''}
+      `);
+      marker.addTo(map);
+      eventMarkers.push(marker);
     });
-    marker._groupEvents = group.items;
-    marker._groupIndex = 0;
-    marker.bindPopup(buildPopupHtml(marker));
-    marker.on('popupopen', () => {
-      marker._groupIndex = 0;
-      updateMarkerPopup(marker);
-    });
-    marker.addTo(map);
-    eventMarkers.push(marker);
-  });
-}
-
-function formatDateShort(dateString) {
-  if (!dateString) return '';
-  const date = new Date(dateString);
-  return `${date.getDate()} ${date.toLocaleDateString('it-IT', { month: 'short' })}`;
-}
-
-function buildPopupHtml(marker) {
-  const items = marker._groupEvents;
-  const idx = marker._groupIndex;
-  const ev = items[idx];
-  const dateLabel = formatDateShort(ev.dataInizio);
-  const showPrev = idx > 0;
-  const showNext = idx < items.length - 1;
-  return `
-    <div class="map-popup">
-      ${items.length > 1 ? `
-      <div class="map-popup-nav">
-        <button class="popup-arrow popup-prev" style="${showPrev ? '' : 'visibility:hidden;'}">‹</button>
-        <span class="popup-counter">${idx + 1} / ${items.length}</span>
-        <button class="popup-arrow popup-next" style="${showNext ? '' : 'visibility:hidden;'}">›</button>
-      </div>` : ''}
-      <strong>${ev.titolo}</strong><br>
-      ${dateLabel}${ev.citta ? ' · ' + ev.citta : ''}
-    </div>`;
-}
-
-function updateMarkerPopup(marker) {
-  marker.setPopupContent(buildPopupHtml(marker));
-  requestAnimationFrame(() => {
-    const popupEl = marker.getPopup().getElement();
-    if (!popupEl) return;
-    const prevBtn = popupEl.querySelector('.popup-prev');
-    const nextBtn = popupEl.querySelector('.popup-next');
-    if (prevBtn) prevBtn.onclick = (e) => { e.stopPropagation(); marker._groupIndex--; updateMarkerPopup(marker); };
-    if (nextBtn) nextBtn.onclick = (e) => { e.stopPropagation(); marker._groupIndex++; updateMarkerPopup(marker); };
-  });
-}
+  }
 
   function applyMapRadiusFilter() {
     const cards = document.querySelectorAll('#eventsContainer .event-card');
@@ -1809,6 +1700,15 @@ function updateMarkerPopup(marker) {
       card.style.display = (dist <= searchRadiusKm) ? '' : 'none';
     });
     syncMarkers();
+  }
+
+  function updateResetButtonState() {
+    const anyMultiSelected = document.querySelector('.multi-select-option.selected') !== null;
+    const searchInput = document.getElementById('filterSearch');
+    const anySearchText = searchInput && searchInput.value.trim() !== '';
+    const resetBtn = document.querySelector('.reset-filters');
+    if (!resetBtn) return;
+    resetBtn.classList.toggle('active', anyMultiSelected || anySearchText || !!searchCenter);
   }
 
   function setSearchCenter(lat, lng) {
@@ -1824,33 +1724,15 @@ function updateMarkerPopup(marker) {
     if (!searchCenter) return;
 
     centerMarker = L.circleMarker([searchCenter.lat, searchCenter.lng], {
-      radius: 5,
-      weight: 2,
-      color: '#212121',
-      fillColor: '#212121',
-      fillOpacity: 1
+      radius: 5, weight: 2, color: '#212121', fillColor: '#212121', fillOpacity: 1
     }).addTo(map);
 
     searchCircle = L.circle([searchCenter.lat, searchCenter.lng], {
       radius: searchRadiusKm * 1000,
-      color: '#d32f2f',
-      weight: 1.5,
-      fillColor: '#d32f2f',
-      fillOpacity: 0.08
+      color: '#d32f2f', weight: 1.5, fillColor: '#d32f2f', fillOpacity: 0.08
     }).addTo(map);
 
     map.fitBounds(searchCircle.getBounds(), { maxZoom: 9 });
-  }
-
-  // Il pulsante "Cancella filtri" a sinistra diventa rosso se c'è un filtro
-  // normale attivo OPPURE una zona selezionata sulla mappa
-  function updateResetButtonState() {
-    const anyMultiSelected = document.querySelector('.multi-select-option.selected') !== null;
-    const searchInput = document.getElementById('filterSearch');
-    const anySearchText = searchInput && searchInput.value.trim() !== '';
-    const resetBtn = document.querySelector('.reset-filters');
-    if (!resetBtn) return;
-    resetBtn.classList.toggle('active', anyMultiSelected || anySearchText || !!searchCenter);
   }
 
   const gridObserver = new MutationObserver(() => {
@@ -1858,67 +1740,65 @@ function updateMarkerPopup(marker) {
     updateResetButtonState();
   });
 
-  initMap();
+  loadCityCoordinates().then(() => {
+    initMap();
 
-  document.getElementById('mapRadiusRange').addEventListener('input', (e) => {
-    searchRadiusKm = parseInt(e.target.value, 10);
-    document.getElementById('mapRadiusValue').textContent = searchRadiusKm;
-    if (searchCircle) searchCircle.setRadius(searchRadiusKm * 1000);
-    applyMapRadiusFilter();
-  });
-
-  document.getElementById('mapLocateBtn').addEventListener('click', () => {
-    if (!navigator.geolocation) { alert('Geolocalizzazione non supportata dal tuo browser.'); return; }
-    navigator.geolocation.getCurrentPosition(
-      (pos) => setSearchCenter(pos.coords.latitude, pos.coords.longitude),
-      () => alert('Impossibile ottenere la tua posizione.')
-    );
-  });
-
-  // Il pulsante "Cancella filtri" esistente (sinistra) ora pulisce anche la mappa.
-  // Il suo comportamento originale (onclick="resetFilters()" nell'HTML) resta invariato:
-  // qui aggiungiamo SOLO la pulizia della zona sulla mappa, in aggiunta.
-  const resetBtn = document.querySelector('.reset-filters');
-  if (resetBtn) {
-    resetBtn.addEventListener('click', () => {
-      searchCenter = null;
-      if (searchCircle) map.removeLayer(searchCircle);
-      if (centerMarker) map.removeLayer(centerMarker);
+    document.getElementById('mapRadiusRange').addEventListener('input', (e) => {
+      searchRadiusKm = parseInt(e.target.value, 10);
+      document.getElementById('mapRadiusValue').textContent = searchRadiusKm;
+      if (searchCircle) searchCircle.setRadius(searchRadiusKm * 1000);
       applyMapRadiusFilter();
-      map.fitBounds(ITALY_BOUNDS);
-      updateResetButtonState();
     });
-  }
 
-  // Aggiorna lo stato del pulsante anche quando l'utente usa i filtri normali
-  document.addEventListener('click', (e) => {
-    if (e.target.closest('.multi-select-option')) {
-      setTimeout(updateResetButtonState, 0);
+    document.getElementById('mapLocateBtn').addEventListener('click', () => {
+      if (!navigator.geolocation) { alert('Geolocalizzazione non supportata dal tuo browser.'); return; }
+      navigator.geolocation.getCurrentPosition(
+        (pos) => setSearchCenter(pos.coords.latitude, pos.coords.longitude),
+        () => alert('Impossibile ottenere la tua posizione.')
+      );
+    });
+
+    const resetBtn = document.querySelector('.reset-filters');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        searchCenter = null;
+        if (searchCircle) map.removeLayer(searchCircle);
+        if (centerMarker) map.removeLayer(centerMarker);
+        applyMapRadiusFilter();
+        map.setView([42.8, 12.5], 6);
+        updateResetButtonState();
+      });
     }
+
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('.multi-select-option')) {
+        setTimeout(updateResetButtonState, 0);
+      }
+    });
+    const searchInputEl = document.getElementById('filterSearch');
+    if (searchInputEl) searchInputEl.addEventListener('input', updateResetButtonState);
+
+    const sidebarFilters = document.getElementById('sidebarFilters');
+    const mapSidebar = document.getElementById('mapSidebar');
+    const toggleFiltersBtn = document.getElementById('toggleFiltersBtn');
+    const toggleMapBtn = document.getElementById('toggleMapBtn');
+    const youtubeLayout = document.getElementById('youtubeLayout');
+
+    toggleFiltersBtn.addEventListener('click', () => {
+      const collapsed = sidebarFilters.classList.toggle('collapsed');
+      toggleFiltersBtn.textContent = collapsed ? '›' : '‹';
+    });
+
+    toggleMapBtn.addEventListener('click', () => {
+      const collapsed = mapSidebar.classList.toggle('collapsed');
+      toggleMapBtn.textContent = collapsed ? '‹' : '›';
+      youtubeLayout.classList.toggle('map-open', !collapsed);
+      setTimeout(() => map.invalidateSize(), 260);
+    });
+
+    const container = document.getElementById('eventsContainer');
+    if (container) gridObserver.observe(container, { childList: true, subtree: false });
   });
-  const searchInputEl = document.getElementById('filterSearch');
-  if (searchInputEl) searchInputEl.addEventListener('input', updateResetButtonState);
-
-  const sidebarFilters = document.getElementById('sidebarFilters');
-  const mapSidebar = document.getElementById('mapSidebar');
-  const toggleFiltersBtn = document.getElementById('toggleFiltersBtn');
-  const toggleMapBtn = document.getElementById('toggleMapBtn');
-  const youtubeLayout = document.getElementById('youtubeLayout');
-
-  toggleFiltersBtn.addEventListener('click', () => {
-    const collapsed = sidebarFilters.classList.toggle('collapsed');
-    toggleFiltersBtn.textContent = collapsed ? '›' : '‹';
-  });
-
-  toggleMapBtn.addEventListener('click', () => {
-    const collapsed = mapSidebar.classList.toggle('collapsed');
-    toggleMapBtn.textContent = collapsed ? '‹' : '›';
-    youtubeLayout.classList.toggle('map-open', !collapsed);
-    setTimeout(() => map.invalidateSize(), 260);
-  });
-
-  const container = document.getElementById('eventsContainer');
-  if (container) gridObserver.observe(container, { childList: true, subtree: false });
 })();
 </script>
 </body>
