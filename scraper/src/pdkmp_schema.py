@@ -184,7 +184,7 @@ def event_to_pdkmp_dict(
         "titolo": event.title,
         "dataInizio": start,
         "dataFine": end or start,
-        "disciplina": infer_disciplines(event.title),
+        "disciplina": event.disciplina_override or infer_disciplines(event.title),
         "circuito": event.circuito_override or track.name,
         "citta": event.citta_override or track.citta,
         "linkBiglietti": "",
