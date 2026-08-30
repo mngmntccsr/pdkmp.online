@@ -67,6 +67,10 @@ def load_keywords() -> dict:
         raw = yaml.safe_load(f)
     return raw.get("keywords", {"include": [], "exclude": [], "free_entry": [], "organizer_rules": []})
 
+def load_circuit_aliases() -> dict:
+    with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+        raw = yaml.safe_load(f)
+    return raw.get("circuit_aliases", {})
 
 def load_email_config() -> EmailConfig:
     def _req(name: str) -> str:
