@@ -27,7 +27,7 @@ jobs:
           python tools/inspect_page.py monza
           python tools/inspect_page.py misano
           python tools/inspect_page.py https://wecanrace.it/calendario/
-          python tools/inspect_page.py https://www.autoraduni.it/archivi/
+          python tools/inspect_page.py https://www.autoraduni.it/
 
       - name: Carica HTML come allegato scaricabile
         uses: actions/upload-artifact@v4
