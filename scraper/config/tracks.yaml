@@ -81,6 +81,15 @@ tracks:
     selectors: {}   # non usati: wecanrace.py fa parsing testuale dedicato
     date_hint_language: it
 
+  - slug: autoraduni
+    name: "Autoraduni.it"
+    citta: ""   # sovrascritta per ogni evento con la città reale
+    url: "https://www.autoraduni.it/"
+    parser: static
+    skip_motorsport_filter: true   # il sito è già 100% automotive, niente filtro keyword
+    selectors: {}   # non usati: autoraduni.py fa parsing dedicato via data-attribute
+    date_hint_language: it
+
 # =============================================================================
 # PAROLE CHIAVE PER LA CLASSIFICAZIONE DEGLI EVENTI
 # =============================================================================
