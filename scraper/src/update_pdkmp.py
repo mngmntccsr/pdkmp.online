@@ -36,6 +36,7 @@ from src.scrapers.monza import MonzaScraper
 from src.scrapers.mugello import MugelloScraper
 from src.scrapers.vallelunga import VallelungaScraper
 from src.scrapers.wecanrace import WeCanRaceScraper
+from src.scrapers.autoraduni import AutoraduniScraper
 
 logging.basicConfig(
     level=logging.INFO,
@@ -50,6 +51,7 @@ SCRAPER_REGISTRY = {
     "vallelunga": VallelungaScraper,
     "mugello": MugelloScraper,
     "wecanrace": WeCanRaceScraper,
+    "autoraduni": AutoraduniScraper,
 }
 
 # events.json vive nella ROOT del repo del sito (accanto a index.html).
@@ -95,7 +97,7 @@ def run(dry_run: bool = False, only_track: str | None = None) -> int:
             had_errors = True
             continue
 
-        current = filter_events(raw_events, keywords)
+        current = raw_events if track.skip_motorsport_filter else filter_events(raw_events, keywords)
         logger.info(
             "%s: %d eventi grezzi, %d dopo il filtro motorsport",
             track.name, len(raw_events), len(current),
