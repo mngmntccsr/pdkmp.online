@@ -178,6 +178,7 @@ class WeCanRaceScraper(BaseTrackScraper):
                 date_end=end_iso,
                 circuito_override=circuito,
                 citta_override=citta,
+                disciplina_override=["Trackday"],
             )
             events[ev.event_id] = ev
             i = j
