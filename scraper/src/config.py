@@ -26,6 +26,7 @@ class TrackConfig:
     citta: str = ""
     wait_selector: str | None = None
     date_hint_language: str = "it"
+    skip_motorsport_filter: bool = False
 
 
 @dataclass
@@ -55,6 +56,7 @@ def load_tracks() -> list[TrackConfig]:
                 citta=t.get("citta", ""),
                 wait_selector=t.get("wait_selector"),
                 date_hint_language=t.get("date_hint_language", "it"),
+                skip_motorsport_filter=t.get("skip_motorsport_filter", False),
             )
         )
     return tracks
