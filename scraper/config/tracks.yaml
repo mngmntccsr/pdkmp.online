@@ -233,3 +233,18 @@ keywords:
       organizzatore: "FX Racing Weekend"
     - match: "we can race"
       organizzatore: "We Can Race"
+
+# =============================================================================
+# ALIAS CIRCUITI
+# =============================================================================
+# Le fonti multi-circuito (WeCanRace, e in futuro altre) spesso usano il
+# nome UFFICIALE completo di un autodromo, diverso dal nome che vuoi tu sul
+# sito. Ogni volta che il nome a sinistra viene trovato, viene sostituito
+# con quello a destra prima di finire su events.json.
+# Aggiungi qui una riga ogni volta che scopri un nuovo disallineamento,
+# senza dover toccare il codice.
+circuit_aliases:
+  "Autodromo Internazionale del Mugello": "Mugello Circuit"
+  "Autodromo Enzo e Dino Ferrari": "Autodromo di Imola"
+  "Autodromo Piero Taruffi": "Autodromo di Vallelunga"
+      
