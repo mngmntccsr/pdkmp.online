@@ -46,6 +46,7 @@ class Event:
     # statica della pista per QUESTO singolo evento.
     circuito_override: Optional[str] = None
     citta_override: Optional[str] = None
+    disciplina_override: Optional[list[str]] = None
     event_id: str = field(default="")
 
     def __post_init__(self):
