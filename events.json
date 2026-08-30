@@ -336,6 +336,23 @@
     "eventoGratuito": true
   },
   {
+    "titolo": "10° RADUNO VULCANI CITROEN",
+    "dataInizio": "2026-09-05",
+    "dataFine": "2026-09-06",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Spinea",
+    "citta": "Spinea",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/10-raduno-vulcani-citroen/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "00f8e49bd380fccd"
+  },
+  {
     "titolo": "We Can Race - Guida in pista a Autodromo Piero Taruffi",
     "dataInizio": "2027-02-28",
     "dataFine": "2027-02-28",
@@ -353,6 +370,23 @@
     "idAuto": "0173b951a783b371"
   },
   {
+    "titolo": "17° RADUNO DINAMICO",
+    "dataInizio": "2026-09-20",
+    "dataFine": "2026-09-20",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Pray",
+    "citta": "Pray",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/17-raduno-dinamico/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "02966ec33c14d2c7"
+  },
+  {
     "titolo": "We Can Race - Guida in pista a Autodromo Valle dei Templi",
     "dataInizio": "2026-09-19",
     "dataFine": "2026-09-20",
@@ -368,6 +402,40 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "0a63887f9006000f"
+  },
+  {
+    "titolo": "10° RAID STORICO VICENZA – BUDAPEST – VICENZA",
+    "dataInizio": "2026-08-31",
+    "dataFine": "2026-09-05",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Vicenza",
+    "citta": "Vicenza",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/10-raid-storico-vicenza-budapest-vicenza/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "0b196bc7df81e09c"
+  },
+  {
+    "titolo": "20TH ANNIVERSARY PARTY DEVIL DRIVERS CLUB",
+    "dataInizio": "2026-08-29",
+    "dataFine": "2026-08-30",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Montorso Vicentino",
+    "citta": "Montorso Vicentino",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/20th-anniversary-party-devil-drivers-club/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "0e86e83d405f9928"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo Valle dei Templi",
@@ -402,6 +470,23 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "14cfac2404490a10"
+  },
+  {
+    "titolo": "VII° MONTALCINO HERITAGE 2026",
+    "dataInizio": "2026-09-12",
+    "dataFine": "2026-09-13",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Montalcino",
+    "citta": "Montalcino",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/vii-montalcino-heritage-2026/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "1778d8ed7dedb629"
   },
   {
     "titolo": "ACI RACING WEEKEND - C.I. AUTOMOBILISMO",
@@ -470,6 +555,23 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "1c511daffb6127ac"
+  },
+  {
+    "titolo": "8° RADUNO BARCHETTE IN TOUR",
+    "dataInizio": "2026-09-27",
+    "dataFine": "2026-09-27",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Piglio",
+    "citta": "Piglio",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/8-raduno-barchette-in-tour/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "1de1d1b6478ce3c8"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo Internazionale del Mugello",
@@ -557,6 +659,23 @@
     "idAuto": "2d0e2e00ee87f8a6"
   },
   {
+    "titolo": "8° RADUNO NAZIONALE C3 PLURIEL CLUB ITALIA “10 ANNI DI NOI 2016-2026”",
+    "dataInizio": "2026-09-26",
+    "dataFine": "2026-09-27",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Reggio Emilia",
+    "citta": "Reggio Emilia",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/8-raduno-nazionale-c3-pluriel-club-italia-10-anni-di-noi-2016-2026/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "302388835a20a481"
+  },
+  {
     "titolo": "PORSCHE SPORTS CUP SUISSE",
     "dataInizio": "2026-09-24",
     "dataFine": "2026-09-26",
@@ -589,6 +708,40 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "32acf748600068d0"
+  },
+  {
+    "titolo": "RAID STORICO MILANO – BUDAPEST – MILANO",
+    "dataInizio": "2026-08-30",
+    "dataFine": "2026-09-06",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Milano",
+    "citta": "Milano",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/rievocazione-storica-del-1928-raid-storico-moto-auto-fino-1976/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "349de1ed67961f63"
+  },
+  {
+    "titolo": "4° GROSSETO MOTOR VILLAGE4ª GROSSETO MOTOR VILLAGE e 26^ MOSTRA SCAMBIO AUTO E MOTO D’EPOCA",
+    "dataInizio": "2026-10-03",
+    "dataFine": "2026-10-04",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Grosseto",
+    "citta": "Grosseto",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/4-grosseto-motor-village/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "34afd4d2a76d672d"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo del Levante",
@@ -676,6 +829,23 @@
     "idAuto": "3d5781c28c2ba805"
   },
   {
+    "titolo": "32° RADUNO VIADANA",
+    "dataInizio": "2026-09-19",
+    "dataFine": "2026-09-20",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Viadana",
+    "citta": "Viadana",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/32-raduno-viadana/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "3f2b5012c48ca570"
+  },
+  {
     "titolo": "We Can Race - Guida in pista a Autodromo Franco di Suni",
     "dataInizio": "2027-05-22",
     "dataFine": "2027-05-23",
@@ -708,6 +878,40 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "432a0ad8549f2d73"
+  },
+  {
+    "titolo": "13° ROTARY HISTORICA BY NIGHT",
+    "dataInizio": "2026-09-12",
+    "dataFine": "2026-09-12",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Morimondo",
+    "citta": "Morimondo",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/13-rotary-historica-by-night/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "43f78791d025560c"
+  },
+  {
+    "titolo": "50 FIAT 500",
+    "dataInizio": "2026-09-19",
+    "dataFine": "2026-09-19",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Isera",
+    "citta": "Isera",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/50-fiat-500/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "45b57923e0bb747f"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo Enzo e Dino Ferrari",
@@ -776,6 +980,23 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "59293954a58c5307"
+  },
+  {
+    "titolo": "2° TOUR SULLE STRADE DELLA ROMAGNA – AUTUNNO A QUATTRO RUOTE",
+    "dataInizio": "2026-09-25",
+    "dataFine": "2026-09-26",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Forlì. Forlimpopoli. Faenza",
+    "citta": "Forlì. Forlimpopoli. Faenza",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/2-tour-sulle-strade-della-romagna-autunno-a-quattro-ruote/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "5b35aadd623331bc"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo Valle dei Templi",
@@ -897,6 +1118,23 @@
     "idAuto": "637c7a007964980f"
   },
   {
+    "titolo": "RADUNO AUTO D’EPOCA",
+    "dataInizio": "2026-09-06",
+    "dataFine": "2026-09-06",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Cologna Veneta",
+    "citta": "Cologna Veneta",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/raduno-auto-depoca-18/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "64231676c2739b25"
+  },
+  {
     "titolo": "We Can Race - Guida in pista a Autodromo del Levante",
     "dataInizio": "2027-06-05",
     "dataFine": "2027-06-06",
@@ -1016,6 +1254,23 @@
     "idAuto": "7710e8d192645921"
   },
   {
+    "titolo": "SALONE AUTO TORINO 2026",
+    "dataInizio": "2026-09-11",
+    "dataFine": "2026-09-13",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Torino",
+    "citta": "Torino",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/salone-auto-torino-2026/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "775884a595607f6a"
+  },
+  {
     "titolo": "We Can Race - Guida in pista a Autodromo del Levante",
     "dataInizio": "2027-09-25",
     "dataFine": "2027-09-26",
@@ -1031,6 +1286,23 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "778a25910fbca58e"
+  },
+  {
+    "titolo": "CONCORSO INTERNAZIONALE DI ELEGANZA AUTOMOBILI MONTECATINI TERME XVI EDIZIONE",
+    "dataInizio": "2026-09-19",
+    "dataFine": "2026-09-20",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Montecatini Terme",
+    "citta": "Montecatini Terme",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/concorso-internazionale-di-eleganza-automobili-montecatini-terme-xvi-edizione/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "7aba24c0d75594ec"
   },
   {
     "titolo": "We Can Race - Guida in pista a Circuito Internazionale d'Abruzzo",
@@ -1101,6 +1373,57 @@
     "idAuto": "8afb7d62beb346d2"
   },
   {
+    "titolo": "4^ MOSTRA SCAMBIO RIZZICONI",
+    "dataInizio": "2026-09-19",
+    "dataFine": "2026-09-20",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Rizziconi",
+    "citta": "Rizziconi",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/4-mostra-scambio-rizziconi/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "8c0a7bfeddcab691"
+  },
+  {
+    "titolo": "ХІII° OPEL MEETING INTERNAZIONALE",
+    "dataInizio": "2026-09-12",
+    "dataFine": "2026-09-12",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Verona",
+    "citta": "Verona",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/%d1%85%d1%96ii-opel-meeting-internazionale/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "8cb817b5e0ce1170"
+  },
+  {
+    "titolo": "XIV MEETING DI AUTO E MOTO D’EPOCA",
+    "dataInizio": "2026-09-20",
+    "dataFine": "2026-09-20",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "San Paolo Bel Sito",
+    "citta": "San Paolo Bel Sito",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/xiv-meeting-di-auto-e-moto-depoca/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "8d1c39b0962cb2f5"
+  },
+  {
     "titolo": "We Can Race - Guida in pista a Autodromo di Arese",
     "dataInizio": "2027-10-31",
     "dataFine": "2027-10-31",
@@ -1135,6 +1458,74 @@
     "idAuto": "9144799eef778e6a"
   },
   {
+    "titolo": "ANNIVERSARIO 120 ANNI LANCIA",
+    "dataInizio": "2026-09-26",
+    "dataFine": "2026-09-26",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Desio",
+    "citta": "Desio",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/anniversario-120-anni-lancia/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "9734731561ac4562"
+  },
+  {
+    "titolo": "MOTORPICIO TREFFEN",
+    "dataInizio": "2026-09-05",
+    "dataFine": "2026-09-06",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Tavarnelle di Cortona",
+    "citta": "Tavarnelle di Cortona",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/motorpico-cortona/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "9b714bdf9ae1cd4b"
+  },
+  {
+    "titolo": "MOSTRA AUTO E MOTO D’EPOCA 4^ EDIZIONE",
+    "dataInizio": "2026-08-30",
+    "dataFine": "2026-08-30",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Sovizzo",
+    "citta": "Sovizzo",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/mostra-auto-e-moto-depoca-4-edizione/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "a01e63528d8be550"
+  },
+  {
+    "titolo": "CANNON CLIMB – MEMORIAL GILBERTO ALTAFINI",
+    "dataInizio": "2026-09-12",
+    "dataFine": "2026-09-12",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Pegognaga",
+    "citta": "Pegognaga",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/cannon-climb-memorial-gilberto-altafini/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "a7f13e2e45025006"
+  },
+  {
     "titolo": "We Can Race - Guida in pista a La Conca",
     "dataInizio": "2026-10-10",
     "dataFine": "2026-10-11",
@@ -1150,6 +1541,40 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "b24aa6ef13c1309a"
+  },
+  {
+    "titolo": "RUOTE ANTICHE NEL BORGO DEI BORGHI – MONTALBANO ELICONA",
+    "dataInizio": "2026-09-27",
+    "dataFine": "2026-09-27",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Furci Siculo",
+    "citta": "Furci Siculo",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/ruote-antiche-nel-borgo-dei-borghi-montalbano-elicona/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "b8e08a1501222aa1"
+  },
+  {
+    "titolo": "10^ BERLINE E FAMILIARI DEL NOVECENTO",
+    "dataInizio": "2026-09-27",
+    "dataFine": "2026-09-27",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Colorno",
+    "citta": "Colorno",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/10-edizione-de-berline-e-familiari-del-novecento/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "bda14891f1a073ed"
   },
   {
     "titolo": "FMI CIV",
@@ -1169,6 +1594,40 @@
     "idAuto": "be6b77f54d7abee4"
   },
   {
+    "titolo": "MAGGIOLINI STORICI IN VALPOLICELLA",
+    "dataInizio": "2026-08-30",
+    "dataFine": "2026-08-30",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Arbizzano di Negrar",
+    "citta": "Arbizzano di Negrar",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/maggiolini-storici-in-valpolicella/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "c326595c59cc930d"
+  },
+  {
+    "titolo": "GARFAGNANA WILD EXPERIENCE",
+    "dataInizio": "2026-08-30",
+    "dataFine": "2026-08-30",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Castelnuovo di Garfagnana",
+    "citta": "Castelnuovo di Garfagnana",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/garfagnana-wild-experience/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "c7119f5043d702fd"
+  },
+  {
     "titolo": "We Can Race - Guida in pista a Autodromo Riccardo Paletti",
     "dataInizio": "2027-10-23",
     "dataFine": "2027-10-23",
@@ -1184,6 +1643,23 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "c901807856230673"
+  },
+  {
+    "titolo": "MAGGIOLINI BASSANESI",
+    "dataInizio": "2026-09-26",
+    "dataFine": "2026-09-27",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Bassano del Grappa",
+    "citta": "Bassano del Grappa",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/maggiolini-bassanesi/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "cb43705e0ba5e960"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo Piero Taruffi",
@@ -1235,6 +1711,40 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "d30263619250d7ee"
+  },
+  {
+    "titolo": "BIG TRUCK E MOTOR FEST",
+    "dataInizio": "2026-09-25",
+    "dataFine": "2026-09-27",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Fontaniva",
+    "citta": "Fontaniva",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/big-truck-e-motor-fest/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "d3442169a068f2a8"
+  },
+  {
+    "titolo": "L’ANTICA APPIA DEI MOTORI",
+    "dataInizio": "2026-08-30",
+    "dataFine": "2026-08-30",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Mirabella Eclano",
+    "citta": "Mirabella Eclano",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/lantica-appia-dei-motori/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "d39d075ff2520ec5"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo Nazionale dell'Umbria",
