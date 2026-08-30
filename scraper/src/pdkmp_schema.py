@@ -160,6 +160,7 @@ def event_to_pdkmp_dict(
     track: TrackConfig,
     free_entry_keywords: list[str] | None = None,
     organizer_rules: list[dict] | None = None,
+    circuit_aliases: dict | None = None,
 ) -> dict | None:
     """Converte un Event nello schema PaddockMap.
     Restituisce None se la data non è interpretabile o implausibile
