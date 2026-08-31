@@ -49,6 +49,18 @@ def fetch_html_static(url: str, timeout: int = 20) -> str:
     resp.raise_for_status()
     return resp.text
 
+def fetch_csv_static(url: str, timeout: int = 20) -> str:
+    """Come fetch_html_static, ma forza la decodifica UTF-8: i file CSV
+    (es. l'export di Google Sheets) spesso non dichiarano l'encoding
+    nell'header Content-Type, e la libreria requests di default decodifica
+    come Latin-1 in quel caso, corrompendo le lettere accentate (es. "à"
+    diventa "Ã "). Forzare esplicitamente UTF-8 risolve il problema.
+    """
+    headers = {"User-Agent": USER_AGENT, **EXTRA_HTTP_HEADERS}
+    resp = requests.get(url, headers=headers, timeout=timeout)
+    resp.raise_for_status()
+    resp.encoding = "utf-8"
+    return resp.text
 
 def fetch_html_dynamic(
     url: str, wait_selector: str | None = None, timeout_ms: int = 30000,
