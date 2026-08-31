@@ -37,6 +37,7 @@ from src.scrapers.mugello import MugelloScraper
 from src.scrapers.vallelunga import VallelungaScraper
 from src.scrapers.wecanrace import WeCanRaceScraper
 from src.scrapers.autoraduni import AutoraduniScraper
+from src.scrapers.rallylink import RallylinkScraper
 
 logging.basicConfig(
     level=logging.INFO,
@@ -52,6 +53,7 @@ SCRAPER_REGISTRY = {
     "mugello": MugelloScraper,
     "wecanrace": WeCanRaceScraper,
     "autoraduni": AutoraduniScraper,
+    "rallylink": RallylinkScraper,
 }
 
 # events.json vive nella ROOT del repo del sito (accanto a index.html).
