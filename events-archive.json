@@ -458,5 +458,24 @@
     "organizzatore": "A.S.D. Svolte di Popoli",
     "immagine": "",
     "eventoGratuito": false
+  },
+  {
+    "titolo": "61° Trofeo Luigi Fagioli",
+    "dataInizio": "2026-08-22",
+    "dataFine": "2026-08-23",
+    "disciplina": [
+      "Cronoscalata",
+      "Gt",
+      "Formula",
+      "Storico",
+      "Misto"
+    ],
+    "circuito": "Gubbio",
+    "citta": "Gubbio",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.trofeofagioli.it/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true
   }
 ]

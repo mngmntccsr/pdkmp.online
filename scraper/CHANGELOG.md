@@ -2,6 +2,86 @@
 
 Questo file viene aggiornato automaticamente ogni settimana dallo scraper.
 
+## 2026-08-31 08:20 UTC
+
+✅ **Aggiunti (54)**
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **Imola Classic** — 2026-10-16 → 2026-10-18 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/imola-classic-2/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **ACI Misano Racing Weekend** — 2026-09-17 → 2026-09-20 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **PNK Motorsport** — 2026-11-05 → 2026-11-08 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **Formula X** — 2026-11-12 → 2026-11-15 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **GRAN PREMIO STORICO D’ITALIA** — 2026-10-02 → 2026-10-04 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-02/1751-gran-premio-storico-d-italia
+- **MUGELLO RACING WEEKEND** — 2026-10-16 → 2026-10-18 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-16/1752-mugello-racing-weekend-4
+- **AUTO& MOTO D’EPOCA** — 2026-09-27 → 2026-09-27 _[San Valentino Torio]_ — https://www.autoraduni.it/autoraduno/auto-moto-depoca/
+- **III EDIZIONE TOUR DEI LAGHI** — 2026-10-03 → 2026-10-04 _[Desenzano del Garda]_ — https://www.autoraduni.it/autoraduno/iii-edizione-tour-dei-laghi/
+- **14° ROCKIN RODDIN REUNION** — 2026-10-17 → 2026-10-18 _[Brescia]_ — https://www.autoraduni.it/autoraduno/14-rockin-roddin-reunion/
+- **US CARS REUNION** — 2026-10-18 → 2026-10-18 _[Brescia]_ — https://www.autoraduni.it/autoraduno/us-cars-reunion-3/
+- **MOSTRA SCAMBIO CASERTA** — 2027-01-23 → 2027-01-24 _[San Marco Evangelista]_ — https://www.autoraduni.it/autoraduno/mostra-scambio-caserta-2/
+- **Rally CittÃ  di Torino** — 2026-09-05 → 2026-09-06 _[Torino]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally di Casciana Terme** — 2026-09-06 → 2026-09-07 _[Pisa]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally Val d'Aveto** — 2026-09-05 → 2026-09-06 _[Genova]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally 1000 miglia** — 2026-09-04 → 2026-09-05 _[Brescia]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally CittÃ  di Schio** — 2026-09-11 → 2026-09-12 _[Vicenza]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally Alto Appennino Bolognese** — 2026-09-12 → 2026-09-13 _[Bologna]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally Lazio Cassino** — 2026-09-18 → 2026-09-19 _[Frosinone]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally Lazio Cassino CRZ** — 2026-09-18 → 2026-09-19 _[Frosinone]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally del Rubinetto e Rally 2 Laghi** — 2026-09-27 → 2026-09-27 _[Novara]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Tindari Rally** — 2026-09-27 → 2026-09-27 _[Messina]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally Italia Sardegna** — 2026-10-01 → 2026-10-04 _[Sassari]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally CittÃ  di Bassano** — 2026-10-09 → 2026-10-10 _[Vicenza]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **RallyLegend 2026** — 2026-10-08 → 2026-10-11 _[San Marino]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally CittÃ  di Pistoia** — 2026-10-11 → 2026-10-11 _[Pistoia]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally Porta del Gargano** — 2026-10-17 → 2026-10-18 _[Foggia]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rallye Sanremo** — 2026-10-18 → 2026-10-18 _[Imperia]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally delle Palme** — 2026-10-18 → 2026-10-18 _[Imperia]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally Colline Metallifere** — 2026-10-24 → 2026-10-25 _[Livorno]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally Lana** — 2026-10-25 → 2026-10-25 _[Biella]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally Piancavallo** — 2026-10-24 → 2026-10-25 _[Pordenone]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally di Taormina** — 2026-10-25 → 2026-10-25 _[Messina]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Ronde Halloween** — 2026-10-30 → 2026-10-31 _[San Marino]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally dei Nuraghi e del Vermentino** — 2026-11-01 → 2026-11-01 _[Sassari]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally Lago di Garda** — 2026-11-01 → 2026-11-01 _[Brescia]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally Colli del Monferrato e del Moscato** — 2026-11-01 → 2026-11-01 _[Asti]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally Trofeo Villa d'Este ACI Como** — 2026-11-08 → 2026-11-08 _[Como]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally CittÃ  di Scandicci** — 2026-11-08 → 2026-11-08 _[Firenze]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally Coppa CittÃ  di Lucca** — 2026-11-15 → 2026-11-15 _[Lucca]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Special Rally Circuit by Vedovati Corse** — 2026-11-14 → 2026-11-15 _[Monza e della Brianza]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally del Barocco Ibleo** — 2026-11-21 → 2026-11-22 _[Ragusa]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally Colli Euganei** — 2026-11-21 → 2026-11-22 _[Padova]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally del Brunello** — 2026-11-29 → 2026-11-29 _[Siena]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Monza Rally Show** — 2026-11-29 → 2026-11-29 _[Monza e della Brianza]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Ronde Valli Imperiesi** — 2026-11-29 → 2026-11-29 _[Imperia]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally della Fettunta** — 2026-12-06 → 2026-12-06 _[Firenze]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Prealpi Mastershow** — 2026-12-13 → 2026-12-13 _[Treviso]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally CittÃ  di Cagliari** — 2026-12-13 → 2026-12-13 _[Cagliari]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Pavia Rally Circuit** — 2026-12-13 → 2026-12-13 _[Parma]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally il Ciocchetto** — 2026-12-20 → 2026-12-20 _[Lucca]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+
+🔁 **Duplicati rimossi (14)** — stesso circuito+data di un evento già presente
+- **PNK Motorsport** — 2026-11-05 → 2026-11-08 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **Rallye Sanremo** — 2026-10-18 → 2026-10-18 _[Imperia]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **GRAN PREMIO STORICO D’ITALIA** — 2026-10-02 → 2026-10-04 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-02/1751-gran-premio-storico-d-italia
+- **US CARS REUNION** — 2026-10-18 → 2026-10-18 _[Brescia]_ — https://www.autoraduni.it/autoraduno/us-cars-reunion-3/
+- **ACI Misano Racing Weekend** — 2026-09-17 → 2026-09-20 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **Formula X** — 2026-11-12 → 2026-11-15 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **Rally Lana** — 2026-10-25 → 2026-10-25 _[Biella]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **MUGELLO RACING WEEKEND** — 2026-10-16 → 2026-10-18 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-16/1752-mugello-racing-weekend-4
+- **Rally Lazio Cassino** — 2026-09-18 → 2026-09-19 _[Frosinone]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **Imola Classic** — 2026-10-16 → 2026-10-18 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/imola-classic-2/
+
+📦 **Archiviati (1)** — conclusi da oltre una settimana, spostati in events-archive.json
+- **61° Trofeo Luigi Fagioli** — 2026-08-22 → 2026-08-23 _[Gubbio]_ — https://www.trofeofagioli.it/
+
+
+---
+
 ## 2026-08-30 15:57 UTC
 
 ✅ **Aggiunti (10)**
