@@ -1245,9 +1245,9 @@
     "citta": "Brescia",
     "linkBiglietti": "",
     "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
+    "organizzatore": "Automobile Club Brescia",
     "immagine": "",
-    "eventoGratuito": false,
+    "eventoGratuito": true,
     "fonteAuto": true,
     "idAuto": "57ccbddd6f84a26b"
   },
@@ -1360,13 +1360,13 @@
     "disciplina": [
       "Rally"
     ],
-    "circuito": "Genova",
-    "citta": "Genova",
+    "circuito": "Santo Stefano d’Aveto",
+    "citta": "Santo Stefano d’Aveto",
     "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
+    "linkInfo": "https://www.lanternarally.it/Rally_Aveto_2026/index.html",
+    "organizzatore": "LANTERNARALLY",
     "immagine": "",
-    "eventoGratuito": false,
+    "eventoGratuito": true,
     "fonteAuto": true,
     "idAuto": "6034b891116c5bfe"
   },
@@ -1966,19 +1966,19 @@
     "idAuto": "9b714bdf9ae1cd4b"
   },
   {
-    "titolo": "Rally CittÃ  di Schio",
+    "titolo": "Rally Città di Schio",
     "dataInizio": "2026-09-11",
     "dataFine": "2026-09-12",
     "disciplina": [
       "Rally"
     ],
-    "circuito": "Vicenza",
-    "citta": "Vicenza",
+    "circuito": "Schio",
+    "citta": "Schio",
     "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "linkInfo": "https://www.rallycittadischio.it/",
     "organizzatore": "",
     "immagine": "",
-    "eventoGratuito": false,
+    "eventoGratuito": true,
     "fonteAuto": true,
     "idAuto": "9e102d3d1697c4f3"
   },
@@ -2000,7 +2000,7 @@
     "idAuto": "a01e63528d8be550"
   },
   {
-    "titolo": "Rally CittÃ  di Torino",
+    "titolo": "Rally Città di Torino",
     "dataInizio": "2026-09-05",
     "dataFine": "2026-09-06",
     "disciplina": [
@@ -2125,13 +2125,13 @@
     "disciplina": [
       "Rally"
     ],
-    "circuito": "Pisa",
-    "citta": "Pisa",
+    "circuito": "Casciana Terme",
+    "citta": "Casciana Terme",
     "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "linkInfo": "",
     "organizzatore": "",
     "immagine": "",
-    "eventoGratuito": false,
+    "eventoGratuito": true,
     "fonteAuto": true,
     "idAuto": "c14a03e7c2c55322"
   },
