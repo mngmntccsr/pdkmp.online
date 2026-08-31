@@ -90,6 +90,16 @@ tracks:
     selectors: {}   # non usati: autoraduni.py fa parsing dedicato via data-attribute
     date_hint_language: it
 
+  - slug: rallylink
+    name: "Rallylink.it"
+    citta: ""
+    url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv"
+    parser: static
+    skip_motorsport_filter: true
+    season_year: 2026
+    selectors: {}
+    date_hint_language: it  
+
 # =============================================================================
 # PAROLE CHIAVE PER LA CLASSIFICAZIONE DEGLI EVENTI
 # =============================================================================
@@ -247,4 +257,14 @@ circuit_aliases:
   "Autodromo Internazionale del Mugello": "Mugello Circuit"
   "Autodromo Enzo e Dino Ferrari": "Autodromo di Imola"
   "Autodromo Piero Taruffi": "Autodromo di Vallelunga"
+
+# Nomi propri da ricapitalizzare nei titoli TUTTO MAIUSCOLO (vedi
+# text_utils.py). Aggiungi qui una città/nome ogni volta che ne trovi
+# uno scritto in minuscolo per errore in un titolo normalizzato.
+rally_proper_nouns:
+    - "Milano"
+    - "Roma"
+    - "Torino"
+    - "Budapest"
+    - "Sanremo"
       
