@@ -374,13 +374,13 @@
     "disciplina": [
       "Rally"
     ],
-    "circuito": "Livorno",
-    "citta": "Livorno",
+    "circuito": "Val di Cecina",
+    "citta": "Val di Cecina",
     "linkBiglietti": "",
     "linkInfo": "",
-    "organizzatore": "",
+    "organizzatore": "Maremma Corse 2.0",
     "immagine": "",
-    "eventoGratuito": false,
+    "eventoGratuito": true,
     "fonteAuto": true,
     "idAuto": "06c29c841b3c512d"
   },
@@ -646,13 +646,13 @@
     "disciplina": [
       "Rally"
     ],
-    "circuito": "Foggia",
-    "citta": "Foggia",
+    "circuito": "Vieste",
+    "citta": "Vieste",
     "linkBiglietti": "",
-    "linkInfo": "",
-    "organizzatore": "",
+    "linkInfo": "https://rallyportadelgargano.it/",
+    "organizzatore": "Piloti Sipontini",
     "immagine": "",
-    "eventoGratuito": false,
+    "eventoGratuito": true,
     "fonteAuto": true,
     "idAuto": "21b64a6db83e0241"
   },
@@ -674,8 +674,8 @@
     "idAuto": "232ef82a4a178581"
   },
   {
-    "titolo": "Rally CittÃ  di Pistoia",
-    "dataInizio": "2026-10-11",
+    "titolo": "Rally Città di Pistoia",
+    "dataInizio": "2026-10-10",
     "dataFine": "2026-10-11",
     "disciplina": [
       "Rally"
@@ -683,10 +683,10 @@
     "circuito": "Pistoia",
     "citta": "Pistoia",
     "linkBiglietti": "",
-    "linkInfo": "",
-    "organizzatore": "",
+    "linkInfo": "https://pistoiacorse.com/rally-citta-di-pistoia/",
+    "organizzatore": "Pistoia Corse Sport",
     "immagine": "",
-    "eventoGratuito": false,
+    "eventoGratuito": true,
     "fonteAuto": true,
     "idAuto": "28629dd48327ea00"
   },
@@ -1158,9 +1158,9 @@
     ],
     "circuito": "San Marino",
     "citta": "San Marino",
-    "linkBiglietti": "",
-    "linkInfo": "",
-    "organizzatore": "",
+    "linkBiglietti": "https://www.ticketone.it/artist/rallylegend/",
+    "linkInfo": "https://www.rallylegend.com/",
+    "organizzatore": "Zeromille",
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
@@ -1694,19 +1694,19 @@
     "idAuto": "7bb1683304ade4e9"
   },
   {
-    "titolo": "Rally CittÃ  di Bassano",
+    "titolo": "Rally Città di Bassano",
     "dataInizio": "2026-10-09",
     "dataFine": "2026-10-10",
     "disciplina": [
       "Rally"
     ],
-    "circuito": "Vicenza",
-    "citta": "Vicenza",
+    "circuito": "Bassano del Grappa",
+    "citta": "Bassano del Grappa",
     "linkBiglietti": "",
-    "linkInfo": "",
-    "organizzatore": "",
+    "linkInfo": "https://www.bassanorally.it/",
+    "organizzatore": "Bassano Rally Racing",
     "immagine": "",
-    "eventoGratuito": false,
+    "eventoGratuito": true,
     "fonteAuto": true,
     "idAuto": "7f0a3f0cffa0143e"
   },
@@ -2009,10 +2009,10 @@
     "circuito": "Torino",
     "citta": "Torino",
     "linkBiglietti": "",
-    "linkInfo": "",
-    "organizzatore": "",
+    "linkInfo": "https://www.rtmotorevent.it/rally-citta-di-torino",
+    "organizzatore": "RT motorsport",
     "immagine": "",
-    "eventoGratuito": false,
+    "eventoGratuito": true,
     "fonteAuto": true,
     "idAuto": "a60ab6c9957c988c"
   },
