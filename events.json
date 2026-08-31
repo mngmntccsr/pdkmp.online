@@ -1244,7 +1244,7 @@
     "circuito": "Brescia",
     "citta": "Brescia",
     "linkBiglietti": "",
-    "linkInfo": "",
+    "linkInfo": "https://www.rally1000miglia.it/",
     "organizzatore": "Automobile Club Brescia",
     "immagine": "",
     "eventoGratuito": true,
@@ -1870,13 +1870,13 @@
     "disciplina": [
       "Rally"
     ],
-    "circuito": "Monza e della Brianza",
-    "citta": "Monza e della Brianza",
+    "circuito": "Autodromo Nazionale Monza",
+    "citta": "Monza",
     "linkBiglietti": "",
-    "linkInfo": "",
-    "organizzatore": "",
+    "linkInfo": "https://www.vedovaticorse.com/specialrallycircuit/",
+    "organizzatore": "Vedovati Corse",
     "immagine": "",
-    "eventoGratuito": false,
+    "eventoGratuito": true,
     "fonteAuto": true,
     "idAuto": "972db78914fc9590"
   },
@@ -2051,7 +2051,7 @@
     "idAuto": "b24aa6ef13c1309a"
   },
   {
-    "titolo": "Rally CittÃ  di Cagliari",
+    "titolo": "Rally Città di Cagliari",
     "dataInizio": "2026-12-13",
     "dataFine": "2026-12-13",
     "disciplina": [
@@ -2060,10 +2060,10 @@
     "circuito": "Cagliari",
     "citta": "Cagliari",
     "linkBiglietti": "",
-    "linkInfo": "",
-    "organizzatore": "",
+    "linkInfo": "https://rallycittadicagliari.eu/",
+    "organizzatore": "Automobile Club Cagliari",
     "immagine": "",
-    "eventoGratuito": false,
+    "eventoGratuito": true,
     "fonteAuto": true,
     "idAuto": "b2a81809868d99b5"
   },
