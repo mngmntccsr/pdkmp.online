@@ -27,6 +27,7 @@ class TrackConfig:
     wait_selector: str | None = None
     date_hint_language: str = "it"
     skip_motorsport_filter: bool = False
+    season_year: int | None = None
 
 
 @dataclass
@@ -57,6 +58,7 @@ def load_tracks() -> list[TrackConfig]:
                 wait_selector=t.get("wait_selector"),
                 date_hint_language=t.get("date_hint_language", "it"),
                 skip_motorsport_filter=t.get("skip_motorsport_filter", False),
+                season_year=t.get("season_year"),
             )
         )
     return tracks
