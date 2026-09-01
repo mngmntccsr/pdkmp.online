@@ -100,6 +100,12 @@ def dedupe_events(events: list[dict]) -> tuple[list[dict], list[dict]]:
     settembre" vs "FX Racing Weekend 6-8 settembre" allo stesso circuito:
     sono lo stesso evento, ma con date di inizio non identiche).
 
+    Quando due eventi risultano doppioni, viene tenuto quello con il
+    TITOLO PIÙ LUNGO (più descrittivo/specifico) — es. "WRC Rally Italia
+    Sardegna 2026" viene tenuto al posto di "Rally Italia Sardegna", perché
+    lo stesso rally può comparire più volte nella stessa fonte quando conta
+    per più campionati contemporaneamente.
+
     Restituisce (eventi_puliti, doppioni_rimossi). Si applica ad OGNI run,
     quindi ripulisce anche doppioni già presenti in events.json da run
     precedenti a questa correzione.
@@ -108,12 +114,13 @@ def dedupe_events(events: list[dict]) -> tuple[list[dict], list[dict]]:
     cleaned = list(manual)
     duplicates_removed: list[dict] = []
 
-    # ordina per idAuto per un risultato deterministico (stesso risultato
-    # ad ogni run, a parità di dati in ingresso)
-        auto_events = sorted(
+    # ordina per titolo più lungo prima (vince quando c'è sovrapposizione),
+    # poi per idAuto per un risultato deterministico a parità di lunghezza
+    auto_events = sorted(
         (e for e in events if e.get("fonteAuto")),
         key=lambda e: (-len(e.get("titolo", "")), e.get("idAuto", "")),
     )
+
     for e in auto_events:
         circuito = e.get("circuito")
         start = e.get("dataInizio", "")
