@@ -317,72 +317,429 @@
     "eventoGratuito": true
   },
   {
-    "titolo": "10° RADUNO VULCANI CITROEN",
-    "dataInizio": "2026-09-05",
-    "dataFine": "2026-09-06",
+    "titolo": "4° GROSSETO MOTOR VILLAGE4ª GROSSETO MOTOR VILLAGE e 26^ MOSTRA SCAMBIO AUTO E MOTO D’EPOCA",
+    "dataInizio": "2026-10-03",
+    "dataFine": "2026-10-04",
     "disciplina": [
       "Raduno"
     ],
-    "circuito": "Spinea",
-    "citta": "Spinea",
+    "circuito": "Grosseto",
+    "citta": "Grosseto",
     "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/10-raduno-vulcani-citroen/",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/4-grosseto-motor-village/",
     "organizzatore": "",
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "00f8e49bd380fccd"
+    "idAuto": "34afd4d2a76d672d"
   },
   {
-    "titolo": "We Can Race - Guida in pista a Autodromo Piero Taruffi",
-    "dataInizio": "2027-02-28",
-    "dataFine": "2027-02-28",
+    "titolo": "CONCORSO INTERNAZIONALE DI ELEGANZA AUTOMOBILI MONTECATINI TERME XVI EDIZIONE",
+    "dataInizio": "2026-09-19",
+    "dataFine": "2026-09-20",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Montecatini Terme",
+    "citta": "Montecatini Terme",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/concorso-internazionale-di-eleganza-automobili-montecatini-terme-xvi-edizione/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "7aba24c0d75594ec"
+  },
+  {
+    "titolo": "8° RADUNO NAZIONALE C3 PLURIEL CLUB ITALIA “10 ANNI DI NOI 2016-2026”",
+    "dataInizio": "2026-09-26",
+    "dataFine": "2026-09-27",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Reggio Emilia",
+    "citta": "Reggio Emilia",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/8-raduno-nazionale-c3-pluriel-club-italia-10-anni-di-noi-2016-2026/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "302388835a20a481"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Internazionale del Mugello",
+    "dataInizio": "2027-10-20",
+    "dataFine": "2027-10-20",
     "disciplina": [
       "Trackday"
     ],
-    "circuito": "Autodromo di Vallelunga",
-    "citta": "Campagnano di Roma",
+    "circuito": "Mugello Circuit",
+    "citta": "Scarperia S. Piero",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "0173b951a783b371"
+    "idAuto": "1de67f3b6054acef"
   },
   {
-    "titolo": "17° RADUNO DINAMICO",
-    "dataInizio": "2026-09-20",
-    "dataFine": "2026-09-20",
+    "titolo": "We Can Race - Guida in pista a Autodromo Internazionale del Mugello",
+    "dataInizio": "2027-07-07",
+    "dataFine": "2027-07-07",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Mugello Circuit",
+    "citta": "Scarperia S. Piero",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "29900353c8cf912c"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Internazionale del Mugello",
+    "dataInizio": "2026-10-21",
+    "dataFine": "2026-10-21",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Mugello Circuit",
+    "citta": "Scarperia S. Piero",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "3b40c53f29e162f8"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Circuito Internazionale del Volturno",
+    "dataInizio": "2027-11-06",
+    "dataFine": "2027-11-06",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Circuito Internazionale del Volturno",
+    "citta": "Limatola",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "5e56bbd41e1cb58a"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Circuito Internazionale del Volturno",
+    "dataInizio": "2026-09-05",
+    "dataFine": "2026-09-05",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Circuito Internazionale del Volturno",
+    "citta": "Limatola",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "6100cbab4820d17a"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Internazionale del Mugello",
+    "dataInizio": "2027-02-27",
+    "dataFine": "2027-02-27",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Mugello Circuit",
+    "citta": "Scarperia S. Piero",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "83ad8c84025565c5"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Circuito Internazionale del Volturno",
+    "dataInizio": "2026-11-07",
+    "dataFine": "2026-11-07",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Circuito Internazionale del Volturno",
+    "citta": "Limatola",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "f5081dc8b786aacd"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Circuito Internazionale del Volturno",
+    "dataInizio": "2027-06-26",
+    "dataFine": "2027-06-26",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Circuito Internazionale del Volturno",
+    "citta": "Limatola",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "f849bd190293c1e0"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Circuito Internazionale d'Abruzzo",
+    "dataInizio": "2027-03-20",
+    "dataFine": "2027-03-20",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Circuito Internazionale d'Abruzzo",
+    "citta": "Ortona",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "2d0013b756e43ff4"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Circuito Internazionale d'Abruzzo",
+    "dataInizio": "2026-10-03",
+    "dataFine": "2026-10-03",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Circuito Internazionale d'Abruzzo",
+    "citta": "Ortona",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "637c7a007964980f"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Circuito Internazionale d'Abruzzo",
+    "dataInizio": "2027-05-29",
+    "dataFine": "2027-05-29",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Circuito Internazionale d'Abruzzo",
+    "citta": "Ortona",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "7b822c00d1190f83"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Circuito Internazionale d'Abruzzo",
+    "dataInizio": "2027-10-02",
+    "dataFine": "2027-10-02",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Circuito Internazionale d'Abruzzo",
+    "citta": "Ortona",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "8afb7d62beb346d2"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Nazionale dell'Umbria",
+    "dataInizio": "2027-05-30",
+    "dataFine": "2027-05-30",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Autodromo Nazionale dell'Umbria",
+    "citta": "Magione",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "432a0ad8549f2d73"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Nazionale dell'Umbria",
+    "dataInizio": "2026-11-14",
+    "dataFine": "2026-11-14",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Autodromo Nazionale dell'Umbria",
+    "citta": "Magione",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "9144799eef778e6a"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Nazionale dell'Umbria",
+    "dataInizio": "2027-11-13",
+    "dataFine": "2027-11-13",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Autodromo Nazionale dell'Umbria",
+    "citta": "Magione",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "d70e59a5fda2d0ce"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Enzo e Dino Ferrari",
+    "dataInizio": "2027-05-15",
+    "dataFine": "2027-05-16",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Autodromo di Imola",
+    "citta": "Imola",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "4bd2fd3220b17421"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Enzo e Dino Ferrari",
+    "dataInizio": "2027-07-17",
+    "dataFine": "2027-07-18",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Autodromo di Imola",
+    "citta": "Imola",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "56b9ce939d5ef97f"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Enzo e Dino Ferrari",
+    "dataInizio": "2026-11-28",
+    "dataFine": "2026-11-29",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Autodromo di Imola",
+    "citta": "Imola",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "59293954a58c5307"
+  },
+  {
+    "titolo": "2° TOUR SULLE STRADE DELLA ROMAGNA – AUTUNNO A QUATTRO RUOTE",
+    "dataInizio": "2026-09-25",
+    "dataFine": "2026-09-26",
     "disciplina": [
       "Raduno"
     ],
-    "circuito": "Pray",
-    "citta": "Pray",
+    "circuito": "Forlì. Forlimpopoli. Faenza",
+    "citta": "Forlì. Forlimpopoli. Faenza",
     "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/17-raduno-dinamico/",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/2-tour-sulle-strade-della-romagna-autunno-a-quattro-ruote/",
     "organizzatore": "",
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "02966ec33c14d2c7"
+    "idAuto": "5b35aadd623331bc"
   },
   {
-    "titolo": "Rally Colline Metallifere",
-    "dataInizio": "2026-10-24",
-    "dataFine": "2026-10-25",
+    "titolo": "We Can Race - Guida in pista a Autodromo Enzo e Dino Ferrari",
+    "dataInizio": "2027-11-27",
+    "dataFine": "2027-11-28",
     "disciplina": [
-      "Rally"
+      "Trackday"
     ],
-    "circuito": "Livorno",
-    "citta": "Livorno",
+    "circuito": "Autodromo di Imola",
+    "citta": "Imola",
     "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "dabdb1a5980933de"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Enzo e Dino Ferrari",
+    "dataInizio": "2027-02-20",
+    "dataFine": "2027-02-20",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Autodromo di Imola",
+    "citta": "Imola",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "f7a9a7c2cb4a68bc"
+  },
+  {
+    "titolo": "Gran Premio Red Bull di San Marino e della Riviera di Rimini",
+    "dataInizio": "2026-09-10",
+    "dataFine": "2026-09-13",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Misano World Circuit",
+    "citta": "Misano Adriatico",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.misanocircuit.com/events",
     "organizzatore": "",
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "06c29c841b3c512d"
+    "idAuto": "fb657171f652d4f9"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo Valle dei Templi",
@@ -400,40 +757,6 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "0a63887f9006000f"
-  },
-  {
-    "titolo": "10° RAID STORICO VICENZA – BUDAPEST – VICENZA",
-    "dataInizio": "2026-08-31",
-    "dataFine": "2026-09-05",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Vicenza",
-    "citta": "Vicenza",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/10-raid-storico-vicenza-budapest-vicenza/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "0b196bc7df81e09c"
-  },
-  {
-    "titolo": "20TH ANNIVERSARY PARTY DEVIL DRIVERS CLUB",
-    "dataInizio": "2026-08-29",
-    "dataFine": "2026-08-30",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Montorso Vicentino",
-    "citta": "Montorso Vicentino",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/20th-anniversary-party-devil-drivers-club/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "0e86e83d405f9928"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo Valle dei Templi",
@@ -470,856 +793,6 @@
     "idAuto": "14cfac2404490a10"
   },
   {
-    "titolo": "VII° MONTALCINO HERITAGE 2026",
-    "dataInizio": "2026-09-12",
-    "dataFine": "2026-09-13",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Montalcino",
-    "citta": "Montalcino",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/vii-montalcino-heritage-2026/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "1778d8ed7dedb629"
-  },
-  {
-    "titolo": "ACI RACING WEEKEND - C.I. AUTOMOBILISMO",
-    "dataInizio": "2026-10-30",
-    "dataFine": "2026-11-01",
-    "disciplina": [
-      "Misto"
-    ],
-    "circuito": "Mugello Circuit",
-    "citta": "Scarperia e San Piero",
-    "linkBiglietti": "",
-    "linkInfo": "https://mugellocircuit.com/it/gare/details/2026-10-30/1753-aci-racing-weekend-c-i-automobilismo-5",
-    "organizzatore": "ACI Sport",
-    "immagine": "",
-    "eventoGratuito": true,
-    "fonteAuto": true,
-    "idAuto": "186339fc7645d082"
-  },
-  {
-    "titolo": "Rally del Brunello",
-    "dataInizio": "2026-11-29",
-    "dataFine": "2026-11-29",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Siena",
-    "citta": "Siena",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "1bdecbe86845cd4d"
-  },
-  {
-    "titolo": "WEC 6 Hours of Imola",
-    "dataInizio": "2027-04-09",
-    "dataFine": "2027-04-11",
-    "disciplina": [
-      "Le Mans Prototype"
-    ],
-    "circuito": "Autodromo di Imola",
-    "citta": "Imola",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autodromoimola.it/en/wec/tickets-wec/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "1c272eeaac4e8954"
-  },
-  {
-    "titolo": "TIME ATTACK",
-    "dataInizio": "2026-10-03",
-    "dataFine": "2026-10-04",
-    "disciplina": [
-      "Misto"
-    ],
-    "circuito": "Autodromo di Vallelunga",
-    "citta": "Campagnano di Roma",
-    "linkBiglietti": "",
-    "linkInfo": "https://motorsport.vallelunga.it/gare/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "1c47e30b9fb68d58"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo Piero Taruffi",
-    "dataInizio": "2027-12-11",
-    "dataFine": "2027-12-11",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo di Vallelunga",
-    "citta": "Campagnano di Roma",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "1c511daffb6127ac"
-  },
-  {
-    "titolo": "8° RADUNO BARCHETTE IN TOUR",
-    "dataInizio": "2026-09-27",
-    "dataFine": "2026-09-27",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Piglio",
-    "citta": "Piglio",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/8-raduno-barchette-in-tour/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "1de1d1b6478ce3c8"
-  },
-  {
-    "titolo": "MOSTRA SCAMBIO CASERTA",
-    "dataInizio": "2027-01-23",
-    "dataFine": "2027-01-24",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "San Marco Evangelista",
-    "citta": "San Marco Evangelista",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/mostra-scambio-caserta-2/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "1de4a29fa889260b"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo Internazionale del Mugello",
-    "dataInizio": "2027-10-20",
-    "dataFine": "2027-10-20",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Mugello Circuit",
-    "citta": "Scarperia S. Piero",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "1de67f3b6054acef"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Tazio Nuvolari 2.8",
-    "dataInizio": "2027-03-13",
-    "dataFine": "2027-03-13",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Tazio Nuvolari 2.8",
-    "citta": "Cervesina",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "1f323ec2d92c6ce0"
-  },
-  {
-    "titolo": "Rally Porta del Gargano",
-    "dataInizio": "2026-10-17",
-    "dataFine": "2026-10-18",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Foggia",
-    "citta": "Foggia",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "21b64a6db83e0241"
-  },
-  {
-    "titolo": "Rally dei Nuraghi e del Vermentino",
-    "dataInizio": "2026-11-01",
-    "dataFine": "2026-11-01",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Sassari",
-    "citta": "Sassari",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "232ef82a4a178581"
-  },
-  {
-    "titolo": "Rally CittÃ  di Pistoia",
-    "dataInizio": "2026-10-11",
-    "dataFine": "2026-10-11",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Pistoia",
-    "citta": "Pistoia",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "28629dd48327ea00"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo Internazionale del Mugello",
-    "dataInizio": "2027-07-07",
-    "dataFine": "2027-07-07",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Mugello Circuit",
-    "citta": "Scarperia S. Piero",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "29900353c8cf912c"
-  },
-  {
-    "titolo": "Rally delle Palme",
-    "dataInizio": "2026-10-18",
-    "dataFine": "2026-10-18",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Imperia",
-    "citta": "Imperia",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "2caa0b0c3ca59182"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Circuito Internazionale d'Abruzzo",
-    "dataInizio": "2027-03-20",
-    "dataFine": "2027-03-20",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Circuito Internazionale d'Abruzzo",
-    "citta": "Ortona",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "2d0013b756e43ff4"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo Gianni de Luca",
-    "dataInizio": "2026-10-04",
-    "dataFine": "2026-10-04",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo Gianni de Luca",
-    "citta": "Airola",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "2d0e2e00ee87f8a6"
-  },
-  {
-    "titolo": "Rally del Rubinetto e Rally 2 Laghi",
-    "dataInizio": "2026-09-27",
-    "dataFine": "2026-09-27",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Novara",
-    "citta": "Novara",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "2e90c57fe7f93ee0"
-  },
-  {
-    "titolo": "8° RADUNO NAZIONALE C3 PLURIEL CLUB ITALIA “10 ANNI DI NOI 2016-2026”",
-    "dataInizio": "2026-09-26",
-    "dataFine": "2026-09-27",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Reggio Emilia",
-    "citta": "Reggio Emilia",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/8-raduno-nazionale-c3-pluriel-club-italia-10-anni-di-noi-2016-2026/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "302388835a20a481"
-  },
-  {
-    "titolo": "PORSCHE SPORTS CUP SUISSE",
-    "dataInizio": "2026-09-24",
-    "dataFine": "2026-09-26",
-    "disciplina": [
-      "Misto"
-    ],
-    "circuito": "Mugello Circuit",
-    "citta": "Scarperia e San Piero",
-    "linkBiglietti": "",
-    "linkInfo": "https://mugellocircuit.com/it/gare/details/2026-09-24/1750-porsche-sports-cup-suisse",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "31de9b31155a8bbc"
-  },
-  {
-    "titolo": "Rally Lazio Cassino CRZ",
-    "dataInizio": "2026-09-18",
-    "dataFine": "2026-09-19",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Frosinone",
-    "citta": "Frosinone",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "31f903f87c3ca693"
-  },
-  {
-    "titolo": "Rally Lago di Garda",
-    "dataInizio": "2026-11-01",
-    "dataFine": "2026-11-01",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Brescia",
-    "citta": "Brescia",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "3205a4c51bde0286"
-  },
-  {
-    "titolo": "Vallelunga Euro Nascar",
-    "dataInizio": "2026-09-19",
-    "dataFine": "2026-09-20",
-    "disciplina": [
-      "Misto"
-    ],
-    "circuito": "Autodromo di Vallelunga",
-    "citta": "Campagnano di Roma",
-    "linkBiglietti": "",
-    "linkInfo": "https://motorsport.vallelunga.it/gare/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "32acf748600068d0"
-  },
-  {
-    "titolo": "RAID STORICO MILANO – BUDAPEST – MILANO",
-    "dataInizio": "2026-08-30",
-    "dataFine": "2026-09-06",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Milano",
-    "citta": "Milano",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/rievocazione-storica-del-1928-raid-storico-moto-auto-fino-1976/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "349de1ed67961f63"
-  },
-  {
-    "titolo": "Monza Rally Show",
-    "dataInizio": "2026-11-29",
-    "dataFine": "2026-11-29",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Monza e della Brianza",
-    "citta": "Monza e della Brianza",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "34ad9c8940baad87"
-  },
-  {
-    "titolo": "4° GROSSETO MOTOR VILLAGE4ª GROSSETO MOTOR VILLAGE e 26^ MOSTRA SCAMBIO AUTO E MOTO D’EPOCA",
-    "dataInizio": "2026-10-03",
-    "dataFine": "2026-10-04",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Grosseto",
-    "citta": "Grosseto",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/4-grosseto-motor-village/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "34afd4d2a76d672d"
-  },
-  {
-    "titolo": "III EDIZIONE TOUR DEI LAGHI",
-    "dataInizio": "2026-10-03",
-    "dataFine": "2026-10-04",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Desenzano del Garda",
-    "citta": "Desenzano del Garda",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/iii-edizione-tour-dei-laghi/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "364ebecc2886b929"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo del Levante",
-    "dataInizio": "2027-03-06",
-    "dataFine": "2027-03-07",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo del Levante",
-    "citta": "Binetto",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "367a6dbf21d8b39f"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo Gianni de Luca",
-    "dataInizio": "2027-04-10",
-    "dataFine": "2027-04-10",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo Gianni de Luca",
-    "citta": "Airola",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "38585e172e2437ea"
-  },
-  {
-    "titolo": "Rally CittÃ  di Scandicci",
-    "dataInizio": "2026-11-08",
-    "dataFine": "2026-11-08",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Firenze",
-    "citta": "Firenze",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "3abae1521306ea76"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Tazio Nuvolari 2.8",
-    "dataInizio": "2027-07-03",
-    "dataFine": "2027-07-03",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Tazio Nuvolari 2.8",
-    "citta": "Cervesina",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "3b02318af2f85be8"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo Internazionale del Mugello",
-    "dataInizio": "2026-10-21",
-    "dataFine": "2026-10-21",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Mugello Circuit",
-    "citta": "Scarperia S. Piero",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "3b40c53f29e162f8"
-  },
-  {
-    "titolo": "Moto Junior FIM World Championship",
-    "dataInizio": "2026-10-15",
-    "dataFine": "2026-10-18",
-    "disciplina": [
-      "Misto"
-    ],
-    "circuito": "Misano World Circuit",
-    "citta": "Misano Adriatico",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.misanocircuit.com/events",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "3d5781c28c2ba805"
-  },
-  {
-    "titolo": "32° RADUNO VIADANA",
-    "dataInizio": "2026-09-19",
-    "dataFine": "2026-09-20",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Viadana",
-    "citta": "Viadana",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/32-raduno-viadana/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "3f2b5012c48ca570"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo Franco di Suni",
-    "dataInizio": "2027-05-22",
-    "dataFine": "2027-05-23",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo Franco di Suni",
-    "citta": "Mores",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "40028f468b2841f7"
-  },
-  {
-    "titolo": "Rally della Fettunta",
-    "dataInizio": "2026-12-06",
-    "dataFine": "2026-12-06",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Firenze",
-    "citta": "Firenze",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "42dda6ecf2e39b62"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo Nazionale dell'Umbria",
-    "dataInizio": "2027-05-30",
-    "dataFine": "2027-05-30",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo Nazionale dell'Umbria",
-    "citta": "Magione",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "432a0ad8549f2d73"
-  },
-  {
-    "titolo": "13° ROTARY HISTORICA BY NIGHT",
-    "dataInizio": "2026-09-12",
-    "dataFine": "2026-09-12",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Morimondo",
-    "citta": "Morimondo",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/13-rotary-historica-by-night/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "43f78791d025560c"
-  },
-  {
-    "titolo": "Rally Colli del Monferrato e del Moscato",
-    "dataInizio": "2026-11-01",
-    "dataFine": "2026-11-01",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Asti",
-    "citta": "Asti",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "4580e798a612a0d2"
-  },
-  {
-    "titolo": "50 FIAT 500",
-    "dataInizio": "2026-09-19",
-    "dataFine": "2026-09-19",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Isera",
-    "citta": "Isera",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/50-fiat-500/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "45b57923e0bb747f"
-  },
-  {
-    "titolo": "RallyLegend 2026",
-    "dataInizio": "2026-10-08",
-    "dataFine": "2026-10-11",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "San Marino",
-    "citta": "San Marino",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "495f77d596ec4c86"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo Enzo e Dino Ferrari",
-    "dataInizio": "2027-05-15",
-    "dataFine": "2027-05-16",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo di Imola",
-    "citta": "Imola",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "4bd2fd3220b17421"
-  },
-  {
-    "titolo": "Rally Colli Euganei",
-    "dataInizio": "2026-11-21",
-    "dataFine": "2026-11-22",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Padova",
-    "citta": "Padova",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "4f77fea3b97b46d1"
-  },
-  {
-    "titolo": "2H di Roma",
-    "dataInizio": "2026-11-21",
-    "dataFine": "2026-11-22",
-    "disciplina": [
-      "Misto"
-    ],
-    "circuito": "Autodromo di Vallelunga",
-    "citta": "Campagnano di Roma",
-    "linkBiglietti": "",
-    "linkInfo": "https://motorsport.vallelunga.it/gare/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "526965136ea3af34"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo Enzo e Dino Ferrari",
-    "dataInizio": "2027-07-17",
-    "dataFine": "2027-07-18",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo di Imola",
-    "citta": "Imola",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "56b9ce939d5ef97f"
-  },
-  {
-    "titolo": "Rally 1000 miglia",
-    "dataInizio": "2026-09-04",
-    "dataFine": "2026-09-05",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Brescia",
-    "citta": "Brescia",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "57ccbddd6f84a26b"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo Enzo e Dino Ferrari",
-    "dataInizio": "2026-11-28",
-    "dataFine": "2026-11-29",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo di Imola",
-    "citta": "Imola",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "59293954a58c5307"
-  },
-  {
-    "titolo": "Ronde Valli Imperiesi",
-    "dataInizio": "2026-11-29",
-    "dataFine": "2026-11-29",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Imperia",
-    "citta": "Imperia",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "59eba7b0df0f257e"
-  },
-  {
-    "titolo": "Prealpi Mastershow",
-    "dataInizio": "2026-12-13",
-    "dataFine": "2026-12-13",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Treviso",
-    "citta": "Treviso",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "5aa5115f37bcd9af"
-  },
-  {
-    "titolo": "2° TOUR SULLE STRADE DELLA ROMAGNA – AUTUNNO A QUATTRO RUOTE",
-    "dataInizio": "2026-09-25",
-    "dataFine": "2026-09-26",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Forlì. Forlimpopoli. Faenza",
-    "citta": "Forlì. Forlimpopoli. Faenza",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/2-tour-sulle-strade-della-romagna-autunno-a-quattro-ruote/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "5b35aadd623331bc"
-  },
-  {
     "titolo": "We Can Race - Guida in pista a Autodromo Valle dei Templi",
     "dataInizio": "2026-12-19",
     "dataFine": "2026-12-20",
@@ -1335,40 +808,6 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "5bbe4ce252537983"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Circuito Internazionale del Volturno",
-    "dataInizio": "2027-11-06",
-    "dataFine": "2027-11-06",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Circuito Internazionale del Volturno",
-    "citta": "Limatola",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "5e56bbd41e1cb58a"
-  },
-  {
-    "titolo": "Rally Val d'Aveto",
-    "dataInizio": "2026-09-05",
-    "dataFine": "2026-09-06",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Genova",
-    "citta": "Genova",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "6034b891116c5bfe"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo Valle dei Templi",
@@ -1388,176 +827,6 @@
     "idAuto": "6060e0073e60c48e"
   },
   {
-    "titolo": "We Can Race - Guida in pista a Autodromo di Pomposa",
-    "dataInizio": "2026-10-25",
-    "dataFine": "2026-10-25",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo di Pomposa",
-    "citta": "S.G. di Comacchio",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "6076b743e000b419"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Circuito Internazionale del Volturno",
-    "dataInizio": "2026-09-05",
-    "dataFine": "2026-09-05",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Circuito Internazionale del Volturno",
-    "citta": "Limatola",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "6100cbab4820d17a"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo di Pergusa",
-    "dataInizio": "2026-09-12",
-    "dataFine": "2026-09-13",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo di Pergusa",
-    "citta": "Pergusa",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "624f71d260897559"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Circuito Internazionale d'Abruzzo",
-    "dataInizio": "2026-10-03",
-    "dataFine": "2026-10-03",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Circuito Internazionale d'Abruzzo",
-    "citta": "Ortona",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "637c7a007964980f"
-  },
-  {
-    "titolo": "RADUNO AUTO D’EPOCA",
-    "dataInizio": "2026-09-06",
-    "dataFine": "2026-09-06",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Cologna Veneta",
-    "citta": "Cologna Veneta",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/raduno-auto-depoca-18/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "64231676c2739b25"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo del Levante",
-    "dataInizio": "2027-06-05",
-    "dataFine": "2027-06-06",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo del Levante",
-    "citta": "Binetto",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "651b97f0cff57b62"
-  },
-  {
-    "titolo": "Ronde Halloween",
-    "dataInizio": "2026-10-30",
-    "dataFine": "2026-10-31",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "San Marino",
-    "citta": "San Marino",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "67776a91d95e8c97"
-  },
-  {
-    "titolo": "Coppa Italia",
-    "dataInizio": "2026-10-01",
-    "dataFine": "2026-10-04",
-    "disciplina": [
-      "Misto"
-    ],
-    "circuito": "Misano World Circuit",
-    "citta": "Misano Adriatico",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.misanocircuit.com/events",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "69932b00c8c924d1"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a La Conca",
-    "dataInizio": "2027-10-09",
-    "dataFine": "2027-10-10",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "La Conca",
-    "citta": "Muro Leccese",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "6d67cd4cf2e9e556"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo di Pomposa",
-    "dataInizio": "2027-10-24",
-    "dataFine": "2027-10-24",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo di Pomposa",
-    "citta": "S.G. di Comacchio",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "6ebfb2028356616e"
-  },
-  {
     "titolo": "We Can Race - Guida in pista a Autodromo Valle dei Templi",
     "dataInizio": "2027-12-18",
     "dataFine": "2027-12-19",
@@ -1573,652 +842,6 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "7169fa65121eb253"
-  },
-  {
-    "titolo": "COPPA ITALIA VELOCITA’ - Round 4",
-    "dataInizio": "2026-09-04",
-    "dataFine": "2026-09-06",
-    "disciplina": [
-      "Misto"
-    ],
-    "circuito": "Mugello Circuit",
-    "citta": "Scarperia e San Piero",
-    "linkBiglietti": "",
-    "linkInfo": "https://mugellocircuit.com/it/gare/details/2026-09-04/1749-coppa-italia-di-velocita-3",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "7514d7d776208d96"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo di Arese",
-    "dataInizio": "2026-11-01",
-    "dataFine": "2026-11-01",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo di Arese",
-    "citta": "Lainate",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "7710e8d192645921"
-  },
-  {
-    "titolo": "SALONE AUTO TORINO 2026",
-    "dataInizio": "2026-09-11",
-    "dataFine": "2026-09-13",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Torino",
-    "citta": "Torino",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/salone-auto-torino-2026/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "775884a595607f6a"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo del Levante",
-    "dataInizio": "2027-09-25",
-    "dataFine": "2027-09-26",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo del Levante",
-    "citta": "Binetto",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "778a25910fbca58e"
-  },
-  {
-    "titolo": "CONCORSO INTERNAZIONALE DI ELEGANZA AUTOMOBILI MONTECATINI TERME XVI EDIZIONE",
-    "dataInizio": "2026-09-19",
-    "dataFine": "2026-09-20",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Montecatini Terme",
-    "citta": "Montecatini Terme",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/concorso-internazionale-di-eleganza-automobili-montecatini-terme-xvi-edizione/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "7aba24c0d75594ec"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Circuito Internazionale d'Abruzzo",
-    "dataInizio": "2027-05-29",
-    "dataFine": "2027-05-29",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Circuito Internazionale d'Abruzzo",
-    "citta": "Ortona",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "7b822c00d1190f83"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo di Arese",
-    "dataInizio": "2027-07-04",
-    "dataFine": "2027-07-04",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo di Arese",
-    "citta": "Lainate",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "7bb1683304ade4e9"
-  },
-  {
-    "titolo": "Rally CittÃ  di Bassano",
-    "dataInizio": "2026-10-09",
-    "dataFine": "2026-10-10",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Vicenza",
-    "citta": "Vicenza",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "7f0a3f0cffa0143e"
-  },
-  {
-    "titolo": "14° ROCKIN RODDIN REUNION",
-    "dataInizio": "2026-10-17",
-    "dataFine": "2026-10-18",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Brescia",
-    "citta": "Brescia",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/14-rockin-roddin-reunion/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "8208aedf60e067ac"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo Internazionale del Mugello",
-    "dataInizio": "2027-02-27",
-    "dataFine": "2027-02-27",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Mugello Circuit",
-    "citta": "Scarperia S. Piero",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "83ad8c84025565c5"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Circuito Internazionale d'Abruzzo",
-    "dataInizio": "2027-10-02",
-    "dataFine": "2027-10-02",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Circuito Internazionale d'Abruzzo",
-    "citta": "Ortona",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "8afb7d62beb346d2"
-  },
-  {
-    "titolo": "4^ MOSTRA SCAMBIO RIZZICONI",
-    "dataInizio": "2026-09-19",
-    "dataFine": "2026-09-20",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Rizziconi",
-    "citta": "Rizziconi",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/4-mostra-scambio-rizziconi/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "8c0a7bfeddcab691"
-  },
-  {
-    "titolo": "ХІII° OPEL MEETING INTERNAZIONALE",
-    "dataInizio": "2026-09-12",
-    "dataFine": "2026-09-12",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Verona",
-    "citta": "Verona",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/%d1%85%d1%96ii-opel-meeting-internazionale/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "8cb817b5e0ce1170"
-  },
-  {
-    "titolo": "XIV MEETING DI AUTO E MOTO D’EPOCA",
-    "dataInizio": "2026-09-20",
-    "dataFine": "2026-09-20",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "San Paolo Bel Sito",
-    "citta": "San Paolo Bel Sito",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/xiv-meeting-di-auto-e-moto-depoca/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "8d1c39b0962cb2f5"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo di Arese",
-    "dataInizio": "2027-10-31",
-    "dataFine": "2027-10-31",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo di Arese",
-    "citta": "Lainate",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "8f3fd570aa92a38c"
-  },
-  {
-    "titolo": "Rally Coppa CittÃ  di Lucca",
-    "dataInizio": "2026-11-15",
-    "dataFine": "2026-11-15",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Lucca",
-    "citta": "Lucca",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "90b28f8ee1ee8cec"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo Nazionale dell'Umbria",
-    "dataInizio": "2026-11-14",
-    "dataFine": "2026-11-14",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo Nazionale dell'Umbria",
-    "citta": "Magione",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "9144799eef778e6a"
-  },
-  {
-    "titolo": "Special Rally Circuit by Vedovati Corse",
-    "dataInizio": "2026-11-14",
-    "dataFine": "2026-11-15",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Monza e della Brianza",
-    "citta": "Monza e della Brianza",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "972db78914fc9590"
-  },
-  {
-    "titolo": "ANNIVERSARIO 120 ANNI LANCIA",
-    "dataInizio": "2026-09-26",
-    "dataFine": "2026-09-26",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Desio",
-    "citta": "Desio",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/anniversario-120-anni-lancia/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "9734731561ac4562"
-  },
-  {
-    "titolo": "AUTO& MOTO D’EPOCA",
-    "dataInizio": "2026-09-27",
-    "dataFine": "2026-09-27",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "San Valentino Torio",
-    "citta": "San Valentino Torio",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/auto-moto-depoca/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "97dcdc330e9de207"
-  },
-  {
-    "titolo": "Rally Alto Appennino Bolognese",
-    "dataInizio": "2026-09-12",
-    "dataFine": "2026-09-13",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Bologna",
-    "citta": "Bologna",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "97e216d6e2f968af"
-  },
-  {
-    "titolo": "Rally di Taormina",
-    "dataInizio": "2026-10-25",
-    "dataFine": "2026-10-25",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Messina",
-    "citta": "Messina",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "98be9564bedce269"
-  },
-  {
-    "titolo": "MOTORPICIO TREFFEN",
-    "dataInizio": "2026-09-05",
-    "dataFine": "2026-09-06",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Tavarnelle di Cortona",
-    "citta": "Tavarnelle di Cortona",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/motorpico-cortona/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "9b714bdf9ae1cd4b"
-  },
-  {
-    "titolo": "Rally CittÃ  di Schio",
-    "dataInizio": "2026-09-11",
-    "dataFine": "2026-09-12",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Vicenza",
-    "citta": "Vicenza",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "9e102d3d1697c4f3"
-  },
-  {
-    "titolo": "MOSTRA AUTO E MOTO D’EPOCA 4^ EDIZIONE",
-    "dataInizio": "2026-08-30",
-    "dataFine": "2026-08-30",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Sovizzo",
-    "citta": "Sovizzo",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/mostra-auto-e-moto-depoca-4-edizione/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "a01e63528d8be550"
-  },
-  {
-    "titolo": "Rally CittÃ  di Torino",
-    "dataInizio": "2026-09-05",
-    "dataFine": "2026-09-06",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Torino",
-    "citta": "Torino",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "a60ab6c9957c988c"
-  },
-  {
-    "titolo": "CANNON CLIMB – MEMORIAL GILBERTO ALTAFINI",
-    "dataInizio": "2026-09-12",
-    "dataFine": "2026-09-12",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Pegognaga",
-    "citta": "Pegognaga",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/cannon-climb-memorial-gilberto-altafini/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "a7f13e2e45025006"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a La Conca",
-    "dataInizio": "2026-10-10",
-    "dataFine": "2026-10-11",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "La Conca",
-    "citta": "Muro Leccese",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "b24aa6ef13c1309a"
-  },
-  {
-    "titolo": "Rally CittÃ  di Cagliari",
-    "dataInizio": "2026-12-13",
-    "dataFine": "2026-12-13",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Cagliari",
-    "citta": "Cagliari",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "b2a81809868d99b5"
-  },
-  {
-    "titolo": "RUOTE ANTICHE NEL BORGO DEI BORGHI – MONTALBANO ELICONA",
-    "dataInizio": "2026-09-27",
-    "dataFine": "2026-09-27",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Furci Siculo",
-    "citta": "Furci Siculo",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/ruote-antiche-nel-borgo-dei-borghi-montalbano-elicona/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "b8e08a1501222aa1"
-  },
-  {
-    "titolo": "10^ BERLINE E FAMILIARI DEL NOVECENTO",
-    "dataInizio": "2026-09-27",
-    "dataFine": "2026-09-27",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Colorno",
-    "citta": "Colorno",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/10-edizione-de-berline-e-familiari-del-novecento/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "bda14891f1a073ed"
-  },
-  {
-    "titolo": "FMI CIV",
-    "dataInizio": "2026-10-10",
-    "dataFine": "2026-10-11",
-    "disciplina": [
-      "Misto"
-    ],
-    "circuito": "Autodromo di Vallelunga",
-    "citta": "Campagnano di Roma",
-    "linkBiglietti": "",
-    "linkInfo": "https://motorsport.vallelunga.it/gare/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "be6b77f54d7abee4"
-  },
-  {
-    "titolo": "Rally di Casciana Terme",
-    "dataInizio": "2026-09-06",
-    "dataFine": "2026-09-07",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Pisa",
-    "citta": "Pisa",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "c14a03e7c2c55322"
-  },
-  {
-    "titolo": "Tindari Rally",
-    "dataInizio": "2026-09-27",
-    "dataFine": "2026-09-27",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Messina",
-    "citta": "Messina",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "c205f2e81992e722"
-  },
-  {
-    "titolo": "MAGGIOLINI STORICI IN VALPOLICELLA",
-    "dataInizio": "2026-08-30",
-    "dataFine": "2026-08-30",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Arbizzano di Negrar",
-    "citta": "Arbizzano di Negrar",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/maggiolini-storici-in-valpolicella/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "c326595c59cc930d"
-  },
-  {
-    "titolo": "Pavia Rally Circuit",
-    "dataInizio": "2026-12-13",
-    "dataFine": "2026-12-13",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Parma",
-    "citta": "Parma",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "c3a7954aa3dec243"
-  },
-  {
-    "titolo": "Rally del Barocco Ibleo",
-    "dataInizio": "2026-11-21",
-    "dataFine": "2026-11-22",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Ragusa",
-    "citta": "Ragusa",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "c5faca4f9454ff8c"
-  },
-  {
-    "titolo": "GARFAGNANA WILD EXPERIENCE",
-    "dataInizio": "2026-08-30",
-    "dataFine": "2026-08-30",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Castelnuovo di Garfagnana",
-    "citta": "Castelnuovo di Garfagnana",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/garfagnana-wild-experience/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "c7119f5043d702fd"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo Riccardo Paletti",
@@ -2238,72 +861,89 @@
     "idAuto": "c901807856230673"
   },
   {
-    "titolo": "Rally Trofeo Villa d'Este ACI Como",
-    "dataInizio": "2026-11-08",
-    "dataFine": "2026-11-08",
+    "titolo": "We Can Race - Guida in pista a Autodromo Valle dei Templi",
+    "dataInizio": "2027-06-12",
+    "dataFine": "2027-06-13",
     "disciplina": [
-      "Rally"
+      "Trackday"
     ],
-    "circuito": "Como",
-    "citta": "Como",
+    "circuito": "Autodromo Valle dei Templi",
+    "citta": "Racalmuto",
     "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "c909da00b035408b"
+    "idAuto": "ea6cfd39458c2747"
   },
   {
-    "titolo": "MAGGIOLINI BASSANESI",
-    "dataInizio": "2026-09-26",
+    "titolo": "We Can Race - Guida in pista a Autodromo Gianni de Luca",
+    "dataInizio": "2026-10-04",
+    "dataFine": "2026-10-04",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Autodromo Gianni de Luca",
+    "citta": "Airola",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "2d0e2e00ee87f8a6"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Gianni de Luca",
+    "dataInizio": "2027-04-10",
+    "dataFine": "2027-04-10",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Autodromo Gianni de Luca",
+    "citta": "Airola",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "38585e172e2437ea"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Franco di Suni",
+    "dataInizio": "2027-05-22",
+    "dataFine": "2027-05-23",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Autodromo Franco di Suni",
+    "citta": "Mores",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "40028f468b2841f7"
+  },
+  {
+    "titolo": "RUOTE ANTICHE NEL BORGO DEI BORGHI – MONTALBANO ELICONA",
+    "dataInizio": "2026-09-27",
     "dataFine": "2026-09-27",
     "disciplina": [
       "Raduno"
     ],
-    "circuito": "Bassano del Grappa",
-    "citta": "Bassano del Grappa",
+    "circuito": "Furci Siculo",
+    "citta": "Furci Siculo",
     "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/maggiolini-bassanesi/",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/ruote-antiche-nel-borgo-dei-borghi-montalbano-elicona/",
     "organizzatore": "",
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "cb43705e0ba5e960"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo Piero Taruffi",
-    "dataInizio": "2027-07-24",
-    "dataFine": "2027-07-24",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo di Vallelunga",
-    "citta": "Campagnano di Roma",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "cfd29943abaa2842"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo del Levante",
-    "dataInizio": "2026-09-26",
-    "dataFine": "2026-09-27",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo del Levante",
-    "citta": "Binetto",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "d0b44de9f67443f1"
+    "idAuto": "b8e08a1501222aa1"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo Franco di Suni",
@@ -2321,74 +961,6 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "d30263619250d7ee"
-  },
-  {
-    "titolo": "BIG TRUCK E MOTOR FEST",
-    "dataInizio": "2026-09-25",
-    "dataFine": "2026-09-27",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Fontaniva",
-    "citta": "Fontaniva",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/big-truck-e-motor-fest/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "d3442169a068f2a8"
-  },
-  {
-    "titolo": "L’ANTICA APPIA DEI MOTORI",
-    "dataInizio": "2026-08-30",
-    "dataFine": "2026-08-30",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Mirabella Eclano",
-    "citta": "Mirabella Eclano",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/lantica-appia-dei-motori/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "d39d075ff2520ec5"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo Nazionale dell'Umbria",
-    "dataInizio": "2027-11-13",
-    "dataFine": "2027-11-13",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo Nazionale dell'Umbria",
-    "citta": "Magione",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "d70e59a5fda2d0ce"
-  },
-  {
-    "titolo": "We Can Race - Guida in pista a Autodromo Enzo e Dino Ferrari",
-    "dataInizio": "2027-11-27",
-    "dataFine": "2027-11-28",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo di Imola",
-    "citta": "Imola",
-    "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "dabdb1a5980933de"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo Franco di Suni",
@@ -2425,89 +997,55 @@
     "idAuto": "e1bcf1a6438b331c"
   },
   {
-    "titolo": "We Can Race - Guida in pista a Tazio Nuvolari 2.8",
-    "dataInizio": "2027-10-30",
-    "dataFine": "2027-10-30",
+    "titolo": "We Can Race - Guida in pista a Autodromo Piero Taruffi",
+    "dataInizio": "2027-02-28",
+    "dataFine": "2027-02-28",
     "disciplina": [
       "Trackday"
     ],
-    "circuito": "Tazio Nuvolari 2.8",
-    "citta": "Cervesina",
+    "circuito": "Autodromo di Vallelunga",
+    "citta": "Campagnano di Roma",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "e2a57b43a880c8cf"
+    "idAuto": "0173b951a783b371"
   },
   {
-    "titolo": "We Can Race - Guida in pista a Autodromo Valle dei Templi",
-    "dataInizio": "2027-06-12",
-    "dataFine": "2027-06-13",
+    "titolo": "We Can Race - Guida in pista a Autodromo Piero Taruffi",
+    "dataInizio": "2027-12-11",
+    "dataFine": "2027-12-11",
     "disciplina": [
       "Trackday"
     ],
-    "circuito": "Autodromo Valle dei Templi",
-    "citta": "Racalmuto",
+    "circuito": "Autodromo di Vallelunga",
+    "citta": "Campagnano di Roma",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "ea6cfd39458c2747"
+    "idAuto": "1c511daffb6127ac"
   },
   {
-    "titolo": "We Can Race - Guida in pista a Autodromo di Pergusa",
-    "dataInizio": "2026-11-21",
-    "dataFine": "2026-11-22",
+    "titolo": "We Can Race - Guida in pista a Autodromo Piero Taruffi",
+    "dataInizio": "2027-07-24",
+    "dataFine": "2027-07-24",
     "disciplina": [
       "Trackday"
     ],
-    "circuito": "Autodromo di Pergusa",
-    "citta": "Pergusa",
+    "circuito": "Autodromo di Vallelunga",
+    "citta": "Campagnano di Roma",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "eb2fc1cc2759dc05"
-  },
-  {
-    "titolo": "Rally Italia Sardegna",
-    "dataInizio": "2026-10-01",
-    "dataFine": "2026-10-04",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Sassari",
-    "citta": "Sassari",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "ef70b232b7d5e1ab"
-  },
-  {
-    "titolo": "Rally il Ciocchetto",
-    "dataInizio": "2026-12-20",
-    "dataFine": "2026-12-20",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Lucca",
-    "citta": "Lucca",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "f0f9712806eef078"
+    "idAuto": "cfd29943abaa2842"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo Piero Taruffi",
@@ -2527,60 +1065,485 @@
     "idAuto": "f2860128b739d6f2"
   },
   {
-    "titolo": "We Can Race - Guida in pista a Circuito Internazionale del Volturno",
-    "dataInizio": "2026-11-07",
-    "dataFine": "2026-11-07",
+    "titolo": "We Can Race - Guida in pista a Autodromo del Levante",
+    "dataInizio": "2027-03-06",
+    "dataFine": "2027-03-07",
     "disciplina": [
       "Trackday"
     ],
-    "circuito": "Circuito Internazionale del Volturno",
-    "citta": "Limatola",
+    "circuito": "Autodromo del Levante",
+    "citta": "Binetto",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "f5081dc8b786aacd"
+    "idAuto": "367a6dbf21d8b39f"
   },
   {
-    "titolo": "We Can Race - Guida in pista a Autodromo Enzo e Dino Ferrari",
-    "dataInizio": "2027-02-20",
-    "dataFine": "2027-02-20",
+    "titolo": "We Can Race - Guida in pista a Autodromo del Levante",
+    "dataInizio": "2027-06-05",
+    "dataFine": "2027-06-06",
     "disciplina": [
       "Trackday"
     ],
-    "circuito": "Autodromo di Imola",
-    "citta": "Imola",
+    "circuito": "Autodromo del Levante",
+    "citta": "Binetto",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "f7a9a7c2cb4a68bc"
+    "idAuto": "651b97f0cff57b62"
   },
   {
-    "titolo": "We Can Race - Guida in pista a Circuito Internazionale del Volturno",
-    "dataInizio": "2027-06-26",
-    "dataFine": "2027-06-26",
+    "titolo": "We Can Race - Guida in pista a Autodromo del Levante",
+    "dataInizio": "2027-09-25",
+    "dataFine": "2027-09-26",
     "disciplina": [
       "Trackday"
     ],
-    "circuito": "Circuito Internazionale del Volturno",
-    "citta": "Limatola",
+    "circuito": "Autodromo del Levante",
+    "citta": "Binetto",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "f849bd190293c1e0"
+    "idAuto": "778a25910fbca58e"
   },
   {
-    "titolo": "Gran Premio Red Bull di San Marino e della Riviera di Rimini",
-    "dataInizio": "2026-09-10",
+    "titolo": "We Can Race - Guida in pista a Autodromo del Levante",
+    "dataInizio": "2026-09-26",
+    "dataFine": "2026-09-27",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Autodromo del Levante",
+    "citta": "Binetto",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "d0b44de9f67443f1"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo di Pomposa",
+    "dataInizio": "2026-10-25",
+    "dataFine": "2026-10-25",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Autodromo di Pomposa",
+    "citta": "S.G. di Comacchio",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "6076b743e000b419"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo di Pergusa",
+    "dataInizio": "2026-09-12",
     "dataFine": "2026-09-13",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Autodromo di Pergusa",
+    "citta": "Pergusa",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "624f71d260897559"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo di Pomposa",
+    "dataInizio": "2027-10-24",
+    "dataFine": "2027-10-24",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Autodromo di Pomposa",
+    "citta": "S.G. di Comacchio",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "6ebfb2028356616e"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo di Pergusa",
+    "dataInizio": "2026-11-21",
+    "dataFine": "2026-11-22",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Autodromo di Pergusa",
+    "citta": "Pergusa",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "eb2fc1cc2759dc05"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Tazio Nuvolari 2.8",
+    "dataInizio": "2027-03-13",
+    "dataFine": "2027-03-13",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Tazio Nuvolari 2.8",
+    "citta": "Cervesina",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "1f323ec2d92c6ce0"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Tazio Nuvolari 2.8",
+    "dataInizio": "2027-07-03",
+    "dataFine": "2027-07-03",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Tazio Nuvolari 2.8",
+    "citta": "Cervesina",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "3b02318af2f85be8"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo di Arese",
+    "dataInizio": "2026-11-01",
+    "dataFine": "2026-11-01",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Autodromo di Arese",
+    "citta": "Lainate",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "7710e8d192645921"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo di Arese",
+    "dataInizio": "2027-07-04",
+    "dataFine": "2027-07-04",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Autodromo di Arese",
+    "citta": "Lainate",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "7bb1683304ade4e9"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo di Arese",
+    "dataInizio": "2027-10-31",
+    "dataFine": "2027-10-31",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Autodromo di Arese",
+    "citta": "Lainate",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "8f3fd570aa92a38c"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Tazio Nuvolari 2.8",
+    "dataInizio": "2027-10-30",
+    "dataFine": "2027-10-30",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Tazio Nuvolari 2.8",
+    "citta": "Cervesina",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "e2a57b43a880c8cf"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Tazio Nuvolari 2.8",
+    "dataInizio": "2026-10-31",
+    "dataFine": "2026-10-31",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Tazio Nuvolari 2.8",
+    "citta": "Cervesina",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "fdb56b866a4cdef1"
+  },
+  {
+    "titolo": "10° RAID STORICO VICENZA – BUDAPEST – VICENZA",
+    "dataInizio": "2026-08-31",
+    "dataFine": "2026-09-05",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Vicenza",
+    "citta": "Vicenza",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/10-raid-storico-vicenza-budapest-vicenza/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "0b196bc7df81e09c"
+  },
+  {
+    "titolo": "20TH ANNIVERSARY PARTY DEVIL DRIVERS CLUB",
+    "dataInizio": "2026-08-29",
+    "dataFine": "2026-08-30",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Montorso Vicentino",
+    "citta": "Montorso Vicentino",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/20th-anniversary-party-devil-drivers-club/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "0e86e83d405f9928"
+  },
+  {
+    "titolo": "CANNON CLIMB – MEMORIAL GILBERTO ALTAFINI",
+    "dataInizio": "2026-09-12",
+    "dataFine": "2026-09-12",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Pegognaga",
+    "citta": "Pegognaga",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/cannon-climb-memorial-gilberto-altafini/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "a7f13e2e45025006"
+  },
+  {
+    "titolo": "Rally Colli del Monferrato e del Moscato",
+    "dataInizio": "2026-11-01",
+    "dataFine": "2026-11-01",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Asti",
+    "citta": "Asti",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "4580e798a612a0d2"
+  },
+  {
+    "titolo": "ACI RACING WEEKEND - C.I. AUTOMOBILISMO",
+    "dataInizio": "2026-10-30",
+    "dataFine": "2026-11-01",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Mugello Circuit",
+    "citta": "Scarperia e San Piero",
+    "linkBiglietti": "",
+    "linkInfo": "https://mugellocircuit.com/it/gare/details/2026-10-30/1753-aci-racing-weekend-c-i-automobilismo-5",
+    "organizzatore": "ACI Sport",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "186339fc7645d082"
+  },
+  {
+    "titolo": "RAID STORICO MILANO – BUDAPEST – MILANO",
+    "dataInizio": "2026-08-30",
+    "dataFine": "2026-09-06",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Milano",
+    "citta": "Milano",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/rievocazione-storica-del-1928-raid-storico-moto-auto-fino-1976/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "349de1ed67961f63"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a La Conca",
+    "dataInizio": "2027-10-09",
+    "dataFine": "2027-10-10",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "La Conca",
+    "citta": "Muro Leccese",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "6d67cd4cf2e9e556"
+  },
+  {
+    "titolo": "Special Rally Circuit by Vedovati Corse",
+    "dataInizio": "2026-11-14",
+    "dataFine": "2026-11-15",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Monza e della Brianza",
+    "citta": "Monza e della Brianza",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "972db78914fc9590"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a La Conca",
+    "dataInizio": "2026-10-10",
+    "dataFine": "2026-10-11",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "La Conca",
+    "citta": "Muro Leccese",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "b24aa6ef13c1309a"
+  },
+  {
+    "titolo": "MOSTRA AUTO E MOTO D’EPOCA 4^ EDIZIONE",
+    "dataInizio": "2026-08-30",
+    "dataFine": "2026-08-30",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Sovizzo",
+    "citta": "Sovizzo",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/mostra-auto-e-moto-depoca-4-edizione/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "a01e63528d8be550"
+  },
+  {
+    "titolo": "10^ BERLINE E FAMILIARI DEL NOVECENTO",
+    "dataInizio": "2026-09-27",
+    "dataFine": "2026-09-27",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Colorno",
+    "citta": "Colorno",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/10-edizione-de-berline-e-familiari-del-novecento/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "bda14891f1a073ed"
+  },
+  {
+    "titolo": "Rally del Rubinetto e Rally 2 Laghi",
+    "dataInizio": "2026-09-27",
+    "dataFine": "2026-09-27",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Novara",
+    "citta": "Novara",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "2e90c57fe7f93ee0"
+  },
+  {
+    "titolo": "Rally dei Nuraghi e del Vermentino",
+    "dataInizio": "2026-11-01",
+    "dataFine": "2026-11-01",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Sassari",
+    "citta": "Sassari",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "232ef82a4a178581"
+  },
+  {
+    "titolo": "Moto Junior FIM World Championship",
+    "dataInizio": "2026-10-15",
+    "dataFine": "2026-10-18",
     "disciplina": [
       "Misto"
     ],
@@ -2592,7 +1555,908 @@
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "fb657171f652d4f9"
+    "idAuto": "3d5781c28c2ba805"
+  },
+  {
+    "titolo": "XIV MEETING DI AUTO E MOTO D’EPOCA",
+    "dataInizio": "2026-09-20",
+    "dataFine": "2026-09-20",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "San Paolo Bel Sito",
+    "citta": "San Paolo Bel Sito",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/xiv-meeting-di-auto-e-moto-depoca/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "8d1c39b0962cb2f5"
+  },
+  {
+    "titolo": "MAGGIOLINI STORICI IN VALPOLICELLA",
+    "dataInizio": "2026-08-30",
+    "dataFine": "2026-08-30",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Arbizzano di Negrar",
+    "citta": "Arbizzano di Negrar",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/maggiolini-storici-in-valpolicella/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "c326595c59cc930d"
+  },
+  {
+    "titolo": "Rally Trofeo Villa d'Este ACI Como",
+    "dataInizio": "2026-11-08",
+    "dataFine": "2026-11-08",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Como",
+    "citta": "Como",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "c909da00b035408b"
+  },
+  {
+    "titolo": "ХІII° OPEL MEETING INTERNAZIONALE",
+    "dataInizio": "2026-09-12",
+    "dataFine": "2026-09-12",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Verona",
+    "citta": "Verona",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/%d1%85%d1%96ii-opel-meeting-internazionale/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "8cb817b5e0ce1170"
+  },
+  {
+    "titolo": "COPPA ITALIA VELOCITA’ - Round 4",
+    "dataInizio": "2026-09-04",
+    "dataFine": "2026-09-06",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Mugello Circuit",
+    "citta": "Scarperia e San Piero",
+    "linkBiglietti": "",
+    "linkInfo": "https://mugellocircuit.com/it/gare/details/2026-09-04/1749-coppa-italia-di-velocita-3",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "7514d7d776208d96"
+  },
+  {
+    "titolo": "Rally Alto Appennino Bolognese",
+    "dataInizio": "2026-09-12",
+    "dataFine": "2026-09-13",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Bologna",
+    "citta": "Bologna",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "97e216d6e2f968af"
+  },
+  {
+    "titolo": "VII° MONTALCINO HERITAGE 2026",
+    "dataInizio": "2026-09-12",
+    "dataFine": "2026-09-13",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Montalcino",
+    "citta": "Montalcino",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/vii-montalcino-heritage-2026/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "1778d8ed7dedb629"
+  },
+  {
+    "titolo": "13° ROTARY HISTORICA BY NIGHT",
+    "dataInizio": "2026-09-12",
+    "dataFine": "2026-09-12",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Morimondo",
+    "citta": "Morimondo",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/13-rotary-historica-by-night/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "43f78791d025560c"
+  },
+  {
+    "titolo": "ANNIVERSARIO 120 ANNI LANCIA",
+    "dataInizio": "2026-09-26",
+    "dataFine": "2026-09-26",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Desio",
+    "citta": "Desio",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/anniversario-120-anni-lancia/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "9734731561ac4562"
+  },
+  {
+    "titolo": "8° RADUNO BARCHETTE IN TOUR",
+    "dataInizio": "2026-09-27",
+    "dataFine": "2026-09-27",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Piglio",
+    "citta": "Piglio",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/8-raduno-barchette-in-tour/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "1de1d1b6478ce3c8"
+  },
+  {
+    "titolo": "III EDIZIONE TOUR DEI LAGHI",
+    "dataInizio": "2026-10-03",
+    "dataFine": "2026-10-04",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Desenzano del Garda",
+    "citta": "Desenzano del Garda",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/iii-edizione-tour-dei-laghi/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "364ebecc2886b929"
+  },
+  {
+    "titolo": "4^ MOSTRA SCAMBIO RIZZICONI",
+    "dataInizio": "2026-09-19",
+    "dataFine": "2026-09-20",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Rizziconi",
+    "citta": "Rizziconi",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/4-mostra-scambio-rizziconi/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "8c0a7bfeddcab691"
+  },
+  {
+    "titolo": "10° RADUNO VULCANI CITROEN",
+    "dataInizio": "2026-09-05",
+    "dataFine": "2026-09-06",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Spinea",
+    "citta": "Spinea",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/10-raduno-vulcani-citroen/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "00f8e49bd380fccd"
+  },
+  {
+    "titolo": "Rally Coppa Città di Lucca",
+    "dataInizio": "2026-11-15",
+    "dataFine": "2026-11-15",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Lucca",
+    "citta": "Lucca",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "06eb158da1f38e16"
+  },
+  {
+    "titolo": "GARFAGNANA WILD EXPERIENCE",
+    "dataInizio": "2026-08-30",
+    "dataFine": "2026-08-30",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Castelnuovo di Garfagnana",
+    "citta": "Castelnuovo di Garfagnana",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/garfagnana-wild-experience/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "c7119f5043d702fd"
+  },
+  {
+    "titolo": "Rally Colline Metallifere",
+    "dataInizio": "2026-10-24",
+    "dataFine": "2026-10-25",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Livorno",
+    "citta": "Livorno",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "06c29c841b3c512d"
+  },
+  {
+    "titolo": "PORSCHE SPORTS CUP SUISSE",
+    "dataInizio": "2026-09-24",
+    "dataFine": "2026-09-26",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Mugello Circuit",
+    "citta": "Scarperia e San Piero",
+    "linkBiglietti": "",
+    "linkInfo": "https://mugellocircuit.com/it/gare/details/2026-09-24/1750-porsche-sports-cup-suisse",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "31de9b31155a8bbc"
+  },
+  {
+    "titolo": "14° ROCKIN RODDIN REUNION",
+    "dataInizio": "2026-10-17",
+    "dataFine": "2026-10-18",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Brescia",
+    "citta": "Brescia",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/14-rockin-roddin-reunion/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "8208aedf60e067ac"
+  },
+  {
+    "titolo": "L’ANTICA APPIA DEI MOTORI",
+    "dataInizio": "2026-08-30",
+    "dataFine": "2026-08-30",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Mirabella Eclano",
+    "citta": "Mirabella Eclano",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/lantica-appia-dei-motori/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "d39d075ff2520ec5"
+  },
+  {
+    "titolo": "Rally Città di Scandicci",
+    "dataInizio": "2026-11-08",
+    "dataFine": "2026-11-08",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Scandicci",
+    "citta": "Scandicci",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "e8cade4a7b4577ee"
+  },
+  {
+    "titolo": "Rally Porta del Gargano",
+    "dataInizio": "2026-10-17",
+    "dataFine": "2026-10-18",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Foggia",
+    "citta": "Foggia",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "21b64a6db83e0241"
+  },
+  {
+    "titolo": "Rally Lazio Cassino CRZ",
+    "dataInizio": "2026-09-18",
+    "dataFine": "2026-09-19",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Frosinone",
+    "citta": "Frosinone",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "31f903f87c3ca693"
+  },
+  {
+    "titolo": "SALONE AUTO TORINO 2026",
+    "dataInizio": "2026-09-11",
+    "dataFine": "2026-09-13",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Torino",
+    "citta": "Torino",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/salone-auto-torino-2026/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "775884a595607f6a"
+  },
+  {
+    "titolo": "Rally di Casciana Terme",
+    "dataInizio": "2026-09-06",
+    "dataFine": "2026-09-07",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Casciana Terme",
+    "citta": "Casciana Terme",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "c14a03e7c2c55322"
+  },
+  {
+    "titolo": "Rally del Barocco Ibleo",
+    "dataInizio": "2026-11-21",
+    "dataFine": "2026-11-22",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Ragusa",
+    "citta": "Ragusa",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "c5faca4f9454ff8c"
+  },
+  {
+    "titolo": "Rally Città di Cagliari",
+    "dataInizio": "2026-12-13",
+    "dataFine": "2026-12-13",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Cagliari",
+    "citta": "Cagliari",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "c67711c594e27b88"
+  },
+  {
+    "titolo": "MOSTRA SCAMBIO CASERTA",
+    "dataInizio": "2027-01-23",
+    "dataFine": "2027-01-24",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "San Marco Evangelista",
+    "citta": "San Marco Evangelista",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/mostra-scambio-caserta-2/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "1de4a29fa889260b"
+  },
+  {
+    "titolo": "Vallelunga Euro Nascar",
+    "dataInizio": "2026-09-19",
+    "dataFine": "2026-09-20",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Autodromo di Vallelunga",
+    "citta": "Campagnano di Roma",
+    "linkBiglietti": "",
+    "linkInfo": "https://motorsport.vallelunga.it/gare/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "32acf748600068d0"
+  },
+  {
+    "titolo": "Rally Città di Bassano",
+    "dataInizio": "2026-10-09",
+    "dataFine": "2026-10-10",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Bassano",
+    "citta": "Bassano",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "733ad98dcd91e1a5"
+  },
+  {
+    "titolo": "Rally Città di Pistoia",
+    "dataInizio": "2026-10-11",
+    "dataFine": "2026-10-11",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Pistoia",
+    "citta": "Pistoia",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "aa7e0ef6a5ba2c15"
+  },
+  {
+    "titolo": "BIG TRUCK E MOTOR FEST",
+    "dataInizio": "2026-09-25",
+    "dataFine": "2026-09-27",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Fontaniva",
+    "citta": "Fontaniva",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/big-truck-e-motor-fest/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "d3442169a068f2a8"
+  },
+  {
+    "titolo": "Rally Città di Torino",
+    "dataInizio": "2026-09-05",
+    "dataFine": "2026-09-06",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Torino",
+    "citta": "Torino",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "2a1d408a594a708d"
+  },
+  {
+    "titolo": "Ronde Valli Imperiesi",
+    "dataInizio": "2026-11-29",
+    "dataFine": "2026-11-29",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Imperia",
+    "citta": "Imperia",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "59eba7b0df0f257e"
+  },
+  {
+    "titolo": "Rally Italia Sardegna",
+    "dataInizio": "2026-10-01",
+    "dataFine": "2026-10-04",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Sassari",
+    "citta": "Sassari",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "ef70b232b7d5e1ab"
+  },
+  {
+    "titolo": "WEC 6 Hours of Imola",
+    "dataInizio": "2027-04-09",
+    "dataFine": "2027-04-11",
+    "disciplina": [
+      "Le Mans Prototype"
+    ],
+    "circuito": "Autodromo di Imola",
+    "citta": "Imola",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autodromoimola.it/en/wec/tickets-wec/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "1c272eeaac4e8954"
+  },
+  {
+    "titolo": "Rally della Fettunta",
+    "dataInizio": "2026-12-06",
+    "dataFine": "2026-12-06",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Firenze",
+    "citta": "Firenze",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "42dda6ecf2e39b62"
+  },
+  {
+    "titolo": "Rally Città di Schio",
+    "dataInizio": "2026-09-11",
+    "dataFine": "2026-09-12",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Schio",
+    "citta": "Schio",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "984c1cbfd72b60fc"
+  },
+  {
+    "titolo": "MAGGIOLINI BASSANESI",
+    "dataInizio": "2026-09-26",
+    "dataFine": "2026-09-27",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Bassano del Grappa",
+    "citta": "Bassano del Grappa",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/maggiolini-bassanesi/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "cb43705e0ba5e960"
+  },
+  {
+    "titolo": "17° RADUNO DINAMICO",
+    "dataInizio": "2026-09-20",
+    "dataFine": "2026-09-20",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Pray",
+    "citta": "Pray",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/17-raduno-dinamico/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "02966ec33c14d2c7"
+  },
+  {
+    "titolo": "Rally Lago di Garda",
+    "dataInizio": "2026-11-01",
+    "dataFine": "2026-11-01",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Brescia",
+    "citta": "Brescia",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "3205a4c51bde0286"
+  },
+  {
+    "titolo": "Rally Colli Euganei",
+    "dataInizio": "2026-11-21",
+    "dataFine": "2026-11-22",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Padova",
+    "citta": "Padova",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "4f77fea3b97b46d1"
+  },
+  {
+    "titolo": "RADUNO AUTO D’EPOCA",
+    "dataInizio": "2026-09-06",
+    "dataFine": "2026-09-06",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Cologna Veneta",
+    "citta": "Cologna Veneta",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/raduno-auto-depoca-18/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "64231676c2739b25"
+  },
+  {
+    "titolo": "Pavia Rally Circuit",
+    "dataInizio": "2026-12-13",
+    "dataFine": "2026-12-13",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Parma",
+    "citta": "Parma",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "c3a7954aa3dec243"
+  },
+  {
+    "titolo": "Rally il Ciocchetto",
+    "dataInizio": "2026-12-20",
+    "dataFine": "2026-12-20",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Lucca",
+    "citta": "Lucca",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "f0f9712806eef078"
+  },
+  {
+    "titolo": "Rally del Brunello",
+    "dataInizio": "2026-11-29",
+    "dataFine": "2026-11-29",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Siena",
+    "citta": "Siena",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "1bdecbe86845cd4d"
+  },
+  {
+    "titolo": "32° RADUNO VIADANA",
+    "dataInizio": "2026-09-19",
+    "dataFine": "2026-09-20",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Viadana",
+    "citta": "Viadana",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/32-raduno-viadana/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "3f2b5012c48ca570"
+  },
+  {
+    "titolo": "Prealpi Mastershow",
+    "dataInizio": "2026-12-13",
+    "dataFine": "2026-12-13",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Treviso",
+    "citta": "Treviso",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "5aa5115f37bcd9af"
+  },
+  {
+    "titolo": "AUTO& MOTO D’EPOCA",
+    "dataInizio": "2026-09-27",
+    "dataFine": "2026-09-27",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "San Valentino Torio",
+    "citta": "San Valentino Torio",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/auto-moto-depoca/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "97dcdc330e9de207"
+  },
+  {
+    "titolo": "MOTORPICIO TREFFEN",
+    "dataInizio": "2026-09-05",
+    "dataFine": "2026-09-06",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Tavarnelle di Cortona",
+    "citta": "Tavarnelle di Cortona",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/motorpico-cortona/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "9b714bdf9ae1cd4b"
+  },
+  {
+    "titolo": "Rally delle Palme",
+    "dataInizio": "2026-10-18",
+    "dataFine": "2026-10-18",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Imperia",
+    "citta": "Imperia",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "2caa0b0c3ca59182"
+  },
+  {
+    "titolo": "Rally 1000 miglia",
+    "dataInizio": "2026-09-04",
+    "dataFine": "2026-09-05",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Brescia",
+    "citta": "Brescia",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "57ccbddd6f84a26b"
+  },
+  {
+    "titolo": "Rally Val d'Aveto",
+    "dataInizio": "2026-09-05",
+    "dataFine": "2026-09-06",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Genova",
+    "citta": "Genova",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "6034b891116c5bfe"
+  },
+  {
+    "titolo": "Rally di Taormina",
+    "dataInizio": "2026-10-25",
+    "dataFine": "2026-10-25",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Taormina",
+    "citta": "Taormina",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "98be9564bedce269"
   },
   {
     "titolo": "Rally Piancavallo",
@@ -2612,20 +2476,156 @@
     "idAuto": "fd7ef349c62895eb"
   },
   {
-    "titolo": "We Can Race - Guida in pista a Tazio Nuvolari 2.8",
-    "dataInizio": "2026-10-31",
-    "dataFine": "2026-10-31",
+    "titolo": "Monza Rally Show",
+    "dataInizio": "2026-11-29",
+    "dataFine": "2026-11-29",
     "disciplina": [
-      "Trackday"
+      "Rally"
     ],
-    "circuito": "Tazio Nuvolari 2.8",
-    "citta": "Cervesina",
+    "circuito": "Monza e della Brianza",
+    "citta": "Monza e della Brianza",
     "linkBiglietti": "",
-    "linkInfo": "https://wecanrace.it/calendario/",
-    "organizzatore": "We Can Race",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "fdb56b866a4cdef1"
+    "idAuto": "34ad9c8940baad87"
+  },
+  {
+    "titolo": "RallyLegend 2026",
+    "dataInizio": "2026-10-08",
+    "dataFine": "2026-10-11",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "San Marino",
+    "citta": "San Marino",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "495f77d596ec4c86"
+  },
+  {
+    "titolo": "Ronde Halloween",
+    "dataInizio": "2026-10-30",
+    "dataFine": "2026-10-31",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "San Marino",
+    "citta": "San Marino",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "67776a91d95e8c97"
+  },
+  {
+    "titolo": "Tindari Rally",
+    "dataInizio": "2026-09-27",
+    "dataFine": "2026-09-27",
+    "disciplina": [
+      "Rally"
+    ],
+    "circuito": "Messina",
+    "citta": "Messina",
+    "linkBiglietti": "",
+    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "c205f2e81992e722"
+  },
+  {
+    "titolo": "Coppa Italia",
+    "dataInizio": "2026-10-01",
+    "dataFine": "2026-10-04",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Misano World Circuit",
+    "citta": "Misano Adriatico",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.misanocircuit.com/events",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "69932b00c8c924d1"
+  },
+  {
+    "titolo": "TIME ATTACK",
+    "dataInizio": "2026-10-03",
+    "dataFine": "2026-10-04",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Autodromo di Vallelunga",
+    "citta": "Campagnano di Roma",
+    "linkBiglietti": "",
+    "linkInfo": "https://motorsport.vallelunga.it/gare/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "1c47e30b9fb68d58"
+  },
+  {
+    "titolo": "50 FIAT 500",
+    "dataInizio": "2026-09-19",
+    "dataFine": "2026-09-19",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Isera",
+    "citta": "Isera",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/50-fiat-500/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "45b57923e0bb747f"
+  },
+  {
+    "titolo": "2H di Roma",
+    "dataInizio": "2026-11-21",
+    "dataFine": "2026-11-22",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Autodromo di Vallelunga",
+    "citta": "Campagnano di Roma",
+    "linkBiglietti": "",
+    "linkInfo": "https://motorsport.vallelunga.it/gare/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "526965136ea3af34"
+  },
+  {
+    "titolo": "FMI CIV",
+    "dataInizio": "2026-10-10",
+    "dataFine": "2026-10-11",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Autodromo di Vallelunga",
+    "citta": "Campagnano di Roma",
+    "linkBiglietti": "",
+    "linkInfo": "https://motorsport.vallelunga.it/gare/",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "be6b77f54d7abee4"
   }
 ]
