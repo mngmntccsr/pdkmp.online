@@ -334,21 +334,21 @@
     "idAuto": "34afd4d2a76d672d"
   },
   {
-    "titolo": "CONCORSO INTERNAZIONALE DI ELEGANZA AUTOMOBILI MONTECATINI TERME XVI EDIZIONE",
+    "titolo": "Concorso Internazionale di Eleganza Automobili Montecatini Terme - XVI Edizione",
     "dataInizio": "2026-09-19",
-    "dataFine": "2026-09-20",
+    "dataFine": "2026-09-19",
     "disciplina": [
       "Raduno"
     ],
     "circuito": "Montecatini Terme",
     "citta": "Montecatini Terme",
     "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/concorso-internazionale-di-eleganza-automobili-montecatini-terme-xvi-edizione/",
+    "linkInfo": "https://raduni-auto.it/raduno/concorso-internazionale-di-eleganza-automobili-montecatini-terme-xvi-edizione-autodepoca-montecatini-terme-pt",
     "organizzatore": "",
     "immagine": "",
-    "eventoGratuito": false,
+    "eventoGratuito": true,
     "fonteAuto": true,
-    "idAuto": "7aba24c0d75594ec"
+    "idAuto": "9bfde01b7713a3e2"
   },
   {
     "titolo": "8° RADUNO NAZIONALE C3 PLURIEL CLUB ITALIA “10 ANNI DI NOI 2016-2026”",
@@ -375,7 +375,7 @@
       "Trackday"
     ],
     "circuito": "Mugello Circuit",
-    "citta": "Scarperia S. Piero",
+    "citta": "Mugello",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
@@ -392,7 +392,7 @@
       "Trackday"
     ],
     "circuito": "Mugello Circuit",
-    "citta": "Scarperia S. Piero",
+    "citta": "Mugello",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
@@ -409,7 +409,7 @@
       "Trackday"
     ],
     "circuito": "Mugello Circuit",
-    "citta": "Scarperia S. Piero",
+    "citta": "Mugello",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
@@ -460,7 +460,7 @@
       "Trackday"
     ],
     "circuito": "Mugello Circuit",
-    "citta": "Scarperia S. Piero",
+    "citta": "Mugello",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
@@ -606,6 +606,23 @@
     "idAuto": "9144799eef778e6a"
   },
   {
+    "titolo": "5° Raduno Auto Moto d'Epoca e Sportive - Los Angeles Motor Day",
+    "dataInizio": "2026-09-04",
+    "dataFine": "2026-09-04",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Sant'Angelo di Piove di Sacco",
+    "citta": "Sant'Angelo di Piove di Sacco",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/5-raduno-auto-moto-depoca-e-sportive-los-angeles-motor-day-autodepoca-santangelo-di-piove-di-sacco-pd",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "c9e6ca54fff72ec6"
+  },
+  {
     "titolo": "We Can Race - Guida in pista a Autodromo Nazionale dell'Umbria",
     "dataInizio": "2027-11-13",
     "dataFine": "2027-11-13",
@@ -621,6 +638,23 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "d70e59a5fda2d0ce"
+  },
+  {
+    "titolo": "9° Autoraduno Città di Galzignano Terme & 3° Autogiro Euganeo",
+    "dataInizio": "2026-10-04",
+    "dataFine": "2026-10-04",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Galzignano Terme",
+    "citta": "Galzignano Terme",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/9-autoraduno-citta-di-galzignano-terme-e-3-autogiro-euganeo-dinamico-galzignano-terme-pd",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "3f01c68d992e4862"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo Enzo e Dino Ferrari",
@@ -740,6 +774,23 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "fb657171f652d4f9"
+  },
+  {
+    "titolo": "1° Raduno 126isti Iblei - Chiaramonte Gulfi: Motori e Musei",
+    "dataInizio": "2026-09-13",
+    "dataFine": "2026-09-13",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Chiaramonte Gulfi",
+    "citta": "Chiaramonte Gulfi",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/1-raduno-126isti-iblei-chiaramonte-gulfi-motori-e-musei-autodepoca-chiaramonte-gulfi-rg",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "50d06b7cc8b557d7"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo Valle dei Templi",
@@ -946,6 +997,23 @@
     "idAuto": "b8e08a1501222aa1"
   },
   {
+    "titolo": "14° Raduno d'Auto e Moto d'Epoca Castelluccio Cosentino",
+    "dataInizio": "2026-09-13",
+    "dataFine": "2026-09-13",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Sicignano degli Alburni",
+    "citta": "Sicignano degli Alburni",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/14-raduno-dauto-e-moto-depoca-castelluccio-cosentino-autodepoca-sicignano-degli-alburni-sa",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "c3d80ae742e4a932"
+  },
+  {
     "titolo": "We Can Race - Guida in pista a Autodromo Franco di Suni",
     "dataInizio": "2026-10-17",
     "dataFine": "2026-10-18",
@@ -1032,6 +1100,23 @@
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo Piero Taruffi",
+    "dataInizio": "2026-09-05",
+    "dataFine": "2026-09-05",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Autodromo di Vallelunga",
+    "citta": "Campagnano di Roma",
+    "linkBiglietti": "",
+    "linkInfo": "https://wecanrace.it/calendario/",
+    "organizzatore": "We Can Race",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "4a206cebfaa9abd9"
+  },
+  {
+    "titolo": "We Can Race - Guida in pista a Autodromo Piero Taruffi",
     "dataInizio": "2027-07-24",
     "dataFine": "2027-07-24",
     "disciplina": [
@@ -1065,6 +1150,23 @@
     "idAuto": "f2860128b739d6f2"
   },
   {
+    "titolo": "6° Tronzano Motori – Raduno di Veicoli di ogni genere",
+    "dataInizio": "2026-09-06",
+    "dataFine": "2026-09-06",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Tronzano Vercellese",
+    "citta": "Tronzano Vercellese",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/6-tronzano-motori-raduno-di-veicoli-di-ogni-genere-dinamico-tronzano-vercellese-vc",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "236e33bd3d6b8b8e"
+  },
+  {
     "titolo": "We Can Race - Guida in pista a Autodromo del Levante",
     "dataInizio": "2027-03-06",
     "dataFine": "2027-03-07",
@@ -1080,6 +1182,23 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "367a6dbf21d8b39f"
+  },
+  {
+    "titolo": "Raduno Auto d'Epoca - 131ª Fiera Settembre Colognese",
+    "dataInizio": "2026-09-06",
+    "dataFine": "2026-09-06",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Cologna Veneta",
+    "citta": "Cologna Veneta",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/raduno-auto-depoca-131-fiera-settembre-colognese-autodepoca-cologna-veneta-vr",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "3e83ea7470dd101e"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo del Levante",
@@ -1140,7 +1259,7 @@
       "Trackday"
     ],
     "circuito": "Autodromo di Pomposa",
-    "citta": "S.G. di Comacchio",
+    "citta": "San Giuseppe di Comacchio",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
@@ -1174,7 +1293,7 @@
       "Trackday"
     ],
     "circuito": "Autodromo di Pomposa",
-    "citta": "S.G. di Comacchio",
+    "citta": "San Giuseppe di Comacchio",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
@@ -1201,6 +1320,40 @@
     "idAuto": "eb2fc1cc2759dc05"
   },
   {
+    "titolo": "Motori Per La Vita - Presentazione Calendario 2027",
+    "dataInizio": "2026-10-03",
+    "dataFine": "2026-10-03",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Casalgrande",
+    "citta": "Casalgrande",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/motori-per-la-vita-presentazione-calendario-2027-statico-casalgrande-re",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "356648160280f6ee"
+  },
+  {
+    "titolo": "3° Memorial Strianese Emilio - Auto & Moto d'Epoca",
+    "dataInizio": "2026-09-27",
+    "dataFine": "2026-09-27",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "San Valentino Torio",
+    "citta": "San Valentino Torio",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/3-memorial-strianese-emilio-auto-e-moto-depoca-autodepoca-san-valentino-torio-sa",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "e54033c1bbc3d62e"
+  },
+  {
     "titolo": "We Can Race - Guida in pista a Tazio Nuvolari 2.8",
     "dataInizio": "2027-03-13",
     "dataFine": "2027-03-13",
@@ -1218,6 +1371,23 @@
     "idAuto": "1f323ec2d92c6ce0"
   },
   {
+    "titolo": "Evento Tuning - La Grande Iper Serravalle Scrivia",
+    "dataInizio": "2026-09-20",
+    "dataFine": "2026-09-20",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Serravalle Scrivia",
+    "citta": "Serravalle Scrivia",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/evento-tuning-la-grande-iper-serravalle-scrivia-statico-serravalle-scrivia-al",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "31da4b0dc89cf0ed"
+  },
+  {
     "titolo": "We Can Race - Guida in pista a Tazio Nuvolari 2.8",
     "dataInizio": "2027-07-03",
     "dataFine": "2027-07-03",
@@ -1233,6 +1403,23 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "3b02318af2f85be8"
+  },
+  {
+    "titolo": "La Castagnole ClassiCar - memorial LUIGI TARABBIO",
+    "dataInizio": "2026-09-13",
+    "dataFine": "2026-09-13",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Castagnole delle Lanze",
+    "citta": "Castagnole delle Lanze",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/la-castagnole-classicar-memorial-luigi-tarabbio-autodepoca-castagnole-delle-lanze-at",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "4903e12fed2b0391"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo di Arese",
@@ -1286,6 +1473,23 @@
     "idAuto": "8f3fd570aa92a38c"
   },
   {
+    "titolo": "9° Raduno per Appassionati di Auto e Moto d'Epoca",
+    "dataInizio": "2026-09-13",
+    "dataFine": "2026-09-13",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Saviano",
+    "citta": "Saviano",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/9-raduno-per-appassionati-di-auto-e-moto-depoca-autodepoca-saviano-na",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "e1e832b78163b7cc"
+  },
+  {
     "titolo": "We Can Race - Guida in pista a Tazio Nuvolari 2.8",
     "dataInizio": "2027-10-30",
     "dataFine": "2027-10-30",
@@ -1303,6 +1507,23 @@
     "idAuto": "e2a57b43a880c8cf"
   },
   {
+    "titolo": "Tour Serale Cabrio & Spider - Costiera Amalfitana",
+    "dataInizio": "2026-09-11",
+    "dataFine": "2026-09-11",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Vietri sul Mare",
+    "citta": "Vietri sul Mare",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/tour-serale-cabrio-e-spider-costiera-amalfitana-dinamico-vietri-sul-mare-sa",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "ee3f71fbe762d92e"
+  },
+  {
     "titolo": "We Can Race - Guida in pista a Tazio Nuvolari 2.8",
     "dataInizio": "2026-10-31",
     "dataFine": "2026-10-31",
@@ -1318,6 +1539,23 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "fdb56b866a4cdef1"
+  },
+  {
+    "titolo": "Raduno Auto e Moto d'Epoca - San Paolo Belsito",
+    "dataInizio": "2026-09-20",
+    "dataFine": "2026-09-20",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "San Paolo Belsito",
+    "citta": "San Paolo Belsito",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/raduno-auto-e-moto-depoca-san-paolo-belsito-autodepoca-san-paolo-belsito-na",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "e1dc8ac531521244"
   },
   {
     "titolo": "10° RAID STORICO VICENZA – BUDAPEST – VICENZA",
@@ -1354,6 +1592,23 @@
     "idAuto": "0e86e83d405f9928"
   },
   {
+    "titolo": "Raduno Statico con possibilità di suonare",
+    "dataInizio": "2026-10-03",
+    "dataFine": "2026-10-03",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Appendini Buriasco",
+    "citta": "Appendini Buriasco",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/raduno-statico-con-possibilita-di-suonare-statico-appendini-buriasco-to",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "1d87ecdf7ca28f47"
+  },
+  {
     "titolo": "CANNON CLIMB – MEMORIAL GILBERTO ALTAFINI",
     "dataInizio": "2026-09-12",
     "dataFine": "2026-09-12",
@@ -1388,6 +1643,23 @@
     "idAuto": "4580e798a612a0d2"
   },
   {
+    "titolo": "1° Raduno di Auto Sportive, Montesarchio",
+    "dataInizio": "2026-09-14",
+    "dataFine": "2026-09-14",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Montesarchio",
+    "citta": "Montesarchio",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/1-raduno-di-auto-sportive-montesarchio-dinamico-montesarchio-bn",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "cb7833e4e098afdd"
+  },
+  {
     "titolo": "ACI RACING WEEKEND - C.I. AUTOMOBILISMO",
     "dataInizio": "2026-10-30",
     "dataFine": "2026-11-01",
@@ -1403,6 +1675,23 @@
     "eventoGratuito": true,
     "fonteAuto": true,
     "idAuto": "186339fc7645d082"
+  },
+  {
+    "titolo": "U.S. Cars Reunion - Festival dei Motori",
+    "dataInizio": "2026-09-20",
+    "dataFine": "2026-09-20",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Montichiari",
+    "citta": "Montichiari",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/us-cars-reunion-festival-dei-motori-fiereauto-montichiari-bs",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "3000641e2ae82b35"
   },
   {
     "titolo": "RAID STORICO MILANO – BUDAPEST – MILANO",
@@ -1473,6 +1762,23 @@
     "idAuto": "b24aa6ef13c1309a"
   },
   {
+    "titolo": "Fast Family - Raduno Ristorante I Laghi",
+    "dataInizio": "2026-10-03",
+    "dataFine": "2026-10-03",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Campogalliano",
+    "citta": "Campogalliano",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/fast-family-raduno-ristorante-i-laghi-statico-campogalliano-mo",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "df0ebd6e0cd9ea67"
+  },
+  {
     "titolo": "MOSTRA AUTO E MOTO D’EPOCA 4^ EDIZIONE",
     "dataInizio": "2026-08-30",
     "dataFine": "2026-08-30",
@@ -1488,6 +1794,57 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "a01e63528d8be550"
+  },
+  {
+    "titolo": "Raduno Auto e Moto d'Epoca - Cerignola",
+    "dataInizio": "2026-10-11",
+    "dataFine": "2026-10-11",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Cerignola",
+    "citta": "Cerignola",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/raduno-auto-e-moto-depoca-cerignola-autodepoca-cerignola-fg",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "a08bc44beb395d06"
+  },
+  {
+    "titolo": "Raduno Auto d'Epoca Sagra Valtellinese",
+    "dataInizio": "2026-09-06",
+    "dataFine": "2026-09-06",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Seveso",
+    "citta": "Seveso",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/raduno-auto-depoca-sagra-valtellinese-autodepoca-seveso-mb",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "b4193263c460f3a6"
+  },
+  {
+    "titolo": "32° Raduno Viadana - Honda Civic-Club",
+    "dataInizio": "2026-09-19",
+    "dataFine": "2026-09-19",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Viadana",
+    "citta": "Viadana",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/32-raduno-viadana-honda-civic-club-statico-viadana-mn",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "2301cde794997c7b"
   },
   {
     "titolo": "10^ BERLINE E FAMILIARI DEL NOVECENTO",
@@ -1507,6 +1864,40 @@
     "idAuto": "bda14891f1a073ed"
   },
   {
+    "titolo": "Passeggiata Dolomitica Auto Sportive",
+    "dataInizio": "2026-10-04",
+    "dataFine": "2026-10-04",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Refrontolo",
+    "citta": "Refrontolo",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/passeggiata-dolomitica-auto-sportive-dinamico-refrontolo-tv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "9f14ef0eccfb9fbf"
+  },
+  {
+    "titolo": "11° Memorial Mario – Pellegrinaggio",
+    "dataInizio": "2026-09-13",
+    "dataFine": "2026-09-13",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Pietrelcina - Raduno Dinamico a Teano",
+    "citta": "Pietrelcina - Raduno Dinamico a Teano",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/11-memorial-mario-pellegrinaggio-a-pietrelcina-dinamico-teano-ce",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "250feb668a34afb6"
+  },
+  {
     "titolo": "Rally del Rubinetto e Rally 2 Laghi",
     "dataInizio": "2026-09-27",
     "dataFine": "2026-09-27",
@@ -1524,6 +1915,57 @@
     "idAuto": "2e90c57fe7f93ee0"
   },
   {
+    "titolo": "Rievocazione Circuito \"Le Spianate\"",
+    "dataInizio": "2026-09-13",
+    "dataFine": "2026-09-13",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Castiglioncello",
+    "citta": "Castiglioncello",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/rievocazione-circuito-le-spianate-autodepoca-castiglioncello-li",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "7d8bff8264c05938"
+  },
+  {
+    "titolo": "9° Raduno Motori e Birra Serravalle",
+    "dataInizio": "2026-09-06",
+    "dataFine": "2026-09-06",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Riva del Po",
+    "citta": "Riva del Po",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/9-raduno-motori-e-birra-serravalle-statico-riva-del-po-fe",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "960952e673a894b0"
+  },
+  {
+    "titolo": "Car culture events | volandia 2026",
+    "dataInizio": "2026-09-20",
+    "dataFine": "2026-09-20",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Somma Lombardo",
+    "citta": "Somma Lombardo",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/car-culture-events-volandia-2026-statico-somma-lombardo-va",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "18f5ec5dc77e095e"
+  },
+  {
     "titolo": "Rally dei Nuraghi e del Vermentino",
     "dataInizio": "2026-11-01",
     "dataFine": "2026-11-01",
@@ -1539,6 +1981,23 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "232ef82a4a178581"
+  },
+  {
+    "titolo": "10° Raduno Vulcani Citroën Venezia",
+    "dataInizio": "2026-09-05",
+    "dataFine": "2026-09-05",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Spinea",
+    "citta": "Spinea",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/10-raduno-vulcani-citroen-venezia-autodepoca-spinea-ve",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "37c21e99dbad2d13"
   },
   {
     "titolo": "Moto Junior FIM World Championship",
@@ -1575,6 +2034,23 @@
     "idAuto": "8d1c39b0962cb2f5"
   },
   {
+    "titolo": "Tuning Expo Raduno Auto - Tappa X2",
+    "dataInizio": "2026-09-06",
+    "dataFine": "2026-09-06",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Frigento",
+    "citta": "Frigento",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/tuning-expo-raduno-auto-tappa-x2-statico-frigento-av",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "8f8720bdd8f1861f"
+  },
+  {
     "titolo": "MAGGIOLINI STORICI IN VALPOLICELLA",
     "dataInizio": "2026-08-30",
     "dataFine": "2026-08-30",
@@ -1609,7 +2085,7 @@
     "idAuto": "c909da00b035408b"
   },
   {
-    "titolo": "ХІII° OPEL MEETING INTERNAZIONALE",
+    "titolo": "XIII° OPEL Meeting Internazionale",
     "dataInizio": "2026-09-12",
     "dataFine": "2026-09-12",
     "disciplina": [
@@ -1618,12 +2094,114 @@
     "circuito": "Verona",
     "citta": "Verona",
     "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/%d1%85%d1%96ii-opel-meeting-internazionale/",
+    "linkInfo": "https://raduni-auto.it/raduno/xiii-opel-meeting-internazionale-autodepoca-verona-vr",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "1adf478bcd3ba655"
+  },
+  {
+    "titolo": "13° Amitalie - Meeting AMIchevole",
+    "dataInizio": "2026-09-19",
+    "dataFine": "2026-09-19",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Pavia",
+    "citta": "Pavia",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/13-amitalie-meeting-amichevole-dinamico-pavia-pv",
     "organizzatore": "",
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "8cb817b5e0ce1170"
+    "idAuto": "71bb3387d418d7d8"
+  },
+  {
+    "titolo": "A.C.I Racing Week end  2 Edizione",
+    "dataInizio": "2026-10-11",
+    "dataFine": "2026-10-11",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Monza",
+    "citta": "Monza",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/aci-racing-week-end-2-edizione-statico-monza-mb",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "9275bb90465ee7a1"
+  },
+  {
+    "titolo": "Fiera del Vintage – XXIV Edizione",
+    "dataInizio": "2026-09-12",
+    "dataFine": "2026-09-12",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "San Marco Evangelista",
+    "citta": "San Marco Evangelista",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/fiera-del-vintage-xxiv-edizione-fiereauto-san-marco-evangelista-ce",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "ab698381f62156cd"
+  },
+  {
+    "titolo": "8° Raduno Dinamico - I Due Laghi",
+    "dataInizio": "2026-09-05",
+    "dataFine": "2026-09-05",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Foresto Sparso",
+    "citta": "Foresto Sparso",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/8-raduno-dinamico-i-due-laghi-dinamico-foresto-sparso-bg",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "01b3618f6c179b1e"
+  },
+  {
+    "titolo": "Vecchie - storiche e particolari",
+    "dataInizio": "2026-09-27",
+    "dataFine": "2026-09-27",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Piadena Drizzona",
+    "citta": "Piadena Drizzona",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/vecchie-storiche-e-particolari-dinamico-piadena-drizzona-cr",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "44eea8788d579cfb"
+  },
+  {
+    "titolo": "Rombo di Tuono - US Cars Reunion",
+    "dataInizio": "2026-10-18",
+    "dataFine": "2026-10-18",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Brescia",
+    "citta": "Brescia",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/rombo-di-tuono-us-cars-reunion-statico-brescia-bs",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "6397bb3d4eda80c2"
   },
   {
     "titolo": "COPPA ITALIA VELOCITA’ - Round 4",
@@ -1643,6 +2221,91 @@
     "idAuto": "7514d7d776208d96"
   },
   {
+    "titolo": "Erba Motori - 17ª Mostra Scambio",
+    "dataInizio": "2026-10-10",
+    "dataFine": "2026-10-10",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Erba",
+    "citta": "Erba",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/erba-motori-17-mostra-scambio-autodepoca-erba-co",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "9d934e7d70622cb1"
+  },
+  {
+    "titolo": "Auto Storiche: Raduno di Brescia",
+    "dataInizio": "2026-09-06",
+    "dataFine": "2026-09-06",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Brescia",
+    "citta": "Brescia",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/auto-storiche-raduno-di-brescia-statico-brescia-bs",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "f6b3ea2dd94409be"
+  },
+  {
+    "titolo": "Passione Auto-Moto-Ricambi 2026",
+    "dataInizio": "2026-09-05",
+    "dataFine": "2026-09-05",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Cerea",
+    "citta": "Cerea",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/passione-auto-moto-ricambi-2026-fiereauto-cerea-vr",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "34f742c29d91d430"
+  },
+  {
+    "titolo": "TMO Season III - Terza Edizione",
+    "dataInizio": "2026-09-13",
+    "dataFine": "2026-09-13",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Omegna",
+    "citta": "Omegna",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/tmo-season-iii-terza-edizione-statico-omegna-vb",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "3a5bab4b0cad90d7"
+  },
+  {
+    "titolo": "2° Road Cafè Tuning Night 2026",
+    "dataInizio": "2026-10-10",
+    "dataFine": "2026-10-10",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Torrile",
+    "citta": "Torrile",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/2-road-cafe-tuning-night-2026-statico-torrile-pr",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "16e6802ec6cd21cd"
+  },
+  {
     "titolo": "Rally Alto Appennino Bolognese",
     "dataInizio": "2026-09-12",
     "dataFine": "2026-09-13",
@@ -1658,6 +2321,40 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "97e216d6e2f968af"
+  },
+  {
+    "titolo": "Modena Park - Electro Car Expo",
+    "dataInizio": "2027-05-01",
+    "dataFine": "2027-05-01",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Modena",
+    "citta": "Modena",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/modena-park-electro-car-expo-statico-modena-mo",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "b14edb30fe2526e7"
+  },
+  {
+    "titolo": "2ª Festa dell'Uva Tuning Night",
+    "dataInizio": "2026-09-19",
+    "dataFine": "2026-09-19",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Castenaso",
+    "citta": "Castenaso",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/2-festa-delluva-tuning-night-statico-castenaso-bo",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "b62fee9bce604385"
   },
   {
     "titolo": "VII° MONTALCINO HERITAGE 2026",
@@ -1694,7 +2391,7 @@
     "idAuto": "43f78791d025560c"
   },
   {
-    "titolo": "ANNIVERSARIO 120 ANNI LANCIA",
+    "titolo": "Anniversario 120 Anni Lancia",
     "dataInizio": "2026-09-26",
     "dataFine": "2026-09-26",
     "disciplina": [
@@ -1703,12 +2400,46 @@
     "circuito": "Desio",
     "citta": "Desio",
     "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/anniversario-120-anni-lancia/",
+    "linkInfo": "https://raduni-auto.it/raduno/anniversario-120-anni-lancia-statico-desio-mb",
     "organizzatore": "",
     "immagine": "",
-    "eventoGratuito": false,
+    "eventoGratuito": true,
     "fonteAuto": true,
-    "idAuto": "9734731561ac4562"
+    "idAuto": "6448c65155f5e7d3"
+  },
+  {
+    "titolo": "Cavezzo Street Expo Gratuito",
+    "dataInizio": "2026-09-05",
+    "dataFine": "2026-09-05",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Cavezzo",
+    "citta": "Cavezzo",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/cavezzo-street-expo-gratuito-statico-cavezzo-mo",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "767833dd7be87be5"
+  },
+  {
+    "titolo": "Expo Auto Sportive e Tuning",
+    "dataInizio": "2026-09-13",
+    "dataFine": "2026-09-13",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Casalgrande",
+    "citta": "Casalgrande",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/expo-auto-sportive-e-tuning-statico-casalgrande-re",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "131e1e9afdd43333"
   },
   {
     "titolo": "8° RADUNO BARCHETTE IN TOUR",
@@ -1762,21 +2493,38 @@
     "idAuto": "8c0a7bfeddcab691"
   },
   {
-    "titolo": "10° RADUNO VULCANI CITROEN",
-    "dataInizio": "2026-09-05",
-    "dataFine": "2026-09-06",
+    "titolo": "Big truck & motor fest 2026",
+    "dataInizio": "2026-09-25",
+    "dataFine": "2026-09-25",
     "disciplina": [
       "Raduno"
     ],
-    "circuito": "Spinea",
-    "citta": "Spinea",
+    "circuito": "Fontaniva",
+    "citta": "Fontaniva",
     "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/10-raduno-vulcani-citroen/",
+    "linkInfo": "https://raduni-auto.it/raduno/big-truck-e-motor-fest-2026-fiereauto-fontaniva-pd",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "8c33ece3b9afa300"
+  },
+  {
+    "titolo": "Fataroba 2026 - Area Tuning",
+    "dataInizio": "2026-09-05",
+    "dataFine": "2026-09-05",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Lido di Savio",
+    "citta": "Lido di Savio",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/fataroba-2026-area-tuning-statico-lido-di-savio-ra",
     "organizzatore": "",
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "00f8e49bd380fccd"
+    "idAuto": "a543d7ef73159b87"
   },
   {
     "titolo": "Rally Coppa Città di Lucca",
@@ -1796,6 +2544,23 @@
     "idAuto": "06eb158da1f38e16"
   },
   {
+    "titolo": "1° Castelfranco Motor Show",
+    "dataInizio": "2026-09-18",
+    "dataFine": "2026-09-18",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Castelfranco Veneto",
+    "citta": "Castelfranco Veneto",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/1-castelfranco-motor-show-drift-castelfranco-veneto-tv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "c37c9ef888f40861"
+  },
+  {
     "titolo": "GARFAGNANA WILD EXPERIENCE",
     "dataInizio": "2026-08-30",
     "dataFine": "2026-08-30",
@@ -1811,6 +2576,23 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "c7119f5043d702fd"
+  },
+  {
+    "titolo": "THE FURIOUS Tuning Event 6",
+    "dataInizio": "2026-09-27",
+    "dataFine": "2026-09-27",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Orzinuovi",
+    "citta": "Orzinuovi",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/the-furious-tuning-event-6-statico-orzinuovi-bs",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "d1fddea3b137e5ef"
   },
   {
     "titolo": "Rally Colline Metallifere",
@@ -1847,21 +2629,38 @@
     "idAuto": "31de9b31155a8bbc"
   },
   {
-    "titolo": "14° ROCKIN RODDIN REUNION",
+    "titolo": "Gts - grand tour supercar",
+    "dataInizio": "2026-09-20",
+    "dataFine": "2026-09-20",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Pisa",
+    "citta": "Pisa",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/gts-grand-tour-supercar-dinamico-pisa-pi",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "419348cb04c031b0"
+  },
+  {
+    "titolo": "14° Rockin Roddin Reunion",
     "dataInizio": "2026-10-17",
-    "dataFine": "2026-10-18",
+    "dataFine": "2026-10-17",
     "disciplina": [
       "Raduno"
     ],
     "circuito": "Brescia",
     "citta": "Brescia",
     "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/14-rockin-roddin-reunion/",
+    "linkInfo": "https://raduni-auto.it/raduno/14-rockin-roddin-reunion-fiereauto-brescia-bs",
     "organizzatore": "",
     "immagine": "",
-    "eventoGratuito": false,
+    "eventoGratuito": true,
     "fonteAuto": true,
-    "idAuto": "8208aedf60e067ac"
+    "idAuto": "a1960c3744dcd0a2"
   },
   {
     "titolo": "L’ANTICA APPIA DEI MOTORI",
@@ -1879,6 +2678,40 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "d39d075ff2520ec5"
+  },
+  {
+    "titolo": "Milano AutoClassica 2026",
+    "dataInizio": "2026-11-19",
+    "dataFine": "2026-11-19",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Rho",
+    "citta": "Rho",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/milano-autoclassica-2026-fiereauto-rho-mi",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "93806a928101b728"
+  },
+  {
+    "titolo": "Evento Tuning e Sportive",
+    "dataInizio": "2026-09-13",
+    "dataFine": "2026-09-13",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Mezzani",
+    "citta": "Mezzani",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/evento-tuning-e-sportive-statico-mezzani-pr",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "c022bdff5f012d71"
   },
   {
     "titolo": "Rally Città di Scandicci",
@@ -1949,6 +2782,40 @@
     "idAuto": "775884a595607f6a"
   },
   {
+    "titolo": "First Barny Raduno 2026",
+    "dataInizio": "2026-09-05",
+    "dataFine": "2026-09-05",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Quingentole",
+    "citta": "Quingentole",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/first-barny-raduno-2026-statico-quingentole-mn",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "af4380e2af183af8"
+  },
+  {
+    "titolo": "15° Vazzola Tuning Show",
+    "dataInizio": "2026-09-05",
+    "dataFine": "2026-09-05",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Vazzola",
+    "citta": "Vazzola",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/15-vazzola-tuning-show-statico-vazzola-tv",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "be2ff458ebedb2e0"
+  },
+  {
     "titolo": "Rally di Casciana Terme",
     "dataInizio": "2026-09-06",
     "dataFine": "2026-09-07",
@@ -1998,6 +2865,23 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "c67711c594e27b88"
+  },
+  {
+    "titolo": "Ritrovo di Auto Pianiga",
+    "dataInizio": "2026-09-11",
+    "dataFine": "2026-09-11",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Pianiga",
+    "citta": "Pianiga",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/ritrovo-di-auto-pianiga-autodepoca-pianiga-ve",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "dae32bdd330b7e08"
   },
   {
     "titolo": "MOSTRA SCAMBIO CASERTA",
@@ -2051,6 +2935,23 @@
     "idAuto": "733ad98dcd91e1a5"
   },
   {
+    "titolo": "20° VW Bassano Classic",
+    "dataInizio": "2026-09-26",
+    "dataFine": "2026-09-26",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Bassano del Grappa",
+    "citta": "Bassano del Grappa",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/20-vw-bassano-classic-dinamico-bassano-del-grappa-vi",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "942177c4d33775bd"
+  },
+  {
     "titolo": "Rally Città di Pistoia",
     "dataInizio": "2026-10-11",
     "dataFine": "2026-10-11",
@@ -2068,21 +2969,21 @@
     "idAuto": "aa7e0ef6a5ba2c15"
   },
   {
-    "titolo": "BIG TRUCK E MOTOR FEST",
-    "dataInizio": "2026-09-25",
-    "dataFine": "2026-09-27",
+    "titolo": "11° Giovani al Volante",
+    "dataInizio": "2026-09-05",
+    "dataFine": "2026-09-05",
     "disciplina": [
-      "Raduno"
+      "Rally"
     ],
-    "circuito": "Fontaniva",
-    "citta": "Fontaniva",
+    "circuito": "Moresco",
+    "citta": "Moresco",
     "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/big-truck-e-motor-fest/",
+    "linkInfo": "https://raduni-auto.it/raduno/11-giovani-al-volante-regolarita-moresco-fm",
     "organizzatore": "",
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "d3442169a068f2a8"
+    "idAuto": "bb6febcadedd9a64"
   },
   {
     "titolo": "Rally Città di Torino",
@@ -2187,23 +3088,6 @@
     "idAuto": "984c1cbfd72b60fc"
   },
   {
-    "titolo": "MAGGIOLINI BASSANESI",
-    "dataInizio": "2026-09-26",
-    "dataFine": "2026-09-27",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Bassano del Grappa",
-    "citta": "Bassano del Grappa",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/maggiolini-bassanesi/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "cb43705e0ba5e960"
-  },
-  {
     "titolo": "17° RADUNO DINAMICO",
     "dataInizio": "2026-09-20",
     "dataFine": "2026-09-20",
@@ -2255,21 +3139,38 @@
     "idAuto": "4f77fea3b97b46d1"
   },
   {
-    "titolo": "RADUNO AUTO D’EPOCA",
-    "dataInizio": "2026-09-06",
-    "dataFine": "2026-09-06",
+    "titolo": "Terzo Expo in Fiera",
+    "dataInizio": "2026-09-18",
+    "dataFine": "2026-09-18",
     "disciplina": [
       "Raduno"
     ],
-    "circuito": "Cologna Veneta",
-    "citta": "Cologna Veneta",
+    "circuito": "Portomaggiore",
+    "citta": "Portomaggiore",
     "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/raduno-auto-depoca-18/",
+    "linkInfo": "https://raduni-auto.it/raduno/terzo-expo-in-fiera-statico-portomaggiore-fe",
     "organizzatore": "",
     "immagine": "",
-    "eventoGratuito": false,
+    "eventoGratuito": true,
     "fonteAuto": true,
-    "idAuto": "64231676c2739b25"
+    "idAuto": "a8a6de3eca5464e4"
+  },
+  {
+    "titolo": "Road motorshow 2026",
+    "dataInizio": "2026-09-19",
+    "dataFine": "2026-09-19",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Villafranca di Verona",
+    "citta": "Villafranca di Verona",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/road-motorshow-2026-statico-villafranca-di-verona-vr",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "aa88293eb4eeac11"
   },
   {
     "titolo": "Pavia Rally Circuit",
@@ -2323,21 +3224,21 @@
     "idAuto": "1bdecbe86845cd4d"
   },
   {
-    "titolo": "32° RADUNO VIADANA",
-    "dataInizio": "2026-09-19",
-    "dataFine": "2026-09-20",
+    "titolo": "Expo in Consandolo",
+    "dataInizio": "2026-09-26",
+    "dataFine": "2026-09-26",
     "disciplina": [
       "Raduno"
     ],
-    "circuito": "Viadana",
-    "citta": "Viadana",
+    "circuito": "Argenta",
+    "citta": "Argenta",
     "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/32-raduno-viadana/",
+    "linkInfo": "https://raduni-auto.it/raduno/expo-in-consandolo-statico-argenta-fe",
     "organizzatore": "",
     "immagine": "",
-    "eventoGratuito": false,
+    "eventoGratuito": true,
     "fonteAuto": true,
-    "idAuto": "3f2b5012c48ca570"
+    "idAuto": "58f472707e0f75fc"
   },
   {
     "titolo": "Prealpi Mastershow",
@@ -2357,23 +3258,6 @@
     "idAuto": "5aa5115f37bcd9af"
   },
   {
-    "titolo": "AUTO& MOTO D’EPOCA",
-    "dataInizio": "2026-09-27",
-    "dataFine": "2026-09-27",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "San Valentino Torio",
-    "citta": "San Valentino Torio",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/auto-moto-depoca/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "97dcdc330e9de207"
-  },
-  {
     "titolo": "MOTORPICIO TREFFEN",
     "dataInizio": "2026-09-05",
     "dataFine": "2026-09-06",
@@ -2391,6 +3275,23 @@
     "idAuto": "9b714bdf9ae1cd4b"
   },
   {
+    "titolo": "German Vs JDM 2026",
+    "dataInizio": "2026-10-03",
+    "dataFine": "2026-10-03",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Villesse",
+    "citta": "Villesse",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/german-vs-jdm-2026-statico-villesse-go",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "f7dd0d8dbaabff3f"
+  },
+  {
     "titolo": "Rally delle Palme",
     "dataInizio": "2026-10-18",
     "dataFine": "2026-10-18",
@@ -2406,6 +3307,23 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "2caa0b0c3ca59182"
+  },
+  {
+    "titolo": "1° Perrero motori",
+    "dataInizio": "2026-09-20",
+    "dataFine": "2026-09-20",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Perrero",
+    "citta": "Perrero",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/1-perrero-motori-dinamico-perrero-to",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "4f6699202bfb2608"
   },
   {
     "titolo": "Rally 1000 miglia",
@@ -2459,6 +3377,23 @@
     "idAuto": "98be9564bedce269"
   },
   {
+    "titolo": "3° Festa del riso",
+    "dataInizio": "2026-09-05",
+    "dataFine": "2026-09-05",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Volta Mantovana",
+    "citta": "Volta Mantovana",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/3-festa-del-riso-dinamico-volta-mantovana-mn",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "b158b5a2b5e0bdf6"
+  },
+  {
     "titolo": "Rally Piancavallo",
     "dataInizio": "2026-10-24",
     "dataFine": "2026-10-25",
@@ -2474,6 +3409,23 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "fd7ef349c62895eb"
+  },
+  {
+    "titolo": "Poggio Expo live",
+    "dataInizio": "2026-09-13",
+    "dataFine": "2026-09-13",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Poggio Renatico",
+    "citta": "Poggio Renatico",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/poggio-expo-live-statico-poggio-renatico-fe",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "21cce2997eae89ae"
   },
   {
     "titolo": "Monza Rally Show",
@@ -2510,6 +3462,23 @@
     "idAuto": "495f77d596ec4c86"
   },
   {
+    "titolo": "Raduno Fiat Tipo",
+    "dataInizio": "2026-09-13",
+    "dataFine": "2026-09-13",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Orzinuovi",
+    "citta": "Orzinuovi",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/raduno-fiat-tipo-statico-orzinuovi-bs",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "aff57c11e2d9b4cf"
+  },
+  {
     "titolo": "Ronde Halloween",
     "dataInizio": "2026-10-30",
     "dataFine": "2026-10-31",
@@ -2525,6 +3494,23 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "67776a91d95e8c97"
+  },
+  {
+    "titolo": "Motori selvaggi",
+    "dataInizio": "2026-09-05",
+    "dataFine": "2026-09-05",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Correzzola",
+    "citta": "Correzzola",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/motori-selvaggi-statico-correzzola-pd",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "ba1ecae6e3e65b9c"
   },
   {
     "titolo": "Tindari Rally",
@@ -2559,6 +3545,23 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "69932b00c8c924d1"
+  },
+  {
+    "titolo": "Monster Vibe",
+    "dataInizio": "2026-10-31",
+    "dataFine": "2026-10-31",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Sant'Egidio alla Vibrata",
+    "citta": "Sant'Egidio alla Vibrata",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/monster-vibe-statico-santegidio-alla-vibrata-te",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "d6133801a9e4266d"
   },
   {
     "titolo": "TIME ATTACK",
@@ -2610,6 +3613,23 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "526965136ea3af34"
+  },
+  {
+    "titolo": "Tuning Day",
+    "dataInizio": "2026-09-13",
+    "dataFine": "2026-09-13",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Luzzara",
+    "citta": "Luzzara",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/tuning-day-statico-luzzara-re",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "bee8a7cf8baa23aa"
   },
   {
     "titolo": "FMI CIV",

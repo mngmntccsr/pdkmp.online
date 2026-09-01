@@ -2,6 +2,129 @@
 
 Questo file viene aggiornato automaticamente ogni settimana dallo scraper.
 
+## 2026-09-01 22:05 UTC
+
+✅ **Aggiunti (86)**
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **Imola Classic** — 2026-10-16 → 2026-10-18 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/imola-classic-2/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **ACI Misano Racing Weekend** — 2026-09-17 → 2026-09-20 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **PNK Motorsport** — 2026-11-05 → 2026-11-08 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **Formula X** — 2026-11-12 → 2026-11-15 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **GRAN PREMIO STORICO D’ITALIA** — 2026-10-02 → 2026-10-04 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-02/1751-gran-premio-storico-d-italia
+- **MUGELLO RACING WEEKEND** — 2026-10-16 → 2026-10-18 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-16/1752-mugello-racing-weekend-4
+- **We Can Race - Guida in pista a Autodromo Piero Taruffi** — 2026-09-05 → 2026-09-05 _[Autodromo di Vallelunga]_ — https://wecanrace.it/calendario/
+- **BIG TRUCK & MOTOR FEST 2026** — 2026-09-25 → 2026-09-27 _[Fontaniva]_ — https://www.autoraduni.it/autoraduno/big-truck-e-motor-fest/
+- **US CARS REUNION** — 2026-10-18 → 2026-10-18 _[Brescia]_ — https://www.autoraduni.it/autoraduno/us-cars-reunion-3/
+- **Rally Lazio Cassino** — 2026-09-18 → 2026-09-19 _[Frosinone]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rallye Sanremo** — 2026-10-18 → 2026-10-18 _[Imperia]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally Lana** — 2026-10-25 → 2026-10-25 _[Biella]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **5° Raduno Auto Moto d'Epoca e Sportive - Los Angeles Motor Day** — 2026-09-04 → 2026-09-04 _[Sant'Angelo di Piove di Sacco]_ — https://raduni-auto.it/raduno/5-raduno-auto-moto-depoca-e-sportive-los-angeles-motor-day-autodepoca-santangelo-di-piove-di-sacco-pd
+- **10° Raduno Vulcani Citroën Venezia** — 2026-09-05 → 2026-09-05 _[Spinea]_ — https://raduni-auto.it/raduno/10-raduno-vulcani-citroen-venezia-autodepoca-spinea-ve
+- **11° Giovani al Volante** — 2026-09-05 → 2026-09-05 _[Moresco]_ — https://raduni-auto.it/raduno/11-giovani-al-volante-regolarita-moresco-fm
+- **Fataroba 2026 - Area Tuning** — 2026-09-05 → 2026-09-05 _[Lido di Savio]_ — https://raduni-auto.it/raduno/fataroba-2026-area-tuning-statico-lido-di-savio-ra
+- **8° Raduno Dinamico - I Due Laghi** — 2026-09-05 → 2026-09-05 _[Foresto Sparso]_ — https://raduni-auto.it/raduno/8-raduno-dinamico-i-due-laghi-dinamico-foresto-sparso-bg
+- **15° Vazzola Tuning Show** — 2026-09-05 → 2026-09-05 _[Vazzola]_ — https://raduni-auto.it/raduno/15-vazzola-tuning-show-statico-vazzola-tv
+- **Cavezzo Street Expo Gratuito** — 2026-09-05 → 2026-09-05 _[Cavezzo]_ — https://raduni-auto.it/raduno/cavezzo-street-expo-gratuito-statico-cavezzo-mo
+- **Motori selvaggi** — 2026-09-05 → 2026-09-05 _[Correzzola]_ — https://raduni-auto.it/raduno/motori-selvaggi-statico-correzzola-pd
+- **First Barny Raduno 2026** — 2026-09-05 → 2026-09-05 _[Quingentole]_ — https://raduni-auto.it/raduno/first-barny-raduno-2026-statico-quingentole-mn
+- **Passione Auto-Moto-Ricambi 2026** — 2026-09-05 → 2026-09-05 _[Cerea]_ — https://raduni-auto.it/raduno/passione-auto-moto-ricambi-2026-fiereauto-cerea-vr
+- **3° Festa del riso** — 2026-09-05 → 2026-09-05 _[Volta Mantovana]_ — https://raduni-auto.it/raduno/3-festa-del-riso-dinamico-volta-mantovana-mn
+- **Tuning Expo Raduno Auto - Tappa X2** — 2026-09-06 → 2026-09-06 _[Frigento]_ — https://raduni-auto.it/raduno/tuning-expo-raduno-auto-tappa-x2-statico-frigento-av
+- **Raduno Auto d'Epoca - 131ª Fiera Settembre Colognese** — 2026-09-06 → 2026-09-06 _[Cologna Veneta]_ — https://raduni-auto.it/raduno/raduno-auto-depoca-131-fiera-settembre-colognese-autodepoca-cologna-veneta-vr
+- **6° Tronzano Motori – Raduno di Veicoli di ogni genere** — 2026-09-06 → 2026-09-06 _[Tronzano Vercellese]_ — https://raduni-auto.it/raduno/6-tronzano-motori-raduno-di-veicoli-di-ogni-genere-dinamico-tronzano-vercellese-vc
+- **Auto Storiche: Raduno di Brescia** — 2026-09-06 → 2026-09-06 _[Brescia]_ — https://raduni-auto.it/raduno/auto-storiche-raduno-di-brescia-statico-brescia-bs
+- **Raduno Auto d'Epoca Sagra Valtellinese** — 2026-09-06 → 2026-09-06 _[Seveso]_ — https://raduni-auto.it/raduno/raduno-auto-depoca-sagra-valtellinese-autodepoca-seveso-mb
+- **9° Raduno Motori e Birra Serravalle** — 2026-09-06 → 2026-09-06 _[Riva del Po]_ — https://raduni-auto.it/raduno/9-raduno-motori-e-birra-serravalle-statico-riva-del-po-fe
+- **Ritrovo di Auto Pianiga** — 2026-09-11 → 2026-09-11 _[Pianiga]_ — https://raduni-auto.it/raduno/ritrovo-di-auto-pianiga-autodepoca-pianiga-ve
+- **Tour Serale Cabrio & Spider - Costiera Amalfitana** — 2026-09-11 → 2026-09-11 _[Vietri sul Mare]_ — https://raduni-auto.it/raduno/tour-serale-cabrio-e-spider-costiera-amalfitana-dinamico-vietri-sul-mare-sa
+- **CannonClimb - Memorial Gilberto Altafini** — 2026-09-12 → 2026-09-12 _[Pegognaga]_ — https://raduni-auto.it/raduno/cannonclimb-memorial-gilberto-altafini-dinamico-pegognaga-mn
+- **Fiera del Vintage – XXIV Edizione** — 2026-09-12 → 2026-09-12 _[San Marco Evangelista]_ — https://raduni-auto.it/raduno/fiera-del-vintage-xxiv-edizione-fiereauto-san-marco-evangelista-ce
+- **XIII° OPEL Meeting Internazionale** — 2026-09-12 → 2026-09-12 _[Verona]_ — https://raduni-auto.it/raduno/xiii-opel-meeting-internazionale-autodepoca-verona-vr
+- **1° Raduno 126isti Iblei - Chiaramonte Gulfi: Motori e Musei** — 2026-09-13 → 2026-09-13 _[Chiaramonte Gulfi]_ — https://raduni-auto.it/raduno/1-raduno-126isti-iblei-chiaramonte-gulfi-motori-e-musei-autodepoca-chiaramonte-gulfi-rg
+- **Raduno Fiat Tipo** — 2026-09-13 → 2026-09-13 _[Orzinuovi]_ — https://raduni-auto.it/raduno/raduno-fiat-tipo-statico-orzinuovi-bs
+- **14° Raduno d'Auto e Moto d'Epoca Castelluccio Cosentino** — 2026-09-13 → 2026-09-13 _[Sicignano degli Alburni]_ — https://raduni-auto.it/raduno/14-raduno-dauto-e-moto-depoca-castelluccio-cosentino-autodepoca-sicignano-degli-alburni-sa
+- **11° Memorial Mario – Pellegrinaggio** — 2026-09-13 → 2026-09-13 _[Pietrelcina - Raduno Dinamico a Teano]_ — https://raduni-auto.it/raduno/11-memorial-mario-pellegrinaggio-a-pietrelcina-dinamico-teano-ce
+- **Evento Tuning e Sportive** — 2026-09-13 → 2026-09-13 _[Mezzani]_ — https://raduni-auto.it/raduno/evento-tuning-e-sportive-statico-mezzani-pr
+- **Poggio Expo live** — 2026-09-13 → 2026-09-13 _[Poggio Renatico]_ — https://raduni-auto.it/raduno/poggio-expo-live-statico-poggio-renatico-fe
+- **9° Raduno per Appassionati di Auto e Moto d'Epoca** — 2026-09-13 → 2026-09-13 _[Saviano]_ — https://raduni-auto.it/raduno/9-raduno-per-appassionati-di-auto-e-moto-depoca-autodepoca-saviano-na
+- **Tuning Day** — 2026-09-13 → 2026-09-13 _[Luzzara]_ — https://raduni-auto.it/raduno/tuning-day-statico-luzzara-re
+- **TMO Season III - Terza Edizione** — 2026-09-13 → 2026-09-13 _[Omegna]_ — https://raduni-auto.it/raduno/tmo-season-iii-terza-edizione-statico-omegna-vb
+- **La Castagnole ClassiCar - memorial LUIGI TARABBIO** — 2026-09-13 → 2026-09-13 _[Castagnole delle Lanze]_ — https://raduni-auto.it/raduno/la-castagnole-classicar-memorial-luigi-tarabbio-autodepoca-castagnole-delle-lanze-at
+- **Expo Auto Sportive e Tuning** — 2026-09-13 → 2026-09-13 _[Casalgrande]_ — https://raduni-auto.it/raduno/expo-auto-sportive-e-tuning-statico-casalgrande-re
+- **Rievocazione Circuito "Le Spianate"** — 2026-09-13 → 2026-09-13 _[Castiglioncello]_ — https://raduni-auto.it/raduno/rievocazione-circuito-le-spianate-autodepoca-castiglioncello-li
+- **1° Raduno di Auto Sportive, Montesarchio** — 2026-09-14 → 2026-09-14 _[Montesarchio]_ — https://raduni-auto.it/raduno/1-raduno-di-auto-sportive-montesarchio-dinamico-montesarchio-bn
+- **1° Castelfranco Motor Show** — 2026-09-18 → 2026-09-18 _[Castelfranco Veneto]_ — https://raduni-auto.it/raduno/1-castelfranco-motor-show-drift-castelfranco-veneto-tv
+- **Terzo Expo in Fiera** — 2026-09-18 → 2026-09-18 _[Portomaggiore]_ — https://raduni-auto.it/raduno/terzo-expo-in-fiera-statico-portomaggiore-fe
+- **Road motorshow 2026** — 2026-09-19 → 2026-09-19 _[Villafranca di Verona]_ — https://raduni-auto.it/raduno/road-motorshow-2026-statico-villafranca-di-verona-vr
+- **13° Amitalie - Meeting AMIchevole** — 2026-09-19 → 2026-09-19 _[Pavia]_ — https://raduni-auto.it/raduno/13-amitalie-meeting-amichevole-dinamico-pavia-pv
+- **Concorso Internazionale di Eleganza Automobili Montecatini Terme - XVI Edizione** — 2026-09-19 → 2026-09-19 _[Montecatini Terme]_ — https://raduni-auto.it/raduno/concorso-internazionale-di-eleganza-automobili-montecatini-terme-xvi-edizione-autodepoca-montecatini-terme-pt
+- **32° Raduno Viadana - Honda Civic-Club** — 2026-09-19 → 2026-09-19 _[Viadana]_ — https://raduni-auto.it/raduno/32-raduno-viadana-honda-civic-club-statico-viadana-mn
+- **2ª Festa dell'Uva Tuning Night** — 2026-09-19 → 2026-09-19 _[Castenaso]_ — https://raduni-auto.it/raduno/2-festa-delluva-tuning-night-statico-castenaso-bo
+- **U.S. Cars Reunion - Festival dei Motori** — 2026-09-20 → 2026-09-20 _[Montichiari]_ — https://raduni-auto.it/raduno/us-cars-reunion-festival-dei-motori-fiereauto-montichiari-bs
+- **Raduno Auto e Moto d'Epoca - San Paolo Belsito** — 2026-09-20 → 2026-09-20 _[San Paolo Belsito]_ — https://raduni-auto.it/raduno/raduno-auto-e-moto-depoca-san-paolo-belsito-autodepoca-san-paolo-belsito-na
+- **Evento Tuning - La Grande Iper Serravalle Scrivia** — 2026-09-20 → 2026-09-20 _[Serravalle Scrivia]_ — https://raduni-auto.it/raduno/evento-tuning-la-grande-iper-serravalle-scrivia-statico-serravalle-scrivia-al
+- **Gts - grand tour supercar** — 2026-09-20 → 2026-09-20 _[Pisa]_ — https://raduni-auto.it/raduno/gts-grand-tour-supercar-dinamico-pisa-pi
+- **1° Perrero motori** — 2026-09-20 → 2026-09-20 _[Perrero]_ — https://raduni-auto.it/raduno/1-perrero-motori-dinamico-perrero-to
+- **Car culture events | volandia 2026** — 2026-09-20 → 2026-09-20 _[Somma Lombardo]_ — https://raduni-auto.it/raduno/car-culture-events-volandia-2026-statico-somma-lombardo-va
+- **Big truck & motor fest 2026** — 2026-09-25 → 2026-09-25 _[Fontaniva]_ — https://raduni-auto.it/raduno/big-truck-e-motor-fest-2026-fiereauto-fontaniva-pd
+- **20° VW Bassano Classic** — 2026-09-26 → 2026-09-26 _[Bassano del Grappa]_ — https://raduni-auto.it/raduno/20-vw-bassano-classic-dinamico-bassano-del-grappa-vi
+- **Anniversario 120 Anni Lancia** — 2026-09-26 → 2026-09-26 _[Desio]_ — https://raduni-auto.it/raduno/anniversario-120-anni-lancia-statico-desio-mb
+- **Expo in Consandolo** — 2026-09-26 → 2026-09-26 _[Argenta]_ — https://raduni-auto.it/raduno/expo-in-consandolo-statico-argenta-fe
+- **THE FURIOUS Tuning Event 6** — 2026-09-27 → 2026-09-27 _[Orzinuovi]_ — https://raduni-auto.it/raduno/the-furious-tuning-event-6-statico-orzinuovi-bs
+- **3° Memorial Strianese Emilio - Auto & Moto d'Epoca** — 2026-09-27 → 2026-09-27 _[San Valentino Torio]_ — https://raduni-auto.it/raduno/3-memorial-strianese-emilio-auto-e-moto-depoca-autodepoca-san-valentino-torio-sa
+- **Vecchie - storiche e particolari** — 2026-09-27 → 2026-09-27 _[Piadena Drizzona]_ — https://raduni-auto.it/raduno/vecchie-storiche-e-particolari-dinamico-piadena-drizzona-cr
+- **Motori Per La Vita - Presentazione Calendario 2027** — 2026-10-03 → 2026-10-03 _[Casalgrande]_ — https://raduni-auto.it/raduno/motori-per-la-vita-presentazione-calendario-2027-statico-casalgrande-re
+- **Raduno Statico con possibilità di suonare** — 2026-10-03 → 2026-10-03 _[Appendini Buriasco]_ — https://raduni-auto.it/raduno/raduno-statico-con-possibilita-di-suonare-statico-appendini-buriasco-to
+- **German Vs JDM 2026** — 2026-10-03 → 2026-10-03 _[Villesse]_ — https://raduni-auto.it/raduno/german-vs-jdm-2026-statico-villesse-go
+- **Fast Family - Raduno Ristorante I Laghi** — 2026-10-03 → 2026-10-03 _[Campogalliano]_ — https://raduni-auto.it/raduno/fast-family-raduno-ristorante-i-laghi-statico-campogalliano-mo
+- **Passeggiata Dolomitica Auto Sportive** — 2026-10-04 → 2026-10-04 _[Refrontolo]_ — https://raduni-auto.it/raduno/passeggiata-dolomitica-auto-sportive-dinamico-refrontolo-tv
+- **9° Autoraduno Città di Galzignano Terme & 3° Autogiro Euganeo** — 2026-10-04 → 2026-10-04 _[Galzignano Terme]_ — https://raduni-auto.it/raduno/9-autoraduno-citta-di-galzignano-terme-e-3-autogiro-euganeo-dinamico-galzignano-terme-pd
+- **2° Road Cafè Tuning Night 2026** — 2026-10-10 → 2026-10-10 _[Torrile]_ — https://raduni-auto.it/raduno/2-road-cafe-tuning-night-2026-statico-torrile-pr
+- **Erba Motori - 17ª Mostra Scambio** — 2026-10-10 → 2026-10-10 _[Erba]_ — https://raduni-auto.it/raduno/erba-motori-17-mostra-scambio-autodepoca-erba-co
+- **Raduno Auto e Moto d'Epoca - Cerignola** — 2026-10-11 → 2026-10-11 _[Cerignola]_ — https://raduni-auto.it/raduno/raduno-auto-e-moto-depoca-cerignola-autodepoca-cerignola-fg
+- **A.C.I Racing Week end  2 Edizione** — 2026-10-11 → 2026-10-11 _[Monza]_ — https://raduni-auto.it/raduno/aci-racing-week-end-2-edizione-statico-monza-mb
+- **14° Rockin Roddin Reunion** — 2026-10-17 → 2026-10-17 _[Brescia]_ — https://raduni-auto.it/raduno/14-rockin-roddin-reunion-fiereauto-brescia-bs
+- **Rombo di Tuono - US Cars Reunion** — 2026-10-18 → 2026-10-18 _[Brescia]_ — https://raduni-auto.it/raduno/rombo-di-tuono-us-cars-reunion-statico-brescia-bs
+- **Monster Vibe** — 2026-10-31 → 2026-10-31 _[Sant'Egidio alla Vibrata]_ — https://raduni-auto.it/raduno/monster-vibe-statico-santegidio-alla-vibrata-te
+- **Milano AutoClassica 2026** — 2026-11-19 → 2026-11-19 _[Rho]_ — https://raduni-auto.it/raduno/milano-autoclassica-2026-fiereauto-rho-mi
+- **Modena Park - Electro Car Expo** — 2027-05-01 → 2027-05-01 _[Modena]_ — https://raduni-auto.it/raduno/modena-park-electro-car-expo-statico-modena-mo
+
+❌ **Rimossi (1)**
+- **BIG TRUCK E MOTOR FEST** — 2026-09-25 → 2026-09-27 _[Fontaniva]_ — https://www.autoraduni.it/autoraduno/big-truck-e-motor-fest/
+
+🔁 **Duplicati rimossi (25)** — stesso circuito+data di un evento già presente
+- **CONCORSO INTERNAZIONALE DI ELEGANZA AUTOMOBILI MONTECATINI TERME XVI EDIZIONE** — 2026-09-19 → 2026-09-20 _[Montecatini Terme]_ — https://www.autoraduni.it/autoraduno/concorso-internazionale-di-eleganza-automobili-montecatini-terme-xvi-edizione/
+- **CannonClimb - Memorial Gilberto Altafini** — 2026-09-12 → 2026-09-12 _[Pegognaga]_ — https://raduni-auto.it/raduno/cannonclimb-memorial-gilberto-altafini-dinamico-pegognaga-mn
+- **ХІII° OPEL MEETING INTERNAZIONALE** — 2026-09-12 → 2026-09-12 _[Verona]_ — https://www.autoraduni.it/autoraduno/%d1%85%d1%96ii-opel-meeting-internazionale/
+- **GRAN PREMIO STORICO D’ITALIA** — 2026-10-02 → 2026-10-04 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-02/1751-gran-premio-storico-d-italia
+- **ANNIVERSARIO 120 ANNI LANCIA** — 2026-09-26 → 2026-09-26 _[Desio]_ — https://www.autoraduni.it/autoraduno/anniversario-120-anni-lancia/
+- **BIG TRUCK & MOTOR FEST 2026** — 2026-09-25 → 2026-09-27 _[Fontaniva]_ — https://www.autoraduni.it/autoraduno/big-truck-e-motor-fest/
+- **10° RADUNO VULCANI CITROEN** — 2026-09-05 → 2026-09-06 _[Spinea]_ — https://www.autoraduni.it/autoraduno/10-raduno-vulcani-citroen/
+- **14° ROCKIN RODDIN REUNION** — 2026-10-17 → 2026-10-18 _[Brescia]_ — https://www.autoraduni.it/autoraduno/14-rockin-roddin-reunion/
+- **ACI Misano Racing Weekend** — 2026-09-17 → 2026-09-20 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **MUGELLO RACING WEEKEND** — 2026-10-16 → 2026-10-18 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-16/1752-mugello-racing-weekend-4
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **MAGGIOLINI BASSANESI** — 2026-09-26 → 2026-09-27 _[Bassano del Grappa]_ — https://www.autoraduni.it/autoraduno/maggiolini-bassanesi/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **RADUNO AUTO D’EPOCA** — 2026-09-06 → 2026-09-06 _[Cologna Veneta]_ — https://www.autoraduni.it/autoraduno/raduno-auto-depoca-18/
+- **Rally Lazio Cassino** — 2026-09-18 → 2026-09-19 _[Frosinone]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **32° RADUNO VIADANA** — 2026-09-19 → 2026-09-20 _[Viadana]_ — https://www.autoraduni.it/autoraduno/32-raduno-viadana/
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **AUTO& MOTO D’EPOCA** — 2026-09-27 → 2026-09-27 _[San Valentino Torio]_ — https://www.autoraduni.it/autoraduno/auto-moto-depoca/
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **US CARS REUNION** — 2026-10-18 → 2026-10-18 _[Brescia]_ — https://www.autoraduni.it/autoraduno/us-cars-reunion-3/
+- **PNK Motorsport** — 2026-11-05 → 2026-11-08 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **Rallye Sanremo** — 2026-10-18 → 2026-10-18 _[Imperia]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Imola Classic** — 2026-10-16 → 2026-10-18 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/imola-classic-2/
+- **Rally Lana** — 2026-10-25 → 2026-10-25 _[Biella]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Formula X** — 2026-11-12 → 2026-11-15 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+
+
+---
+
 ## 2026-09-01 07:59 UTC
 
 ✅ **Aggiunti (21)**
