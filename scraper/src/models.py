@@ -10,7 +10,7 @@ from typing import Optional
 def _normalize_for_id(text: str) -> str:
     """Normalizza un testo prima di usarlo nell'hash dell'ID, così piccole
     differenze di formattazione (spazi doppi, tipo di trattino usato dal
-    sito) non generano due ID diversi per lo stesso evento reale.
+    sito) non generano due ID diversi per lo stesso evento reale
     """
     text = text.strip().lower()
     text = text.replace("–", "-").replace("—", "-").replace("−", "-")
