@@ -16,10 +16,18 @@ Formati data osservati (senza anno, va preso da season_year in config):
   "4-6/06"      come il primo, con mese a due cifre
   "ANNULLATO"   evento cancellato, nessuna data -> lo scartiamo
 
-Il foglio dà solo la PROVINCIA (es. "PV"), non la città esatta: la
-traduciamo nel nome della provincia e la usiamo sia come "circuito" che
-come "città" (i rally non hanno un circuito fisso, si svolgono su strada
-— stessa convenzione already decisa per questa disciplina).
+Il foglio dà solo la PROVINCIA (es. "PV"), non la città esatta. Quando il
+titolo segue il pattern inequivocabile "Rally di X" o "Rally Città di X",
+estraiamo X e lo usiamo al posto della provincia (più preciso). Per tutti
+gli altri casi (titoli che citano regioni, monti, nomi generici — es.
+"Rally del Friuli Venezia Giulia", "Paganella Rally" — dove tentare
+un'estrazione sarebbe un azzardo) usiamo la provincia come fallback.
+
+Se lo stesso rally compare più volte nel foglio (una riga per ogni
+campionato per cui conta, es. WRC + un campionato minore in contemporanea),
+la deduplica generale del progetto (dedupe_events) si occupa di tenere
+solo una voce, preferendo il titolo più lungo/descrittivo — non serve
+gestirlo qui.
 
 ⚠️ MANUTENZIONE ANNUALE: l'URL del foglio (con l'ID lunghissimo) e il
 "gid" sono SPECIFICI per la stagione 2026. Quando rallylink.it pubblica
@@ -35,7 +43,7 @@ import re
 
 from src.config import load_keywords
 from src.models import Event
-from src.scrapers.base import BaseTrackScraper, fetch_html_static
+from src.scrapers.base import BaseTrackScraper, fetch_csv_static
 from src.text_utils import normalize_title_case
 
 # Sigle provinciali italiane (+ San Marino, che compare nel calendario
@@ -76,6 +84,13 @@ PROVINCE_NAMES = {
 _CROSS_MONTH_RE = re.compile(r"^(\d{1,2})/(\d{1,2})-(\d{1,2})/(\d{1,2})$")
 _SAME_MONTH_RE = re.compile(r"^(\d{1,2})(?:-(\d{1,2}))?/(\d{1,2})$")
 
+# Pattern SICURI per estrarre una città dal titolo: solo quando il titolo
+# dice esplicitamente "Rally di X" o "Rally Città di X" (gestisce anche
+# spazi doppi). Per qualsiasi altro caso (regioni, monti, nomi generici)
+# NON tentiamo l'estrazione: meglio la provincia che una città sbagliata.
+_CITY_FROM_TITLE_RE = re.compile(r"^Rally\s+(?:Citt[àa]\s+di|di)\s+(.+)$", re.IGNORECASE)
+_SMALL_WORDS = {"di", "d'", "del", "della", "delle", "dei", "degli"}
+
 
 def _parse_date(raw: str, year: int) -> tuple[str, str] | None:
     raw = raw.strip()
@@ -97,9 +112,19 @@ def _parse_date(raw: str, year: int) -> tuple[str, str] | None:
     return None
 
 
+def _extract_city_from_title(raw_title: str) -> str | None:
+    m = _CITY_FROM_TITLE_RE.match(raw_title.strip())
+    if not m:
+        return None
+    place = re.sub(r"\s+", " ", m.group(1)).strip()
+    if not place:
+        return None
+    return " ".join(w if w.lower() in _SMALL_WORDS else w.capitalize() for w in place.split())
+
+
 class RallylinkScraper(BaseTrackScraper):
     def scrape(self) -> list[Event]:
-        csv_text = fetch_html_static(self.config.url)   # funziona anche per testo CSV, non solo HTML
+        csv_text = fetch_csv_static(self.config.url)
         keywords = load_keywords()
         proper_nouns = keywords.get("rally_proper_nouns", [])
         season_year = getattr(self.config, "season_year", None)
@@ -120,11 +145,20 @@ class RallylinkScraper(BaseTrackScraper):
                 continue   # data non interpretabile o evento annullato
             start_iso, end_iso = parsed
 
-            titolo = normalize_title_case(titolo_raw.strip(), proper_nouns)
-            if not titolo:
+            titolo_raw = titolo_raw.strip()
+            if not titolo_raw:
                 continue
 
+            # estrae la città PRIMA di normalizzare il case del titolo,
+            # così il nome del posto mantiene la sua capitalizzazione
+            # indipendentemente da come viene poi scritto il titolo
+            citta_da_titolo = _extract_city_from_title(titolo_raw)
+
+            titolo = normalize_title_case(titolo_raw, proper_nouns)
+            titolo = re.sub(r"\s+", " ", titolo).strip()
+
             provincia_nome = PROVINCE_NAMES.get(prov.strip().upper(), prov.strip())
+            location = citta_da_titolo or provincia_nome
 
             ev = Event(
                 track_slug=self.config.slug,
@@ -134,8 +168,8 @@ class RallylinkScraper(BaseTrackScraper):
                 url=self.config.url,
                 date_start=start_iso,
                 date_end=end_iso,
-                circuito_override=provincia_nome,   # niente circuito fisso: usiamo la provincia
-                citta_override=provincia_nome,
+                circuito_override=location,
+                citta_override=location,
                 disciplina_override=["Rally"],
             )
             events[ev.event_id] = ev
