@@ -47,6 +47,7 @@ class Event:
     circuito_override: Optional[str] = None
     citta_override: Optional[str] = None
     disciplina_override: Optional[list[str]] = None
+    evento_gratuito_override: Optional[bool] = None
     event_id: str = field(default="")
 
     def __post_init__(self):
