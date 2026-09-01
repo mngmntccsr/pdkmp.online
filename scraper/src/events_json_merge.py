@@ -110,9 +110,9 @@ def dedupe_events(events: list[dict]) -> tuple[list[dict], list[dict]]:
 
     # ordina per idAuto per un risultato deterministico (stesso risultato
     # ad ogni run, a parità di dati in ingresso)
-    auto_events = sorted(
+        auto_events = sorted(
         (e for e in events if e.get("fonteAuto")),
-        key=lambda e: e.get("idAuto", ""),
+        key=lambda e: (-len(e.get("titolo", "")), e.get("idAuto", "")),
     )
     for e in auto_events:
         circuito = e.get("circuito")
