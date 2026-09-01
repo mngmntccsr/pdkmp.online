@@ -97,44 +97,39 @@ class RaduniAutoScraper(BaseTrackScraper):
             html = fetch_html_static(page_url)
             soup = BeautifulSoup(html, "lxml")
 
-            cards = soup.find_all("a", href=lambda h: h and "/raduno/" in h)
-            if not cards:
-                break   # pagina vuota, ci fermiamo
+            # Non assumiamo che <img> sia annidata dentro <a href="/raduno/">:
+            # nel vero HTML possono essere elementi adiacenti separati.
+            # Cerchiamo quindi le immagini con alt "ricco" direttamente, poi
+            # risaliamo al link /raduno/ più vicino (prima nel documento).
+            imgs = soup.find_all("img", alt=lambda a: a and " il " in a)
+            if not imgs:
+                break
 
             found_on_this_page = 0
 
-            for card_link in cards:
-                img = card_link.find("img")
-                if not img or not img.get("alt"):
-                    continue
-
+            for img in imgs:
                 parsed = _parse_alt(img["alt"])
                 if not parsed:
                     continue
                 titolo_raw, categoria, citta, prov, start_iso = parsed
 
+                card_link = img.find_previous("a", href=lambda h: h and "/raduno/" in h)
+                href = card_link["href"] if card_link else base_url
+                if not href.startswith("http"):
+                    href = f"https://raduni-auto.it{href}"
+
                 titolo = normalize_title_case(titolo_raw, proper_nouns)
                 disciplina = [_DISCIPLINE_MAP.get(categoria.lower(), "Raduno")]
 
-                # risale per trovare un contenitore "compatto" (una sola
-                # card) da cui leggere il prezzo, senza rischiare di
-                # prendere quello di una card vicina
-                container = card_link
-                gratuito = False
-                for _ in range(6):
-                    if container.parent is None:
+                # cerca "Gratuito" nel testo tra questa immagine e la
+                # prossima card (per non prendere il prezzo di un'altra)
+                next_img = img.find_next("img", alt=lambda a: a and " il " in a)
+                collected_text = []
+                for node in img.find_all_next(string=True, limit=80):
+                    if next_img is not None and node.find_previous("img", alt=lambda a: a and " il " in a) is next_img:
                         break
-                    container = container.parent
-                    org_links = container.find_all("a", href=lambda h: h and "/organizzatore/" in h)
-                    if len(org_links) == 1:
-                        gratuito = _detect_free(container)
-                        break
-                    if len(org_links) > 1:
-                        break   # contenitore troppo ampio, non tentiamo
-
-                href = card_link["href"]
-                if not href.startswith("http"):
-                    href = f"https://raduni-auto.it{href}"
+                    collected_text.append(str(node))
+                gratuito = bool(re.search(r"\bgratuito\b", " ".join(collected_text), re.IGNORECASE))
 
                 ev = Event(
                     track_slug=self.config.slug,
