@@ -191,7 +191,7 @@ def event_to_pdkmp_dict(
         "linkBiglietti": "",
         "linkInfo": event.url,
         "organizzatore": infer_organizer(event.title, organizer_rules or []),
-        "immagine": "",
+        "immagine": event.immagine_override or "",
         "eventoGratuito": event.evento_gratuito_override if event.evento_gratuito_override is not None else infer_free_entry(event.title, free_entry_keywords or []),
         # campi extra, ignorati dal sito, usati solo dallo script di merge:
         "fonteAuto": True,
