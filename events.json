@@ -392,7 +392,7 @@
       "Trackday"
     ],
     "circuito": "Mugello Circuit",
-    "citta": "Scarperia S. Piero",
+    "citta": "Scarperia e San Piero",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
@@ -409,7 +409,7 @@
       "Trackday"
     ],
     "circuito": "Mugello Circuit",
-    "citta": "Scarperia S. Piero",
+    "citta": "Scarperia e San Piero",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
@@ -426,7 +426,7 @@
       "Trackday"
     ],
     "circuito": "Mugello Circuit",
-    "citta": "Scarperia S. Piero",
+    "citta": "Scarperia e San Piero",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
@@ -477,7 +477,7 @@
       "Trackday"
     ],
     "circuito": "Mugello Circuit",
-    "citta": "Scarperia S. Piero",
+    "citta": "Scarperia e San Piero",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
@@ -868,7 +868,7 @@
       "Trackday"
     ],
     "circuito": "Autodromo Riccardo Paletti",
-    "citta": "Varano de Melegari",
+    "citta": "Varano de' Melegari",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
@@ -936,7 +936,7 @@
       "Trackday"
     ],
     "circuito": "Autodromo Riccardo Paletti",
-    "citta": "Varano de Melegari",
+    "citta": "Varano de' Melegari",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
@@ -1904,8 +1904,8 @@
     "disciplina": [
       "Raduno"
     ],
-    "circuito": "Pietrelcina - Raduno Dinamico a Teano",
-    "citta": "Pietrelcina - Raduno Dinamico a Teano",
+    "circuito": "Pietrelcina",
+    "citta": "Pietrelcina",
     "linkBiglietti": "",
     "linkInfo": "https://raduni-auto.it/raduno/11-memorial-mario-pellegrinaggio-a-pietrelcina-dinamico-teano-ce",
     "organizzatore": "",
@@ -2958,8 +2958,8 @@
     "disciplina": [
       "Rally"
     ],
-    "circuito": "Bassano",
-    "citta": "Bassano",
+    "circuito": "Bassano del Grappa",
+    "citta": "Bassano del Grappa",
     "linkBiglietti": "",
     "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
     "organizzatore": "",
