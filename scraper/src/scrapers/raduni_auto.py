@@ -131,6 +131,10 @@ class RaduniAutoScraper(BaseTrackScraper):
                     collected_text.append(str(node))
                 gratuito = bool(re.search(r"\bgratuito\b", " ".join(collected_text), re.IGNORECASE))
 
+                immagine_url = img.get("src", "")
+                if immagine_url and not immagine_url.startswith("http"):
+                    immagine_url = f"https://raduni-auto.it{immagine_url}"
+
                 ev = Event(
                     track_slug=self.config.slug,
                     track_name=self.config.name,
@@ -143,12 +147,17 @@ class RaduniAutoScraper(BaseTrackScraper):
                     citta_override=citta,
                     disciplina_override=disciplina,
                     evento_gratuito_override=gratuito,
+                    immagine_override=immagine_url,
                 )
 
                 if ev.event_id not in events:
                     found_on_this_page += 1
                 events[ev.event_id] = ev
 
+            if found_on_this_page == 0:
+                break   # tutti gli eventi di questa pagina erano già noti, fine
+
+        return list(events.values())
             if found_on_this_page == 0:
                 break   # tutti gli eventi di questa pagina erano già noti, fine
 
