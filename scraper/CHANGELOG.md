@@ -2,6 +2,70 @@
 
 Questo file viene aggiornato automaticamente ogni settimana dallo scraper.
 
+## 2026-09-02 20:37 UTC
+
+✅ **Aggiunti (26)**
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **Imola Classic** — 2026-10-16 → 2026-10-18 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/imola-classic-2/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **ACI Misano Racing Weekend** — 2026-09-17 → 2026-09-20 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **PNK Motorsport** — 2026-11-05 → 2026-11-08 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **Formula X** — 2026-11-12 → 2026-11-15 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **GRAN PREMIO STORICO D’ITALIA** — 2026-10-02 → 2026-10-04 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-02/1751-gran-premio-storico-d-italia
+- **MUGELLO RACING WEEKEND** — 2026-10-16 → 2026-10-18 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-16/1752-mugello-racing-weekend-4
+- **10° RADUNO VULCANI CITROEN** — 2026-09-05 → 2026-09-06 _[Spinea]_ — https://www.autoraduni.it/autoraduno/10-raduno-vulcani-citroen/
+- **RADUNO AUTO D’EPOCA** — 2026-09-06 → 2026-09-06 _[Cologna Veneta]_ — https://www.autoraduni.it/autoraduno/raduno-auto-depoca-18/
+- **ХІII° OPEL MEETING INTERNAZIONALE** — 2026-09-12 → 2026-09-12 _[Verona]_ — https://www.autoraduni.it/autoraduno/%d1%85%d1%96ii-opel-meeting-internazionale/
+- **32° RADUNO VIADANA** — 2026-09-19 → 2026-09-20 _[Viadana]_ — https://www.autoraduni.it/autoraduno/32-raduno-viadana/
+- **CONCORSO INTERNAZIONALE DI ELEGANZA AUTOMOBILI MONTECATINI TERME XVI EDIZIONE** — 2026-09-19 → 2026-09-20 _[Montecatini Terme]_ — https://www.autoraduni.it/autoraduno/concorso-internazionale-di-eleganza-automobili-montecatini-terme-xvi-edizione/
+- **BIG TRUCK & MOTOR FEST 2026** — 2026-09-25 → 2026-09-27 _[Fontaniva]_ — https://www.autoraduni.it/autoraduno/big-truck-e-motor-fest/
+- **ANNIVERSARIO 120 ANNI LANCIA** — 2026-09-26 → 2026-09-26 _[Desio]_ — https://www.autoraduni.it/autoraduno/anniversario-120-anni-lancia/
+- **MAGGIOLINI BASSANESI** — 2026-09-26 → 2026-09-27 _[Bassano del Grappa]_ — https://www.autoraduni.it/autoraduno/maggiolini-bassanesi/
+- **AUTO& MOTO D’EPOCA** — 2026-09-27 → 2026-09-27 _[San Valentino Torio]_ — https://www.autoraduni.it/autoraduno/auto-moto-depoca/
+- **14° ROCKIN RODDIN REUNION** — 2026-10-17 → 2026-10-18 _[Brescia]_ — https://www.autoraduni.it/autoraduno/14-rockin-roddin-reunion/
+- **US CARS REUNION** — 2026-10-18 → 2026-10-18 _[Brescia]_ — https://www.autoraduni.it/autoraduno/us-cars-reunion-3/
+- **Rally Lazio Cassino** — 2026-09-18 → 2026-09-19 _[Frosinone]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rallye Sanremo** — 2026-10-18 → 2026-10-18 _[Imperia]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally Lana** — 2026-10-25 → 2026-10-25 _[Biella]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **CannonClimb - Memorial Gilberto Altafini** — 2026-09-12 → 2026-09-12 _[Pegognaga]_ — https://raduni-auto.it/raduno/cannonclimb-memorial-gilberto-altafini-dinamico-pegognaga-mn
+- **One Car - Car Audio Race** — 2026-09-20 → 2026-09-20 _[Conegliano]_ — https://raduni-auto.it/raduno/one-car-car-audio-race-statico-conegliano-tv
+
+❌ **Rimossi (2)**
+- **We Can Race - Guida in pista a Autodromo Piero Taruffi** — 2026-09-05 → 2026-09-05 _[Autodromo di Vallelunga]_ — https://wecanrace.it/calendario/
+- **We Can Race - Guida in pista a Autodromo di Pomposa** — 2026-10-25 → 2026-10-25 _[Autodromo di Pomposa]_ — https://wecanrace.it/calendario/
+
+🔁 **Duplicati rimossi (25)** — stesso circuito+data di un evento già presente
+- **CONCORSO INTERNAZIONALE DI ELEGANZA AUTOMOBILI MONTECATINI TERME XVI EDIZIONE** — 2026-09-19 → 2026-09-20 _[Montecatini Terme]_ — https://www.autoraduni.it/autoraduno/concorso-internazionale-di-eleganza-automobili-montecatini-terme-xvi-edizione/
+- **CannonClimb - Memorial Gilberto Altafini** — 2026-09-12 → 2026-09-12 _[Pegognaga]_ — https://raduni-auto.it/raduno/cannonclimb-memorial-gilberto-altafini-dinamico-pegognaga-mn
+- **ХІII° OPEL MEETING INTERNAZIONALE** — 2026-09-12 → 2026-09-12 _[Verona]_ — https://www.autoraduni.it/autoraduno/%d1%85%d1%96ii-opel-meeting-internazionale/
+- **GRAN PREMIO STORICO D’ITALIA** — 2026-10-02 → 2026-10-04 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-02/1751-gran-premio-storico-d-italia
+- **ANNIVERSARIO 120 ANNI LANCIA** — 2026-09-26 → 2026-09-26 _[Desio]_ — https://www.autoraduni.it/autoraduno/anniversario-120-anni-lancia/
+- **BIG TRUCK & MOTOR FEST 2026** — 2026-09-25 → 2026-09-27 _[Fontaniva]_ — https://www.autoraduni.it/autoraduno/big-truck-e-motor-fest/
+- **10° RADUNO VULCANI CITROEN** — 2026-09-05 → 2026-09-06 _[Spinea]_ — https://www.autoraduni.it/autoraduno/10-raduno-vulcani-citroen/
+- **14° ROCKIN RODDIN REUNION** — 2026-10-17 → 2026-10-18 _[Brescia]_ — https://www.autoraduni.it/autoraduno/14-rockin-roddin-reunion/
+- **ACI Misano Racing Weekend** — 2026-09-17 → 2026-09-20 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **MUGELLO RACING WEEKEND** — 2026-10-16 → 2026-10-18 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-16/1752-mugello-racing-weekend-4
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **MAGGIOLINI BASSANESI** — 2026-09-26 → 2026-09-27 _[Bassano del Grappa]_ — https://www.autoraduni.it/autoraduno/maggiolini-bassanesi/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **RADUNO AUTO D’EPOCA** — 2026-09-06 → 2026-09-06 _[Cologna Veneta]_ — https://www.autoraduni.it/autoraduno/raduno-auto-depoca-18/
+- **Rally Lazio Cassino** — 2026-09-18 → 2026-09-19 _[Frosinone]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **32° RADUNO VIADANA** — 2026-09-19 → 2026-09-20 _[Viadana]_ — https://www.autoraduni.it/autoraduno/32-raduno-viadana/
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **AUTO& MOTO D’EPOCA** — 2026-09-27 → 2026-09-27 _[San Valentino Torio]_ — https://www.autoraduni.it/autoraduno/auto-moto-depoca/
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **US CARS REUNION** — 2026-10-18 → 2026-10-18 _[Brescia]_ — https://www.autoraduni.it/autoraduno/us-cars-reunion-3/
+- **PNK Motorsport** — 2026-11-05 → 2026-11-08 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **Rallye Sanremo** — 2026-10-18 → 2026-10-18 _[Imperia]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Imola Classic** — 2026-10-16 → 2026-10-18 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/imola-classic-2/
+- **Rally Lana** — 2026-10-25 → 2026-10-25 _[Biella]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Formula X** — 2026-11-12 → 2026-11-15 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+
+
+---
+
 ## 2026-09-02 08:01 UTC
 
 ✅ **Aggiunti (29)**
