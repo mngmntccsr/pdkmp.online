@@ -124,6 +124,13 @@ class RaduniAutoScraper(BaseTrackScraper):
                 )
                 if immagine_url and not immagine_url.startswith("http"):
                     immagine_url = f"https://raduni-auto.it{immagine_url}"
+                if immagine_url:
+                    # raduni-auto.it blocca le immagini via hotlink protection
+                    # (403 se caricate da un altro dominio): passiamo dal
+                    # proxy gratuito images.weserv.nl, che le recupera lui
+                    # e le ri-serve senza referrer originale
+                    senza_schema = immagine_url.replace("https://", "").replace("http://", "")
+                    immagine_url = f"https://images.weserv.nl/?url={senza_schema}"
 
                 ev = Event(
                     track_slug=self.config.slug,
