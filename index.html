@@ -946,7 +946,7 @@ let lastState = null;
 
 window.addEventListener('scroll', () => {
     const header = document.getElementById('mainHeader');
-
+    if (!header) return;
     const isCollapsed = window.scrollY > 80;
 
     if (isCollapsed === lastState) return;
