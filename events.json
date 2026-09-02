@@ -2616,7 +2616,7 @@
     "dataInizio": "2026-09-24",
     "dataFine": "2026-09-26",
     "disciplina": [
-      "Misto"
+      "Gt"
     ],
     "circuito": "Mugello Circuit",
     "citta": "Scarperia e San Piero",
@@ -2990,7 +2990,7 @@
     "dataInizio": "2026-09-05",
     "dataFine": "2026-09-05",
     "disciplina": [
-      "Rally"
+      "Raduno", "Storico", "Misto"
     ],
     "circuito": "Moresco",
     "citta": "Moresco",
