@@ -1,28 +1,29 @@
 """Scraper per raduni-auto.it — Raduni, fiere e regolarità in tutta Italia.
 
 Sito statico (server-rendered), niente JavaScript necessario per il primo
-batch di risultati. Ogni card evento è un link a /raduno/<slug> che
-racchiude un'immagine con un attributo "alt" MOLTO ricco, che contiene già
-tutto ciò che ci serve in un'unica stringa:
+batch di risultati. Ogni evento ha un'immagine con un attributo "alt"
+MOLTO ricco, che contiene già tutto ciò che ci serve in un'unica stringa:
 
     "{TITOLO} - {CATEGORIA} a {CITTÀ} ({PROV}) il {giorno settimana} {DD} {mese} {YYYY}"
-
-Esempio reale:
-    "5° Raduno Auto Moto d'Epoca e Sportive - Los Angeles Motor Day -
-     Auto d'Epoca a Sant'Angelo di Piove di Sacco (PD) il venerdì 4
-     settembre 2026"
 
 Per isolare TITOLO da CATEGORIA (entrambi possono contenere trattini)
 sfruttiamo il fatto che la categoria è sempre l'ultimo segmento prima di
 " a {città}": prendiamo quindi tutto il prefisso prima di " a ", poi lo
 tagliamo sull'ULTIMO " - " per separare titolo e categoria.
 
+IMPORTANTE: non assumiamo che <img> sia annidata dentro <a href="/raduno/">
+— nel vero HTML sono elementi adiacenti separati. Cerchiamo quindi le
+immagini con alt "ricco" direttamente, poi risaliamo al link /raduno/ più
+vicino nel documento.
+
 Il sito pagina i risultati (?vista=griglia&page=N): continuiamo a
 richiedere pagine finché ne troviamo di nuove, con un tetto di sicurezza.
 
-PREZZO: nella card compare "Gratuito" oppure "da € X,XX". Cerchiamo questo
-testo nel contenitore più piccolo che racchiude l'immagine E un solo link
-"/organizzatore/" (per non "rubare" il prezzo di una card vicina).
+PREZZO: cerchiamo la parola "Gratuito" nel testo tra un'immagine evento e
+la successiva, per non "rubare" il prezzo di una card vicina.
+
+IMMAGINE: usiamo direttamente il src dell'immagine come locandina
+dell'evento sulla scheda del sito.
 """
 from __future__ import annotations
 
@@ -45,13 +46,11 @@ _ALT_RE = re.compile(
     re.IGNORECASE,
 )
 
-# Le categorie diverse da "Regolarità" (una gara di regolarità cronometrata,
-# più vicina al motorsport) finiscono tutte sotto "Raduno".
 _DISCIPLINE_MAP = {
     "regolarità": "Rally",
 }
 
-MAX_PAGES = 15   # tetto di sicurezza sulla paginazione
+MAX_PAGES = 15
 
 
 def _parse_alt(alt_text: str) -> tuple[str, str, str, str, str] | None:
@@ -77,17 +76,10 @@ def _parse_alt(alt_text: str) -> tuple[str, str, str, str, str] | None:
     return titolo.strip(), categoria.strip(), citta, prov, iso
 
 
-def _detect_free(container) -> bool:
-    text = container.get_text(" ", strip=True)
-    if re.search(r"\bgratuito\b", text, re.IGNORECASE):
-        return True
-    return False   # include il caso "da € X,XX" e il caso non determinato
-
-
 class RaduniAutoScraper(BaseTrackScraper):
     def scrape(self) -> list[Event]:
         keywords = load_keywords()
-        proper_nouns = keywords.get("rally_proper_nouns", [])   # lista condivisa tra fonti
+        proper_nouns = keywords.get("rally_proper_nouns", [])
 
         events: dict[str, Event] = {}
         base_url = self.config.url.rstrip("/")
@@ -97,10 +89,6 @@ class RaduniAutoScraper(BaseTrackScraper):
             html = fetch_html_static(page_url)
             soup = BeautifulSoup(html, "lxml")
 
-            # Non assumiamo che <img> sia annidata dentro <a href="/raduno/">:
-            # nel vero HTML possono essere elementi adiacenti separati.
-            # Cerchiamo quindi le immagini con alt "ricco" direttamente, poi
-            # risaliamo al link /raduno/ più vicino (prima nel documento).
             imgs = soup.find_all("img", alt=lambda a: a and " il " in a)
             if not imgs:
                 break
@@ -121,8 +109,6 @@ class RaduniAutoScraper(BaseTrackScraper):
                 titolo = normalize_title_case(titolo_raw, proper_nouns)
                 disciplina = [_DISCIPLINE_MAP.get(categoria.lower(), "Raduno")]
 
-                # cerca "Gratuito" nel testo tra questa immagine e la
-                # prossima card (per non prendere il prezzo di un'altra)
                 next_img = img.find_next("img", alt=lambda a: a and " il " in a)
                 collected_text = []
                 for node in img.find_all_next(string=True, limit=80):
@@ -139,10 +125,10 @@ class RaduniAutoScraper(BaseTrackScraper):
                     track_slug=self.config.slug,
                     track_name=self.config.name,
                     title=titolo,
-                    date_text=start_iso,   # solo riferimento/debug
+                    date_text=start_iso,
                     url=href,
                     date_start=start_iso,
-                    date_end=start_iso,   # il sito mostra solo una data per evento
+                    date_end=start_iso,
                     circuito_override=citta,
                     citta_override=citta,
                     disciplina_override=disciplina,
@@ -155,10 +141,6 @@ class RaduniAutoScraper(BaseTrackScraper):
                 events[ev.event_id] = ev
 
             if found_on_this_page == 0:
-                break   # tutti gli eventi di questa pagina erano già noti, fine
-
-        return list(events.values())
-            if found_on_this_page == 0:
-                break   # tutti gli eventi di questa pagina erano già noti, fine
+                break
 
         return list(events.values())
