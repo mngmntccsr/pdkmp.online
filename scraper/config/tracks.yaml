@@ -262,10 +262,15 @@ keywords:
 # con quello a destra prima di finire su events.json.
 # Aggiungi qui una riga ogni volta che scopri un nuovo disallineamento,
 # senza dover toccare il codice.
-circuit_aliases:
+circuit_aliases:     # Valido anche per le città (prima nome sbagliato poi quello corretto)
   "Autodromo Internazionale del Mugello": "Mugello Circuit"
   "Autodromo Enzo e Dino Ferrari": "Autodromo di Imola"
   "Autodromo Piero Taruffi": "Autodromo di Vallelunga"
+  "San Paolo Belsito": "San Paolo Bel Sito"
+  "Bassano": "Bassano del Grappa"
+  "Scarperia S. Piero": "Scarperia e San Piero"
+  "Varano de Melegari": "Varano de' Melegari"
+  "S.G. di Comacchio": "San Giuseppe di Comacchio"
 
 # Nomi propri da ricapitalizzare nei titoli TUTTO MAIUSCOLO (vedi
 # text_utils.py). Aggiungi qui una città/nome ogni volta che ne trovi
