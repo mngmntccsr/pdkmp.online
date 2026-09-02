@@ -392,7 +392,7 @@
       "Trackday"
     ],
     "circuito": "Mugello Circuit",
-    "citta": "Scarperia S. Piero",
+    "citta": "Scarperia e San Piero",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
@@ -409,7 +409,7 @@
       "Trackday"
     ],
     "circuito": "Mugello Circuit",
-    "citta": "Scarperia S. Piero",
+    "citta": "Scarperia e San Piero",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
@@ -426,7 +426,7 @@
       "Trackday"
     ],
     "circuito": "Mugello Circuit",
-    "citta": "Scarperia S. Piero",
+    "citta": "Scarperia e San Piero",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
@@ -477,7 +477,7 @@
       "Trackday"
     ],
     "circuito": "Mugello Circuit",
-    "citta": "Scarperia S. Piero",
+    "citta": "Scarperia e San Piero",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
@@ -868,7 +868,7 @@
       "Trackday"
     ],
     "circuito": "Autodromo Riccardo Paletti",
-    "citta": "Varano de Melegari",
+    "citta": "Varano de' Melegari",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
@@ -936,7 +936,7 @@
       "Trackday"
     ],
     "circuito": "Autodromo Riccardo Paletti",
-    "citta": "Varano de Melegari",
+    "citta": "Varano de' Melegari",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
@@ -1310,7 +1310,7 @@
       "Trackday"
     ],
     "circuito": "Autodromo di Pomposa",
-    "citta": "S.G. di Comacchio",
+    "citta": "San Giuseppe di Comacchio",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
     "organizzatore": "We Can Race",
@@ -1490,6 +1490,23 @@
     "idAuto": "8f3fd570aa92a38c"
   },
   {
+    "titolo": "11° Memorial Mario – Pellegrinaggio a Pietrelcina",
+    "dataInizio": "2026-09-13",
+    "dataFine": "2026-09-13",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Teano",
+    "citta": "Teano",
+    "linkBiglietti": "",
+    "linkInfo": "https://raduni-auto.it/raduno/11-memorial-mario-pellegrinaggio-a-pietrelcina-dinamico-teano-ce",
+    "organizzatore": "",
+    "immagine": "image/raduni-eventi/b02565e033e1ddfd.jpg",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "c74dbcbda92ad845"
+  },
+  {
     "titolo": "9° Raduno per Appassionati di Auto e Moto d'Epoca",
     "dataInizio": "2026-09-13",
     "dataFine": "2026-09-13",
@@ -1564,8 +1581,8 @@
     "disciplina": [
       "Raduno"
     ],
-    "circuito": "San Paolo Belsito",
-    "citta": "San Paolo Belsito",
+    "circuito": "San Paolo Bel Sito",
+    "citta": "San Paolo Bel Sito",
     "linkBiglietti": "",
     "linkInfo": "https://raduni-auto.it/raduno/raduno-auto-e-moto-depoca-san-paolo-belsito-autodepoca-san-paolo-belsito-na",
     "organizzatore": "",
@@ -1675,6 +1692,23 @@
     "eventoGratuito": true,
     "fonteAuto": true,
     "idAuto": "cb7833e4e098afdd"
+  },
+  {
+    "titolo": "ACI RACING WEEKEND - C.I. AUTOMOBILISMO",
+    "dataInizio": "2026-10-30",
+    "dataFine": "2026-11-01",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Mugello Circuit",
+    "citta": "Scarperia e San Piero",
+    "linkBiglietti": "",
+    "linkInfo": "https://mugellocircuit.com/it/gare/details/2026-10-30/1753-aci-racing-weekend-c-i-automobilismo-5",
+    "organizzatore": "ACI Sport",
+    "immagine": "",
+    "eventoGratuito": true,
+    "fonteAuto": true,
+    "idAuto": "186339fc7645d082"
   },
   {
     "titolo": "U.S. Cars Reunion - Festival dei Motori",
@@ -1881,23 +1915,6 @@
     "idAuto": "9f14ef0eccfb9fbf"
   },
   {
-    "titolo": "11° Memorial Mario – Pellegrinaggio",
-    "dataInizio": "2026-09-13",
-    "dataFine": "2026-09-13",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Pietrelcina - Raduno Dinamico a Teano",
-    "citta": "Pietrelcina - Raduno Dinamico a Teano",
-    "linkBiglietti": "",
-    "linkInfo": "https://raduni-auto.it/raduno/11-memorial-mario-pellegrinaggio-a-pietrelcina-dinamico-teano-ce",
-    "organizzatore": "",
-    "immagine": "image/raduni-eventi/b02565e033e1ddfd.jpg",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "250feb668a34afb6"
-  },
-  {
     "titolo": "Rally del Rubinetto e Rally 2 Laghi",
     "dataInizio": "2026-09-27",
     "dataFine": "2026-09-27",
@@ -2015,23 +2032,6 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "3d5781c28c2ba805"
-  },
-  {
-    "titolo": "XIV MEETING DI AUTO E MOTO D’EPOCA",
-    "dataInizio": "2026-09-20",
-    "dataFine": "2026-09-20",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "San Paolo Bel Sito",
-    "citta": "San Paolo Bel Sito",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/xiv-meeting-di-auto-e-moto-depoca/",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "8d1c39b0962cb2f5"
   },
   {
     "titolo": "Tuning Expo Raduno Auto - Tappa X2",
@@ -2202,6 +2202,23 @@
     "eventoGratuito": true,
     "fonteAuto": true,
     "idAuto": "6397bb3d4eda80c2"
+  },
+  {
+    "titolo": "COPPA ITALIA VELOCITA’ - Round 4",
+    "dataInizio": "2026-09-04",
+    "dataFine": "2026-09-06",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Mugello Circuit",
+    "citta": "Scarperia e San Piero",
+    "linkBiglietti": "",
+    "linkInfo": "https://mugellocircuit.com/it/gare/details/2026-09-04/1749-coppa-italia-di-velocita-3",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "7514d7d776208d96"
   },
   {
     "titolo": "Erba Motori - 17ª Mostra Scambio",
@@ -2595,6 +2612,23 @@
     "idAuto": "06c29c841b3c512d"
   },
   {
+    "titolo": "PORSCHE SPORTS CUP SUISSE",
+    "dataInizio": "2026-09-24",
+    "dataFine": "2026-09-26",
+    "disciplina": [
+      "Misto"
+    ],
+    "circuito": "Mugello Circuit",
+    "citta": "Scarperia e San Piero",
+    "linkBiglietti": "",
+    "linkInfo": "https://mugellocircuit.com/it/gare/details/2026-09-24/1750-porsche-sports-cup-suisse",
+    "organizzatore": "",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "31de9b31155a8bbc"
+  },
+  {
     "titolo": "Gts - grand tour supercar",
     "dataInizio": "2026-09-20",
     "dataFine": "2026-09-20",
@@ -2907,8 +2941,8 @@
     "disciplina": [
       "Rally"
     ],
-    "circuito": "Bassano",
-    "citta": "Bassano",
+    "circuito": "Bassano del Grappa",
+    "citta": "Bassano del Grappa",
     "linkBiglietti": "",
     "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
     "organizzatore": "",
