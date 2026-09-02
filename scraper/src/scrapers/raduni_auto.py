@@ -65,7 +65,7 @@ IT_MONTHS = {
 }
 
 _ALT_RE = re.compile(
-    r"^(?P<prefix>.+?)\s+a\s+(?P<citta>.+?)\s*\(([A-Za-z]{2})\)\s+il\s+\w+\s+(\d{1,2})\s+([a-zàèéìòù]+)\s+(\d{4})$",
+    r"^(?P<prefix>.+)\s+a\s+(?P<citta>.+?)\s*\(([A-Za-z]{2})\)\s+il\s+\w+\s+(\d{1,2})\s+([a-zàèéìòù]+)\s+(\d{4})$",
     re.IGNORECASE,
 )
 
