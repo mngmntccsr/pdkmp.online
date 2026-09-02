@@ -148,7 +148,3 @@ class RaduniAutoScraper(BaseTrackScraper):
                 break
 
         return list(events.values())
-            if found_on_this_page == 0:
-                break
-
-        return list(events.values())
