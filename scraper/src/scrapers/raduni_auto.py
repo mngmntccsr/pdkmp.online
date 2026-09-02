@@ -117,7 +117,11 @@ class RaduniAutoScraper(BaseTrackScraper):
                     collected_text.append(str(node))
                 gratuito = bool(re.search(r"\bgratuito\b", " ".join(collected_text), re.IGNORECASE))
 
-                immagine_url = img.get("src", "")
+                immagine_url = (
+                    img.get("data-src")
+                    or img.get("data-lazy-src")
+                    or img.get("src", "")
+                )
                 if immagine_url and not immagine_url.startswith("http"):
                     immagine_url = f"https://raduni-auto.it{immagine_url}"
 
@@ -140,6 +144,10 @@ class RaduniAutoScraper(BaseTrackScraper):
                     found_on_this_page += 1
                 events[ev.event_id] = ev
 
+            if found_on_this_page == 0:
+                break
+
+        return list(events.values())
             if found_on_this_page == 0:
                 break
 
