@@ -27,14 +27,37 @@ dell'evento sulla scheda del sito.
 """
 from __future__ import annotations
 
+import hashlib
 import re
 
+import requests
 from bs4 import BeautifulSoup
 
-from src.config import load_keywords
+from src.config import ROOT_DIR, load_keywords
 from src.models import Event
 from src.scrapers.base import BaseTrackScraper, fetch_html_static
 from src.text_utils import normalize_title_case
+
+IMAGE_DIR = ROOT_DIR.parent / "image" / "raduni-eventi"
+
+
+def _download_image(url: str) -> str | None:
+    """Scarica l'immagine e la salva nel repo (raduni-auto.it blocca il
+    caricamento diretto da altri domini, hotlink protection): restituisce
+    il percorso relativo da usare in events.json, o None se il download
+    fallisce (l'evento resta senza immagine, non è un errore bloccante).
+    """
+    try:
+        resp = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
+        resp.raise_for_status()
+    except Exception:
+        return None
+    IMAGE_DIR.mkdir(parents=True, exist_ok=True)
+    filename = hashlib.sha1(url.encode()).hexdigest()[:16] + ".jpg"
+    path = IMAGE_DIR / filename
+    if not path.exists():
+        path.write_bytes(resp.content)
+    return f"image/raduni-eventi/{filename}"
 
 IT_MONTHS = {
     "gennaio": 1, "febbraio": 2, "marzo": 3, "aprile": 4, "maggio": 5, "giugno": 6,
@@ -125,12 +148,7 @@ class RaduniAutoScraper(BaseTrackScraper):
                 if immagine_url and not immagine_url.startswith("http"):
                     immagine_url = f"https://raduni-auto.it{immagine_url}"
                 if immagine_url:
-                    # raduni-auto.it blocca le immagini via hotlink protection
-                    # (403 se caricate da un altro dominio): passiamo dal
-                    # proxy gratuito images.weserv.nl, che le recupera lui
-                    # e le ri-serve senza referrer originale
-                    senza_schema = immagine_url.replace("https://", "").replace("http://", "")
-                    immagine_url = f"https://images.weserv.nl/?url={senza_schema}"
+                    immagine_url = _download_image(immagine_url) or ""
 
                 ev = Event(
                     track_slug=self.config.slug,
