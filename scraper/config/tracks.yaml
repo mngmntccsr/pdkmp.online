@@ -281,4 +281,7 @@ rally_proper_nouns:
     - "Torino"
     - "Budapest"
     - "Sanremo"
-      
+
+#Titoli di eventi da escludere      
+excluded_titles:
+  - "Monza Rally Show"
