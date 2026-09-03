@@ -74,6 +74,7 @@ class AutoraduniScraper(BaseTrackScraper):
         for container in soup.find_all("div", attrs={"data-listing-type": "event"}):
             title = container.get("data-title", "").strip()
             citta = container.get("data-friendly-address", "").strip()
+            citta = citta.split(". ")[-1].strip()
             date_raw = container.get("data-event-date", "").strip()
             if not title or not citta or not date_raw:
                 continue
