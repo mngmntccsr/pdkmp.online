@@ -1812,6 +1812,34 @@ function initEventTracking() {
     const container = document.getElementById('eventsContainer');
     if (container) gridObserver.observe(container, { childList: true, subtree: false });
   });
+
+  // Evidenzia in verde sulla mappa la località dell'evento sotto il cursore/dito
+  function setMarkerHighlight(marker, highlighted) {
+    if (highlighted) {
+      marker.setStyle({ fillColor: '#2e7d32', color: '#2e7d32', radius: 10 });
+      marker.bringToFront();
+    } else {
+      marker.setStyle({ fillColor: '#d32f2f', color: '#ffffff', radius: 7 });
+    }
+  }
+
+  function findMarkerByCitta(citta) {
+    return eventMarkers.find(m => m._groupEvents.some(ev => ev.citta === citta));
+  }
+
+  document.addEventListener('pointerover', (e) => {
+    const card = e.target.closest('#eventsContainer .event-card');
+    if (!card) return;
+    const marker = findMarkerByCitta(card.dataset.citta);
+    if (marker) setMarkerHighlight(marker, true);
+  });
+
+  document.addEventListener('pointerout', (e) => {
+    const card = e.target.closest('#eventsContainer .event-card');
+    if (!card) return;
+    const marker = findMarkerByCitta(card.dataset.citta);
+    if (marker) setMarkerHighlight(marker, false);
+  });
 })();
 </script>
 </body>
