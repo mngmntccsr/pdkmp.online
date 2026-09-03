@@ -81,6 +81,10 @@ PROVINCE_NAMES = {
     "RSM": "San Marino",   # non una provincia italiana, ma compare nel calendario
 }
 
+TITLE_LOCATION_OVERRIDES = {
+    "special rally circuit": ("Autodromo Nazionale Monza", "Monza"),
+}
+
 _CROSS_MONTH_RE = re.compile(r"^(\d{1,2})/(\d{1,2})-(\d{1,2})/(\d{1,2})$")
 _SAME_MONTH_RE = re.compile(r"^(\d{1,2})(?:-(\d{1,2}))?/(\d{1,2})$")
 
