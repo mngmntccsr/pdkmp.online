@@ -29,7 +29,7 @@ from __future__ import annotations
 from bs4 import BeautifulSoup
 
 from src.models import Event
-from src.scrapers.base import BaseTrackScraper, fetch_html_static
+from src.scrapers.base import BaseTrackScraper, download_event_image, fetch_html_static
 
 RADUNO_CATEGORIES = {"autoraduni", "fiere", "mostra", "rievocazione"}
 
@@ -83,6 +83,15 @@ class AutoraduniScraper(BaseTrackScraper):
 
             disciplina_override = ["Raduno"] if category in RADUNO_CATEGORIES else None
 
+                            img_tag = container.find("img")
+                immagine_url = ""
+                if img_tag:
+                    src = img_tag.get("data-src") or img_tag.get("src", "")
+                    if src and not src.startswith("http"):
+                        src = f"https://www.autoraduni.it{src}"
+                    if src:
+                        immagine_url = download_event_image(src, "autoraduni") or ""
+          
             ev = Event(
                 track_slug=self.config.slug,
                 track_name=self.config.name,
@@ -94,6 +103,7 @@ class AutoraduniScraper(BaseTrackScraper):
                 circuito_override=citta,   # niente circuito fisico: usiamo la città
                 citta_override=citta,
                 disciplina_override=disciplina_override,
+                immagine_override=immagine_url,
             )
             events[ev.event_id] = ev
 
