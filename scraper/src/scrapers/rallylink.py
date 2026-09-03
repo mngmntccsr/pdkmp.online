@@ -162,7 +162,8 @@ class RallylinkScraper(BaseTrackScraper):
             titolo = re.sub(r"\s+", " ", titolo).strip()
 
             provincia_nome = PROVINCE_NAMES.get(prov.strip().upper(), prov.strip())
-            location = citta_da_titolo or provincia_nome
+            override = next((v for k, v in TITLE_LOCATION_OVERRIDES.items() if k in titolo.lower()), None)
+            circuito_final, citta_final = override if override else (citta_da_titolo or provincia_nome, citta_da_titolo or provincia_nome)
 
             ev = Event(
                 track_slug=self.config.slug,
@@ -172,8 +173,8 @@ class RallylinkScraper(BaseTrackScraper):
                 url=self.config.url,
                 date_start=start_iso,
                 date_end=end_iso,
-                circuito_override=location,
-                citta_override=location,
+                circuito_override=circuito_final,
+                citta_override=citta_final,
                 disciplina_override=["Rally"],
             )
             events[ev.event_id] = ev
