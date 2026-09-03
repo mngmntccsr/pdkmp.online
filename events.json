@@ -326,12 +326,12 @@
     "circuito": "Grosseto",
     "citta": "Grosseto",
     "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/4-grosseto-motor-village/",
+    "linkInfo": "tel:0564 410979 – 347 9694876 – 366 1901005",
     "organizzatore": "",
     "immagine": "image/eventi-scraper/autoraduni/ca0c3ea8b8772116.jpg",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "34afd4d2a76d672d"
+    "idAuto": "7d44ee679c4f06a3"
   },
   {
     "titolo": "Concorso Internazionale di Eleganza Automobili Montecatini Terme - XVI Edizione",
@@ -377,12 +377,12 @@
     "circuito": "Reggio Emilia",
     "citta": "Reggio Emilia",
     "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/8-raduno-nazionale-c3-pluriel-club-italia-10-anni-di-noi-2016-2026/",
+    "linkInfo": "mailto:C3plurielclubitalia@gmail.com",
     "organizzatore": "",
     "immagine": "image/eventi-scraper/autoraduni/8516dbfcd59cbc68.jpg",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "302388835a20a481"
+    "idAuto": "42688601c06a3a43"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo Internazionale del Mugello",
@@ -691,6 +691,23 @@
     "idAuto": "3f01c68d992e4862"
   },
   {
+    "titolo": "2° TOUR SULLE STRADE DELLA ROMAGNA – AUTUNNO A QUATTRO RUOTE",
+    "dataInizio": "2026-09-25",
+    "dataFine": "2026-09-26",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Forlì. Forlimpopoli. Faenza",
+    "citta": "Forlì. Forlimpopoli. Faenza",
+    "linkBiglietti": "",
+    "linkInfo": "tel:3385003729",
+    "organizzatore": "",
+    "immagine": "image/eventi-scraper/autoraduni/8582c7ae2c0a600d.jpg",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "0d18291300552fa1"
+  },
+  {
     "titolo": "We Can Race - Guida in pista a Autodromo Enzo e Dino Ferrari",
     "dataInizio": "2027-05-15",
     "dataFine": "2027-05-16",
@@ -740,23 +757,6 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "59293954a58c5307"
-  },
-  {
-    "titolo": "2° TOUR SULLE STRADE DELLA ROMAGNA – AUTUNNO A QUATTRO RUOTE",
-    "dataInizio": "2026-09-25",
-    "dataFine": "2026-09-26",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Forlì. Forlimpopoli. Faenza",
-    "citta": "Forlì. Forlimpopoli. Faenza",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/2-tour-sulle-strade-della-romagna-autunno-a-quattro-ruote/",
-    "organizzatore": "",
-    "immagine": "image/eventi-scraper/autoraduni/8582c7ae2c0a600d.jpg",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "5b35aadd623331bc"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo Enzo e Dino Ferrari",
@@ -1023,12 +1023,12 @@
     "circuito": "Furci Siculo",
     "citta": "Furci Siculo",
     "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/ruote-antiche-nel-borgo-dei-borghi-montalbano-elicona/",
+    "linkInfo": "tel:320/1967224 - 338/3269834 - 339/3948868 - 339/6249123 - 331/3662667 - 338/1007220",
     "organizzatore": "",
     "immagine": "image/eventi-scraper/autoraduni/822ba861e03b5f85.jpg",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "b8e08a1501222aa1"
+    "idAuto": "4e57d816ce717e18"
   },
   {
     "titolo": "14° Raduno d'Auto e Moto d'Epoca Castelluccio Cosentino",
@@ -1601,12 +1601,12 @@
     "circuito": "Vicenza",
     "citta": "Vicenza",
     "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/10-raid-storico-vicenza-budapest-vicenza/",
+    "linkInfo": "tel:335.8342342",
     "organizzatore": "",
     "immagine": "image/eventi-scraper/autoraduni/b50f14ec45f11ba5.jpg",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "0b196bc7df81e09c"
+    "idAuto": "2664f6b9d9baae39"
   },
   {
     "titolo": "20TH ANNIVERSARY PARTY DEVIL DRIVERS CLUB",
@@ -1652,12 +1652,12 @@
     "circuito": "Pegognaga",
     "citta": "Pegognaga",
     "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/cannon-climb-memorial-gilberto-altafini/",
+    "linkInfo": "mailto:info@cannonclimb.it",
     "organizzatore": "",
     "immagine": "image/eventi-scraper/autoraduni/c3688f8386c30d06.jpg",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "a7f13e2e45025006"
+    "idAuto": "dceb79b0e66a6874"
   },
   {
     "titolo": "Rally Colli del Monferrato e del Moscato",
@@ -1737,12 +1737,12 @@
     "circuito": "Milano",
     "citta": "Milano",
     "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/rievocazione-storica-del-1928-raid-storico-moto-auto-fino-1976/",
+    "linkInfo": "tel:335.8342342",
     "organizzatore": "",
     "immagine": "image/eventi-scraper/autoraduni/b37edf8cf16ccc22.jpg",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "349de1ed67961f63"
+    "idAuto": "69c8705264641e63"
   },
   {
     "titolo": "We Can Race - Guida in pista a La Conca",
@@ -1890,12 +1890,12 @@
     "circuito": "Colorno",
     "citta": "Colorno",
     "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/10-edizione-de-berline-e-familiari-del-novecento/",
+    "linkInfo": "tel:348 510 9 129",
     "organizzatore": "",
     "immagine": "image/eventi-scraper/autoraduni/93cdf68628c7c2bb.jpg",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "bda14891f1a073ed"
+    "idAuto": "bfa7d597067f5740"
   },
   {
     "titolo": "Passeggiata Dolomitica Auto Sportive",
@@ -2366,12 +2366,12 @@
     "circuito": "Montalcino",
     "citta": "Montalcino",
     "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/vii-montalcino-heritage-2026/",
+    "linkInfo": "mailto:LEGENDCOLLISENESI@GMAIL.COM",
     "organizzatore": "",
     "immagine": "image/eventi-scraper/autoraduni/6336275222367462.jpg",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "1778d8ed7dedb629"
+    "idAuto": "9820ecc55955eca0"
   },
   {
     "titolo": "13° ROTARY HISTORICA BY NIGHT",
@@ -2383,15 +2383,15 @@
     "circuito": "Morimondo",
     "citta": "Morimondo",
     "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/13-rotary-historica-by-night/",
+    "linkInfo": "tel:347 732 6198",
     "organizzatore": "",
     "immagine": "image/eventi-scraper/autoraduni/ebcbc42ef5b3fb08.jpg",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "43f78791d025560c"
+    "idAuto": "a157579801fe4be3"
   },
   {
-    "titolo": "Anniversario 120 Anni Lancia",
+    "titolo": "ANNIVERSARIO 120 ANNI LANCIA",
     "dataInizio": "2026-09-26",
     "dataFine": "2026-09-26",
     "disciplina": [
@@ -2400,12 +2400,12 @@
     "circuito": "Desio",
     "citta": "Desio",
     "linkBiglietti": "",
-    "linkInfo": "https://raduni-auto.it/raduno/anniversario-120-anni-lancia-statico-desio-mb",
+    "linkInfo": "mailto:passioncaritaly@gmail.com",
     "organizzatore": "",
-    "immagine": "image/raduni-eventi/fd4c1a4547a40c55.jpg",
-    "eventoGratuito": true,
+    "immagine": "image/eventi-scraper/autoraduni/eebec96ec5a70c39.jpg",
+    "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "6448c65155f5e7d3"
+    "idAuto": "079c558df68716d3"
   },
   {
     "titolo": "Cavezzo Street Expo Gratuito",
@@ -2451,29 +2451,12 @@
     "circuito": "Piglio",
     "citta": "Piglio",
     "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/8-raduno-barchette-in-tour/",
+    "linkInfo": "mailto:raduni@barchettateamitalia.it",
     "organizzatore": "",
     "immagine": "image/eventi-scraper/autoraduni/bf6f8ded0eb058cd.jpg",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "1de1d1b6478ce3c8"
-  },
-  {
-    "titolo": "III EDIZIONE TOUR DEI LAGHI",
-    "dataInizio": "2026-10-03",
-    "dataFine": "2026-10-04",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Desenzano del Garda",
-    "citta": "Desenzano del Garda",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/iii-edizione-tour-dei-laghi/",
-    "organizzatore": "",
-    "immagine": "image/eventi-scraper/autoraduni/24cdd1691e07b928.jpg",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "364ebecc2886b929"
+    "idAuto": "24236a231dd676a7"
   },
   {
     "titolo": "4^ MOSTRA SCAMBIO RIZZICONI",
@@ -2485,29 +2468,46 @@
     "circuito": "Rizziconi",
     "citta": "Rizziconi",
     "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/4-mostra-scambio-rizziconi/",
+    "linkInfo": "tel:349 2926288 - 333 1891430 - 349 0716648",
     "organizzatore": "",
     "immagine": "image/eventi-scraper/autoraduni/8b4854f7b604a7db.jpg",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "8c0a7bfeddcab691"
+    "idAuto": "34163f98d0809fb4"
   },
   {
-    "titolo": "Big truck & motor fest 2026",
+    "titolo": "BIG TRUCK & MOTOR FEST 2026",
     "dataInizio": "2026-09-25",
-    "dataFine": "2026-09-25",
+    "dataFine": "2026-09-27",
     "disciplina": [
       "Raduno"
     ],
     "circuito": "Fontaniva",
     "citta": "Fontaniva",
     "linkBiglietti": "",
-    "linkInfo": "https://raduni-auto.it/raduno/big-truck-e-motor-fest-2026-fiereauto-fontaniva-pd",
+    "linkInfo": "tel:392 271 1969",
     "organizzatore": "",
-    "immagine": "image/raduni-eventi/9e42f5b10b432705.jpg",
-    "eventoGratuito": true,
+    "immagine": "image/eventi-scraper/autoraduni/53fbb32a7a047e7e.jpg",
+    "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "8c33ece3b9afa300"
+    "idAuto": "36c4bfc8a0520f85"
+  },
+  {
+    "titolo": "III EDIZIONE TOUR DEI LAGHI",
+    "dataInizio": "2026-10-03",
+    "dataFine": "2026-10-04",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Desenzano del Garda",
+    "citta": "Desenzano del Garda",
+    "linkBiglietti": "",
+    "linkInfo": "tel:030 649 0494",
+    "organizzatore": "",
+    "immagine": "image/eventi-scraper/autoraduni/24cdd1691e07b928.jpg",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "57f0fe6f3a77208b"
   },
   {
     "titolo": "Fataroba 2026 - Area Tuning",
@@ -2825,12 +2825,12 @@
     "circuito": "Torino",
     "citta": "Torino",
     "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/salone-auto-torino-2026/",
+    "linkInfo": "mailto:info@saloneautotorino.com",
     "organizzatore": "",
     "immagine": "image/eventi-scraper/autoraduni/4b2aa120b0ed074e.jpg",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "775884a595607f6a"
+    "idAuto": "7b43ffb039d65982"
   },
   {
     "titolo": "First Barny Raduno 2026",
@@ -2935,23 +2935,6 @@
     "idAuto": "dae32bdd330b7e08"
   },
   {
-    "titolo": "MOSTRA SCAMBIO CASERTA",
-    "dataInizio": "2027-01-23",
-    "dataFine": "2027-01-24",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "San Marco Evangelista",
-    "citta": "San Marco Evangelista",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/mostra-scambio-caserta-2/",
-    "organizzatore": "",
-    "immagine": "image/eventi-scraper/autoraduni/7b7d36bf144bfc54.jpg",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "1de4a29fa889260b"
-  },
-  {
     "titolo": "Vallelunga Euro Nascar",
     "dataInizio": "2026-09-19",
     "dataFine": "2026-09-20",
@@ -2984,6 +2967,23 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "733ad98dcd91e1a5"
+  },
+  {
+    "titolo": "MOSTRA SCAMBIO CASERTA",
+    "dataInizio": "2027-01-23",
+    "dataFine": "2027-01-24",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "San Marco Evangelista",
+    "citta": "San Marco Evangelista",
+    "linkBiglietti": "",
+    "linkInfo": "tel:089 70 15 767",
+    "organizzatore": "",
+    "immagine": "image/eventi-scraper/autoraduni/7b7d36bf144bfc54.jpg",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "7db6ea5aae1b1c51"
   },
   {
     "titolo": "20° VW Bassano Classic",
@@ -3139,23 +3139,6 @@
     "idAuto": "984c1cbfd72b60fc"
   },
   {
-    "titolo": "17° RADUNO DINAMICO",
-    "dataInizio": "2026-09-20",
-    "dataFine": "2026-09-20",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Pray",
-    "citta": "Pray",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/17-raduno-dinamico/",
-    "organizzatore": "",
-    "immagine": "image/eventi-scraper/autoraduni/0d1f62e632dca40b.jpg",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "02966ec33c14d2c7"
-  },
-  {
     "titolo": "Rally Lago di Garda",
     "dataInizio": "2026-11-01",
     "dataFine": "2026-11-01",
@@ -3258,6 +3241,23 @@
     "idAuto": "f0f9712806eef078"
   },
   {
+    "titolo": "17° RADUNO DINAMICO",
+    "dataInizio": "2026-09-20",
+    "dataFine": "2026-09-20",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Pray",
+    "citta": "Pray",
+    "linkBiglietti": "",
+    "linkInfo": "tel:3471366807",
+    "organizzatore": "",
+    "immagine": "image/eventi-scraper/autoraduni/0d1f62e632dca40b.jpg",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "f87b9de0e6b7900a"
+  },
+  {
     "titolo": "Rally del Brunello",
     "dataInizio": "2026-11-29",
     "dataFine": "2026-11-29",
@@ -3273,6 +3273,23 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "1bdecbe86845cd4d"
+  },
+  {
+    "titolo": "MOTORPICIO TREFFEN",
+    "dataInizio": "2026-09-05",
+    "dataFine": "2026-09-06",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "Tavarnelle di Cortona",
+    "citta": "Tavarnelle di Cortona",
+    "linkBiglietti": "",
+    "linkInfo": "mailto:motorpicio@gmail.com",
+    "organizzatore": "",
+    "immagine": "image/eventi-scraper/autoraduni/e4dc702bb5cc6810.jpg",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "3fe4a0273f180b02"
   },
   {
     "titolo": "Expo in Consandolo",
@@ -3307,23 +3324,6 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "5aa5115f37bcd9af"
-  },
-  {
-    "titolo": "MOTORPICIO TREFFEN",
-    "dataInizio": "2026-09-05",
-    "dataFine": "2026-09-06",
-    "disciplina": [
-      "Raduno"
-    ],
-    "circuito": "Tavarnelle di Cortona",
-    "citta": "Tavarnelle di Cortona",
-    "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/motorpico-cortona/",
-    "organizzatore": "",
-    "immagine": "image/eventi-scraper/autoraduni/e4dc702bb5cc6810.jpg",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "9b714bdf9ae1cd4b"
   },
   {
     "titolo": "German Vs JDM 2026",
@@ -3658,12 +3658,12 @@
     "circuito": "Isera",
     "citta": "Isera",
     "linkBiglietti": "",
-    "linkInfo": "https://www.autoraduni.it/autoraduno/50-fiat-500/",
+    "linkInfo": "tel:3393020236",
     "organizzatore": "",
     "immagine": "image/eventi-scraper/autoraduni/e8d7bbf585558deb.jpg",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "45b57923e0bb747f"
+    "idAuto": "a82ed45e17bc389b"
   },
   {
     "titolo": "2H di Roma",
