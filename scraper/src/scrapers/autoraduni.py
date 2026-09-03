@@ -80,17 +80,15 @@ class AutoraduniScraper(BaseTrackScraper):
 
             link_el = container.find("a", class_="listing-item")
             href = link_el.get("href", self.config.url) if link_el else self.config.url
-
             disciplina_override = ["Raduno"] if category in RADUNO_CATEGORIES else None
-
-                            img_tag = container.find("img")
-                immagine_url = ""
-                if img_tag:
-                    src = img_tag.get("data-src") or img_tag.get("src", "")
-                    if src and not src.startswith("http"):
-                        src = f"https://www.autoraduni.it{src}"
-                    if src:
-                        immagine_url = download_event_image(src, "autoraduni") or ""
+            img_tag = container.find("img")
+            immagine_url = ""
+            if img_tag:
+                src = img_tag.get("data-src") or img_tag.get("src", "")
+                if src and not src.startswith("http"):
+                    src = f"https://www.autoraduni.it{src}"
+                if src:
+                    immagine_url = download_event_image(src, "autoraduni") or ""
           
             ev = Event(
                 track_slug=self.config.slug,
