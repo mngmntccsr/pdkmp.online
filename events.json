@@ -697,8 +697,8 @@
     "disciplina": [
       "Raduno"
     ],
-    "circuito": "Forlì. Forlimpopoli. Faenza",
-    "citta": "Forlì. Forlimpopoli. Faenza",
+    "circuito": "Faenza",
+    "citta": "Faenza",
     "linkBiglietti": "",
     "linkInfo": "tel:3385003729",
     "organizzatore": "",
@@ -1768,8 +1768,8 @@
     "disciplina": [
       "Rally"
     ],
-    "circuito": "Monza e della Brianza",
-    "citta": "Monza e della Brianza",
+    "circuito": "Autodromo Nazionale Monza",
+    "citta": "Monza",
     "linkBiglietti": "",
     "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
     "organizzatore": "",
@@ -3477,23 +3477,6 @@
     "eventoGratuito": true,
     "fonteAuto": true,
     "idAuto": "21cce2997eae89ae"
-  },
-  {
-    "titolo": "Monza Rally Show",
-    "dataInizio": "2026-11-29",
-    "dataFine": "2026-11-29",
-    "disciplina": [
-      "Rally"
-    ],
-    "circuito": "Monza e della Brianza",
-    "citta": "Monza e della Brianza",
-    "linkBiglietti": "",
-    "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
-    "organizzatore": "",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "34ad9c8940baad87"
   },
   {
     "titolo": "RallyLegend 2026",

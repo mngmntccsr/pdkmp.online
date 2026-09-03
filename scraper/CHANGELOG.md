@@ -2,6 +2,70 @@
 
 Questo file viene aggiornato automaticamente ogni settimana dallo scraper.
 
+## 2026-09-03 21:00 UTC
+
+✅ **Aggiunti (26)**
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **Imola Classic** — 2026-10-16 → 2026-10-18 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/imola-classic-2/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **ACI Misano Racing Weekend** — 2026-09-17 → 2026-09-20 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **PNK Motorsport** — 2026-11-05 → 2026-11-08 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **Formula X** — 2026-11-12 → 2026-11-15 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **GRAN PREMIO STORICO D’ITALIA** — 2026-10-02 → 2026-10-04 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-02/1751-gran-premio-storico-d-italia
+- **MUGELLO RACING WEEKEND** — 2026-10-16 → 2026-10-18 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-16/1752-mugello-racing-weekend-4
+- **10° RADUNO VULCANI CITROEN** — 2026-09-05 → 2026-09-06 _[Spinea]_ — mailto:gruppovulcani@gmail.com
+- **RADUNO AUTO D’EPOCA** — 2026-09-06 → 2026-09-06 _[Cologna Veneta]_ — tel:327 5746796 - 349 3745983
+- **ХІII° OPEL MEETING INTERNAZIONALE** — 2026-09-12 → 2026-09-12 _[Verona]_ — tel:368 3180377 - 338 8890387 - 339 1361752
+- **32° RADUNO VIADANA** — 2026-09-19 → 2026-09-20 _[Viadana]_ — mailto:honda.civic.club.it@gmail.com
+- **CONCORSO INTERNAZIONALE DI ELEGANZA AUTOMOBILI MONTECATINI TERME XVI EDIZIONE** — 2026-09-19 → 2026-09-20 _[Montecatini Terme]_ — mailto:jhcesare@gmail.com
+- **XIV MEETING DI AUTO E MOTO D’EPOCA** — 2026-09-20 → 2026-09-20 _[San Paolo Bel Sito]_ — tel:334 3555130 – 334 5648363
+- **MAGGIOLINI BASSANESI** — 2026-09-26 → 2026-09-27 _[Bassano del Grappa]_ — tel:349 850 5711
+- **AUTO& MOTO D’EPOCA** — 2026-09-27 → 2026-09-27 _[San Valentino Torio]_ — tel:3275581354
+- **14° ROCKIN RODDIN REUNION** — 2026-10-17 → 2026-10-18 _[Brescia]_ — mailto:sbarbari-klan@libero.it
+- **US CARS REUNION** — 2026-10-18 → 2026-10-18 _[Brescia]_ — mailto:info@sharksteam.it
+- **Rally Lazio Cassino** — 2026-09-18 → 2026-09-19 _[Frosinone]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rallye Sanremo** — 2026-10-18 → 2026-10-18 _[Imperia]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally Lana** — 2026-10-25 → 2026-10-25 _[Biella]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **CannonClimb - Memorial Gilberto Altafini** — 2026-09-12 → 2026-09-12 _[Pegognaga]_ — https://raduni-auto.it/raduno/cannonclimb-memorial-gilberto-altafini-dinamico-pegognaga-mn
+- **Big truck & motor fest 2026** — 2026-09-25 → 2026-09-25 _[Fontaniva]_ — https://raduni-auto.it/raduno/big-truck-e-motor-fest-2026-fiereauto-fontaniva-pd
+- **Anniversario 120 Anni Lancia** — 2026-09-26 → 2026-09-26 _[Desio]_ — https://raduni-auto.it/raduno/anniversario-120-anni-lancia-statico-desio-mb
+
+❌ **Rimossi (1)**
+- **Monza Rally Show** — 2026-11-29 → 2026-11-29 _[Monza e della Brianza]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+
+🔁 **Duplicati rimossi (26)** — stesso circuito+data di un evento già presente
+- **CONCORSO INTERNAZIONALE DI ELEGANZA AUTOMOBILI MONTECATINI TERME XVI EDIZIONE** — 2026-09-19 → 2026-09-20 _[Montecatini Terme]_ — mailto:jhcesare@gmail.com
+- **CannonClimb - Memorial Gilberto Altafini** — 2026-09-12 → 2026-09-12 _[Pegognaga]_ — https://raduni-auto.it/raduno/cannonclimb-memorial-gilberto-altafini-dinamico-pegognaga-mn
+- **XIV MEETING DI AUTO E MOTO D’EPOCA** — 2026-09-20 → 2026-09-20 _[San Paolo Bel Sito]_ — tel:334 3555130 – 334 5648363
+- **ХІII° OPEL MEETING INTERNAZIONALE** — 2026-09-12 → 2026-09-12 _[Verona]_ — tel:368 3180377 - 338 8890387 - 339 1361752
+- **Anniversario 120 Anni Lancia** — 2026-09-26 → 2026-09-26 _[Desio]_ — https://raduni-auto.it/raduno/anniversario-120-anni-lancia-statico-desio-mb
+- **GRAN PREMIO STORICO D’ITALIA** — 2026-10-02 → 2026-10-04 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-02/1751-gran-premio-storico-d-italia
+- **Big truck & motor fest 2026** — 2026-09-25 → 2026-09-25 _[Fontaniva]_ — https://raduni-auto.it/raduno/big-truck-e-motor-fest-2026-fiereauto-fontaniva-pd
+- **10° RADUNO VULCANI CITROEN** — 2026-09-05 → 2026-09-06 _[Spinea]_ — mailto:gruppovulcani@gmail.com
+- **ACI Misano Racing Weekend** — 2026-09-17 → 2026-09-20 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **14° ROCKIN RODDIN REUNION** — 2026-10-17 → 2026-10-18 _[Brescia]_ — mailto:sbarbari-klan@libero.it
+- **MUGELLO RACING WEEKEND** — 2026-10-16 → 2026-10-18 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-16/1752-mugello-racing-weekend-4
+- **MAGGIOLINI BASSANESI** — 2026-09-26 → 2026-09-27 _[Bassano del Grappa]_ — tel:349 850 5711
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **RADUNO AUTO D’EPOCA** — 2026-09-06 → 2026-09-06 _[Cologna Veneta]_ — tel:327 5746796 - 349 3745983
+- **Rally Lazio Cassino** — 2026-09-18 → 2026-09-19 _[Frosinone]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **32° RADUNO VIADANA** — 2026-09-19 → 2026-09-20 _[Viadana]_ — mailto:honda.civic.club.it@gmail.com
+- **AUTO& MOTO D’EPOCA** — 2026-09-27 → 2026-09-27 _[San Valentino Torio]_ — tel:3275581354
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **US CARS REUNION** — 2026-10-18 → 2026-10-18 _[Brescia]_ — mailto:info@sharksteam.it
+- **PNK Motorsport** — 2026-11-05 → 2026-11-08 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **Rallye Sanremo** — 2026-10-18 → 2026-10-18 _[Imperia]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Imola Classic** — 2026-10-16 → 2026-10-18 _[Autodromo di Imola]_ — https://www.autodromoimola.it/en/events/imola-classic-2/
+- **Rally Lana** — 2026-10-25 → 2026-10-25 _[Biella]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Formula X** — 2026-11-12 → 2026-11-15 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+
+
+---
+
 ## 2026-09-03 20:26 UTC
 
 ✅ **Aggiunti (44)**
