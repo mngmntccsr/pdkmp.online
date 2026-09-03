@@ -74,6 +74,11 @@ def load_circuit_aliases() -> dict:
         raw = yaml.safe_load(f)
     return raw.get("circuit_aliases", {})
 
+def load_excluded_titles() -> list[str]:
+    with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+        raw = yaml.safe_load(f)
+    return [t.lower() for t in raw.get("excluded_titles", [])]
+
 def load_email_config() -> EmailConfig:
     def _req(name: str) -> str:
         val = os.environ.get(name)
