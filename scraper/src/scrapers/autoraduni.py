@@ -33,6 +33,14 @@ from src.scrapers.base import BaseTrackScraper, download_event_image, fetch_html
 
 RADUNO_CATEGORIES = {"autoraduni", "fiere", "mostra", "rievocazione"}
 
+def _fetch_external_link(detail_url: str) -> str | None:
+    try:
+        html = fetch_html_static(detail_url)
+    except Exception:
+        return None
+    soup = BeautifulSoup(html, "lxml")
+    link = soup.find("a", class_="listing-links")
+    return link.get("href") if link else None
 
 def _parse_date_range(raw: str) -> tuple[str, str] | None:
     """'30/08/2026 - 06/09/2026' oppure '30/08/2026 - ' (un solo giorno)."""
@@ -80,6 +88,7 @@ class AutoraduniScraper(BaseTrackScraper):
 
             link_el = container.find("a", class_="listing-item")
             href = link_el.get("href", self.config.url) if link_el else self.config.url
+            link_esterno = _fetch_external_link(href)
             disciplina_override = ["Raduno"] if category in RADUNO_CATEGORIES else None
             img_tag = container.find("img")
             immagine_url = ""
@@ -95,7 +104,7 @@ class AutoraduniScraper(BaseTrackScraper):
                 track_name=self.config.name,
                 title=title,
                 date_text=f"{start_iso} - {end_iso}",   # solo riferimento/debug
-                url=href,
+                url=link_esterno or href,
                 date_start=start_iso,
                 date_end=end_iso,
                 circuito_override=citta,   # niente circuito fisico: usiamo la città
