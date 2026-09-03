@@ -212,3 +212,29 @@ class BaseTrackScraper(ABC):
         (il filtro motorsport/non-motorsport viene applicato dopo, in main.py).
         """
         raise NotImplementedError
+
+import hashlib
+from src.config import ROOT_DIR
+
+IMAGE_DIR = ROOT_DIR.parent / "image" / "eventi-scraper"
+
+
+def download_event_image(url: str, subfolder: str) -> str | None:
+    """Scarica un'immagine e la salva nel repo (bypassa eventuale hotlink
+    protection). Restituisce il percorso relativo per events.json, o None
+    se il download fallisce (l'evento resta senza immagine, non bloccante).
+    """
+    if not url:
+        return None
+    try:
+        resp = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=15)
+        resp.raise_for_status()
+    except Exception:
+        return None
+    folder = IMAGE_DIR / subfolder
+    folder.mkdir(parents=True, exist_ok=True)
+    filename = hashlib.sha1(url.encode()).hexdigest()[:16] + ".jpg"
+    path = folder / filename
+    if not path.exists():
+        path.write_bytes(resp.content)
+    return f"image/eventi-scraper/{subfolder}/{filename}"
