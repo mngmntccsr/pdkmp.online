@@ -32,6 +32,18 @@ CIRCUIT_TRACK_NAMES = {
     "Castelletto di Branduzzo": "Castelletto Circuit",
     "Franciacorta": "Franciacorta Karting Circuit",
     "Imola": "Autodromo Nazionale Enzo e Dino Ferrari",
+    "Magione": "Autodromo Nazionale dell'Umbria",
+    "Misano": "Misano World Circuit",
+    "Mugello": "Mugello Circuit",
+    "Pergusa": "Autodromo di Pergusa",
+    "Pomposa": "Circuito di Pomposa",
+    "Sele": "Circuito del Sele",
+    "Siena": "Circuito di Siena",
+    "Tazio Nuvolari": "Circuito Tazio Nuvolari",
+    "Tazio Nuvolari 5260": "Circuito Tazio Nuvolari",
+    "Vallelunga": "Autodromo di Vallelunga Piero Taruffi", 
+    "Varano De' Melegari": "Autodromo Riccardo Paletti",
+    "Viterbo": "Circuito Internazionale di Viterbo"
 }
 
 
