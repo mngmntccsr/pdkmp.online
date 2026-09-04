@@ -25,7 +25,7 @@ from pathlib import Path
 from datetime import date
 
 from src.changelog import append_changelog_entry, build_entry
-from src.config import ROOT_DIR, load_circuit_aliases, load_excluded_titles, load_keywords, load_tracks
+from src.config import ROOT_DIR, load_circuit_aliases, load_citta_aliases, load_keywords, load_tracks
 from src.events_archive import split_and_archive
 from src.events_json_merge import dedupe_events, load_events_json, merge_auto_events, save_events_json
 from src.filters import filter_events
@@ -80,6 +80,7 @@ def run(dry_run: bool = False, only_track: str | None = None) -> int:
     tracks = load_tracks()
     keywords = load_keywords()
     circuit_aliases = load_circuit_aliases()
+    citta_aliases = load_citta_aliases()
 
     if only_track:
         tracks = [t for t in tracks if t.slug == only_track]
@@ -117,6 +118,7 @@ def run(dry_run: bool = False, only_track: str | None = None) -> int:
                 keywords.get("free_entry", []),
                 keywords.get("organizer_rules", []),
                 circuit_aliases,
+                citta_aliases,
             )
             if pdkmp_dict is None:
                 unparsed.append((track.name, ev))
