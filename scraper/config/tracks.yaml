@@ -278,6 +278,7 @@ circuit_aliases:
   "Autodromo Internazionale del Mugello": "Mugello Circuit"
   "Autodromo di Imola": "Autodromo di Imola Enzo e Dino Ferrari"
   "Autodromo di Vallelunga": "Autodromo di Vallelunga Piero Taruffi"
+  "Varano De' Melegari": "Circuito di Varano Riccardo Paletti"
 
 citta_aliases:    # Valido anche per le città (prima nome sbagliato poi quello corretto)
   "San Paolo Belsito": "San Paolo Bel Sito"
