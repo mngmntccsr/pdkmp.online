@@ -39,8 +39,11 @@ def _fetch_external_link(detail_url: str) -> str | None:
     except Exception:
         return None
     soup = BeautifulSoup(html, "lxml")
-    link = soup.find("a", class_="listing-links")
-    return link.get("href") if link else None
+    for link in soup.find_all("a", class_="listing-links"):
+        href = link.get("href", "")
+        if href.startswith("http"):
+            return href
+    return None
 
 def _parse_date_range(raw: str) -> tuple[str, str] | None:
     """'30/08/2026 - 06/09/2026' oppure '30/08/2026 - ' (un solo giorno)."""
