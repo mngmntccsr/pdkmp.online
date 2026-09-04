@@ -2669,7 +2669,7 @@
     "disciplina": [
       "Raduno"
     ],
-    "circuito": "San Paolo Bel Sito",
+    "circuito": "San Paolo Belsito",
     "citta": "San Paolo Bel Sito",
     "linkBiglietti": "",
     "linkInfo": "https://raduni-auto.it/raduno/raduno-auto-e-moto-depoca-san-paolo-belsito-autodepoca-san-paolo-belsito-na",
@@ -3256,6 +3256,23 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "3d5781c28c2ba805"
+  },
+  {
+    "titolo": "XIV MEETING DI AUTO E MOTO D’EPOCA",
+    "dataInizio": "2026-09-20",
+    "dataFine": "2026-09-20",
+    "disciplina": [
+      "Raduno"
+    ],
+    "circuito": "San Paolo Bel Sito",
+    "citta": "San Paolo Bel Sito",
+    "linkBiglietti": "",
+    "linkInfo": "https://www.autoraduni.it/autoraduno/xiv-meeting-di-auto-e-moto-depoca/",
+    "organizzatore": "",
+    "immagine": "image/eventi-scraper/autoraduni/bfb8d4d6dca54f07.jpg",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "8d1c39b0962cb2f5"
   },
   {
     "titolo": "Tuning Expo Raduno Auto - Tappa X2",
@@ -4182,7 +4199,7 @@
     "disciplina": [
       "Rally"
     ],
-    "circuito": "Bassano del Grappa",
+    "circuito": "Bassano",
     "citta": "Bassano del Grappa",
     "linkBiglietti": "",
     "linkInfo": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv",
