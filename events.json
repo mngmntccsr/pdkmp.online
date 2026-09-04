@@ -674,6 +674,108 @@
     "idAuto": "f849bd190293c1e0"
   },
   {
+    "titolo": "RSE Italia - Guida in pista a Circuito di Varano Riccardo Paletti",
+    "dataInizio": "2026-12-12",
+    "dataFine": "2026-12-12",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Circuito di Varano Riccardo Paletti",
+    "citta": "Varano de' Melegari",
+    "linkBiglietti": "",
+    "linkInfo": "https://rseitalia.it/calendario/",
+    "organizzatore": "RSE Italia",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "36bdedc184b9cfd4"
+  },
+  {
+    "titolo": "RSE Italia - Guida in pista a Circuito di Varano Riccardo Paletti",
+    "dataInizio": "2026-11-22",
+    "dataFine": "2026-11-22",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Circuito di Varano Riccardo Paletti",
+    "citta": "Varano de' Melegari",
+    "linkBiglietti": "",
+    "linkInfo": "https://rseitalia.it/calendario/",
+    "organizzatore": "RSE Italia",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "8903c1dd78abd83d"
+  },
+  {
+    "titolo": "RSE Italia - Guida in pista a Circuito di Varano Riccardo Paletti",
+    "dataInizio": "2027-03-12",
+    "dataFine": "2027-03-12",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Circuito di Varano Riccardo Paletti",
+    "citta": "Varano de' Melegari",
+    "linkBiglietti": "",
+    "linkInfo": "https://rseitalia.it/calendario/",
+    "organizzatore": "RSE Italia",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "9bf359a6f09be7ba"
+  },
+  {
+    "titolo": "RSE Italia - Guida in pista a Circuito di Varano Riccardo Paletti",
+    "dataInizio": "2026-10-09",
+    "dataFine": "2026-10-09",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Circuito di Varano Riccardo Paletti",
+    "citta": "Varano de' Melegari",
+    "linkBiglietti": "",
+    "linkInfo": "https://rseitalia.it/calendario/",
+    "organizzatore": "RSE Italia",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "a07024fd4e51973c"
+  },
+  {
+    "titolo": "RSE Italia - Guida in pista a Circuito di Varano Riccardo Paletti",
+    "dataInizio": "2027-07-30",
+    "dataFine": "2027-07-30",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Circuito di Varano Riccardo Paletti",
+    "citta": "Varano de' Melegari",
+    "linkBiglietti": "",
+    "linkInfo": "https://rseitalia.it/calendario/",
+    "organizzatore": "RSE Italia",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "b77ea05c2a468307"
+  },
+  {
+    "titolo": "RSE Italia - Guida in pista a Circuito di Varano Riccardo Paletti",
+    "dataInizio": "2026-11-08",
+    "dataFine": "2026-11-08",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Circuito di Varano Riccardo Paletti",
+    "citta": "Varano de' Melegari",
+    "linkBiglietti": "",
+    "linkInfo": "https://rseitalia.it/calendario/",
+    "organizzatore": "RSE Italia",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "ec580bc205a06047"
+  },
+  {
     "titolo": "We Can Race - Guida in pista a Circuito Internazionale d'Abruzzo",
     "dataInizio": "2027-03-20",
     "dataFine": "2027-03-20",
@@ -1241,7 +1343,7 @@
     "disciplina": [
       "Trackday"
     ],
-    "circuito": "Autodromo Riccardo Paletti",
+    "circuito": "Circuito di Varano Riccardo Paletti",
     "citta": "Varano de' Melegari",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
@@ -1377,7 +1479,7 @@
     "disciplina": [
       "Trackday"
     ],
-    "circuito": "Autodromo Riccardo Paletti",
+    "circuito": "Circuito di Varano Riccardo Paletti",
     "citta": "Varano de' Melegari",
     "linkBiglietti": "",
     "linkInfo": "https://wecanrace.it/calendario/",
@@ -1983,23 +2085,6 @@
     "idAuto": "fce1f286312ccc96"
   },
   {
-    "titolo": "RSE Italia - Guida in pista a Varano De’ Melegari",
-    "dataInizio": "2026-11-22",
-    "dataFine": "2026-11-22",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Varano De’ Melegari",
-    "citta": "Varano De’ Melegari",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "15e7858d2027bd0c"
-  },
-  {
     "titolo": "We Can Race - Guida in pista a Tazio Nuvolari 2.8",
     "dataInizio": "2027-03-13",
     "dataFine": "2027-03-13",
@@ -2136,23 +2221,6 @@
     "idAuto": "5935499e975290c2"
   },
   {
-    "titolo": "RSE Italia - Guida in pista a Varano De’ Melegari",
-    "dataInizio": "2027-03-12",
-    "dataFine": "2027-03-12",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Varano De’ Melegari",
-    "citta": "Varano De’ Melegari",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "702973ff0b4f7e2f"
-  },
-  {
     "titolo": "We Can Race - Guida in pista a Autodromo di Arese",
     "dataInizio": "2026-11-01",
     "dataFine": "2026-11-01",
@@ -2238,23 +2306,6 @@
     "idAuto": "9b700d7d8edeefab"
   },
   {
-    "titolo": "RSE Italia - Guida in pista a Varano De’ Melegari",
-    "dataInizio": "2027-07-30",
-    "dataFine": "2027-07-30",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Varano De’ Melegari",
-    "citta": "Varano De’ Melegari",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "9f09efcf3f7f2780"
-  },
-  {
     "titolo": "RSE Italia - Guida in pista a Castelletto Circuit",
     "dataInizio": "2027-02-06",
     "dataFine": "2027-02-07",
@@ -2270,23 +2321,6 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "a0aa6291985614b0"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Varano De’ Melegari",
-    "dataInizio": "2026-12-12",
-    "dataFine": "2026-12-12",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Varano De’ Melegari",
-    "citta": "Varano De’ Melegari",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "bc08d3a1b304a8c8"
   },
   {
     "titolo": "RSE Italia - Guida in pista a Circuito di Pomposa",
@@ -2374,23 +2408,6 @@
     "idAuto": "e2a57b43a880c8cf"
   },
   {
-    "titolo": "RSE Italia - Guida in pista a Varano De’ Melegari",
-    "dataInizio": "2026-10-09",
-    "dataFine": "2026-10-09",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Varano De’ Melegari",
-    "citta": "Varano De’ Melegari",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "e4d17c842d34f1db"
-  },
-  {
     "titolo": "RSE Italia - Guida in pista a Circuito di Pomposa",
     "dataInizio": "2027-02-05",
     "dataFine": "2027-02-05",
@@ -2440,23 +2457,6 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "fdb56b866a4cdef1"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Varano De’ Melegari",
-    "dataInizio": "2026-11-08",
-    "dataFine": "2026-11-08",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Varano De’ Melegari",
-    "citta": "Varano De’ Melegari",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "ff7470e8c15fc52a"
   },
   {
     "titolo": "RSE Italia - Guida in pista a Autodromo di Arese",
