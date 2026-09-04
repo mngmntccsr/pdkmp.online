@@ -39,6 +39,7 @@ from src.scrapers.wecanrace import WeCanRaceScraper
 from src.scrapers.autoraduni import AutoraduniScraper
 from src.scrapers.rallylink import RallylinkScraper
 from src.scrapers.raduni_auto import RaduniAutoScraper
+from src.scrapers.rse_italia import RseItaliaScraper
 
 
 logging.basicConfig(
@@ -57,6 +58,7 @@ SCRAPER_REGISTRY = {
     "autoraduni": AutoraduniScraper,
     "rallylink": RallylinkScraper,
     "raduni_auto": RaduniAutoScraper,
+    "rse_italia": RseItaliaScraper,
 }
 
 # events.json vive nella ROOT del repo del sito (accanto a index.html).
