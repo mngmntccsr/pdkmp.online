@@ -274,8 +274,8 @@ keywords:
 # senza dover toccare il codice.
 circuit_aliases:     # Valido anche per le città (prima nome sbagliato poi quello corretto)
   "Autodromo Internazionale del Mugello": "Mugello Circuit"
-  "Autodromo Enzo e Dino Ferrari": "Autodromo di Imola"
-  "Autodromo Piero Taruffi": "Autodromo di Vallelunga"
+  "Autodromo di Imola": "Autodromo Enzo e Dino Ferrari": 
+  "Autodromo di Vallelunga": "Autodromo Piero Taruffi"
   "San Paolo Belsito": "San Paolo Bel Sito"
   "Bassano": "Bassano del Grappa"
   "Scarperia S. Piero": "Scarperia e San Piero"
