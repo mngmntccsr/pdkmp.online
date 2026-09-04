@@ -109,6 +109,16 @@ tracks:
     selectors: {}
     date_hint_language: it  
 
+  - slug: trackdays
+    name: "Track-Days.it"
+    citta: ""
+    url: "https://track-days.it/calendario/"
+    parser: static
+    skip_motorsport_filter: true
+    selectors: {}
+    date_hint_language: it
+  
+
 # =============================================================================
 # PAROLE CHIAVE PER LA CLASSIFICAZIONE DEGLI EVENTI
 # =============================================================================
