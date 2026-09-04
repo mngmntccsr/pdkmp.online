@@ -25,7 +25,7 @@ from pathlib import Path
 from datetime import date
 
 from src.changelog import append_changelog_entry, build_entry
-from src.config import ROOT_DIR, load_circuit_aliases, load_citta_aliases, load_keywords, load_tracks
+from src.config import ROOT_DIR, load_circuit_aliases, load_citta_aliases, load_excluded_titles, load_keywords, load_tracks
 from src.events_archive import split_and_archive
 from src.events_json_merge import dedupe_events, load_events_json, merge_auto_events, save_events_json
 from src.filters import filter_events
