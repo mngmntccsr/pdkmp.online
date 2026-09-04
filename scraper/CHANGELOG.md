@@ -2,6 +2,130 @@
 
 Questo file viene aggiornato automaticamente ogni settimana dallo scraper.
 
+## 2026-09-04 13:32 UTC
+
+✅ **Aggiunti (45)**
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola Enzo e Dino Ferrari]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola Enzo e Dino Ferrari]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **ACI Misano Racing Weekend** — 2026-09-17 → 2026-09-20 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **PNK Motorsport** — 2026-11-05 → 2026-11-08 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **Formula X** — 2026-11-12 → 2026-11-15 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **GRAN PREMIO STORICO D’ITALIA** — 2026-10-02 → 2026-10-04 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-02/1751-gran-premio-storico-d-italia
+- **MUGELLO RACING WEEKEND** — 2026-10-16 → 2026-10-18 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-16/1752-mugello-racing-weekend-4
+- **10° RADUNO VULCANI CITROEN** — 2026-09-05 → 2026-09-06 _[Spinea]_ — https://www.autoraduni.it/autoraduno/10-raduno-vulcani-citroen/
+- **RADUNO AUTO D’EPOCA** — 2026-09-06 → 2026-09-06 _[Cologna Veneta]_ — https://www.autoraduni.it/autoraduno/raduno-auto-depoca-18/
+- **ХІII° OPEL MEETING INTERNAZIONALE** — 2026-09-12 → 2026-09-12 _[Verona]_ — https://www.autoraduni.it/autoraduno/%d1%85%d1%96ii-opel-meeting-internazionale/
+- **32° RADUNO VIADANA** — 2026-09-19 → 2026-09-20 _[Viadana]_ — https://hondacivic-club.forumfree.it/
+- **CONCORSO INTERNAZIONALE DI ELEGANZA AUTOMOBILI MONTECATINI TERME XVI EDIZIONE** — 2026-09-19 → 2026-09-20 _[Montecatini Terme]_ — https://www.kursaalcarclub.com/concorsoeleganzamontecatini/
+- **XIV MEETING DI AUTO E MOTO D’EPOCA** — 2026-09-20 → 2026-09-20 _[San Paolo Bel Sito]_ — https://www.autoraduni.it/autoraduno/xiv-meeting-di-auto-e-moto-depoca/
+- **BIG TRUCK & MOTOR FEST 2026** — 2026-09-25 → 2026-09-27 _[Fontaniva]_ — https://www.autoraduni.it/autoraduno/big-truck-e-motor-fest/
+- **ANNIVERSARIO 120 ANNI LANCIA** — 2026-09-26 → 2026-09-26 _[Desio]_ — https://www.autoraduni.it/autoraduno/anniversario-120-anni-lancia/
+- **MAGGIOLINI BASSANESI** — 2026-09-26 → 2026-09-27 _[Bassano del Grappa]_ — https://www.autoraduni.it/autoraduno/maggiolini-bassanesi/
+- **AUTO& MOTO D’EPOCA** — 2026-09-27 → 2026-09-27 _[San Valentino Torio]_ — https://www.autoraduni.it/autoraduno/auto-moto-depoca/
+- **14° ROCKIN RODDIN REUNION** — 2026-10-17 → 2026-10-18 _[Brescia]_ — http://www.rombodituono.it
+- **Rally Lazio Cassino** — 2026-09-18 → 2026-09-19 _[Frosinone]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rallye Sanremo** — 2026-10-18 → 2026-10-18 _[Imperia]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally Lana** — 2026-10-25 → 2026-10-25 _[Biella]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **CannonClimb - Memorial Gilberto Altafini** — 2026-09-12 → 2026-09-12 _[Pegognaga]_ — https://raduni-auto.it/raduno/cannonclimb-memorial-gilberto-altafini-dinamico-pegognaga-mn
+- **RSE Italia - Guida in pista a Adria International Raceway** — 2027-03-13 → 2027-03-14 _[Adria International Raceway]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Autodromo di Arese** — 2027-01-16 → 2027-01-17 _[Autodromo di Arese]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Autodromo del Levante** — 2026-12-05 → 2026-12-06 _[Autodromo del Levante]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Bruino** — 2026-10-24 → 2026-10-25 _[Bruino]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Castelletto Circuit** — 2026-11-29 → 2026-11-30 _[Castelletto Circuit]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Castelletto Circuit** — 2027-02-06 → 2027-02-07 _[Castelletto Circuit]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Franciacorta Karting Circuit** — 2026-12-12 → 2026-12-13 _[Franciacorta Karting Circuit]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Franciacorta Karting Circuit** — 2027-02-20 → 2027-02-21 _[Franciacorta Karting Circuit]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Autodromo Nazionale Enzo e Dino Ferrari** — 2026-10-10 → 2026-10-11 _[Autodromo Nazionale Enzo e Dino Ferrari]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Autodromo Nazionale Enzo e Dino Ferrari** — 2026-11-07 → 2026-11-08 _[Autodromo Nazionale Enzo e Dino Ferrari]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Autodromo Nazionale dell'Umbria** — 2026-11-01 → 2026-11-02 _[Autodromo Nazionale dell'Umbria]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Autodromo Nazionale dell'Umbria** — 2027-01-23 → 2027-01-24 _[Autodromo Nazionale dell'Umbria]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Misano World Circuit** — 2026-11-21 → 2026-11-22 _[Misano World Circuit]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Mugello Circuit** — 2026-12-21 → 2026-12-22 _[Mugello Circuit]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Autodromo di Pergusa** — 2026-12-05 → 2026-12-06 _[Autodromo di Pergusa]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Circuito del Sele** — 2026-12-05 → 2026-12-06 _[Circuito del Sele]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Circuito del Sele** — 2027-03-27 → 2027-03-28 _[Circuito del Sele]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Circuito Tazio Nuvolari** — 2026-10-03 → 2026-10-04 _[Circuito Tazio Nuvolari]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Autodromo di Vallelunga Piero Taruffi** — 2026-11-14 → 2026-11-15 _[Autodromo di Vallelunga Piero Taruffi]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Autodromo di Vallelunga Piero Taruffi** — 2027-03-20 → 2027-03-21 _[Autodromo di Vallelunga Piero Taruffi]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Circuito Internazionale di Viterbo** — 2026-09-16 → 2026-09-17 _[Circuito Internazionale di Viterbo]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Circuito Internazionale di Viterbo** — 2027-05-11 → 2027-05-12 _[Circuito Internazionale di Viterbo]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Circuito Internazionale di Viterbo** — 2027-09-14 → 2027-09-15 _[Circuito Internazionale di Viterbo]_ — https://rseitalia.it/calendario/
+
+❌ **Rimossi (46)**
+- **RSE Italia - Guida in pista a Autodromo Nazionale Enzo e Dino Ferrari** — 2026-10-11 → 2026-10-11 _[Autodromo Nazionale Enzo e Dino Ferrari]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Autodromo Nazionale Enzo e Dino Ferrari** — 2026-11-07 → 2026-11-07 _[Autodromo Nazionale Enzo e Dino Ferrari]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Autodromo Nazionale Enzo e Dino Ferrari** — 2026-11-08 → 2026-11-08 _[Autodromo Nazionale Enzo e Dino Ferrari]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Autodromo Nazionale Enzo e Dino Ferrari** — 2026-10-10 → 2026-10-10 _[Autodromo Nazionale Enzo e Dino Ferrari]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Autodromo di Vallelunga Piero Taruffi** — 2027-03-21 → 2027-03-21 _[Autodromo di Vallelunga Piero Taruffi]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Autodromo di Vallelunga Piero Taruffi** — 2026-11-15 → 2026-11-15 _[Autodromo di Vallelunga Piero Taruffi]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Autodromo di Vallelunga Piero Taruffi** — 2026-11-14 → 2026-11-14 _[Autodromo di Vallelunga Piero Taruffi]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Autodromo di Vallelunga Piero Taruffi** — 2027-03-20 → 2027-03-20 _[Autodromo di Vallelunga Piero Taruffi]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Circuito Internazionale di Viterbo** — 2026-09-16 → 2026-09-16 _[Circuito Internazionale di Viterbo]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Circuito Internazionale di Viterbo** — 2027-05-12 → 2027-05-12 _[Circuito Internazionale di Viterbo]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Circuito Internazionale di Viterbo** — 2026-09-17 → 2026-09-17 _[Circuito Internazionale di Viterbo]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Circuito Internazionale di Viterbo** — 2027-09-14 → 2027-09-14 _[Circuito Internazionale di Viterbo]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Circuito Internazionale di Viterbo** — 2027-09-15 → 2027-09-15 _[Circuito Internazionale di Viterbo]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Circuito Internazionale di Viterbo** — 2027-05-11 → 2027-05-11 _[Circuito Internazionale di Viterbo]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Autodromo Nazionale dell'Umbria** — 2027-01-23 → 2027-01-23 _[Autodromo Nazionale dell'Umbria]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Autodromo Nazionale dell'Umbria** — 2026-11-01 → 2026-11-01 _[Autodromo Nazionale dell'Umbria]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Autodromo Nazionale dell'Umbria** — 2027-01-24 → 2027-01-24 _[Autodromo Nazionale dell'Umbria]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Autodromo Nazionale dell'Umbria** — 2026-11-02 → 2026-11-02 _[Autodromo Nazionale dell'Umbria]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Franciacorta Karting Circuit** — 2026-12-13 → 2026-12-13 _[Franciacorta Karting Circuit]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Franciacorta Karting Circuit** — 2027-02-21 → 2027-02-21 _[Franciacorta Karting Circuit]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Franciacorta Karting Circuit** — 2026-12-12 → 2026-12-12 _[Franciacorta Karting Circuit]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Franciacorta Karting Circuit** — 2027-02-20 → 2027-02-20 _[Franciacorta Karting Circuit]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Adria International Raceway** — 2027-03-14 → 2027-03-14 _[Adria International Raceway]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Adria International Raceway** — 2027-03-13 → 2027-03-13 _[Adria International Raceway]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Circuito Tazio Nuvolari** — 2026-10-03 → 2026-10-03 _[Circuito Tazio Nuvolari]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Circuito Tazio Nuvolari** — 2026-10-04 → 2026-10-04 _[Circuito Tazio Nuvolari]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Misano World Circuit** — 2026-11-22 → 2026-11-22 _[Misano World Circuit]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Autodromo di Pergusa** — 2026-12-06 → 2026-12-06 _[Autodromo di Pergusa]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Misano World Circuit** — 2026-11-21 → 2026-11-21 _[Misano World Circuit]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Autodromo di Pergusa** — 2026-12-05 → 2026-12-05 _[Autodromo di Pergusa]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Castelletto Circuit** — 2026-11-29 → 2026-11-29 _[Castelletto Circuit]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Castelletto Circuit** — 2027-02-06 → 2027-02-06 _[Castelletto Circuit]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Castelletto Circuit** — 2027-02-07 → 2027-02-07 _[Castelletto Circuit]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Castelletto Circuit** — 2026-11-30 → 2026-11-30 _[Castelletto Circuit]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Autodromo di Arese** — 2027-01-17 → 2027-01-17 _[Autodromo di Arese]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Autodromo di Arese** — 2027-01-16 → 2027-01-16 _[Autodromo di Arese]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Circuito del Sele** — 2027-03-28 → 2027-03-28 _[Circuito del Sele]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Circuito del Sele** — 2026-12-06 → 2026-12-06 _[Circuito del Sele]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Circuito del Sele** — 2026-12-05 → 2026-12-05 _[Circuito del Sele]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Circuito del Sele** — 2027-03-27 → 2027-03-27 _[Circuito del Sele]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Mugello Circuit** — 2026-12-21 → 2026-12-21 _[Mugello Circuit]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Mugello Circuit** — 2026-12-22 → 2026-12-22 _[Mugello Circuit]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Bruino** — 2026-10-25 → 2026-10-25 _[Bruino]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Bruino** — 2026-10-24 → 2026-10-24 _[Bruino]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Bari** — 2026-12-05 → 2026-12-05 _[Bari]_ — https://rseitalia.it/calendario/
+- **RSE Italia - Guida in pista a Bari** — 2026-12-06 → 2026-12-06 _[Bari]_ — https://rseitalia.it/calendario/
+
+🔁 **Duplicati rimossi (22)** — stesso circuito+data di un evento già presente
+- **CONCORSO INTERNAZIONALE DI ELEGANZA AUTOMOBILI MONTECATINI TERME XVI EDIZIONE** — 2026-09-19 → 2026-09-20 _[Montecatini Terme]_ — https://www.kursaalcarclub.com/concorsoeleganzamontecatini/
+- **CannonClimb - Memorial Gilberto Altafini** — 2026-09-12 → 2026-09-12 _[Pegognaga]_ — https://raduni-auto.it/raduno/cannonclimb-memorial-gilberto-altafini-dinamico-pegognaga-mn
+- **XIV MEETING DI AUTO E MOTO D’EPOCA** — 2026-09-20 → 2026-09-20 _[San Paolo Bel Sito]_ — https://www.autoraduni.it/autoraduno/xiv-meeting-di-auto-e-moto-depoca/
+- **ХІII° OPEL MEETING INTERNAZIONALE** — 2026-09-12 → 2026-09-12 _[Verona]_ — https://www.autoraduni.it/autoraduno/%d1%85%d1%96ii-opel-meeting-internazionale/
+- **GRAN PREMIO STORICO D’ITALIA** — 2026-10-02 → 2026-10-04 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-02/1751-gran-premio-storico-d-italia
+- **ANNIVERSARIO 120 ANNI LANCIA** — 2026-09-26 → 2026-09-26 _[Desio]_ — https://www.autoraduni.it/autoraduno/anniversario-120-anni-lancia/
+- **BIG TRUCK & MOTOR FEST 2026** — 2026-09-25 → 2026-09-27 _[Fontaniva]_ — https://www.autoraduni.it/autoraduno/big-truck-e-motor-fest/
+- **10° RADUNO VULCANI CITROEN** — 2026-09-05 → 2026-09-06 _[Spinea]_ — https://www.autoraduni.it/autoraduno/10-raduno-vulcani-citroen/
+- **14° ROCKIN RODDIN REUNION** — 2026-10-17 → 2026-10-18 _[Brescia]_ — http://www.rombodituono.it
+- **ACI Misano Racing Weekend** — 2026-09-17 → 2026-09-20 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **MUGELLO RACING WEEKEND** — 2026-10-16 → 2026-10-18 _[Mugello Circuit]_ — https://mugellocircuit.com/it/gare/details/2026-10-16/1752-mugello-racing-weekend-4
+- **MAGGIOLINI BASSANESI** — 2026-09-26 → 2026-09-27 _[Bassano del Grappa]_ — https://www.autoraduni.it/autoraduno/maggiolini-bassanesi/
+- **Historic Minardi Day** — 2026-09-19 → 2026-09-20 _[Autodromo di Imola Enzo e Dino Ferrari]_ — https://www.autodromoimola.it/en/events/historic-minardi-day/
+- **RADUNO AUTO D’EPOCA** — 2026-09-06 → 2026-09-06 _[Cologna Veneta]_ — https://www.autoraduni.it/autoraduno/raduno-auto-depoca-18/
+- **Rally Lazio Cassino** — 2026-09-18 → 2026-09-19 _[Frosinone]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **AUTO& MOTO D’EPOCA** — 2026-09-27 → 2026-09-27 _[San Valentino Torio]_ — https://www.autoraduni.it/autoraduno/auto-moto-depoca/
+- **32° RADUNO VIADANA** — 2026-09-19 → 2026-09-20 _[Viadana]_ — https://hondacivic-club.forumfree.it/
+- **ACI Racing Weekend** — 2026-09-04 → 2026-09-06 _[Autodromo di Imola Enzo e Dino Ferrari]_ — https://www.autodromoimola.it/en/events/aci-racing-weekend/
+- **PNK Motorsport** — 2026-11-05 → 2026-11-08 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+- **Rallye Sanremo** — 2026-10-18 → 2026-10-18 _[Imperia]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Rally Lana** — 2026-10-25 → 2026-10-25 _[Biella]_ — https://docs.google.com/spreadsheets/d/e/2PACX-1vSc1gqQJ6DcVQelwIQnHEbYNh1gs_BOgQ10pgjflojrBst-NE43C8Kngzhypy3VYZrI4DV8f75VPMV_/pub?gid=1403552672&single=true&output=csv
+- **Formula X** — 2026-11-12 → 2026-11-15 _[Misano World Circuit]_ — https://www.misanocircuit.com/events
+
+
+---
+
 ## 2026-09-04 13:15 UTC
 
 ✅ **Aggiunti (122)**

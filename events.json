@@ -403,7 +403,7 @@
   },
   {
     "titolo": "RSE Italia - Guida in pista a Autodromo Nazionale Enzo e Dino Ferrari",
-    "dataInizio": "2026-10-11",
+    "dataInizio": "2026-10-10",
     "dataFine": "2026-10-11",
     "disciplina": [
       "Trackday"
@@ -416,28 +416,11 @@
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "46ed5dfb24b502a0"
+    "idAuto": "51f54432376f40e3"
   },
   {
     "titolo": "RSE Italia - Guida in pista a Autodromo Nazionale Enzo e Dino Ferrari",
     "dataInizio": "2026-11-07",
-    "dataFine": "2026-11-07",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo Nazionale Enzo e Dino Ferrari",
-    "citta": "Imola",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "56f7d6e757bd304f"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Autodromo Nazionale Enzo e Dino Ferrari",
-    "dataInizio": "2026-11-08",
     "dataFine": "2026-11-08",
     "disciplina": [
       "Trackday"
@@ -450,7 +433,7 @@
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "72764c01f8f0e96e"
+    "idAuto": "5f700f622d537cf9"
   },
   {
     "titolo": "RSE Italia - Guida in pista a Autodromo Nazionale Enzo e Dino Ferrari",
@@ -470,23 +453,6 @@
     "idAuto": "78997332324b2923"
   },
   {
-    "titolo": "RSE Italia - Guida in pista a Autodromo Nazionale Enzo e Dino Ferrari",
-    "dataInizio": "2026-10-10",
-    "dataFine": "2026-10-10",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo Nazionale Enzo e Dino Ferrari",
-    "citta": "Imola",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "d9c1db6ecfd064a6"
-  },
-  {
     "titolo": "8° RADUNO NAZIONALE C3 PLURIEL CLUB ITALIA “10 ANNI DI NOI 2016-2026”",
     "dataInizio": "2026-09-26",
     "dataFine": "2026-09-27",
@@ -504,23 +470,6 @@
     "idAuto": "ff3022c34a7702d7"
   },
   {
-    "titolo": "RSE Italia - Guida in pista a Autodromo di Vallelunga Piero Taruffi",
-    "dataInizio": "2027-03-21",
-    "dataFine": "2027-03-21",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo di Vallelunga Piero Taruffi",
-    "citta": "Vallelunga",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "070f93222664a0e8"
-  },
-  {
     "titolo": "We Can Race - Guida in pista a Autodromo Internazionale del Mugello",
     "dataInizio": "2027-10-20",
     "dataFine": "2027-10-20",
@@ -536,23 +485,6 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "1de67f3b6054acef"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Autodromo di Vallelunga Piero Taruffi",
-    "dataInizio": "2026-11-15",
-    "dataFine": "2026-11-15",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo di Vallelunga Piero Taruffi",
-    "citta": "Vallelunga",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "2674788613f936c1"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo Internazionale del Mugello",
@@ -641,40 +573,6 @@
   },
   {
     "titolo": "RSE Italia - Guida in pista a Autodromo di Vallelunga Piero Taruffi",
-    "dataInizio": "2026-11-14",
-    "dataFine": "2026-11-14",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo di Vallelunga Piero Taruffi",
-    "citta": "Vallelunga",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "8db6808ed023c6e5"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Autodromo di Vallelunga Piero Taruffi",
-    "dataInizio": "2027-03-20",
-    "dataFine": "2027-03-20",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo di Vallelunga Piero Taruffi",
-    "citta": "Vallelunga",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "9cfa7dbde17b8930"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Autodromo di Vallelunga Piero Taruffi",
     "dataInizio": "2027-06-19",
     "dataFine": "2027-06-19",
     "disciplina": [
@@ -689,6 +587,40 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "b6abf7056a4670bb"
+  },
+  {
+    "titolo": "RSE Italia - Guida in pista a Autodromo di Vallelunga Piero Taruffi",
+    "dataInizio": "2026-11-14",
+    "dataFine": "2026-11-15",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Autodromo di Vallelunga Piero Taruffi",
+    "citta": "Vallelunga",
+    "linkBiglietti": "",
+    "linkInfo": "https://rseitalia.it/calendario/",
+    "organizzatore": "RSE Italia",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "e1cf94cdfecec618"
+  },
+  {
+    "titolo": "RSE Italia - Guida in pista a Autodromo di Vallelunga Piero Taruffi",
+    "dataInizio": "2027-03-20",
+    "dataFine": "2027-03-21",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Autodromo di Vallelunga Piero Taruffi",
+    "citta": "Vallelunga",
+    "linkBiglietti": "",
+    "linkInfo": "https://rseitalia.it/calendario/",
+    "organizzatore": "RSE Italia",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "e3833d318605a2ad"
   },
   {
     "titolo": "RSE Italia - Guida in pista a Autodromo di Vallelunga Piero Taruffi",
@@ -742,57 +674,6 @@
     "idAuto": "f849bd190293c1e0"
   },
   {
-    "titolo": "RSE Italia - Guida in pista a Circuito Internazionale di Viterbo",
-    "dataInizio": "2026-09-16",
-    "dataFine": "2026-09-16",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Circuito Internazionale di Viterbo",
-    "citta": "Viterbo",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "0158ccd7f36b456a"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Circuito Internazionale di Viterbo",
-    "dataInizio": "2027-05-12",
-    "dataFine": "2027-05-12",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Circuito Internazionale di Viterbo",
-    "citta": "Viterbo",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "16fe26f9c27b0045"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Circuito Internazionale di Viterbo",
-    "dataInizio": "2026-09-17",
-    "dataFine": "2026-09-17",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Circuito Internazionale di Viterbo",
-    "citta": "Viterbo",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "2141d514a5943b71"
-  },
-  {
     "titolo": "We Can Race - Guida in pista a Circuito Internazionale d'Abruzzo",
     "dataInizio": "2027-03-20",
     "dataFine": "2027-03-20",
@@ -808,23 +689,6 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "2d0013b756e43ff4"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Circuito Internazionale di Viterbo",
-    "dataInizio": "2027-09-14",
-    "dataFine": "2027-09-14",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Circuito Internazionale di Viterbo",
-    "citta": "Viterbo",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "5fca9340e06f28d5"
   },
   {
     "titolo": "We Can Race - Guida in pista a Circuito Internazionale d'Abruzzo",
@@ -879,7 +743,41 @@
   },
   {
     "titolo": "RSE Italia - Guida in pista a Circuito Internazionale di Viterbo",
-    "dataInizio": "2027-09-15",
+    "dataInizio": "2027-05-11",
+    "dataFine": "2027-05-12",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Circuito Internazionale di Viterbo",
+    "citta": "Viterbo",
+    "linkBiglietti": "",
+    "linkInfo": "https://rseitalia.it/calendario/",
+    "organizzatore": "RSE Italia",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "ccf51d6093d0955f"
+  },
+  {
+    "titolo": "RSE Italia - Guida in pista a Circuito Internazionale di Viterbo",
+    "dataInizio": "2026-09-16",
+    "dataFine": "2026-09-17",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Circuito Internazionale di Viterbo",
+    "citta": "Viterbo",
+    "linkBiglietti": "",
+    "linkInfo": "https://rseitalia.it/calendario/",
+    "organizzatore": "RSE Italia",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "ce926d02578f4804"
+  },
+  {
+    "titolo": "RSE Italia - Guida in pista a Circuito Internazionale di Viterbo",
+    "dataInizio": "2027-09-14",
     "dataFine": "2027-09-15",
     "disciplina": [
       "Trackday"
@@ -892,24 +790,7 @@
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "dee5ead4f38ea3f6"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Circuito Internazionale di Viterbo",
-    "dataInizio": "2027-05-11",
-    "dataFine": "2027-05-11",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Circuito Internazionale di Viterbo",
-    "citta": "Viterbo",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "e88846833098aa83"
+    "idAuto": "f10b745eb02cd6bd"
   },
   {
     "titolo": "RSE Italia - Guida in pista a Circuito Internazionale d'Abruzzo",
@@ -1084,7 +965,7 @@
   {
     "titolo": "RSE Italia - Guida in pista a Autodromo Nazionale dell'Umbria",
     "dataInizio": "2027-01-23",
-    "dataFine": "2027-01-23",
+    "dataFine": "2027-01-24",
     "disciplina": [
       "Trackday"
     ],
@@ -1096,24 +977,7 @@
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "6d99a61e929c06f4"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Autodromo Nazionale dell'Umbria",
-    "dataInizio": "2026-11-01",
-    "dataFine": "2026-11-01",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo Nazionale dell'Umbria",
-    "citta": "Magione",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "93c259252d709d46"
+    "idAuto": "6e25efc3ae16762d"
   },
   {
     "titolo": "RSE Italia - Guida in pista a Autodromo Nazionale dell'Umbria",
@@ -1134,24 +998,7 @@
   },
   {
     "titolo": "RSE Italia - Guida in pista a Autodromo Nazionale dell'Umbria",
-    "dataInizio": "2027-01-24",
-    "dataFine": "2027-01-24",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo Nazionale dell'Umbria",
-    "citta": "Magione",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "b427b9eb960d01de"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Autodromo Nazionale dell'Umbria",
-    "dataInizio": "2026-11-02",
+    "dataInizio": "2026-11-01",
     "dataFine": "2026-11-02",
     "disciplina": [
       "Trackday"
@@ -1164,7 +1011,7 @@
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "cfe7ad51b15ee322"
+    "idAuto": "bafa73058cf94185"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo Enzo e Dino Ferrari",
@@ -1304,57 +1151,6 @@
   },
   {
     "titolo": "RSE Italia - Guida in pista a Franciacorta Karting Circuit",
-    "dataInizio": "2026-12-13",
-    "dataFine": "2026-12-13",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Franciacorta Karting Circuit",
-    "citta": "Franciacorta",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "1fadf84558b532dc"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Franciacorta Karting Circuit",
-    "dataInizio": "2027-02-21",
-    "dataFine": "2027-02-21",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Franciacorta Karting Circuit",
-    "citta": "Franciacorta",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "3a671c81adb0a9b6"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Franciacorta Karting Circuit",
-    "dataInizio": "2026-12-12",
-    "dataFine": "2026-12-12",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Franciacorta Karting Circuit",
-    "citta": "Franciacorta",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "3d75215d6bbe4fe8"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Franciacorta Karting Circuit",
     "dataInizio": "2026-10-17",
     "dataFine": "2026-10-18",
     "disciplina": [
@@ -1372,8 +1168,8 @@
   },
   {
     "titolo": "RSE Italia - Guida in pista a Franciacorta Karting Circuit",
-    "dataInizio": "2027-02-20",
-    "dataFine": "2027-02-20",
+    "dataInizio": "2026-12-12",
+    "dataFine": "2026-12-13",
     "disciplina": [
       "Trackday"
     ],
@@ -1385,7 +1181,24 @@
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "52dc128bddb73e8c"
+    "idAuto": "4e7df1f5937e1e3a"
+  },
+  {
+    "titolo": "RSE Italia - Guida in pista a Franciacorta Karting Circuit",
+    "dataInizio": "2027-02-20",
+    "dataFine": "2027-02-21",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Franciacorta Karting Circuit",
+    "citta": "Franciacorta",
+    "linkBiglietti": "",
+    "linkInfo": "https://rseitalia.it/calendario/",
+    "organizzatore": "RSE Italia",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "7fd16a3bc768f72b"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo Valle dei Templi",
@@ -1542,7 +1355,7 @@
   },
   {
     "titolo": "RSE Italia - Guida in pista a Adria International Raceway",
-    "dataInizio": "2027-03-14",
+    "dataInizio": "2027-03-13",
     "dataFine": "2027-03-14",
     "disciplina": [
       "Trackday"
@@ -1555,24 +1368,7 @@
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "7b680f0059c04f1e"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Adria International Raceway",
-    "dataInizio": "2027-03-13",
-    "dataFine": "2027-03-13",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Adria International Raceway",
-    "citta": "Adria",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "c659ae6d16b349c5"
+    "idAuto": "88a116ed80ed5e67"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo Riccardo Paletti",
@@ -1848,23 +1644,6 @@
   },
   {
     "titolo": "RSE Italia - Guida in pista a Circuito Tazio Nuvolari",
-    "dataInizio": "2026-10-03",
-    "dataFine": "2026-10-03",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Circuito Tazio Nuvolari",
-    "citta": "Tazio Nuvolari 5260",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "38b793295c36837a"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Circuito Tazio Nuvolari",
     "dataInizio": "2026-11-28",
     "dataFine": "2026-11-29",
     "disciplina": [
@@ -1879,23 +1658,6 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "5fd2a5d080ebae3c"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Circuito Tazio Nuvolari",
-    "dataInizio": "2026-10-04",
-    "dataFine": "2026-10-04",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Circuito Tazio Nuvolari",
-    "citta": "Tazio Nuvolari 5260",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "609967e8ed8be4e2"
   },
   {
     "titolo": "RSE Italia - Guida in pista a Circuito Tazio Nuvolari",
@@ -1930,6 +1692,23 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "e23b3f013c82412f"
+  },
+  {
+    "titolo": "RSE Italia - Guida in pista a Circuito Tazio Nuvolari",
+    "dataInizio": "2026-10-03",
+    "dataFine": "2026-10-04",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Circuito Tazio Nuvolari",
+    "citta": "Tazio Nuvolari 5260",
+    "linkBiglietti": "",
+    "linkInfo": "https://rseitalia.it/calendario/",
+    "organizzatore": "RSE Italia",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "fee5ae3372872fae"
   },
   {
     "titolo": "We Can Race - Guida in pista a Autodromo del Levante",
@@ -2017,6 +1796,23 @@
     "idAuto": "d0b44de9f67443f1"
   },
   {
+    "titolo": "RSE Italia - Guida in pista a Autodromo del Levante",
+    "dataInizio": "2026-12-05",
+    "dataFine": "2026-12-06",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Autodromo del Levante",
+    "citta": "Bari",
+    "linkBiglietti": "",
+    "linkInfo": "https://rseitalia.it/calendario/",
+    "organizzatore": "RSE Italia",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "50bb6c8c0633f2a6"
+  },
+  {
     "titolo": "We Can Race - Guida in pista a Autodromo di Pergusa",
     "dataInizio": "2026-09-12",
     "dataFine": "2026-09-13",
@@ -2068,23 +1864,6 @@
     "idAuto": "eb2fc1cc2759dc05"
   },
   {
-    "titolo": "RSE Italia - Guida in pista a Misano World Circuit",
-    "dataInizio": "2026-11-22",
-    "dataFine": "2026-11-22",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Misano World Circuit",
-    "citta": "Misano",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "1274c41976412f77"
-  },
-  {
     "titolo": "Motori Per La Vita - Presentazione Calendario 2027",
     "dataInizio": "2026-10-03",
     "dataFine": "2026-10-03",
@@ -2100,57 +1879,6 @@
     "eventoGratuito": true,
     "fonteAuto": true,
     "idAuto": "356648160280f6ee"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Autodromo di Pergusa",
-    "dataInizio": "2026-12-06",
-    "dataFine": "2026-12-06",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo di Pergusa",
-    "citta": "Pergusa",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "67321427234c74db"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Misano World Circuit",
-    "dataInizio": "2026-11-21",
-    "dataFine": "2026-11-21",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Misano World Circuit",
-    "citta": "Misano",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "6958ba00fa94f5ea"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Autodromo di Pergusa",
-    "dataInizio": "2026-12-05",
-    "dataFine": "2026-12-05",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo di Pergusa",
-    "citta": "Pergusa",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "85547b317db8fa89"
   },
   {
     "titolo": "RSE Italia - Guida in pista a Misano World Circuit",
@@ -2185,6 +1913,40 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "a76242f298439b69"
+  },
+  {
+    "titolo": "RSE Italia - Guida in pista a Misano World Circuit",
+    "dataInizio": "2026-11-21",
+    "dataFine": "2026-11-22",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Misano World Circuit",
+    "citta": "Misano",
+    "linkBiglietti": "",
+    "linkInfo": "https://rseitalia.it/calendario/",
+    "organizzatore": "RSE Italia",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "b562da9c4726805c"
+  },
+  {
+    "titolo": "RSE Italia - Guida in pista a Autodromo di Pergusa",
+    "dataInizio": "2026-12-05",
+    "dataFine": "2026-12-06",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Autodromo di Pergusa",
+    "citta": "Pergusa",
+    "linkBiglietti": "",
+    "linkInfo": "https://rseitalia.it/calendario/",
+    "organizzatore": "RSE Italia",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "c16bd20f2cebd688"
   },
   {
     "titolo": "3° Memorial Strianese Emilio - Auto & Moto d'Epoca",
@@ -2253,23 +2015,6 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "1f323ec2d92c6ce0"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Castelletto Circuit",
-    "dataInizio": "2026-11-29",
-    "dataFine": "2026-11-29",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Castelletto Circuit",
-    "citta": "Castelletto di Branduzzo",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "2683436c8294c68b"
   },
   {
     "titolo": "RSE Italia - Guida in pista a Circuito di Pomposa",
@@ -2391,23 +2136,6 @@
     "idAuto": "5935499e975290c2"
   },
   {
-    "titolo": "RSE Italia - Guida in pista a Castelletto Circuit",
-    "dataInizio": "2027-02-06",
-    "dataFine": "2027-02-06",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Castelletto Circuit",
-    "citta": "Castelletto di Branduzzo",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "5d9f96023f03f943"
-  },
-  {
     "titolo": "RSE Italia - Guida in pista a Varano De’ Melegari",
     "dataInizio": "2027-03-12",
     "dataFine": "2027-03-12",
@@ -2493,6 +2221,23 @@
     "idAuto": "8f3fd570aa92a38c"
   },
   {
+    "titolo": "RSE Italia - Guida in pista a Castelletto Circuit",
+    "dataInizio": "2026-11-29",
+    "dataFine": "2026-11-30",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Castelletto Circuit",
+    "citta": "Castelletto di Branduzzo",
+    "linkBiglietti": "",
+    "linkInfo": "https://rseitalia.it/calendario/",
+    "organizzatore": "RSE Italia",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "9b700d7d8edeefab"
+  },
+  {
     "titolo": "RSE Italia - Guida in pista a Varano De’ Melegari",
     "dataInizio": "2027-07-30",
     "dataFine": "2027-07-30",
@@ -2511,7 +2256,7 @@
   },
   {
     "titolo": "RSE Italia - Guida in pista a Castelletto Circuit",
-    "dataInizio": "2027-02-07",
+    "dataInizio": "2027-02-06",
     "dataFine": "2027-02-07",
     "disciplina": [
       "Trackday"
@@ -2524,7 +2269,7 @@
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "ba667e4d9b10c757"
+    "idAuto": "a0aa6291985614b0"
   },
   {
     "titolo": "RSE Italia - Guida in pista a Varano De’ Melegari",
@@ -2610,23 +2355,6 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "e1e832b78163b7cc"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Castelletto Circuit",
-    "dataInizio": "2026-11-30",
-    "dataFine": "2026-11-30",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Castelletto Circuit",
-    "citta": "Castelletto di Branduzzo",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "e23b31a21e5a6c81"
   },
   {
     "titolo": "We Can Race - Guida in pista a Tazio Nuvolari 2.8",
@@ -2732,23 +2460,6 @@
   },
   {
     "titolo": "RSE Italia - Guida in pista a Autodromo di Arese",
-    "dataInizio": "2027-01-17",
-    "dataFine": "2027-01-17",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Autodromo di Arese",
-    "citta": "Arese",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "50f6634c018a96b2"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Autodromo di Arese",
     "dataInizio": "2026-09-26",
     "dataFine": "2026-09-27",
     "disciplina": [
@@ -2767,7 +2478,7 @@
   {
     "titolo": "RSE Italia - Guida in pista a Autodromo di Arese",
     "dataInizio": "2027-01-16",
-    "dataFine": "2027-01-16",
+    "dataFine": "2027-01-17",
     "disciplina": [
       "Trackday"
     ],
@@ -2779,7 +2490,7 @@
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "71c09bb22ca8d9b7"
+    "idAuto": "6c6028c4233fc374"
   },
   {
     "titolo": "RSE Italia - Guida in pista a Autodromo di Arese",
@@ -2833,23 +2544,6 @@
     "idAuto": "1e384adf21229f6f"
   },
   {
-    "titolo": "RSE Italia - Guida in pista a Circuito del Sele",
-    "dataInizio": "2027-03-28",
-    "dataFine": "2027-03-28",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Circuito del Sele",
-    "citta": "Sele",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "41417117ebcdfd86"
-  },
-  {
     "titolo": "RSE Italia - Guida in pista a Circuito di Siena",
     "dataInizio": "2027-02-26",
     "dataFine": "2027-02-26",
@@ -2884,40 +2578,6 @@
     "idAuto": "751b3362278902e3"
   },
   {
-    "titolo": "RSE Italia - Guida in pista a Circuito del Sele",
-    "dataInizio": "2026-12-06",
-    "dataFine": "2026-12-06",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Circuito del Sele",
-    "citta": "Sele",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "79f8cbc8d1edf67f"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Circuito del Sele",
-    "dataInizio": "2026-12-05",
-    "dataFine": "2026-12-05",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Circuito del Sele",
-    "citta": "Sele",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "85cf5f4e9b195596"
-  },
-  {
     "titolo": "RSE Italia - Guida in pista a Circuito di Siena",
     "dataInizio": "2027-01-10",
     "dataFine": "2027-01-10",
@@ -2935,23 +2595,6 @@
     "idAuto": "9543b84e25db4dae"
   },
   {
-    "titolo": "RSE Italia - Guida in pista a Circuito del Sele",
-    "dataInizio": "2027-03-27",
-    "dataFine": "2027-03-27",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Circuito del Sele",
-    "citta": "Sele",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "9c8d91023a93fb60"
-  },
-  {
     "titolo": "LE ROMBANTI A RICCIONE MEZZI STORICI & SUPERCAR",
     "dataInizio": "2026-09-20",
     "dataFine": "2026-09-20",
@@ -2967,6 +2610,40 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "bd0727b7fb79d377"
+  },
+  {
+    "titolo": "RSE Italia - Guida in pista a Circuito del Sele",
+    "dataInizio": "2026-12-05",
+    "dataFine": "2026-12-06",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Circuito del Sele",
+    "citta": "Sele",
+    "linkBiglietti": "",
+    "linkInfo": "https://rseitalia.it/calendario/",
+    "organizzatore": "RSE Italia",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "ca71729099424c9d"
+  },
+  {
+    "titolo": "RSE Italia - Guida in pista a Circuito del Sele",
+    "dataInizio": "2027-03-27",
+    "dataFine": "2027-03-28",
+    "disciplina": [
+      "Trackday"
+    ],
+    "circuito": "Circuito del Sele",
+    "citta": "Sele",
+    "linkBiglietti": "",
+    "linkInfo": "https://rseitalia.it/calendario/",
+    "organizzatore": "RSE Italia",
+    "immagine": "",
+    "eventoGratuito": false,
+    "fonteAuto": true,
+    "idAuto": "e1d62f96b76fd90b"
   },
   {
     "titolo": "RSE Italia - Guida in pista a Circuito di Siena",
@@ -3056,7 +2733,7 @@
   {
     "titolo": "RSE Italia - Guida in pista a Mugello Circuit",
     "dataInizio": "2026-12-21",
-    "dataFine": "2026-12-21",
+    "dataFine": "2026-12-22",
     "disciplina": [
       "Trackday"
     ],
@@ -3068,7 +2745,7 @@
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "c15babda3ae78b1c"
+    "idAuto": "cc5a802e0c723622"
   },
   {
     "titolo": "RSE Italia - Guida in pista a Mugello Circuit",
@@ -3086,23 +2763,6 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "d27687af38bd4af6"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Mugello Circuit",
-    "dataInizio": "2026-12-22",
-    "dataFine": "2026-12-22",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Mugello Circuit",
-    "citta": "Mugello",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "e17057cf7a4c4ea1"
   },
   {
     "titolo": "20TH ANNIVERSARY PARTY DEVIL DRIVERS CLUB",
@@ -3412,23 +3072,6 @@
   },
   {
     "titolo": "RSE Italia - Guida in pista a Bruino",
-    "dataInizio": "2026-10-25",
-    "dataFine": "2026-10-25",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Bruino",
-    "citta": "Bruino",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "58e76fece104a37a"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Bruino",
     "dataInizio": "2027-01-09",
     "dataFine": "2027-01-09",
     "disciplina": [
@@ -3481,7 +3124,7 @@
   {
     "titolo": "RSE Italia - Guida in pista a Bruino",
     "dataInizio": "2026-10-24",
-    "dataFine": "2026-10-24",
+    "dataFine": "2026-10-25",
     "disciplina": [
       "Trackday"
     ],
@@ -3493,7 +3136,7 @@
     "immagine": "",
     "eventoGratuito": false,
     "fonteAuto": true,
-    "idAuto": "f54b521a2636448d"
+    "idAuto": "f5cb4ef929ca278d"
   },
   {
     "titolo": "Rally del Rubinetto e Rally 2 Laghi",
@@ -3581,23 +3224,6 @@
     "idAuto": "232ef82a4a178581"
   },
   {
-    "titolo": "RSE Italia - Guida in pista a Bari",
-    "dataInizio": "2026-12-05",
-    "dataFine": "2026-12-05",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Bari",
-    "citta": "Bari",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "330b26bc80ddbd82"
-  },
-  {
     "titolo": "10° Raduno Vulcani Citroën Venezia",
     "dataInizio": "2026-09-05",
     "dataFine": "2026-09-05",
@@ -3681,23 +3307,6 @@
     "eventoGratuito": false,
     "fonteAuto": true,
     "idAuto": "c909da00b035408b"
-  },
-  {
-    "titolo": "RSE Italia - Guida in pista a Bari",
-    "dataInizio": "2026-12-06",
-    "dataFine": "2026-12-06",
-    "disciplina": [
-      "Trackday"
-    ],
-    "circuito": "Bari",
-    "citta": "Bari",
-    "linkBiglietti": "",
-    "linkInfo": "https://rseitalia.it/calendario/",
-    "organizzatore": "RSE Italia",
-    "immagine": "",
-    "eventoGratuito": false,
-    "fonteAuto": true,
-    "idAuto": "ff9015e1743cf32f"
   },
   {
     "titolo": "XIII° OPEL Meeting Internazionale",
