@@ -27,7 +27,7 @@ CIRCUIT_TRACK_NAMES = {
     "Ortona": "Circuito Internazionale d'Abruzzo",
     "Adria": "Adria International Raceway",
     "Arese": "Autodromo di Arese", 
-    "Bar": "Autodromo del Levante",
+    "Bari": "Autodromo del Levante",
     "Burino": "Cerrina Race Track",
     "Castelletto di Branduzzo": "Castelletto Circuit",
     "Franciacorta": "Franciacorta Karting Circuit",
