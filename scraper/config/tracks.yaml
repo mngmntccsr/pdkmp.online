@@ -283,6 +283,8 @@ circuit_aliases:     # Valido anche per le città (prima nome sbagliato poi quel
   "Scarperia S. Piero": "Scarperia e San Piero"
   "Varano de Melegari": "Varano de' Melegari"
   "S.G. di Comacchio": "San Giuseppe di Comacchio"
+  "Varano De' Melegari": "Varano de' Melegari"
+  "Vallelunga": "Campagnano di Roma"
 
 # Nomi propri da ricapitalizzare nei titoli TUTTO MAIUSCOLO (vedi
 # text_utils.py). Aggiungi qui una città/nome ogni volta che ne trovi
