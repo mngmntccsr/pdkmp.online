@@ -42,7 +42,7 @@ CIRCUIT_TRACK_NAMES = {
     "Tazio Nuvolari": "Circuito Tazio Nuvolari",
     "Tazio Nuvolari 5260": "Circuito Tazio Nuvolari",
     "Vallelunga": "Autodromo di Vallelunga Piero Taruffi", 
-    "Varano De' Melegari": "Autodromo Riccardo Paletti",
+    "Varano De' Melegari": "Circuito di Varano Riccardo Paletti",
     "Viterbo": "Circuito Internazionale di Viterbo"
 }
 
@@ -59,7 +59,7 @@ class RseItaliaScraper(BaseTrackScraper):
             m = _H3_RE.match(h3.get_text(strip=True))
             if not m:
                 continue
-            localita = m.group(1).strip()
+            localita = m.group(1).strip().replace("’", "'")
 
             text_block = []
             for sib in h3.find_all_next():
