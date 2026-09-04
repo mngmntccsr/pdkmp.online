@@ -74,6 +74,11 @@ def load_circuit_aliases() -> dict:
         raw = yaml.safe_load(f)
     return raw.get("circuit_aliases", {})
 
+def load_citta_aliases() -> dict:
+    with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+        raw = yaml.safe_load(f)
+    return raw.get("citta_aliases", {})
+
 def load_excluded_titles() -> list[str]:
     with open(CONFIG_PATH, "r", encoding="utf-8") as f:
         raw = yaml.safe_load(f)
