@@ -12,7 +12,6 @@ import re
 from bs4 import BeautifulSoup
 from src.models import Event
 from src.scrapers.base import BaseTrackScraper, fetch_html_static
-from src.scrapers.rallylink import PROVINCE_NAMES
 
 IT_MONTHS = {"gennaio":1,"febbraio":2,"marzo":3,"aprile":4,"maggio":5,"giugno":6,
     "luglio":7,"agosto":8,"settembre":9,"ottobre":10,"novembre":11,"dicembre":12}
@@ -22,20 +21,34 @@ _DATE_RE = re.compile(
 _H3_RE = re.compile(r"^(.+?)\s*\(([A-Za-z]{2})\)")
 
 
+# Nomi reali dei circuiti (l'h3 del sito usa solo il nome della località).
+# Aggiungi qui altri nomi man mano che li scopri.
+CIRCUIT_TRACK_NAMES = {
+    "Ortona": "Circuito Internazionale d'Abruzzo",
+    "Adria": "Adria International Raceway",
+    "Arese": "Autodromo di Arese", 
+    "Bar": "Autodromo del Levante",
+    "Burino": "Cerrina Race Track",
+    "Castelletto di Branduzzo": "Castelletto Circuit",
+    "Franciacorta": "Franciacorta Karting Circuit",
+    "Imola": "Autodromo Nazionale Enzo e Dino Ferrari",
+}
+
+
 class RseItaliaScraper(BaseTrackScraper):
     def scrape(self) -> list[Event]:
+        from datetime import date as date_cls, timedelta
+
         html = fetch_html_static(self.config.url)
         soup = BeautifulSoup(html, "lxml")
-        events: dict[str, Event] = {}
+        raw_days = []   # (localita, giorno)
 
         for h3 in soup.find_all("h3"):
             m = _H3_RE.match(h3.get_text(strip=True))
             if not m:
                 continue
-            circuito, prov = m.group(1).strip(), m.group(2).upper()
-            citta = PROVINCE_NAMES.get(prov, prov)
+            localita = m.group(1).strip()
 
-            # cerca le date fino al prossimo h3
             text_block = []
             for sib in h3.find_all_next():
                 if sib.name == "h3":
@@ -48,14 +61,29 @@ class RseItaliaScraper(BaseTrackScraper):
                 month_num = IT_MONTHS.get(month_it)
                 if not month_num:
                     continue
-                iso = f"{year}-{month_num:02d}-{int(day):02d}"
-                ev = Event(
-                    track_slug=self.config.slug, track_name=self.config.name,
-                    title=f"RSE Italia - Guida in pista a {circuito}",
-                    date_text=iso, url=self.config.url,
-                    date_start=iso, date_end=iso,
-                    circuito_override=circuito, citta_override=citta,
-                    disciplina_override=["Trackday"],
-                )
-                events[ev.event_id] = ev
+                raw_days.append((localita, date_cls(int(year), month_num, int(day))))
+
+        raw_days.sort(key=lambda d: (d[0], d[1]))
+        events: dict[str, Event] = {}
+        i = 0
+        while i < len(raw_days):
+            localita, start = raw_days[i]
+            end = start
+            j = i + 1
+            while j < len(raw_days) and raw_days[j][0] == localita and raw_days[j][1] == end + timedelta(days=1):
+                end = raw_days[j][1]
+                j += 1
+
+            circuito = CIRCUIT_TRACK_NAMES.get(localita, localita)
+            ev = Event(
+                track_slug=self.config.slug, track_name=self.config.name,
+                title=f"RSE Italia - Guida in pista a {circuito}",
+                date_text=f"{start.isoformat()} - {end.isoformat()}",
+                url=self.config.url,
+                date_start=start.isoformat(), date_end=end.isoformat(),
+                circuito_override=circuito, citta_override=localita,
+                disciplina_override=["Trackday"],
+            )
+            events[ev.event_id] = ev
+            i = j
         return list(events.values())
