@@ -108,6 +108,15 @@ tracks:
     skip_motorsport_filter: true
     selectors: {}
     date_hint_language: it  
+
+  - slug: rse_italia
+    name: "RSE Italia"
+    citta: ""
+    url: "https://rseitalia.it/calendario/"
+    parser: static
+    skip_motorsport_filter: true
+    selectors: {}
+    date_hint_language: it  
   
 
 # =============================================================================
