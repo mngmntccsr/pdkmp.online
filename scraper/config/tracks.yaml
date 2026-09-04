@@ -274,10 +274,12 @@ keywords:
 # con quello a destra prima di finire su events.json.
 # Aggiungi qui una riga ogni volta che scopri un nuovo disallineamento,
 # senza dover toccare il codice.
-circuit_aliases:     # Valido anche per le città (prima nome sbagliato poi quello corretto)
+circuit_aliases:     
   "Autodromo Internazionale del Mugello": "Mugello Circuit"
   "Autodromo di Imola": "Autodromo di Imola Enzo e Dino Ferrari"
   "Autodromo di Vallelunga": "Autodromo di Vallelunga Piero Taruffi"
+
+citta_aliases:    # Valido anche per le città (prima nome sbagliato poi quello corretto)
   "San Paolo Belsito": "San Paolo Bel Sito"
   "Bassano": "Bassano del Grappa"
   "Scarperia S. Piero": "Scarperia e San Piero"
