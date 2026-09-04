@@ -75,7 +75,7 @@ class RseItaliaScraper(BaseTrackScraper):
                     continue
                 raw_days.append((localita, date_cls(int(year), month_num, int(day))))
 
-        raw_days.sort(key=lambda d: (d[0], d[1]))
+        raw_days = sorted(set(raw_days))
         events: dict[str, Event] = {}
         i = 0
         while i < len(raw_days):
