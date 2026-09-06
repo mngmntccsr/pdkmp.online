@@ -17,22 +17,10 @@ gtag('js', new Date());
 gtag('config', 'G-F54J4RR4YY');
 </script>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PaddockMap - Calendario Eventi Motorsport Italia</title>
-<meta name="description" content="Scopri tutti gli eventi motorsport in Italia: F1, GT, Rally, Kart, Trackday. Calendario completo con date, circuiti e biglietti.">
-
-<!-- PWA -->
-<link rel="manifest" href="./manifest.json">
-
-<meta name="theme-color" content="#212121">
-
-<!-- iOS / iPhone -->
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="PaddockMap">
-
-<link rel="apple-touch-icon" href="./icons/icon-180.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaddockMap - Calendario Eventi Motorsport Italia</title>
+    <meta name="description" content="Scopri tutti gli eventi motorsport in Italia: F1, GT, Rally, Kart, Trackday. Calendario completo con date, circuiti e biglietti.">
 
     <style>
         * {
@@ -1861,25 +1849,6 @@ function initEventTracking() {
     if (marker) setMarkerHighlight(marker, false);
   });
 })();
-</script>
-<script>
-if ("serviceWorker" in navigator) {
-    window.addEventListener("load", function () {
-        navigator.serviceWorker.register("./service-worker.js")
-            .then(function (registration) {
-                console.log(
-                    "PaddockMap Service Worker registrato:",
-                    registration.scope
-                );
-            })
-            .catch(function (error) {
-                console.error(
-                    "Errore registrazione Service Worker:",
-                    error
-                );
-            });
-    });
-}
 </script>
 </body>
 </html>
