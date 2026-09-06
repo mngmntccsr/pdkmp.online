@@ -755,7 +755,7 @@ function initEventTracking() {
 
     const visibleCards = Array.from(cards).filter(c => c.style.display !== 'none');
     document.getElementById('totalEvents').textContent = visibleCards.length;
-    const circuits = new Set(visibleCards.map(c => c.dataset.citta).filter(Boolean));
+    const circuits = new Set(visibleCards.map(c => c.dataset.circuit).filter(Boolean));
     document.getElementById('totalCircuits').textContent = circuits.size;
   }
 
