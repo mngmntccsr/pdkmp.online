@@ -38,7 +38,7 @@ function createBaseMap(containerId) {
     minZoom: 5,
     maxZoom: 12
   });
-  map.setView([42.8, 12.5], 6);
+  map.setView([41.5, 12.5], 5);
 
   L.tileLayer('https://services.arcgisonline.com/arcgis/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
     attribution: 'Esri, HERE, Garmin, &copy; OpenStreetMap contributors',
