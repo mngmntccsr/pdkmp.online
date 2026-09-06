@@ -311,8 +311,15 @@
     fetch('events.json')
   .then(res => res.json())
   .then(data => {
-    const today = new Date();
-    const validEvents = data.filter(event => new Date(event.dataFine || event.dataInizio) >= today);
+function todayISO() {
+  const d = new Date();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+}
+const today = todayISO();
+    const validEvents = data.filter(event => (event.dataFine || event.dataInizio) >= today);
     document.getElementById('totalEvents').textContent = validEvents.length;
     const circuits = new Set(validEvents.map(e => e.circuito).filter(c => c && c.trim() !== ''));
     document.getElementById('totalCircuits').textContent = circuits.size;
