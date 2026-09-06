@@ -1721,6 +1721,11 @@ function initEventTracking() {
       card.style.display = (dist <= searchRadiusKm) ? '' : 'none';
     });
     syncMarkers();
+
+    const visibleCards = Array.from(cards).filter(c => c.style.display !== 'none');
+    document.getElementById('totalEvents').textContent = visibleCards.length;
+    const circuits = new Set(visibleCards.map(c => c.dataset.citta).filter(Boolean));
+    document.getElementById('totalCircuits').textContent = circuits.size;
   }
 
   function updateResetButtonState() {
