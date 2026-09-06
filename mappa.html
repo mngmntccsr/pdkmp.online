@@ -15,12 +15,22 @@ gtag('config', 'G-F54J4RR4YY');
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Mappa Eventi - PaddockMap</title>
+
 <meta name="description" content="Trova gli eventi motorsport vicino a te su una mappa interattiva dell'Italia.">
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="map-common.js"></script>
+<!-- PWA -->
+<link rel="manifest" href="./manifest.json">
+
+<meta name="theme-color" content="#212121">
+
+<!-- iOS / iPhone -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="PaddockMap">
+
+<link rel="apple-touch-icon" href="./icons/icon-180.png">
 
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -583,6 +593,24 @@ margin: 0.12rem;
   });
 })();
 </script>
-
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+        navigator.serviceWorker.register("./service-worker.js")
+            .then(function (registration) {
+                console.log(
+                    "PaddockMap Service Worker registrato:",
+                    registration.scope
+                );
+            })
+            .catch(function (error) {
+                console.error(
+                    "Errore registrazione Service Worker:",
+                    error
+                );
+            });
+    });
+}
+</script>
 </body>
 </html>
