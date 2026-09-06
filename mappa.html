@@ -6,9 +6,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-F54J4RR4YY"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
-function gtag(){
-dataLayer.push(arguments);
-}
+function gtag(){ dataLayer.push(arguments); }
 gtag('js', new Date());
 gtag('config', 'G-F54J4RR4YY');
 </script>
@@ -18,300 +16,22 @@ gtag('config', 'G-F54J4RR4YY');
 <title>Mappa Eventi - PaddockMap</title>
 <meta name="description" content="Trova gli eventi motorsport vicino a te su una mappa interattiva dell'Italia.">
 
+<link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="icons.js"></script>
 <script src="map-common.js"></script>
 
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-:root {
---racing-red: #d32f2f;
---dark: #212121;
---gray-dark: #424242;
---gray-medium: #757575;
---gray-light: #bdbdbd;
---white: #ffffff;
-}
-
-html, body {
-height: 100%;
-overflow: hidden;
-}
-
-body {
-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-color: var(--dark);
-display: flex;
-flex-direction: column;
-}
-
-.header {
-background: var(--dark);
-color: var(--white);
-padding: 0.9rem 1.5rem;
-flex: 0 0 auto;
-box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-z-index: 10;
-}
-
-.header-content {
-  position: relative;
-  max-width: 1600px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 40px;
-}
-
-.logo {
-  position: absolute;
-  left: 25%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.4rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  white-space: nowrap;
-}
-
-.header-stats {
-  position: absolute;
-  left: 75%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  white-space: nowrap;
-}
-.stat {
-  display: flex;
-  align-items: baseline;
-  gap: 0.35rem;
-}
-.stat-number {
-  font-weight: 800;
-  font-size: 1rem;
-  color: var(--racing-red);
-  line-height: 1;
-}
-.stat-label {
-  font-size: 0.8rem;
-  color: var(--gray-light);
-  line-height: 1;
-}
-
-@media (max-width: 720px) {
-  .logo, .header-stats { position: static; transform: none; }
-  .header-content { flex-wrap: wrap; justify-content: space-between; }
-  .nav-menu { order: 3; width: 100%; justify-content: center; margin-top: 0.4rem; }
-  .header-stats { display: none; }
-}  
-  
-.logo span { color: var(--racing-red); font-weight: 900; }
-
-.nav-menu a {
-color: var(--gray-light);
-text-decoration: none;
-margin-left: 1.25rem;
-font-weight: 500;
-font-size: 0.9rem;
-transition: color 0.2s;
-}
-.nav-menu a:hover,
-.nav-menu a.active { color: var(--white); }
-
-.page-wrap {
-flex: 1 1 auto;
-min-height: 0;
-display: flex;
-}
-
-@media (max-width: 700px) {
-.page-wrap { flex-direction: column; }
-}
-
-.map-half {
-flex: 1 1 50%;
-min-width: 0;
-min-height: 0;
-position: relative;
-}
-#interactiveMapFull { width: 100%; height: 100%; }
-
-.filters-half {
-flex: 1 1 50%;
-min-width: 0;
-min-height: 0;
-background: var(--white);
-display: flex;
-align-items: center;
-justify-content: center;
-padding: 1.25rem;
-border-left: 1px solid #e5e5e5;
-}
-@media (max-width: 700px) {
-.filters-half { border-left: none; border-top: 1px solid #e5e5e5; }
-}
-
-.filters-inner {
-width: 100%;
-max-width: 440px;
-display: flex;
-flex-direction: column;
-gap: clamp(0.8rem, 2.5vh, 1.6rem);
-}
-
-.filters-inner h3 {
-font-size: 1.15rem;
-font-weight: 700;
-color: var(--dark);
-}
-
-.filter-group label {
-display: block;
-margin-bottom: 0.4rem;
-font-weight: 600;
-color: var(--gray-dark);
-font-size: 0.875rem;
-}
-
-.filter-group select,
-.filter-group input {
-width: 100%;
-padding: 0.6rem 0.85rem;
-border: 1.5px solid #e0e0e0;
-border-radius: 6px;
-font-size: 0.9rem;
-background: var(--white);
-font-family: inherit;
-}
-.filter-group select:focus,
-.filter-group input:focus {
-outline: none;
-border-color: var(--racing-red);
-box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
-}
-
-.reset-filters {
-padding: 0.7rem 1.25rem;
-background: var(--gray-dark);
-color: white;
-border: none;
-border-radius: 6px;
-cursor: pointer;
-font-size: 0.9rem;
-font-weight: 600;
-transition: all 0.2s;
-font-family: inherit;
-}
-.reset-filters:hover { background: var(--dark); }
-.reset-filters.active { background: var(--racing-red); }
-.reset-filters.active:hover { background: #c62828; }
-
-.btn-locate {
-width: 100%;
-padding: 0.65rem 0.85rem;
-border-radius: 6px;
-border: 1.5px solid var(--racing-red);
-background: white;
-color: var(--racing-red);
-font-weight: 600;
-cursor: pointer;
-font-size: 0.875rem;
-transition: all 0.2s;
-font-family: inherit;
-}
-.btn-locate:hover { background: var(--racing-red); color: white; }
-
-.radius-value { font-weight: 700; color: var(--racing-red); }
-
-.map-popup { font-family: inherit; }
-.map-popup-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 4px;
-}
-.popup-arrow {
-  background: none;
-  border: none;
-  color: #000000;
-  font-size: 1.15rem;
-  line-height: 1;
-  cursor: pointer;
-  padding: 0 4px;
-}
-.popup-arrow:hover { color: var(--racing-red); }
-.popup-counter { font-size: 0.72rem; color: var(--gray-medium); }  
-
-.map-hint {
-font-size: 0.78rem;
-color: var(--gray-medium);
-text-align: center;
-}
-
-.multi-select { position: relative; }
-
-.multi-select-display {
-width: 100%;
-padding: 0.6rem 0.85rem;
-border: 1.5px solid #e0e0e0;
-border-radius: 6px;
-font-size: 0.9rem;
-background: var(--white);
-cursor: pointer;
-min-height: 40px;
-}
-.multi-select-display:hover { border-color: var(--gray-medium); }
-
-.multi-select-options {
-display: none;
-position: absolute;
-top: 100%;
-left: 0;
-right: 0;
-background: var(--white);
-border: 1.5px solid var(--racing-red);
-border-radius: 6px;
-max-height: 180px;
-overflow-y: auto;
-z-index: 30;
-margin-top: 4px;
-box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-.multi-select-options.active { display: block; }
-
-.multi-select-option {
-padding: 0.55rem 0.85rem;
-cursor: pointer;
-font-size: 0.9rem;
-transition: background 0.15s;
-}
-.multi-select-option:hover { background: #f5f5f5; }
-.multi-select-option.selected {
-background: var(--racing-red);
-color: white;
-font-weight: 600;
-}
-
-.selected-tag {
-display: inline-block;
-background: var(--racing-red);
-color: white;
-padding: 0.2rem 0.45rem;
-border-radius: 4px;
-font-size: 0.78rem;
-margin: 0.12rem;
-}
+  html, body { height: 100%; overflow: hidden; display: flex; flex-direction: column; }
+  .header { flex: 0 0 auto; }
+  .page-wrap { flex: 1 1 auto; }
 </style>
 </head>
 
 <body>
 
-<header class="header">
+<header class="header" id="mainHeader">
 <div class="header-content">
 <div class="logo">Paddock<span>Map</span></div>
 <nav class="nav-menu">
@@ -395,7 +115,7 @@ margin: 0.12rem;
 <input type="range" id="mapRadiusRange" min="5" max="300" step="5" value="50" disabled>
 </div>
 
-<button class="btn-locate" id="mapLocateBtn">📌 Usa la mia posizione</button>
+<button class="btn-locate" id="mapLocateBtn"></button>
 <button class="reset-filters" id="resetFiltersBtn">Cancella filtri</button>
 
 <p class="map-hint">Clicca sulla mappa per cercare entro una certa distanza da un punto.</p>
@@ -405,6 +125,8 @@ margin: 0.12rem;
 </div>
 
 <script>
+document.getElementById('mapLocateBtn').innerHTML = PMIcons.locate + ' Usa la mia posizione';
+
 (function () {
   let allEvents = [];
   let map, markersLayer, searchCircle, centerMarker;
@@ -496,12 +218,12 @@ margin: 0.12rem;
     if (!searchCenter) return;
 
     centerMarker = L.circleMarker([searchCenter.lat, searchCenter.lng], {
-      radius: 5, weight: 2, color: '#212121', fillColor: '#212121', fillOpacity: 1
+      radius: 5, weight: 2, color: '#12151B', fillColor: '#12151B', fillOpacity: 1
     }).addTo(map);
 
     searchCircle = L.circle([searchCenter.lat, searchCenter.lng], {
       radius: searchRadiusKm * 1000,
-      color: '#d32f2f', weight: 1.5, fillColor: '#d32f2f', fillOpacity: 0.08
+      color: '#FF4B24', weight: 1.5, fillColor: '#FF4B24', fillOpacity: 0.08
     }).addTo(map);
 
     map.fitBounds(searchCircle.getBounds(), { maxZoom: 9 });
@@ -582,22 +304,15 @@ const today = todayISO();
 
     fetch('https://paddockmap-api.managementcesar37.workers.dev/?v=' + Date.now())
     .then(res => {
-        if (!res.ok) {
-            throw new Error(`HTTP error: ${res.status}`);
-        }
+        if (!res.ok) throw new Error(`HTTP error: ${res.status}`);
         return res.json();
     })
     .then(data => {
-        console.log("✅ Eventi ricevuti dal Worker:", data.length);
-
-        allEvents = data.filter(event =>
-            (event.dataFine || event.dataInizio) >= today
-        );
-
+        allEvents = data.filter(event => (event.dataFine || event.dataInizio) >= today);
         applyFilters();
     })
     .catch(error => {
-        console.error("❌ Errore caricamento eventi:", error);
+        console.error("Errore caricamento eventi:", error);
     });
 });
 })();
