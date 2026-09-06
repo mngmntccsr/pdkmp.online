@@ -15,14 +15,12 @@ gtag('config', 'G-F54J4RR4YY');
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Mappa Eventi - PaddockMap</title>
-
 <meta name="description" content="Trova gli eventi motorsport vicino a te su una mappa interattiva dell'Italia.">
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="map-common.js"></script>  
+<script src="map-common.js"></script>
 
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -569,32 +567,22 @@ margin: 0.12rem;
     applyFilters();
   });
 
-loadCityCoordinates().then(() => {
+  loadCityCoordinates().then(() => {
     initMap();
 
     const today = new Date();
-
-    fetch('https://paddockmap-api.managementcesar37.workers.dev/?v=' + Date.now())
-    .then(res => {
-        if (!res.ok) {
-            throw new Error(`HTTP error: ${res.status}`);
-        }
-        return res.json();
-    })
-    .then(data => {
-        console.log("✅ Eventi ricevuti dal Worker:", data.length);
-
-        allEvents = data.filter(event =>
-            new Date(event.dataFine || event.dataInizio) >= today
-        );
-
+    fetch('events.json')
+      .then(res => res.json())
+      .then(data => {
+        allEvents = data.filter(event => new Date(event.dataFine || event.dataInizio) >= today);
         applyFilters();
-    })
-    .catch(error => {
-        console.error("❌ Errore caricamento eventi:", error);
-    });
-});
+      })
+      .catch(() => {
+        alert('Impossibile caricare gli eventi.');
+      });
+  });
 })();
 </script>
+
 </body>
 </html>
