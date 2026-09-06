@@ -573,6 +573,7 @@ margin: 0.12rem;
     initMap();
 
     const today = new Date();
+
     fetch('https://paddockmap-api.managementcesar37.workers.dev/?v=' + Date.now())
     .then(res => {
         if (!res.ok) {
@@ -592,7 +593,7 @@ margin: 0.12rem;
     .catch(error => {
         console.error("❌ Errore caricamento eventi:", error);
     });
-  });
+});
 })();
 </script>
 </body>
