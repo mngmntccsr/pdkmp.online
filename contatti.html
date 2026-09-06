@@ -308,9 +308,6 @@
 </footer>
 
 <script>
-    fetch('events.json')
-  .then(res => res.json())
-  .then(data => {
 function todayISO() {
   const d = new Date();
   const y = d.getFullYear();
@@ -318,7 +315,11 @@ function todayISO() {
   const day = String(d.getDate()).padStart(2, '0');
   return `${y}-${m}-${day}`;
 }
-const today = todayISO();
+
+fetch('https://paddockmap-api.managementcesar37.workers.dev/?v=' + Date.now())
+  .then(res => res.json())
+  .then(data => {
+    const today = todayISO();
     const validEvents = data.filter(event => (event.dataFine || event.dataInizio) >= today);
     document.getElementById('totalEvents').textContent = validEvents.length;
     const circuits = new Set(validEvents.map(e => e.circuito).filter(c => c && c.trim() !== ''));
