@@ -413,6 +413,7 @@ margin: 0.12rem;
 
   function initMap() {
     map = createBaseMap('interactiveMapFull');
+    map.setView([41.5, 12.5], 6);
     markersLayer = L.layerGroup().addTo(map);
     map.on('click', (e) => setSearchCenter(e.latlng.lat, e.latlng.lng));
 
