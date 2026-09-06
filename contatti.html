@@ -59,7 +59,6 @@
 <script>
 document.getElementById('formTitle').innerHTML = PMIcons.megaphone + ' Promuovi il tuo evento';
 document.getElementById('footerMail').innerHTML = PMIcons.mail + ' managementcesar37@gmail.com';
-document.querySelector('.modal-content .check').innerHTML = PMIcons.check;
 
 function todayISO() {
   const d = new Date();
@@ -78,7 +77,7 @@ fetch('https://paddockmap-api.managementcesar37.workers.dev/?v=' + Date.now())
     const circuits = new Set(validEvents.map(e => e.circuito).filter(c => c && c.trim() !== ''));
     document.getElementById('totalCircuits').textContent = circuits.size;
   })
-  .catch(() => {});
+  .catch(err => console.error('Errore caricamento statistiche:', err));
 
 document.getElementById("eventForm").addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -131,5 +130,8 @@ document.getElementById("eventForm").addEventListener("submit", async (e) => {
         <button id="closeModal">OK</button>
     </div>
 </div>
+<script>
+document.querySelector('.modal-content .check').innerHTML = PMIcons.check;
+</script>
 </body>
 </html>
