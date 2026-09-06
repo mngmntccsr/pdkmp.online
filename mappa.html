@@ -567,20 +567,31 @@ margin: 0.12rem;
     applyFilters();
   });
 
-  loadCityCoordinates().then(() => {
+loadCityCoordinates().then(() => {
     initMap();
 
     const today = new Date();
-    fetch('events.json')
-      .then(res => res.json())
-      .then(data => {
-        allEvents = data.filter(event => new Date(event.dataFine || event.dataInizio) >= today);
+
+    fetch('https://paddockmap-api.managementcesar37.workers.dev/?v=' + Date.now())
+    .then(res => {
+        if (!res.ok) {
+            throw new Error(`HTTP error: ${res.status}`);
+        }
+        return res.json();
+    })
+    .then(data => {
+        console.log("✅ Eventi ricevuti dal Worker:", data.length);
+
+        allEvents = data.filter(event =>
+            new Date(event.dataFine || event.dataInizio) >= today
+        );
+
         applyFilters();
-      })
-      .catch(() => {
-        alert('Impossibile caricare gli eventi.');
-      });
-  });
+    })
+    .catch(error => {
+        console.error("❌ Errore caricamento eventi:", error);
+    });
+});
 })();
 </script>
 
