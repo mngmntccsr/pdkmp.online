@@ -154,7 +154,7 @@ svg.icon {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 0.98rem;
-  color: #fff;
+  color: var(--accent);
   line-height: 1;
   font-variant-numeric: tabular-nums;
 }
