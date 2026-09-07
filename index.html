@@ -368,8 +368,8 @@ if (hasImage) {
                         </div>
                         <div class="event-header">
                         <div class="pm-quick-actions">
-                            <button class="pm-icon-btn pm-save-btn" data-event-id="${window.pmEventId(event)}" onclick="pmHandleSaveClick(this)" title="Salva evento">❤️</button>
-                            ${event.circuito ? `<button class="pm-icon-btn pm-follow-btn" data-circuit-id="${event.circuito}" onclick="pmHandleFollowClick(this)" title="Segui circuito">🏁</button>` : ''}
+                            <button class="pm-icon-btn pm-save-btn" data-event-id="${window.pmEventId(event)}" onclick="pmHandleSaveClick(this)" title="Salva evento">${PMIcons.heart}</button>
+                            ${event.circuito ? `<button class="pm-icon-btn pm-follow-btn" data-circuit-id="${event.circuito}" onclick="pmHandleFollowClick(this)" title="Segui circuito">${PMIcons.flag}</button>` : ''}
                         </div>
                             <div class="event-date">
                                 ${PMIcons.calendar} ${formatDateShort(event.dataInizio)}${event.dataFine && event.dataFine !== event.dataInizio ? ' - ' + formatDateShort(event.dataFine) : ''}
