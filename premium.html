@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scegli il tuo Paddock - PaddockMap Premium</title>
+<meta name="description" content="Passa a PaddockMap Premium: alert personalizzati, preferiti illimitati, calendario del motorsport tutto tuo.">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F54J4RR4YY"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){ dataLayer.push(arguments); }
+gtag('js', new Date());
+gtag('config', 'G-F54J4RR4YY');
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="auth.js" defer></script>
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --racing-red:#FF4B24; --dark:#212121; --gray-dark:#424242;
+  --gray-medium:#757575; --gray-light:#bdbdbd; --background:#f2f4f7; --white:#fff;
+}
+body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:var(--background); color:var(--dark); }
+
+.header { background:var(--dark); color:var(--white); padding:0.9rem 1.5rem; position:sticky; top:0; z-index:100; box-shadow:0 2px 8px rgba(0,0,0,0.15); }
+.header-content { position:relative; max-width:1600px; margin:0 auto; display:flex; justify-content:center; align-items:center; min-height:40px; }
+.logo { position:absolute; left:25%; top:50%; transform:translate(-50%,-50%); font-size:1.4rem; font-weight:800; white-space:nowrap; }
+.logo span { color:var(--racing-red); font-weight:900; }
+.nav-menu { display:flex; gap:1.75rem; }
+.nav-menu a { color:var(--gray-light); text-decoration:none; font-weight:500; font-size:0.9rem; }
+.nav-menu a:hover, .nav-menu a.active { color:var(--white); }
+@media (max-width:720px) { .logo { position:static; transform:none; } .header-content { flex-wrap:wrap; justify-content:space-between; } .nav-menu { order:3; width:100%; justify-content:center; margin-top:0.4rem; } }
+
+.hero { text-align:center; padding:3rem 1.25rem 2rem; max-width:700px; margin:0 auto; }
+.hero h1 { font-size:1.9rem; font-weight:800; margin-bottom:0.6rem; }
+.hero h1 span { color:var(--racing-red); }
+.hero p { color:var(--gray-medium); font-size:1rem; }
+
+.plans { max-width:1050px; margin:0 auto; padding:1.5rem 1.25rem 3rem; display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
+@media (max-width:860px) { .plans { grid-template-columns:1fr; max-width:420px; } }
+
+.plan-card { background:var(--white); border:1.5px solid #e0e0e0; border-radius:14px; padding:1.75rem 1.5rem; display:flex; flex-direction:column; position:relative; }
+.plan-card.highlight { border-color:var(--racing-red); box-shadow:0 8px 28px rgba(255,75,36,0.18); transform:translateY(-6px); }
+.plan-badge { position:absolute; top:-13px; left:50%; transform:translateX(-50%); background:var(--racing-red); color:#fff; font-size:0.7rem; font-weight:800; padding:0.3rem 0.9rem; border-radius:20px; letter-spacing:0.03em; }
+
+.plan-name { font-size:1.05rem; font-weight:800; text-transform:uppercase; letter-spacing:0.03em; color:var(--gray-dark); }
+.plan-tagline { font-size:0.85rem; color:var(--gray-medium); margin-bottom:0.9rem; }
+.plan-price { font-size:2rem; font-weight:800; margin-bottom:0.15rem; }
+.plan-price span { font-size:0.9rem; font-weight:500; color:var(--gray-medium); }
+.plan-price-note { font-size:0.78rem; color:var(--gray-medium); margin-bottom:1.2rem; min-height:1.1em; }
+
+.plan-features { list-style:none; flex:1; margin-bottom:1.4rem; }
+.plan-features li { font-size:0.87rem; padding:0.4rem 0; border-bottom:1px solid #f2f2f2; display:flex; gap:0.5rem; align-items:flex-start; }
+.plan-features li:last-child { border-bottom:none; }
+.plan-features li .check { color:#1E9E5A; font-weight:800; }
+
+.plan-btn { display:block; text-align:center; padding:0.75rem; border-radius:8px; font-weight:700; font-size:0.9rem; cursor:pointer; border:none; width:100%; font-family:inherit; }
+.plan-btn.primary { background:var(--racing-red); color:#fff; }
+.plan-btn.primary:hover { background:#c62828; }
+.plan-btn.secondary { background:var(--dark); color:#fff; }
+.plan-btn.secondary:hover { background:#000; }
+.plan-btn.ghost { background:#fff; color:var(--gray-dark); border:1.5px solid #e0e0e0; }
+.plan-btn.ghost:hover { border-color:var(--gray-medium); }
+.plan-btn.done { background:#1E9E5A; color:#fff; cursor:default; }
+
+.faq { max-width:700px; margin:0 auto; padding:0 1.25rem 4rem; }
+.faq h2 { font-size:1.2rem; margin-bottom:1rem; text-align:center; }
+.faq-item { background:var(--white); border:1px solid #e0e0e0; border-radius:10px; padding:1rem 1.25rem; margin-bottom:0.75rem; }
+.faq-item h3 { font-size:0.92rem; margin-bottom:0.35rem; }
+.faq-item p { font-size:0.85rem; color:var(--gray-medium); }
+
+.toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); background:#212121; color:#fff; padding:0.9rem 1.3rem; border-radius:8px; font-size:0.88rem; max-width:340px; text-align:center; z-index:100000; box-shadow:0 6px 20px rgba(0,0,0,0.3); }
+</style>
+</head>
+<body>
+
+<header class="header">
+<div class="header-content">
+<div class="logo">Paddock<span>Map</span></div>
+<nav class="nav-menu">
+<a href="index.html">Home</a>
+<a href="mappa.html">Mappa</a>
+<a href="contatti.html">Promuovi Evento</a>
+</nav>
+</div>
+</header>
+
+<div class="hero">
+  <h1>Scegli il tuo <span>Paddock</span></h1>
+  <p>Il piano Free ti basta per scoprire tutti gli eventi. Premium ti aiuta a non perderteli mai.</p>
+</div>
+
+<div class="plans">
+
+  <div class="plan-card">
+    <div class="plan-name">Free</div>
+    <div class="plan-tagline">Per iniziare</div>
+    <div class="plan-price">€0</div>
+    <div class="plan-price-note">per sempre</div>
+    <ul class="plan-features">
+      <li><span class="check">✓</span> Mappa e calendario eventi</li>
+      <li><span class="check">✓</span> Ricerca e filtri</li>
+      <li><span class="check">✓</span> Il tuo account personale</li>
+      <li><span class="check">✓</span> Fino a 10 eventi salvati</li>
+      <li><span class="check">✓</span> Fino a 3 circuiti seguiti</li>
+      <li><span class="check">✓</span> 1 alert personalizzato</li>
+    </ul>
+    <a href="index.html" class="plan-btn ghost">Continua con Free</a>
+  </div>
+
+  <div class="plan-card highlight">
+    <div class="plan-badge">PIÙ SCELTO</div>
+    <div class="plan-name">Premium</div>
+    <div class="plan-tagline">Per chi segue davvero il motorsport</div>
+    <div class="plan-price">€X<span>/mese</span></div>
+    <div class="plan-price-note" id="premiumPriceNote">Prezzo di lancio in definizione</div>
+    <ul class="plan-features">
+      <li><span class="check">✓</span> Tutto ciò che è nel Free</li>
+      <li><span class="check">✓</span> Eventi salvati illimitati</li>
+      <li><span class="check">✓</span> Circuiti seguiti illimitati</li>
+      <li><span class="check">✓</span> Alert personalizzati illimitati</li>
+      <li><span class="check">✓</span> Notifiche su nuovi eventi vicino a te</li>
+      <li><span class="check">✓</span> Calendario personale avanzato</li>
+      <li><span class="check">✓</span> Filtri avanzati</li>
+    </ul>
+    <button class="plan-btn primary" data-plan="premium" id="btnPremium">Passa a Premium</button>
+  </div>
+
+  <div class="plan-card">
+    <div class="plan-name">Premium Plus</div>
+    <div class="plan-tagline">Per piloti, team e organizzatori</div>
+    <div class="plan-price">€Y<span>/mese</span></div>
+    <div class="plan-price-note">Prezzo di lancio in definizione</div>
+    <ul class="plan-features">
+      <li><span class="check">✓</span> Tutto Premium</li>
+      <li><span class="check">✓</span> Strumenti per organizzatori/team</li>
+      <li><span class="check">✓</span> Automazioni avanzate</li>
+      <li><span class="check">✓</span> Personalizzazione professionale</li>
+      <li><span class="check">✓</span> Supporto prioritario</li>
+    </ul>
+    <button class="plan-btn secondary" data-plan="premium_plus" id="btnPlus">Passa a Plus</button>
+  </div>
+
+</div>
+
+<div class="faq">
+  <h2>Domande frequenti</h2>
+  <div class="faq-item">
+    <h3>Quando sarà disponibile Premium?</h3>
+    <p>Stiamo completando l'integrazione dei pagamenti. Iscrivendoti oggi sarai tra i primi ad attivarlo, e ci aiuti a capire quali funzioni contano di più per te.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Il piano Free rimane gratuito?</h3>
+    <p>Sì, per sempre. Mappa, calendario, ricerca e il tuo account personale restano gratuiti: Premium aggiunge solo strumenti in più per chi vuole seguire il motorsport in modo più intenso.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Potrò disdire quando voglio?</h3>
+    <p>Sì, l'abbonamento Premium sarà cancellabile in qualsiasi momento, senza vincoli.</p>
+  </div>
+</div>
+
+<script>
+async function handlePlanClick(plan, btnEl) {
+  gtag('event', 'premium_upgrade_click', { plan: plan });
+
+  if (!window.pmSupabase) { alert('Caricamento in corso, riprova tra un secondo.'); return; }
+  const { data: { session } } = await window.pmSupabase.auth.getSession();
+
+  if (!session) {
+    window.pmOpenAuthModal({
+      mode: 'signup',
+      message: plan === 'premium'
+        ? 'Crea gratuitamente il tuo account per essere avvisato quando Premium sarà disponibile.'
+        : 'Crea gratuitamente il tuo account per essere avvisato quando Premium Plus sarà disponibile.'
+    });
+    return;
+  }
+
+  const { error } = await window.pmSupabase
+    .from('premium_interest')
+    .upsert({ user_id: session.user.id, plan_wanted: plan }, { onConflict: 'user_id,plan_wanted' });
+
+  if (error) {
+    showToast('Si è verificato un errore, riprova tra poco.');
+    return;
+  }
+
+  gtag('event', 'premium_waitlist_joined', { plan: plan });
+  btnEl.textContent = '✓ Ti avviseremo!';
+  btnEl.classList.add('done');
+  btnEl.disabled = true;
+  showToast('Fatto! Ti scriveremo appena ' + (plan === 'premium' ? 'Premium' : 'Premium Plus') + ' sarà attivo.');
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 4500);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  gtag('event', 'premium_page_view');
+  document.getElementById('btnPremium').addEventListener('click', (e) => handlePlanClick('premium', e.target));
+  document.getElementById('btnPlus').addEventListener('click', (e) => handlePlanClick('premium_plus', e.target));
+
+  // se l'utente ha già manifestato interesse, mostralo subito allo scroll della pagina
+  const check = setInterval(async () => {
+    if (!window.pmSupabase) return;
+    clearInterval(check);
+    const { data: { session } } = await window.pmSupabase.auth.getSession();
+    if (!session) return;
+    const { data } = await window.pmSupabase.from('premium_interest').select('plan_wanted').eq('user_id', session.user.id);
+    (data || []).forEach(row => {
+      const btn = row.plan_wanted === 'premium' ? document.getElementById('btnPremium') : document.getElementById('btnPlus');
+      if (btn) { btn.textContent = '✓ Ti avviseremo!'; btn.classList.add('done'); btn.disabled = true; }
+    });
+  }, 150);
+});
+</script>
+</body>
+</html>
