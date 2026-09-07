@@ -5,66 +5,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Il mio Paddock - PaddockMap</title>
 <meta name="description" content="Il tuo spazio personale su PaddockMap: eventi salvati, circuiti seguiti, alert.">
-
+<link rel="stylesheet" href="style.css">
+<script src="icons.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
 <script src="auth.js" defer></script>
 <script src="paddock-actions.js" defer></script>
-
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
-:root {
-  --racing-red:#FF4B24; --dark:#212121; --gray-dark:#424242;
-  --gray-medium:#757575; --gray-light:#bdbdbd; --background:#f2f4f7; --white:#fff;
-}
-body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:var(--background); color:var(--dark); }
-
-.header { background:var(--dark); color:var(--white); padding:0.9rem 1.5rem; position:sticky; top:0; z-index:100; box-shadow:0 2px 8px rgba(0,0,0,0.15); }
-.header-content { position:relative; max-width:1600px; margin:0 auto; display:flex; justify-content:center; align-items:center; min-height:40px; }
-.logo { position:absolute; left:25%; top:50%; transform:translate(-50%,-50%); font-size:1.4rem; font-weight:800; white-space:nowrap; }
-.logo span { color:var(--racing-red); font-weight:900; }
-.nav-menu { display:flex; gap:1.75rem; }
-.nav-menu a { color:var(--gray-light); text-decoration:none; font-weight:500; font-size:0.9rem; }
-.nav-menu a:hover, .nav-menu a.active { color:var(--white); }
-@media (max-width:720px) { .logo { position:static; transform:none; } .header-content { flex-wrap:wrap; justify-content:space-between; } .nav-menu { order:3; width:100%; justify-content:center; margin-top:0.4rem; } }
-
-.container { max-width:900px; margin:2rem auto; padding:0 1.25rem 3rem; }
-.welcome { margin-bottom:1.5rem; }
-.welcome h1 { font-size:1.5rem; margin-bottom:0.2rem; }
-.welcome p { color:var(--gray-medium); font-size:0.9rem; }
-
-.stats-row { display:flex; gap:1rem; margin-bottom:2rem; flex-wrap:wrap; }
-.stat-card { background:var(--white); border:1px solid #e0e0e0; border-radius:10px; padding:1rem 1.25rem; flex:1; min-width:140px; }
-.stat-card .num { font-size:1.5rem; font-weight:800; color:var(--racing-red); }
-.stat-card .lbl { font-size:0.8rem; color:var(--gray-medium); }
-
-.section { background:var(--white); border:1px solid #e0e0e0; border-radius:10px; padding:1.25rem 1.5rem; margin-bottom:1.5rem; }
-.section h2 { font-size:1.1rem; margin-bottom:0.9rem; display:flex; align-items:center; gap:0.4rem; }
-.item-row { display:flex; justify-content:space-between; align-items:center; padding:0.6rem 0; border-bottom:1px solid #f0f0f0; font-size:0.9rem; }
-.item-row:last-child { border-bottom:none; }
-.item-title { font-weight:600; }
-.item-sub { color:var(--gray-medium); font-size:0.8rem; }
-.remove-btn { background:none; border:none; color:var(--gray-medium); cursor:pointer; font-size:0.9rem; }
-.remove-btn:hover { color:var(--racing-red); }
-.empty-hint { color:var(--gray-medium); font-size:0.85rem; padding:0.5rem 0; }
-
-.alert-form { display:flex; gap:0.6rem; flex-wrap:wrap; margin-top:0.8rem; }
-.alert-form select, .alert-form button { padding:0.55rem 0.8rem; border-radius:6px; border:1.5px solid #e0e0e0; font-size:0.85rem; font-family:inherit; }
-.alert-form button { background:var(--racing-red); color:#fff; border:none; cursor:pointer; font-weight:600; }
-.alert-form button:hover { background:#c62828; }
-
-.premium-box { background:linear-gradient(135deg,#212121,#3a3a3a); color:#fff; border-radius:10px; padding:1.5rem; text-align:center; margin-bottom:1.5rem; }
-.premium-box h2 { margin-bottom:0.4rem; }
-.premium-box p { color:#ccc; font-size:0.88rem; margin-bottom:1rem; }
-.premium-box ul { list-style:none; text-align:left; max-width:280px; margin:0 auto 1.1rem; font-size:0.85rem; }
-.premium-box li { margin-bottom:0.35rem; }
-.premium-box .btn { display:inline-block; background:var(--racing-red); color:#fff; padding:0.65rem 1.4rem; border-radius:6px; text-decoration:none; font-weight:700; font-size:0.9rem; }
-
-.logout-row { text-align:center; margin-top:1.5rem; }
-.logout-btn { background:none; border:1.5px solid var(--gray-light); color:var(--gray-dark); padding:0.6rem 1.4rem; border-radius:6px; cursor:pointer; font-size:0.85rem; font-family:inherit; }
-.logout-btn:hover { border-color:var(--racing-red); color:var(--racing-red); }
-
-.gate-msg { text-align:center; padding:4rem 1rem; color:var(--gray-medium); }
-.gate-msg a { color:var(--racing-red); font-weight:700; }
+.pk-container { max-width:900px; margin:0 auto; padding:2rem 1.25rem 3.5rem; }
+.pk-welcome h1 { font-size:1.5rem; margin-bottom:0.2rem; }
+.pk-welcome p { color:var(--ink-soft); font-size:0.9rem; margin-bottom:1.5rem; }
+.pk-stats { display:flex; gap:1rem; margin-bottom:1.75rem; flex-wrap:wrap; }
+.pk-stat { background:var(--surface,#fff); border:1px solid var(--line,#e0e0e0); border-radius:var(--radius-md,10px); padding:1rem 1.25rem; flex:1; min-width:140px; display:flex; align-items:center; gap:0.7rem; }
+.pk-stat svg.icon { color:var(--accent); width:22px; height:22px; flex-shrink:0; }
+.pk-stat .num { font-size:1.4rem; font-weight:800; line-height:1; }
+.pk-stat .lbl { font-size:0.78rem; color:var(--ink-soft); }
+.pk-section { background:var(--surface,#fff); border:1px solid var(--line,#e0e0e0); border-radius:var(--radius-md,10px); padding:1.25rem 1.5rem; margin-bottom:1.5rem; }
+.pk-section h2 { font-size:1.05rem; margin-bottom:0.9rem; display:flex; align-items:center; gap:0.5rem; }
+.pk-section h2 svg.icon { color:var(--accent); width:19px; height:19px; }
+.pk-row { display:flex; justify-content:space-between; align-items:center; padding:0.6rem 0; border-bottom:1px solid var(--line,#f0f0f0); font-size:0.9rem; }
+.pk-row:last-child { border-bottom:none; }
+.pk-title { font-weight:600; }
+.pk-sub { color:var(--ink-soft); font-size:0.8rem; }
+.pk-remove { background:none; border:none; color:var(--ink-soft); cursor:pointer; }
+.pk-remove:hover { color:var(--accent); }
+.pk-empty { color:var(--ink-soft); font-size:0.85rem; padding:0.5rem 0; }
+.pk-alert-form { display:flex; gap:0.6rem; flex-wrap:wrap; margin-top:0.9rem; }
+.pk-alert-form select { padding:0.55rem 0.8rem; border-radius:var(--radius-sm,6px); border:1.5px solid var(--line,#e0e0e0); font-size:0.85rem; font-family:inherit; }
+.pk-premium-box { background:var(--ink,#212121); color:#fff; border-radius:var(--radius-md,10px); padding:1.5rem; text-align:center; margin-bottom:1.5rem; }
+.pk-premium-box h2 { display:flex; gap:0.5rem; align-items:center; justify-content:center; margin-bottom:0.4rem; }
+.pk-premium-box h2 svg.icon { color:var(--accent); }
+.pk-premium-box p { color:rgba(255,255,255,0.65); font-size:0.88rem; margin-bottom:1rem; }
+.pk-premium-box ul { list-style:none; text-align:left; max-width:280px; margin:0 auto 1.1rem; font-size:0.85rem; }
+.pk-premium-box li { margin-bottom:0.4rem; display:flex; gap:0.5rem; align-items:center; }
+.pk-premium-box li svg.icon { color:var(--accent); width:15px; height:15px; flex-shrink:0; }
+.pk-logout-row { text-align:center; margin-top:1.5rem; }
+.pk-gate { text-align:center; padding:4rem 1rem; color:var(--ink-soft); }
 </style>
 </head>
 <body>
@@ -80,34 +55,22 @@ body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sa
 </div>
 </header>
 
-<div class="container" id="paddockContainer">
-  <div class="gate-msg" id="gateMsg">Caricamento del tuo Paddock...</div>
+<div class="pk-container" id="paddockContainer">
+  <div class="pk-gate">Caricamento del tuo Paddock...</div>
 </div>
 
 <script>
 (function () {
   const container = document.getElementById('paddockContainer');
-
-  function fmtDate(d) {
-    if (!d) return '';
-    const date = new Date(d);
-    return date.toLocaleDateString('it-IT', { day:'numeric', month:'short', year:'numeric' });
-  }
+  const fmtDate = d => d ? new Date(d).toLocaleDateString('it-IT', { day:'numeric', month:'short', year:'numeric' }) : '';
 
   async function init() {
-    // aspetto che auth.js abbia inizializzato il client
     if (!window.pmSupabase) { setTimeout(init, 100); return; }
-
     const { data: { session } } = await window.pmSupabase.auth.getSession();
     if (!session) {
-      container.innerHTML = `
-        <div class="gate-msg">
-          <p>Devi accedere per vedere il tuo Paddock.</p><br>
-          <a href="index.html">Torna alla home e accedi</a>
-        </div>`;
+      container.innerHTML = `<div class="pk-gate"><p>Devi accedere per vedere il tuo Paddock.</p><br><a href="index.html">Torna alla home e accedi</a></div>`;
       return;
     }
-
     const userId = session.user.id;
     const name = session.user.user_metadata?.full_name || session.user.email.split('@')[0];
 
@@ -118,138 +81,81 @@ body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sa
       window.pmSupabase.from('alerts').select('*').eq('user_id', userId)
     ]);
 
-    // recupero il feed eventi per mostrare titolo/data degli eventi salvati
     let feedEvents = [];
-    try {
-      const res = await fetch('https://paddockmap-api.managementcesar37.workers.dev/?v=' + Date.now());
-      feedEvents = await res.json();
-    } catch (e) { /* ok, mostriamo comunque i dati minimi */ }
-
+    try { feedEvents = await (await fetch('https://paddockmap-api.managementcesar37.workers.dev/?v=' + Date.now())).json(); } catch (e) {}
     const feedById = {};
-    feedEvents.forEach(ev => { feedById[window.pmEventId(ev)] = ev; });
+    feedEvents.forEach(ev => feedById[window.pmEventId(ev)] = ev);
 
     const plan = profile?.plan || 'free';
     const planLabel = plan === 'premium' ? 'Premium' : plan === 'premium_plus' ? 'Premium Plus' : 'Free';
 
     container.innerHTML = `
-      <div class="welcome">
-        <h1>Buongiorno, ${name} 👋</h1>
+      <div class="pk-welcome">
+        <h1>Bentornato, ${name}</h1>
         <p>Il tuo Paddock · Piano attuale: <strong>${planLabel}</strong></p>
       </div>
 
-      <div class="stats-row">
-        <div class="stat-card"><div class="num">${savedEvents?.length || 0}</div><div class="lbl">❤️ eventi salvati</div></div>
-        <div class="stat-card"><div class="num">${circuits?.length || 0}</div><div class="lbl">🏁 circuiti seguiti</div></div>
-        <div class="stat-card"><div class="num">${alerts?.length || 0}</div><div class="lbl">🔔 alert attivi</div></div>
+      <div class="pk-stats">
+        <div class="pk-stat">${PMIcons.heart}<div><div class="num">${savedEvents?.length || 0}</div><div class="lbl">eventi salvati</div></div></div>
+        <div class="pk-stat">${PMIcons.flag}<div><div class="num">${circuits?.length || 0}</div><div class="lbl">circuiti seguiti</div></div></div>
+        <div class="pk-stat">${PMIcons.bell}<div><div class="num">${alerts?.length || 0}</div><div class="lbl">alert attivi</div></div></div>
       </div>
 
       ${plan === 'free' ? `
-      <div class="premium-box">
-        <h2>PaddockMap Premium</h2>
+      <div class="pk-premium-box">
+        <h2>${PMIcons.sparkle} PaddockMap Premium</h2>
         <p>Segui automaticamente gli eventi che ti interessano.</p>
         <ul>
-          <li>✓ Alert personalizzati</li>
-          <li>✓ Preferiti illimitati</li>
-          <li>✓ Calendario personale</li>
-          <li>✓ Funzioni avanzate</li>
+          <li>${PMIcons.check} Alert personalizzati illimitati</li>
+          <li>${PMIcons.check} Preferiti illimitati</li>
+          <li>${PMIcons.check} Calendario personale</li>
+          <li>${PMIcons.check} Funzioni avanzate</li>
         </ul>
-        <a href="premium.html" class="btn">Scopri Premium</a>
+        <a href="premium.html" class="btn btn-primary">Scopri Premium</a>
       </div>` : ''}
 
-      <div class="section">
-        <h2>❤️ Eventi salvati</h2>
-        <div id="savedEventsList">
-          ${(savedEvents && savedEvents.length) ? savedEvents.map(se => {
-            const ev = feedById[se.event_id];
-            return `
-              <div class="item-row" data-event-id="${se.event_id}">
-                <div>
-                  <div class="item-title">${ev ? ev.titolo : 'Evento non più disponibile'}</div>
-                  <div class="item-sub">${ev ? fmtDate(ev.dataInizio) + (ev.circuito ? ' · ' + ev.circuito : '') : ''}</div>
-                </div>
-                <button class="remove-btn" onclick="removeSavedEvent('${se.event_id}')">Rimuovi</button>
-              </div>`;
-          }).join('') : '<div class="empty-hint">Non hai ancora salvato nessun evento. Vai alla home e clicca ❤️ su un evento.</div>'}
-        </div>
+      <div class="pk-section">
+        <h2>${PMIcons.heart} Eventi salvati</h2>
+        ${(savedEvents && savedEvents.length) ? savedEvents.map(se => {
+          const ev = feedById[se.event_id];
+          return `<div class="pk-row"><div><div class="pk-title">${ev ? ev.titolo : 'Evento non più disponibile'}</div><div class="pk-sub">${ev ? fmtDate(ev.dataInizio) + (ev.circuito ? ' · ' + ev.circuito : '') : ''}</div></div><button class="pk-remove" onclick="removeSavedEvent('${se.event_id}')">${PMIcons.close}</button></div>`;
+        }).join('') : '<div class="pk-empty">Non hai ancora salvato nessun evento.</div>'}
       </div>
 
-      <div class="section">
-        <h2>🏁 Circuiti seguiti</h2>
-        <div id="circuitsList">
-          ${(circuits && circuits.length) ? circuits.map(c => `
-            <div class="item-row" data-circuit-id="${c.circuit_id}">
-              <div class="item-title">${c.circuit_id}</div>
-              <button class="remove-btn" onclick="removeCircuit('${c.circuit_id}')">Rimuovi</button>
-            </div>`).join('') : '<div class="empty-hint">Non segui ancora nessun circuito.</div>'}
-        </div>
+      <div class="pk-section">
+        <h2>${PMIcons.flag} Circuiti seguiti</h2>
+        ${(circuits && circuits.length) ? circuits.map(c => `<div class="pk-row"><div class="pk-title">${c.circuit_id}</div><button class="pk-remove" onclick="removeCircuit('${c.circuit_id}')">${PMIcons.close}</button></div>`).join('') : '<div class="pk-empty">Non segui ancora nessun circuito.</div>'}
       </div>
 
-      <div class="section">
-        <h2>🔔 Alert</h2>
-        <div id="alertsList">
-          ${(alerts && alerts.length) ? alerts.map(a => `
-            <div class="item-row" data-alert-id="${a.id}">
-              <div>
-                <div class="item-title">${a.circuit_id || 'Tutti i circuiti'}</div>
-                <div class="item-sub">${a.discipline || 'Tutte le discipline'}</div>
-              </div>
-              <button class="remove-btn" onclick="removeAlert('${a.id}')">Rimuovi</button>
-            </div>`).join('') : '<div class="empty-hint">Nessun alert attivo.</div>'}
-        </div>
-        <form class="alert-form" id="newAlertForm">
-          <select id="alertCircuit">
-            <option value="">Tutti i circuiti</option>
-            ${[...new Set(feedEvents.map(e => e.circuito).filter(Boolean))].sort().map(c => `<option value="${c}">${c}</option>`).join('')}
-          </select>
-          <select id="alertDiscipline">
-            <option value="">Tutte le discipline</option>
-            ${['Gt','Formula','Misto','Storico','Rally','Le Mans Prototype','Cronoscalata','Raduno','Trackday'].map(d => `<option value="${d}">${d}</option>`).join('')}
-          </select>
-          <button type="submit">Crea alert</button>
+      <div class="pk-section">
+        <h2>${PMIcons.bell} Alert</h2>
+        ${(alerts && alerts.length) ? alerts.map(a => `<div class="pk-row"><div><div class="pk-title">${a.circuit_id || 'Tutti i circuiti'}</div><div class="pk-sub">${a.discipline || 'Tutte le discipline'}</div></div><button class="pk-remove" onclick="removeAlert('${a.id}')">${PMIcons.close}</button></div>`).join('') : '<div class="pk-empty">Nessun alert attivo.</div>'}
+        <form class="pk-alert-form" id="newAlertForm">
+          <select id="alertCircuit"><option value="">Tutti i circuiti</option>${[...new Set(feedEvents.map(e => e.circuito).filter(Boolean))].sort().map(c => `<option value="${c}">${c}</option>`).join('')}</select>
+          <select id="alertDiscipline"><option value="">Tutte le discipline</option>${['Gt','Formula','Misto','Storico','Rally','Le Mans Prototype','Cronoscalata','Raduno','Trackday'].map(d => `<option value="${d}">${d}</option>`).join('')}</select>
+          <button type="submit" class="btn btn-secondary">Crea alert</button>
         </form>
       </div>
 
-      <div class="logout-row">
-        <button class="logout-btn" id="logoutBtn">Esci dal Paddock</button>
-      </div>
+      <div class="pk-logout-row"><button class="btn btn-secondary" id="logoutBtn">${PMIcons.logout} Esci</button></div>
     `;
 
-    document.getElementById('logoutBtn').addEventListener('click', async () => {
-      await window.pmSignOut();
-      window.location.href = 'index.html';
-    });
-
+    document.getElementById('logoutBtn').addEventListener('click', async () => { await window.pmSignOut(); window.location.href = 'index.html'; });
     document.getElementById('newAlertForm').addEventListener('submit', async (e) => {
       e.preventDefault();
-      const circuit = document.getElementById('alertCircuit').value || null;
-      const discipline = document.getElementById('alertDiscipline').value || null;
       const { error } = await window.pmSupabase.from('alerts').insert({
-        user_id: userId, circuit_id: circuit, discipline: discipline
+        user_id: userId,
+        circuit_id: document.getElementById('alertCircuit').value || null,
+        discipline: document.getElementById('alertDiscipline').value || null
       });
-      if (error) {
-        alert(error.message.includes('Limite piano Free')
-          ? 'Hai raggiunto il limite di alert del piano Free (1). Passa a Premium per averne di più.'
-          : 'Errore nella creazione dell\'alert.');
-        return;
-      }
-      init(); // ricarico la dashboard
+      if (error) { window.pmShowToast(error.message.includes('Limite piano Free') ? 'Limite alert del piano Free raggiunto. <a href="premium.html">Scopri Premium</a>' : 'Errore nella creazione dell\'alert.'); return; }
+      init();
     });
   }
 
-  window.removeSavedEvent = async function (eventId) {
-    const { data: { session } } = await window.pmSupabase.auth.getSession();
-    await window.pmSupabase.from('saved_events').delete().eq('user_id', session.user.id).eq('event_id', eventId);
-    init();
-  };
-  window.removeCircuit = async function (circuitId) {
-    const { data: { session } } = await window.pmSupabase.auth.getSession();
-    await window.pmSupabase.from('followed_circuits').delete().eq('user_id', session.user.id).eq('circuit_id', circuitId);
-    init();
-  };
-  window.removeAlert = async function (alertId) {
-    await window.pmSupabase.from('alerts').delete().eq('id', alertId);
-    init();
-  };
+  window.removeSavedEvent = async (id) => { const { data: { session } } = await window.pmSupabase.auth.getSession(); await window.pmSupabase.from('saved_events').delete().eq('user_id', session.user.id).eq('event_id', id); init(); };
+  window.removeCircuit = async (id) => { const { data: { session } } = await window.pmSupabase.auth.getSession(); await window.pmSupabase.from('followed_circuits').delete().eq('user_id', session.user.id).eq('circuit_id', id); init(); };
+  window.removeAlert = async (id) => { await window.pmSupabase.from('alerts').delete().eq('id', id); init(); };
 
   document.addEventListener('DOMContentLoaded', init);
 })();
