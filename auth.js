@@ -1,10 +1,13 @@
 /* ============================================================
    PADDOCKMAP — auth.js
    Gestisce: connessione Supabase, login/signup/logout,
-   aggiornamento dinamico dell'header ("Accedi" ↔ "👤 Nome utente").
+   aggiornamento dinamico dell'header.
+   Richiede: style.css e icons.js già caricati nella pagina.
 
    Da includere in ogni pagina HTML, in <head>, DOPO:
-     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+     <link rel="stylesheet" href="style.css">
+     <script src="icons.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
    ============================================================ */
 
 (function () {
@@ -17,89 +20,100 @@
   const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3bWlva3h5cnhkYmt3aWNhanNlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg2MjM0OTEsImV4cCI6MjEwNDE5OTQ5MX0.Qra9VsDogDp2CIITzPDyC0LRONJs9LfpTT1Om3pSiew';
 
   const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-  // Esposto per poter essere usato in futuro da altri script (es. salva evento)
   window.pmSupabase = supabase;
 
   // ------------------------------------------------------------
-  // 2. STILE DEL WIDGET (iniettato via JS, così funziona su tutte
-  //    le pagine anche se non condividono lo stesso CSS)
+  // 2. STILE — solo le regole che il design system non copre già
+  //    (il resto riusa .modal, .form-card, .btn, .btn-primary,
+  //    .btn-secondary e le variabili CSS di style.css)
   // ------------------------------------------------------------
   const style = document.createElement('style');
   style.textContent = `
-    .pm-auth-widget { display:flex; align-items:center; gap:0.75rem; margin-left:1.25rem; }
-    .pm-auth-btn {
-      background:none; border:1.5px solid #FF4B24; color:#FF4B24;
-      padding:0.4rem 0.9rem; border-radius:6px; font-weight:600; font-size:0.85rem;
-      cursor:pointer; font-family:inherit; text-decoration:none; white-space:nowrap;
-      transition:all .2s;
+    .pm-auth-widget { display:flex; align-items:center; gap:0.5rem; }
+    .pm-header-btn {
+      color: rgba(255,255,255,0.62);
+      text-decoration:none; font-weight:500; font-size:0.86rem;
+      padding:0.42rem 0.95rem; border-radius:var(--radius-pill);
+      transition:color 0.2s var(--ease), background 0.2s var(--ease);
+      border:none; background:none; cursor:pointer; font-family:inherit;
     }
-    .pm-auth-btn:hover { background:#FF4B24; color:#fff; }
-    .pm-auth-btn.pm-btn-primary { background:#FF4B24; color:#fff; }
-    .pm-auth-btn.pm-btn-primary:hover { background:#c62828; }
+    .pm-header-btn:hover { color:#fff; background:rgba(255,255,255,0.06); }
+    .pm-header-btn.pm-btn-primary { color:#fff; background:var(--accent); }
+    .pm-header-btn.pm-btn-primary:hover { background:var(--accent-dark); }
     .pm-user-chip {
-      display:flex; align-items:center; gap:0.5rem; color:#fff; font-size:0.85rem;
-      text-decoration:none; cursor:pointer; white-space:nowrap;
+      display:flex; align-items:center; gap:0.4rem; color:#fff; font-size:0.86rem;
+      text-decoration:none; padding:0.42rem 0.95rem; border-radius:var(--radius-pill);
+      background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08);
+      transition:background 0.2s var(--ease);
     }
-    .pm-user-chip:hover { opacity:0.85; }
+    .pm-user-chip:hover { background:rgba(255,255,255,0.12); }
+    .pm-user-chip svg.icon { color:var(--accent); }
 
-    .pm-modal-overlay {
-      position:fixed; inset:0; background:rgba(0,0,0,0.6);
-      display:flex; align-items:center; justify-content:center; z-index:99999;
-    }
-    .pm-modal-overlay.pm-hidden { display:none; }
-    .pm-modal-box {
-      background:#fff; border-radius:12px; padding:1.75rem; width:100%;
-      max-width:360px; box-shadow:0 10px 30px rgba(0,0,0,0.25); font-family:inherit;
-      color:#212121;
-    }
-    .pm-modal-box h2 { font-size:1.25rem; margin-bottom:0.3rem; }
-    .pm-modal-box p.pm-modal-msg { font-size:0.85rem; color:#555; margin-bottom:1.1rem; }
-    .pm-modal-box input {
-      width:100%; padding:0.65rem 0.8rem; margin-bottom:0.7rem; border-radius:6px;
-      border:1.5px solid #e0e0e0; font-size:0.9rem; font-family:inherit;
-    }
-    .pm-modal-box input:focus { outline:none; border-color:#FF4B24; }
-    .pm-modal-submit {
-      width:100%; padding:0.7rem; border:none; border-radius:6px; background:#FF4B24;
-      color:#fff; font-weight:600; cursor:pointer; font-size:0.9rem; margin-bottom:0.6rem;
-    }
-    .pm-modal-submit:hover { background:#c62828; }
-    .pm-google-btn {
-      width:100%; padding:0.65rem; border:1.5px solid #ddd; border-radius:6px;
-      background:#fff; cursor:pointer; font-weight:600; font-size:0.9rem; margin-bottom:0.9rem;
-    }
-    .pm-google-btn:hover { background:#f5f5f5; }
-    .pm-modal-switch { font-size:0.82rem; text-align:center; color:#555; }
-    .pm-modal-switch a { color:#FF4B24; cursor:pointer; font-weight:600; }
+    .pm-auth-card { position:relative; max-width:400px; }
     .pm-modal-close {
-      position:absolute; top:10px; right:14px; cursor:pointer; font-size:1.2rem; color:#999;
-      background:none; border:none;
+      position:absolute; top:1.1rem; right:1.1rem; background:none; border:none;
+      cursor:pointer; color:var(--muted); width:28px; height:28px;
+      display:flex; align-items:center; justify-content:center; border-radius:50%;
+      transition:background 0.2s;
     }
-    .pm-modal-error { color:#c62828; font-size:0.82rem; margin:-0.3rem 0 0.7rem; min-height:1em; }
+    .pm-modal-close:hover { background:rgba(18,21,27,0.06); color:var(--ink); }
+    .pm-auth-card h1 { display:flex; align-items:center; gap:0.5rem; }
+    .pm-auth-card h1 svg.icon { color:var(--accent); }
+    .pm-modal-switch { font-size:0.83rem; text-align:center; color:var(--ink-soft); margin-top:0.3rem; }
+    .pm-modal-switch a { color:var(--accent); font-weight:600; cursor:pointer; }
+    .pm-modal-error { color:#c1272d; font-size:0.82rem; margin:-0.5rem 0 0.7rem; min-height:1em; }
+    #pmGoogleBtn { margin-bottom: 1.1rem; display:flex; align-items:center; justify-content:center; gap:0.5rem; }
+
+    .pm-toast {
+      position:fixed; bottom:24px; left:50%; transform:translateX(-50%);
+      background:var(--ink); color:#fff; padding:0.85rem 1.2rem; border-radius:var(--radius-md);
+      font-size:0.85rem; max-width:340px; text-align:center; z-index:100000;
+      box-shadow:var(--shadow-pop); display:flex; align-items:center; gap:0.5rem; justify-content:center;
+    }
+    .pm-toast a { color:var(--accent); font-weight:700; text-decoration:none; }
   `;
   document.head.appendChild(style);
 
   // ------------------------------------------------------------
-  // 3. MODALE LOGIN / SIGNUP
+  // 3. TOAST condiviso (usato anche da paddock-actions.js)
+  // ------------------------------------------------------------
+  function pmShowToast(html) {
+    const toast = document.createElement('div');
+    toast.className = 'pm-toast';
+    toast.innerHTML = html;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 5000);
+  }
+  window.pmShowToast = pmShowToast;
+
+  // ------------------------------------------------------------
+  // 4. MODALE LOGIN / SIGNUP
   // ------------------------------------------------------------
   let modalMode = 'signup'; // 'signup' | 'login'
 
   const overlay = document.createElement('div');
-  overlay.className = 'pm-modal-overlay pm-hidden';
+  overlay.className = 'modal hidden';
+  overlay.id = 'pmAuthModal';
   overlay.innerHTML = `
-    <div class="pm-modal-box" style="position:relative;">
-      <button class="pm-modal-close" id="pmModalClose">&times;</button>
-      <h2 id="pmModalTitle">Crea il tuo account</h2>
-      <p class="pm-modal-msg" id="pmModalMsg">Crea gratuitamente il tuo Paddock su PaddockMap.</p>
+    <div class="form-card pm-auth-card">
+      <button class="pm-modal-close" id="pmModalClose" aria-label="Chiudi">${PMIcons.close}</button>
+      <h1 id="pmModalTitle">${PMIcons.user} Crea il tuo account</h1>
+      <p id="pmModalMsg">Crea gratuitamente il tuo Paddock su PaddockMap.</p>
 
-      <button class="pm-google-btn" id="pmGoogleBtn">Continua con Google</button>
+      <button type="button" class="btn btn-secondary" id="pmGoogleBtn">Continua con Google</button>
 
       <form id="pmAuthForm">
-        <input type="text" id="pmName" placeholder="Nome" style="display:none;">
-        <input type="email" id="pmEmail" placeholder="Email" required>
-        <input type="password" id="pmPassword" placeholder="Password" required minlength="6">
+        <label for="pmName" id="pmNameLabel" style="display:none;">Nome</label>
+        <input type="text" id="pmName" placeholder="Il tuo nome" style="display:none;">
+
+        <label for="pmEmail">Email</label>
+        <input type="email" id="pmEmail" placeholder="nome@esempio.com" required>
+
+        <label for="pmPassword">Password</label>
+        <input type="password" id="pmPassword" placeholder="Almeno 6 caratteri" required minlength="6">
+
         <div class="pm-modal-error" id="pmModalError"></div>
-        <button type="submit" class="pm-modal-submit" id="pmSubmitBtn">Crea account</button>
+        <button type="submit" class="btn btn-primary" id="pmSubmitBtn">Crea account</button>
       </form>
 
       <p class="pm-modal-switch" id="pmModalSwitch">
@@ -112,41 +126,42 @@
   const els = {
     title: overlay.querySelector('#pmModalTitle'),
     msg: overlay.querySelector('#pmModalMsg'),
+    nameLabel: overlay.querySelector('#pmNameLabel'),
     nameInput: overlay.querySelector('#pmName'),
     emailInput: overlay.querySelector('#pmEmail'),
     passInput: overlay.querySelector('#pmPassword'),
     error: overlay.querySelector('#pmModalError'),
     submitBtn: overlay.querySelector('#pmSubmitBtn'),
     switchText: overlay.querySelector('#pmModalSwitch'),
-    switchLink: overlay.querySelector('#pmSwitchLink'),
     form: overlay.querySelector('#pmAuthForm'),
     closeBtn: overlay.querySelector('#pmModalClose'),
     googleBtn: overlay.querySelector('#pmGoogleBtn')
   };
 
+  function attachSwitchLink() {
+    const link = overlay.querySelector('#pmSwitchLink');
+    link.addEventListener('click', () => setModalMode(modalMode === 'signup' ? 'login' : 'signup'));
+  }
+
   function setModalMode(mode) {
     modalMode = mode;
     els.error.textContent = '';
     if (mode === 'signup') {
-      els.title.textContent = 'Crea il tuo account';
+      els.title.innerHTML = `${PMIcons.user} Crea il tuo account`;
+      els.nameLabel.style.display = 'block';
       els.nameInput.style.display = 'block';
       els.submitBtn.textContent = 'Crea account';
       els.switchText.innerHTML = 'Hai già un account? <a id="pmSwitchLink">Accedi</a>';
     } else {
-      els.title.textContent = 'Accedi';
+      els.title.innerHTML = `${PMIcons.user} Accedi`;
+      els.nameLabel.style.display = 'none';
       els.nameInput.style.display = 'none';
       els.submitBtn.textContent = 'Accedi';
       els.switchText.innerHTML = 'Non hai un account? <a id="pmSwitchLink">Crea account</a>';
     }
-    // il link viene ricreato ogni volta: riattacco il listener
-    overlay.querySelector('#pmSwitchLink').addEventListener('click', () => {
-      setModalMode(modalMode === 'signup' ? 'login' : 'signup');
-    });
+    attachSwitchLink();
   }
-
-  els.switchLink.addEventListener('click', () => {
-    setModalMode(modalMode === 'signup' ? 'login' : 'signup');
-  });
+  attachSwitchLink();
 
   els.closeBtn.addEventListener('click', closeAuthModal);
   overlay.addEventListener('click', (e) => { if (e.target === overlay) closeAuthModal(); });
@@ -157,14 +172,13 @@
     els.msg.textContent = options.message || 'Crea gratuitamente il tuo Paddock su PaddockMap.';
     els.error.textContent = '';
     els.form.reset();
-    overlay.classList.remove('pm-hidden');
+    overlay.classList.remove('hidden');
   }
 
   function closeAuthModal() {
-    overlay.classList.add('pm-hidden');
+    overlay.classList.add('hidden');
   }
 
-  // Esposte globalmente per essere richiamate da altri script (es. click su "Salva evento")
   window.pmOpenAuthModal = openAuthModal;
   window.pmCloseAuthModal = closeAuthModal;
 
@@ -180,8 +194,7 @@
     try {
       if (modalMode === 'signup') {
         const { error } = await supabase.auth.signUp({
-          email,
-          password,
+          email, password,
           options: { data: { full_name: fullName } }
         });
         if (error) throw error;
@@ -217,9 +230,10 @@
   function gtagSafe(eventName, params) {
     if (typeof gtag === 'function') gtag('event', eventName, params || {});
   }
+  window.pmGtagSafe = gtagSafe;
 
   // ------------------------------------------------------------
-  // 4. LOGOUT
+  // 5. LOGOUT
   // ------------------------------------------------------------
   async function pmSignOut() {
     await supabase.auth.signOut();
@@ -227,9 +241,7 @@
   window.pmSignOut = pmSignOut;
 
   // ------------------------------------------------------------
-  // 5. HEADER DINAMICO
-  //    Cerca ".header-content" (presente in tutte le pagine attuali)
-  //    e inserisce/aggiorna il widget account.
+  // 6. HEADER DINAMICO
   // ------------------------------------------------------------
   function renderAuthWidget(session) {
     const headerContent = document.querySelector('.header-content');
@@ -245,12 +257,12 @@
     if (session && session.user) {
       const name = session.user.user_metadata?.full_name || session.user.email.split('@')[0];
       widget.innerHTML = `
-        <a href="il-mio-paddock.html" class="pm-user-chip">👤 ${escapeHtml(name)}</a>
+        <a href="il-mio-paddock.html" class="pm-user-chip">${PMIcons.user} ${escapeHtml(name)}</a>
       `;
     } else {
       widget.innerHTML = `
-        <a href="#" class="pm-auth-btn" id="pmHeaderLogin">Accedi</a>
-        <a href="#" class="pm-auth-btn pm-btn-primary" id="pmHeaderSignup">Crea account</a>
+        <a href="#" class="pm-header-btn" id="pmHeaderLogin">Accedi</a>
+        <a href="#" class="pm-header-btn pm-btn-primary" id="pmHeaderSignup">Crea account</a>
       `;
       widget.querySelector('#pmHeaderLogin').addEventListener('click', (e) => {
         e.preventDefault();
@@ -270,11 +282,16 @@
   }
 
   // ------------------------------------------------------------
-  // 6. STATO INIZIALE + LISTENER
+  // 7. STATO INIZIALE + LISTENER
   // ------------------------------------------------------------
-  supabase.auth.getSession().then(({ data }) => {
-    renderAuthWidget(data.session);
-  });
+  function initWidget() {
+    supabase.auth.getSession().then(({ data }) => renderAuthWidget(data.session));
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initWidget);
+  } else {
+    initWidget();
+  }
 
   supabase.auth.onAuthStateChange((_event, session) => {
     renderAuthWidget(session);
