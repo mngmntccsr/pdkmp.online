@@ -57,7 +57,9 @@ function createBaseMap(containerId) {
 function formatDateShort(dateString) {
   if (!dateString) return '';
   const date = new Date(dateString);
-  return `${date.getDate()} ${date.toLocaleDateString('it-IT', { month: 'short' })}`;
+  return `${date.getDate()} ${date.toLocaleDateString('it-IT', {
+    month: 'short'
+  })} ${date.getFullYear()}`;
 }
 
 // Raggruppa una lista di eventi per località (usando le coordinate note),
