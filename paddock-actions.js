@@ -51,6 +51,7 @@
     document.querySelectorAll('.pm-save-btn').forEach(btn => btn.classList.toggle('active', savedEventIds.has(btn.dataset.eventId)));
     document.querySelectorAll('.pm-follow-btn').forEach(btn => btn.classList.toggle('active', followedCircuitIds.has(btn.dataset.circuitId)));
   }
+  window.pmRefreshButtonStates = refreshButtonStates; 
 
   window.pmHandleSaveClick = async function (btn) {
     const session = await getSession();
