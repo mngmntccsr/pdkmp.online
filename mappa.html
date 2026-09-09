@@ -182,7 +182,7 @@ document.getElementById('mapLocateBtn').innerHTML = PMIcons.locate + ' Usa la mi
       const marker = createGroupMarker(group, (ev) => `
         <strong>${ev.titolo}</strong><br>
         ${formatDateShort(ev.dataInizio)} · ${ev.circuito || ev.citta}<br>
-        ${ev.linkInfo ? `<a href="${ev.linkInfo}" target="_blank" rel="noopener">Maggiori info</a>` : ''}
+        ${ev.idAuto ? `<a href="evento.html?id=${encodeURIComponent(ev.idAuto)}">Maggiori info</a>` : ''}
       `);
       marker.addTo(markersLayer);
     });
