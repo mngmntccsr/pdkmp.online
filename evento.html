@@ -99,6 +99,16 @@
       text-align: center;
     }
 
+    @media (min-width: 851px) {
+    html, body { height: 100%; overflow: hidden; }
+    body { display: flex; flex-direction: column; }
+    .event-page-container { flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 1.25rem 1.5rem 1.25rem; }
+    .event-detail { flex: 1; min-height: 0; }
+    .event-detail-map-column { min-height: 0; height: 100%; }
+    #eventMap { min-height: 0; height: 100%; }
+    .event-detail-info-column { padding: 1.5rem 2rem; justify-content: center; overflow: hidden; }
+    .footer { display: none; }
+  }
 
     /* =========================================================
        INFORMAZIONI
@@ -1032,7 +1042,7 @@
                       data-circuit-id="${escapeHtml(event.circuito)}"
                       data-action="follow-circuit"
                     >
-                      ${PMIcons.bell} Segui circuito
+                      ${PMIcons.flag} Segui circuito
                     </button>
                   `
                   : ''
