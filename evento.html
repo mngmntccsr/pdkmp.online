@@ -1019,7 +1019,9 @@
                   ${
                     ticketUrl
                       ? `<a href="${escapeHtml(ticketUrl)}" target="_blank" rel="noopener">Biglietti</a>`
-                      : (freeEntry || 'Da definire')
+                      : freeEntry
+                        ? `<span style="color: var(--success); font-weight: 800;">${PMIcons.sparkle} ${escapeHtml(freeEntry)}</span>`
+                        : 'Da definire'
                   }
                 </span>
               </div>
@@ -1071,7 +1073,7 @@
               ${
                 infoUrl
                   ? `
-        
+                    <a
                       href="${escapeHtml(infoUrl)}"
                       class="btn btn-secondary"
                       target="_blank"
