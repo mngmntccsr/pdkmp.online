@@ -974,151 +974,85 @@
                 : ''
             }
 
-
             <!-- Informazioni -->
-
             <div class="event-detail-info-grid">
 
-
               <div class="event-detail-info-box">
-
-                <span class="event-detail-info-label">
-                  Circuito
-                </span>
-
+                <span class="event-detail-info-label">Circuito</span>
                 <span class="event-detail-info-value">
                   ${escapeHtml(circuit)}
                 </span>
-
               </div>
 
-
               <div class="event-detail-info-box">
-
-                <span class="event-detail-info-label">
-                  Località
-                </span>
-
+                <span class="event-detail-info-label">Località</span>
                 <span class="event-detail-info-value">
                   ${escapeHtml(city)}
                 </span>
-
               </div>
 
-
               <div class="event-detail-info-box">
-
-                <span class="event-detail-info-label">
-                  Organizzatore
-                </span>
-
+                <span class="event-detail-info-label">Organizzatore</span>
                 <span class="event-detail-info-value">
                   ${escapeHtml(organizer)}
                 </span>
-
               </div>
 
-
-              ${
-                freeEntry
-
-                  ? `
-                    <div class="event-detail-info-box">
-
-                      <span class="event-detail-info-label">
-                        Ingresso
-                      </span>
-
-                      <span class="event-detail-info-value">
-                        ${escapeHtml(freeEntry)}
-                      </span>
-
-                    </div>
-                  `
-
-                  : ''
-              }
-
+              <div class="event-detail-info-box">
+                <span class="event-detail-info-label">Ingresso</span>
+                <span class="event-detail-info-value">
+                  ${
+                    ticketUrl
+                      ? `<a href="${escapeHtml(ticketUrl)}" target="_blank" rel="noopener">Biglietti</a>`
+                      : (freeEntry || 'Da definire')
+                  }
+                </span>
+              </div>
 
             </div>
-
-
+            
             <!-- Azioni -->
-
             <div class="event-detail-actions">
-
 
               <button
                 type="button"
                 class="btn btn-secondary"
-                data-event-id="${escapeHtml(
-                  event.idAuto
-                )}"
+                data-event-id="${escapeHtml(event.idAuto)}"
                 data-action="save-event"
               >
-                ☆ Salva evento
+                ${PMIcons.heart} Salva evento
               </button>
-
 
               ${
                 event.circuito
-
                   ? `
                     <button
                       type="button"
                       class="btn btn-secondary"
-                      data-circuit-id="${escapeHtml(
-                        event.circuito
-                      )}"
+                      data-circuit-id="${escapeHtml(event.circuito)}"
                       data-action="follow-circuit"
                     >
-                      + Segui circuito
+                      ${PMIcons.bell} Segui circuito
                     </button>
                   `
-
                   : ''
               }
 
-
               ${
                 ticketUrl
-
                   ? `
-                    <a
+        
                       href="${escapeHtml(ticketUrl)}"
                       class="btn btn-primary"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      🎟 Biglietti
+                      ${PMIcons.ticket} Biglietti
                     </a>
                   `
-
                   : ''
               }
-
-
-              ${
-                infoUrl
-
-                  ? `
-                    <a
-                      href="${escapeHtml(infoUrl)}"
-                      class="btn btn-secondary"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      ↗ Maggiori informazioni
-                    </a>
-                  `
-
-                  : ''
-              }
-
-
             </div>
-
-
           </div>
 
         </article>
