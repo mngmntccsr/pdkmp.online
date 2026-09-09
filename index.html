@@ -746,7 +746,7 @@ function initEventTracking() {
     groups.forEach(group => {
       const marker = createGroupMarker(group, (ev) => `
         <strong>${ev.titolo}</strong><br>
-        ${formatDateShort(ev.dataInizio)}${ev.citta ? ' · ' + ev.citta : ''}
+        ${formatEventDate(ev.dataInizio, ev.dataFine)}${ev.citta ? ' · ' + ev.citta : ''}
       `);
       marker.addTo(map);
       eventMarkers.push(marker);
