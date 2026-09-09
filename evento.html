@@ -383,13 +383,6 @@
         width: 100%;
         min-width: 0;
       }
-
-      .event-detail-map-column,
-      #eventMap,
-      .event-map-missing {
-        min-height: 320px;
-        height: 320px;
-      }
     }
   </style>
 </head>
@@ -881,381 +874,129 @@
         
         <article class="event-detail">
 
-          <!-- =================================================
-               INFORMAZIONI
-               ================================================= -->
-
-          <div class="event-detail-info-column">
-
-
-            <!-- Immagine -->
-
-            <div class="event-detail-image-wrapper">
-
-              <img
-                class="event-detail-image"
-                src="${escapeHtml(eventImage)}"
-                alt="${escapeHtml(
-                  event.titolo ||
-                  'Evento PaddockMap'
-                )}"
-                loading="eager"
-                onerror="
-                  this.onerror=null;
-                  this.src='${escapeHtml(
-                    getRandomEventImage()
-                  )}';
-                "
-              >
-
-            </div>
-
-
-            <!-- Data -->
-
-            ${
-              formatEventDate(event)
-
-                ? `
-                  <div class="event-detail-date">
-
-                    <span>📅</span>
-
-                    <span>
-                      ${formatEventDate(event)}
-                    </span>
-
-                  </div>
-                `
-
-                : ''
-            }
-
-
-            <!-- Titolo -->
-
-            <h1 class="event-detail-title">
-
-              ${escapeHtml(
-                event.titolo ||
-                'Evento'
-              )}
-
-            </h1>
-
-
-            <!-- Discipline -->
-
-            ${
-              disciplineHtml
-
-                ? `
-                  <div class="event-detail-disciplines">
-                    ${disciplineHtml}
-                  </div>
-                `
-
-                : ''
-            }
-
-            <!-- Informazioni -->
-            <div class="event-detail-info-grid">
-
-              <div class="event-detail-info-box">
-                <span class="event-detail-info-label">Circuito</span>
-                <span class="event-detail-info-value">
-                  ${escapeHtml(circuit)}
-                </span>
-              </div>
-
-              <div class="event-detail-info-box">
-                <span class="event-detail-info-label">Località</span>
-                <span class="event-detail-info-value">
-                  ${escapeHtml(city)}
-                </span>
-              </div>
-
-              <div class="event-detail-info-box">
-                <span class="event-detail-info-label">Organizzatore</span>
-                <span class="event-detail-info-value">
-                  ${escapeHtml(organizer)}
-                </span>
-              </div>
-
-              <div class="event-detail-info-box">
-                <span class="event-detail-info-label">Ingresso</span>
-                <span class="event-detail-info-value">
-                  ${
-                    ticketUrl
-                      ? `
-        
-                            href="${escapeHtml(ticketUrl)}"
-                            class="btn btn-primary"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            ${PMIcons.ticket} Biglietti
-                          </a>
-                        `
-                      : ''
-                  }
-                </span>
-              </div>
-
-            </div>
-            
-            <!-- Azioni -->
-            <div class="event-detail-actions">
-
-              <button
-                type="button"
-                class="btn btn-secondary pm-save-btn"
-                data-event-id="${escapeHtml(window.pmEventId(event))}"
-                onclick="pmHandleSaveClick(this)"
-              >
-                ${PMIcons.heart} Salva evento
-              </button>
-
-              ${
-                event.circuito
-                  ? `
-                    <button
-                      type="button"
-                      class="btn btn-secondary pm-follow-btn"
-                      data-circuit-id="${escapeHtml(event.circuito)}"
-                      onclick="pmHandleFollowClick(this)"
-                    >
-                      ${PMIcons.flag} Segui circuito
-                    </button>
-                  `
-                  : ''
-              }
-
-              ${
-                ticketUrl
-                  ? `
-        
-                      href="${escapeHtml(ticketUrl)}"
-                      class="btn btn-primary"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      ${PMIcons.ticket} Biglietti
-                    </a>
-                  `
-                  : ''
-              }
-
-              ${
-                infoUrl
-                  ? `
-                    <a
-                      href="${escapeHtml(infoUrl)}"
-                      class="btn btn-secondary"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      ${PMIcons.info} Maggiori informazioni
-                    </a>
-                  `
-                  : ''
-              }
-
-            </div>
+          <!-- LOCANDINA -->
+          <div class="event-detail-poster-column">
+            <img
+              class="event-detail-poster-image"
+              src="${escapeHtml(eventImage)}"
+              alt="${escapeHtml(event.titolo || 'Evento PaddockMap')}"
+              loading="eager"
+              onerror="this.onerror=null; this.src='${escapeHtml(getRandomEventImage())}';"
+            >
           </div>
 
-          <!-- =================================================
-               MAPPA
-               ================================================= -->
+          <div class="event-detail-right-column">
 
-          <div class="event-detail-map-column">
-
-            <div id="eventMap"></div>
-
-          </div>
-
-
-          <!-- =================================================
-               INFORMAZIONI
-               ================================================= -->
-
-          <div class="event-detail-info-column">
-
-
-            <!-- Immagine -->
-
-            <div class="event-detail-image-wrapper">
-
-              <img
-                class="event-detail-image"
-                src="${escapeHtml(eventImage)}"
-                alt="${escapeHtml(
-                  event.titolo ||
-                  'Evento PaddockMap'
-                )}"
-                loading="eager"
-                onerror="
-                  this.onerror=null;
-                  this.src='${escapeHtml(
-                    getRandomEventImage()
-                  )}';
-                "
-              >
-
-            </div>
-
-
-            <!-- Data -->
-
-            ${
-              formatEventDate(event)
-
-                ? `
-                  <div class="event-detail-date">
-
-                    <span>📅</span>
-
-                    <span>
-                      ${formatEventDate(event)}
-                    </span>
-
-                  </div>
-                `
-
-                : ''
-            }
-
-
-            <!-- Titolo -->
-
-            <h1 class="event-detail-title">
-
-              ${escapeHtml(
-                event.titolo ||
-                'Evento'
-              )}
-
-            </h1>
-
-
-            <!-- Discipline -->
-
-            ${
-              disciplineHtml
-
-                ? `
-                  <div class="event-detail-disciplines">
-                    ${disciplineHtml}
-                  </div>
-                `
-
-                : ''
-            }
-
-            <!-- Informazioni -->
-            <div class="event-detail-info-grid">
-
-              <div class="event-detail-info-box">
-                <span class="event-detail-info-label">Circuito</span>
-                <span class="event-detail-info-value">
-                  ${escapeHtml(circuit)}
-                </span>
-              </div>
-
-              <div class="event-detail-info-box">
-                <span class="event-detail-info-label">Località</span>
-                <span class="event-detail-info-value">
-                  ${escapeHtml(city)}
-                </span>
-              </div>
-
-              <div class="event-detail-info-box">
-                <span class="event-detail-info-label">Organizzatore</span>
-                <span class="event-detail-info-value">
-                  ${escapeHtml(organizer)}
-                </span>
-              </div>
-
-              <div class="event-detail-info-box">
-                <span class="event-detail-info-label">Ingresso</span>
-                <span class="event-detail-info-value">
-                  ${
-                    ticketUrl
-                      ? `
-        
-                            href="${escapeHtml(ticketUrl)}"
-                            class="btn btn-primary"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            ${PMIcons.ticket} Biglietti
-                          </a>
-                        `
-                      : ''
-                  }
-                </span>
-              </div>
-
-            </div>
-            
-            <!-- Azioni -->
-            <div class="event-detail-actions">
-
-              <button
-                type="button"
-                class="btn btn-secondary pm-save-btn"
-                data-event-id="${escapeHtml(window.pmEventId(event))}"
-                onclick="pmHandleSaveClick(this)"
-              >
-                ${PMIcons.heart} Salva evento
-              </button>
+            <!-- INFORMAZIONI -->
+            <div class="event-detail-info-column">
 
               ${
-                event.circuito
+                formatEventDate(event)
                   ? `
-                    <button
-                      type="button"
-                      class="btn btn-secondary pm-follow-btn"
-                      data-circuit-id="${escapeHtml(event.circuito)}"
-                      onclick="pmHandleFollowClick(this)"
-                    >
-                      ${PMIcons.flag} Segui circuito
-                    </button>
+                    <div class="event-detail-date">
+                      <span>📅</span>
+                      <span>${formatEventDate(event)}</span>
+                    </div>
                   `
                   : ''
               }
 
+              <h1 class="event-detail-title">
+                ${escapeHtml(event.titolo || 'Evento')}
+              </h1>
+
               ${
-                ticketUrl
-                  ? `
-        
-                      href="${escapeHtml(ticketUrl)}"
-                      class="btn btn-primary"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      ${PMIcons.ticket} Biglietti
-                    </a>
-                  `
+                disciplineHtml
+                  ? `<div class="event-detail-disciplines">${disciplineHtml}</div>`
                   : ''
               }
 
-              ${
-                infoUrl
-                  ? `
-                    <a
-                      href="${escapeHtml(infoUrl)}"
-                      class="btn btn-secondary"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      ${PMIcons.info} Maggiori informazioni
-                    </a>
-                  `
-                  : ''
-              }
+              <div class="event-detail-info-grid">
 
+                <div class="event-detail-info-box">
+                  <span class="event-detail-info-label">Circuito</span>
+                  <span class="event-detail-info-value">${escapeHtml(circuit)}</span>
+                </div>
+
+                <div class="event-detail-info-box">
+                  <span class="event-detail-info-label">Località</span>
+                  <span class="event-detail-info-value">${escapeHtml(city)}</span>
+                </div>
+
+                <div class="event-detail-info-box">
+                  <span class="event-detail-info-label">Organizzatore</span>
+                  <span class="event-detail-info-value">${escapeHtml(organizer)}</span>
+                </div>
+
+                <div class="event-detail-info-box">
+                  <span class="event-detail-info-label">Ingresso</span>
+                  <span class="event-detail-info-value">
+                    ${
+                      ticketUrl
+                        ? `<a href="${escapeHtml(ticketUrl)}" target="_blank" rel="noopener">Biglietti</a>`
+                        : freeEntry
+                          ? `<span style="color: var(--success); font-weight: 800;">${PMIcons.sparkle} ${escapeHtml(freeEntry)}</span>`
+                          : 'Da definire'
+                    }
+                  </span>
+                </div>
+
+              </div>
+
+              <div class="event-detail-actions">
+
+                <button
+                  type="button"
+                  class="btn btn-secondary pm-save-btn"
+                  data-event-id="${escapeHtml(window.pmEventId(event))}"
+                  onclick="pmHandleSaveClick(this)"
+                >
+                  ${PMIcons.heart} Salva evento
+                </button>
+
+                ${
+                  event.circuito
+                    ? `
+                      <button
+                        type="button"
+                        class="btn btn-secondary pm-follow-btn"
+                        data-circuit-id="${escapeHtml(event.circuito)}"
+                        onclick="pmHandleFollowClick(this)"
+                      >
+                        ${PMIcons.flag} Segui circuito
+                      </button>
+                    `
+                    : ''
+                }
+
+                ${
+                  ticketUrl
+                    ? `
+                      <a href="${escapeHtml(ticketUrl)}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                        ${PMIcons.ticket} Biglietti
+                      </a>
+                    `
+                    : ''
+                }
+
+                ${
+                  infoUrl
+                    ? `
+                      <a href="${escapeHtml(infoUrl)}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                        ${PMIcons.info} Maggiori informazioni
+                      </a>
+                    `
+                    : ''
+                }
+
+              </div>
             </div>
+
+            <!-- MAPPA -->
+            <div class="event-detail-map-column">
+              <div id="eventMap"></div>
+            </div>
+
           </div>
 
         </article>
