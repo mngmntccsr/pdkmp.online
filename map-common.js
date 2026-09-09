@@ -54,12 +54,45 @@ function createBaseMap(containerId) {
   return map;
 }
 
-function formatDateShort(dateString) {
-  if (!dateString) return '';
-  const date = new Date(dateString);
-  return `${date.getDate()} ${date.toLocaleDateString('it-IT', {
-    month: 'short'
-  })} ${date.getFullYear()}`;
+function formatEventDate(startString, endString) {
+  if (!startString) return '';
+
+  const start = new Date(startString);
+  const end = endString ? new Date(endString) : null;
+
+  const dayStart = start.getDate();
+  const monthStart = start.toLocaleDateString('it-IT', { month: 'short' });
+  const yearStart = start.getFullYear();
+
+  // Nessuna data di fine
+  if (!end) {
+    return `${dayStart} ${monthStart} ${yearStart}`;
+  }
+
+  const dayEnd = end.getDate();
+  const monthEnd = end.toLocaleDateString('it-IT', { month: 'short' });
+  const yearEnd = end.getFullYear();
+  // Stesso giorno
+  if (
+    dayStart === dayEnd &&
+    start.getMonth() === end.getMonth() &&
+    yearStart === yearEnd
+  ) {
+    return `${dayStart} ${monthStart} ${yearStart}`;
+  }
+  // Stesso mese e stesso anno
+  if (
+    start.getMonth() === end.getMonth() &&
+    yearStart === yearEnd
+  ) {
+    return `${dayStart}–${dayEnd} ${monthStart} ${yearStart}`;
+  }
+  // Stesso anno, mese diverso
+  if (yearStart === yearEnd) {
+    return `${dayStart} ${monthStart} – ${dayEnd} ${monthEnd} ${yearStart}`;
+  }
+  // Anno diverso
+  return `${dayStart} ${monthStart} ${yearStart} – ${dayEnd} ${monthEnd} ${yearEnd}`;
 }
 
 // Raggruppa una lista di eventi per località (usando le coordinate note),
