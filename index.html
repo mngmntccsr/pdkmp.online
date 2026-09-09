@@ -355,6 +355,10 @@ if (hasImage) {
 }
     }
 
+const titleHtml = event.isPromo
+    ? `<div class="event-title">${event.titolo}</div>`
+    : `<a href="evento.html?id=${encodeURIComponent(event.idAuto)}" class="event-title">${event.titolo}</a>`;
+
                 return `
                     <div class="event-card"
      data-citta="${event.citta || ''}"  
@@ -374,8 +378,8 @@ if (hasImage) {
                             <div class="event-date">
                                 ${PMIcons.calendar} ${formatDateShort(event.dataInizio)}${event.dataFine && event.dataFine !== event.dataInizio ? ' - ' + formatDateShort(event.dataFine) : ''}
                             </div>
-                            <a href="evento.html?id=${encodeURIComponent(window.pmEventId(event))}" class="event-title">${event.titolo}</a>
-
+                            ${titleHtml}
+                            
     <div class="event-disciplines">
     ${event.disciplina.length > 3
         ? `<button class="disc-arrow left" onclick="scrollDisciplines(this, -1)">‹</button>`
