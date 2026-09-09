@@ -363,6 +363,7 @@ const titleHtml = event.isPromo
                     <div class="event-card"
      data-citta="${event.citta || ''}"  
      data-datainizio="${event.dataInizio || ''}"
+     data-datafine="${event.dataFine || ''}"
      data-is-promo="${event.isPromo ? 'true' : 'false'}"
      data-event-title="${event.titolo}"
      data-discipline="${event.disciplina.join(',')}"
@@ -738,6 +739,7 @@ function initEventTracking() {
     const events = cards.map(card => ({
       citta: card.dataset.citta,
       dataInizio: card.dataset.datainizio,
+      dataFine: card.dataset.datafine,  
       titolo: card.querySelector('.event-title') ? card.querySelector('.event-title').textContent.trim() : ''
     }));
 
