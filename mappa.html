@@ -181,7 +181,7 @@ document.getElementById('mapLocateBtn').innerHTML = PMIcons.locate + ' Usa la mi
     groups.forEach(group => {
       const marker = createGroupMarker(group, (ev) => `
         <strong>${ev.titolo}</strong><br>
-        ${formatDateShort(ev.dataInizio)}${ev.dataFine ? ` → ${formatDateShort(ev.dataFine)}` : ''} · ${ev.circuito || ev.citta}<br>
+        ${formatEventDate(ev.dataInizio, ev.dataFine)} · ${ev.circuito || ev.citta}<br>
         ${ev.idAuto ? `<a href="evento.html?id=${encodeURIComponent(ev.idAuto)}">Maggiori info</a>` : ''}
       `);
       marker.addTo(markersLayer);
