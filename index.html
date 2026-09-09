@@ -412,7 +412,7 @@ const titleHtml = event.isPromo
                                        <span>
                              <strong>${event.circuito || ''}</strong>
                         ${event.citta ? ' - ' + event.citta : ''}
-                        ${event.itinerante ? `<span class="itinerant-badge" onclick="event.stopPropagation(); this.classList.toggle('show-tooltip')" title="Punto di partenza — evento itinerante su più tappe">🧭<span class="itinerant-tooltip">Punto di partenza — evento itinerante su più tappe</span></span>` : ''}
+                        ${event.itinerante ? `<span class="itinerant-badge" onclick="event.stopPropagation(); this.classList.toggle('show-tooltip')" title="Punto di partenza — evento itinerante su più tappe">${PMIcons.compass}<span class="itinerant-tooltip">Punto di partenza — evento itinerante su più tappe</span></span>` : ''}
                              </span>
                 </div>
                                 ${event.organizzatore ? `
@@ -750,7 +750,7 @@ function initEventTracking() {
 
     groups.forEach(group => {
       const marker = createGroupMarker(group, (ev) => `
-        <strong>${ev.titolo}</strong>${ev.itinerante ? ' 🧭' : ''}<br>
+        <strong>${ev.titolo}</strong>${ev.itinerante ? ' ' + PMIcons.compass : ''}<br>
         ${formatEventDate(ev.dataInizio, ev.dataFine)}${ev.citta ? ' · ' + ev.citta : ''}
       `);
       marker.addTo(map);
