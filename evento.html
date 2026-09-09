@@ -806,17 +806,9 @@
        ========================================================= */
 
     function getFreeEntry(event) {
-
-      if (
-        event.ingressoGratuito === true ||
-        event.ingressoGratuito === 'true' ||
-        event.ingresso === 'gratuito' ||
-        event.ingresso === 'Gratuito'
-      ) {
+      if (event.eventoGratuito === true || event.eventoGratuito === 'true') {
         return 'Ingresso gratuito';
       }
-
-
       return '';
     }
 
@@ -838,14 +830,7 @@
 
 
     function getInfoUrl(event) {
-
-      return (
-        event.link ||
-        event.url ||
-        event.linkInfo ||
-        event.urlInfo ||
-        ''
-      );
+      return event.linkInfo || '';
     }
 
 
