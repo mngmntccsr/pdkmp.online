@@ -374,7 +374,7 @@ if (hasImage) {
                             <div class="event-date">
                                 ${PMIcons.calendar} ${formatDateShort(event.dataInizio)}${event.dataFine && event.dataFine !== event.dataInizio ? ' - ' + formatDateShort(event.dataFine) : ''}
                             </div>
-                            <div class="event-title">${event.titolo}</div>
+                            <a href="evento.html?id=${encodeURIComponent(window.pmEventId(event))}" class="event-title">${event.titolo}</a>
 
     <div class="event-disciplines">
     ${event.disciplina.length > 3
