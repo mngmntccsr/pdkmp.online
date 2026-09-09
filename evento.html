@@ -6,25 +6,22 @@
 
   <title>Evento | PaddockMap</title>
 
-  <!-- PaddockMap -->
   <link rel="stylesheet" href="style.css">
 
   <!-- Leaflet -->
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIINfQ3VQxK8fR1LxFJwK7fW5FhV1Q5rJwM="
     crossorigin=""
   >
 
   <style>
     /* =========================================================
-       EVENT DETAIL PAGE
-       Usa il Design System già presente in style.css
+       PAGINA DETTAGLIO EVENTO
        ========================================================= */
 
     .event-page-container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       padding: 1.75rem 1.5rem 3rem;
     }
@@ -37,8 +34,8 @@
 
       color: var(--ink-soft);
       text-decoration: none;
-      font-weight: 700;
       font-size: 0.92rem;
+      font-weight: 750;
 
       transition:
         color 0.2s ease,
@@ -50,178 +47,261 @@
       transform: translateX(-3px);
     }
 
+
+    /* =========================================================
+       SCHEDA PRINCIPALE
+       ========================================================= */
+
     .event-detail {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+
       background: var(--surface);
       border: 1px solid var(--line);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow-card);
+
       overflow: hidden;
     }
 
+
+    /* =========================================================
+       MAPPA
+       ========================================================= */
+
+    .event-detail-map-column {
+      min-height: 650px;
+      position: relative;
+
+      background: var(--bg);
+    }
+
+    #eventMap {
+      width: 100%;
+      height: 100%;
+      min-height: 650px;
+    }
+
+    .event-map-missing {
+      width: 100%;
+      height: 100%;
+      min-height: 650px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 2rem;
+
+      background: var(--bg);
+      color: var(--ink-soft);
+
+      text-align: center;
+    }
+
+
+    /* =========================================================
+       INFORMAZIONI
+       ========================================================= */
+
+    .event-detail-info-column {
+      padding: 2rem;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      min-width: 0;
+    }
+
+
+    /* =========================================================
+       IMMAGINE
+       ========================================================= */
+
     .event-detail-image-wrapper {
       width: 100%;
-      aspect-ratio: 16 / 7;
-      background: var(--bg);
+      aspect-ratio: 16 / 8;
+
+      margin-bottom: 1.5rem;
+
+      border-radius: var(--radius-lg);
       overflow: hidden;
+
+      background: var(--bg);
     }
 
     .event-detail-image {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+
       display: block;
+
+      object-fit: cover;
     }
 
-    .event-detail-content {
-      padding: 2rem;
-    }
+
+    /* =========================================================
+       DATA
+       ========================================================= */
 
     .event-detail-date {
       display: flex;
       align-items: center;
       gap: 0.5rem;
 
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.7rem;
 
       color: var(--accent);
-      font-size: 0.88rem;
+
+      font-size: 0.86rem;
       font-weight: 800;
-      letter-spacing: 0.02em;
+
       text-transform: uppercase;
+      letter-spacing: 0.025em;
     }
+
+
+    /* =========================================================
+       TITOLO
+       ========================================================= */
 
     .event-detail-title {
       margin: 0 0 1rem;
 
       color: var(--ink);
+
       font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      line-height: 1.02;
+      font-size: clamp(2rem, 3.2vw, 3rem);
+      line-height: 1.03;
+
       letter-spacing: -0.035em;
     }
+
+
+    /* =========================================================
+       DISCIPLINE
+       ========================================================= */
 
     .event-detail-disciplines {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.55rem;
-      margin-bottom: 1.75rem;
+      gap: 0.5rem;
+
+      margin-bottom: 1.4rem;
     }
 
     .event-detail-disciplines .event-discipline {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
       gap: 0.4rem;
 
-      min-height: 36px;
-      padding: 0.45rem 0.75rem;
+      min-height: 34px;
+
+      padding: 0.4rem 0.7rem;
 
       border-radius: var(--radius-pill);
+
       background: var(--accent-soft);
       color: var(--accent);
 
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 800;
     }
 
-    .event-detail-info {
+
+    /* =========================================================
+       BOX INFORMAZIONI
+       ========================================================= */
+
+    .event-detail-info-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.9rem;
-      margin-bottom: 1.5rem;
+
+      gap: 0.75rem;
+
+      margin-bottom: 1.4rem;
     }
 
     .event-detail-info-box {
-      padding: 1rem 1.1rem;
+      padding: 0.9rem 1rem;
 
       background: var(--bg);
+
       border: 1px solid var(--line);
       border-radius: var(--radius-md);
     }
 
     .event-detail-info-label {
       display: block;
-      margin-bottom: 0.35rem;
+
+      margin-bottom: 0.3rem;
 
       color: var(--muted);
-      font-size: 0.75rem;
+
+      font-size: 0.7rem;
       font-weight: 800;
-      letter-spacing: 0.04em;
+
       text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
 
     .event-detail-info-value {
+      display: block;
+
       color: var(--ink);
-      font-size: 0.98rem;
+
+      font-size: 0.92rem;
       font-weight: 750;
       line-height: 1.35;
+
+      overflow-wrap: anywhere;
     }
+
+
+    /* =========================================================
+       AZIONI
+       ========================================================= */
 
     .event-detail-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.7rem;
-      padding-top: 0.25rem;
+
+      gap: 0.6rem;
     }
 
     .event-detail-actions .btn {
       width: auto;
-      min-width: 150px;
+      min-width: 135px;
     }
 
-    .event-detail-map-section {
-      margin-top: 1.5rem;
-    }
 
-    .event-detail-map-title {
-      margin: 0 0 0.8rem;
-
-      color: var(--ink);
-      font-family: var(--font-display);
-      font-size: 1.35rem;
-    }
-
-    #eventMap {
-      width: 100%;
-      height: 420px;
-
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-
-      box-shadow: var(--shadow-card);
-    }
-
-    .event-map-missing {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      min-height: 220px;
-      padding: 2rem;
-
-      border: 1px dashed var(--line-strong);
-      border-radius: var(--radius-lg);
-
-      background: var(--bg);
-      color: var(--ink-soft);
-      text-align: center;
-    }
+    /* =========================================================
+       STATO / ERRORI
+       ========================================================= */
 
     .event-state {
-      padding: 4rem 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-card);
+
+      padding: 4rem 2rem;
+
       text-align: center;
     }
 
     .event-state h1 {
-      margin: 0 0 0.75rem;
+      margin: 0 0 0.7rem;
+
       color: var(--ink);
+
       font-family: var(--font-display);
-      font-size: 2rem;
     }
 
     .event-state p {
       margin: 0;
+
       color: var(--ink-soft);
     }
 
@@ -229,24 +309,57 @@
       color: var(--accent);
     }
 
-    @media (max-width: 700px) {
-      .event-page-container {
-        padding: 1.25rem 1rem 2rem;
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 850px) {
+
+      .event-detail {
+        display: block;
+      }
+
+      /*
+       * Su telefono:
+       * informazioni sopra
+       * mappa sotto
+       */
+
+      .event-detail-info-column {
+        padding: 1.25rem;
+      }
+
+      .event-detail-map-column {
+        min-height: 360px;
+      }
+
+      #eventMap {
+        min-height: 360px;
+        height: 360px;
+      }
+
+      .event-map-missing {
+        min-height: 360px;
       }
 
       .event-detail-image-wrapper {
         aspect-ratio: 16 / 9;
       }
 
-      .event-detail-content {
-        padding: 1.25rem;
-      }
-
       .event-detail-title {
         font-size: 2rem;
       }
+    }
 
-      .event-detail-info {
+
+    @media (max-width: 550px) {
+
+      .event-page-container {
+        padding: 1.25rem 1rem 2rem;
+      }
+
+      .event-detail-info-grid {
         grid-template-columns: 1fr;
       }
 
@@ -260,19 +373,25 @@
         min-width: 0;
       }
 
-      #eventMap {
+      .event-detail-map-column,
+      #eventMap,
+      .event-map-missing {
+        min-height: 320px;
         height: 320px;
       }
     }
   </style>
 </head>
 
+
 <body>
 
   <!-- =========================================================
        HEADER
        ========================================================= -->
+
   <header class="header" id="mainHeader">
+
     <div class="header-content">
 
       <div class="logo">
@@ -286,26 +405,31 @@
       </nav>
 
     </div>
+
   </header>
 
 
   <!-- =========================================================
        CONTENUTO
        ========================================================= -->
+
   <main class="event-page-container">
 
     <a href="index.html" class="event-back">
       ← Torna agli eventi
     </a>
 
+
     <div id="eventContainer">
 
-      <!-- Stato iniziale -->
-      <div class="event-detail">
-        <div class="event-state">
-          <h1>Caricamento evento...</h1>
-          <p>Attendi qualche secondo.</p>
-        </div>
+      <div class="event-state">
+
+        <h1>Caricamento evento...</h1>
+
+        <p>
+          Attendi qualche secondo.
+        </p>
+
       </div>
 
     </div>
@@ -316,69 +440,83 @@
   <!-- =========================================================
        FOOTER
        ========================================================= -->
+
   <footer class="footer">
+
     <div class="footer-content">
+
       <div>
         <strong>PaddockMap</strong>
         <span>Il calendario del motorsport italiano.</span>
       </div>
+
     </div>
+
   </footer>
 
 
   <!-- =========================================================
        LEAFLET
        ========================================================= -->
+
   <script
     src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin="">
   </script>
 
 
   <!-- =========================================================
-       PADDOKMAP JS
+       PADDockMAP JS
        ========================================================= -->
+
   <script src="icons.js"></script>
   <script src="map-common.js"></script>
 
-  <!-- Supabase / account -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="auth.js"></script>
   <script src="paddock-actions.js"></script>
 
 
   <!-- =========================================================
-       EVENT PAGE LOGIC
+       LOGICA PAGINA EVENTO
        ========================================================= -->
+
   <script>
+
+    /* =========================================================
+       API
+       ========================================================= */
 
     const API_URL =
       'https://paddockmap-api.managementcesar37.workers.dev/?v=' +
       Date.now();
 
 
-    /*
-     * Recupera l'ID dell'evento dalla URL.
-     *
-     * Esempio:
-     * evento.html?id=12345
-     */
-    const urlParams = new URLSearchParams(window.location.search);
-    const eventId = urlParams.get('id');
+    /* =========================================================
+       ID EVENTO
+       ========================================================= */
+
+    const urlParams =
+      new URLSearchParams(window.location.search);
+
+    const eventId =
+      urlParams.get('id');
 
 
-    const container = document.getElementById('eventContainer');
+    const container =
+      document.getElementById('eventContainer');
 
 
-    /*
-     * Escape HTML.
-     * Evita che eventuali caratteri speciali presenti nei dati
-     * rompano il markup della pagina.
-     */
+    /* =========================================================
+       ESCAPE HTML
+       ========================================================= */
+
     function escapeHtml(value) {
 
-      if (value === null || value === undefined) {
+      if (
+        value === null ||
+        value === undefined
+      ) {
         return '';
       }
 
@@ -391,109 +529,144 @@
     }
 
 
-    /*
-     * Formattazione della data.
-     */
+    /* =========================================================
+       DATE
+       ========================================================= */
+
     function formatDate(dateString) {
 
       if (!dateString) {
         return '';
       }
 
-      const date = new Date(dateString);
+      const date =
+        new Date(dateString);
 
-      if (Number.isNaN(date.getTime())) {
+      if (
+        Number.isNaN(
+          date.getTime()
+        )
+      ) {
         return escapeHtml(dateString);
       }
 
-      return date.toLocaleDateString('it-IT', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric'
-      });
+      return date.toLocaleDateString(
+        'it-IT',
+        {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric'
+        }
+      );
     }
 
 
-    /*
-     * Data completa dell'evento.
-     */
     function formatEventDate(event) {
 
-      const start = event.dataInizio;
-      const end = event.dataFine;
+      const start =
+        event.dataInizio;
+
+      const end =
+        event.dataFine;
+
 
       if (!start) {
         return '';
       }
 
-      if (!end || start === end) {
+
+      if (
+        !end ||
+        start === end
+      ) {
         return formatDate(start);
       }
 
-      return `${formatDate(start)} – ${formatDate(end)}`;
+
+      return (
+        `${formatDate(start)} – ${formatDate(end)}`
+      );
     }
 
 
-    /*
-     * Recupera il nome della disciplina.
-     */
+    /* =========================================================
+       DISCIPLINE
+       ========================================================= */
+
     function normalizeDisciplines(event) {
 
-      if (Array.isArray(event.disciplina)) {
+      if (
+        Array.isArray(
+          event.disciplina
+        )
+      ) {
         return event.disciplina;
       }
 
-      if (typeof event.disciplina === 'string') {
+
+      if (
+        typeof event.disciplina === 'string'
+      ) {
         return event.disciplina
           .split(',')
-          .map(item => item.trim())
+          .map(
+            item => item.trim()
+          )
           .filter(Boolean);
       }
+
 
       return [];
     }
 
 
-    /*
-     * Icone discipline.
-     *
-     * Se icons.js espone una funzione di mapping già presente
-     * nel progetto, viene utilizzata.
-     */
     function getDisciplineIcon(discipline) {
 
-      const value = String(discipline || '').toLowerCase();
+      const value =
+        String(
+          discipline || ''
+        ).toLowerCase();
 
-      if (typeof window.getDisciplineIcon === 'function') {
-        try {
-          return window.getDisciplineIcon(discipline);
-        } catch (error) {
-          // fallback
-        }
-      }
-
-      if (typeof window.getIconForDiscipline === 'function') {
-        try {
-          return window.getIconForDiscipline(discipline);
-        } catch (error) {
-          // fallback
-        }
-      }
 
       if (
-        value.includes('rally') ||
-        value.includes('rallye')
+        typeof window.getDisciplineIcon ===
+        'function'
+      ) {
+        try {
+          return window.getDisciplineIcon(
+            discipline
+          );
+        } catch (error) {}
+      }
+
+
+      if (
+        typeof window.getIconForDiscipline ===
+        'function'
+      ) {
+        try {
+          return window.getIconForDiscipline(
+            discipline
+          );
+        } catch (error) {}
+      }
+
+
+      if (
+        value.includes('rally')
       ) {
         return '🏁';
       }
 
+
       if (
         value.includes('slalom') ||
         value.includes('cronoscalata') ||
-        value.includes('hill')
+        value.includes('salita')
       ) {
         return '🏎️';
       }
+
 
       if (
         value.includes('gt') ||
@@ -502,11 +675,13 @@
         return '🏎️';
       }
 
+
       if (
         value.includes('kart')
       ) {
         return '🏎️';
       }
+
 
       if (
         value.includes('moto') ||
@@ -515,29 +690,91 @@
         return '🏍️';
       }
 
+
       return '🏁';
     }
 
 
-    /*
-     * Immagine evento.
-     *
-     * Prima usa quella presente nei dati.
-     * Se manca, usa una immagine di fallback.
-     */
-    function getEventImage(event) {
+    /* =========================================================
+       IMMAGINI
+       =========================================================
+       
+       Prima usa event.immagine.
 
-      if (event.immagine) {
-        return event.immagine;
+       Se non esiste, prova a usare la stessa logica
+       delle immagini random della homepage.
+       ========================================================= */
+
+    function getRandomEventImage() {
+
+      /*
+       * Se index.html / il progetto espone già
+       * una funzione per le immagini automatiche,
+       * proviamo ad utilizzarla.
+       */
+
+      if (
+        typeof window.getRandomEventImage ===
+        'function'
+      ) {
+        try {
+          const image =
+            window.getRandomEventImage();
+
+          if (image) {
+            return image;
+          }
+        } catch (error) {}
       }
 
-      return 'images/default-event.jpg';
+
+      /*
+       * Lista fallback.
+       *
+       * IMPORTANTE:
+       * se nella tua cartella immagini i nomi sono
+       * differenti, questi possono essere sostituiti
+       * con quelli già utilizzati da index.html.
+       */
+
+      const fallbackImages = [
+
+        'images/evento-1.jpg',
+        'images/evento-2.jpg',
+        'images/evento-3.jpg',
+        'images/evento-4.jpg',
+        'images/evento-5.jpg'
+
+      ];
+
+
+      return fallbackImages[
+        Math.floor(
+          Math.random() *
+          fallbackImages.length
+        )
+      ];
     }
 
 
-    /*
-     * Stato ingresso gratuito.
-     */
+    function getEventImage(event) {
+
+      if (
+        event.immagine &&
+        String(event.immagine).trim() !== ''
+      ) {
+        return event.immagine;
+      }
+
+
+      return getRandomEventImage();
+    }
+
+
+    /* =========================================================
+       INGRESSO GRATUITO
+       ========================================================= */
+
     function getFreeEntry(event) {
 
       if (
@@ -549,47 +786,96 @@
         return 'Ingresso gratuito';
       }
 
+
       return '';
     }
 
 
-    /*
-     * Render pagina evento.
-     */
-    function renderEvent(event) {
+    /* =========================================================
+       URL
+       ========================================================= */
 
-      const disciplines = normalizeDisciplines(event);
+    function getTicketUrl(event) {
 
-      const disciplineHtml = disciplines.length
-        ? disciplines.map(discipline => `
-            <span class="event-discipline">
-              <span>${getDisciplineIcon(discipline)}</span>
-              ${escapeHtml(discipline)}
-            </span>
-          `).join('')
-        : '';
-
-      const freeEntry = getFreeEntry(event);
-
-      const circuit = event.circuito || '—';
-      const city = event.citta || '—';
-      const organizer = event.organizzatore || '—';
-
-      const ticketUrl =
+      return (
         event.linkBiglietti ||
         event.biglietti ||
         event.ticketUrl ||
         event.urlBiglietti ||
-        '';
+        ''
+      );
+    }
 
-      const infoUrl =
+
+    function getInfoUrl(event) {
+
+      return (
         event.link ||
         event.url ||
         event.linkInfo ||
         event.urlInfo ||
-        '';
+        ''
+      );
+    }
 
-      const saveEventId = event.idAuto;
+
+    /* =========================================================
+       RENDER EVENTO
+       ========================================================= */
+
+    function renderEvent(event) {
+
+      const disciplines =
+        normalizeDisciplines(event);
+
+
+      const disciplineHtml =
+        disciplines.length
+
+          ? disciplines
+              .map(
+                discipline => `
+                  <span class="event-discipline">
+                    <span>
+                      ${getDisciplineIcon(discipline)}
+                    </span>
+
+                    ${escapeHtml(discipline)}
+                  </span>
+                `
+              )
+              .join('')
+
+          : '';
+
+
+      const freeEntry =
+        getFreeEntry(event);
+
+
+      const circuit =
+        event.circuito || '—';
+
+
+      const city =
+        event.citta || '—';
+
+
+      const organizer =
+        event.organizzatore || '—';
+
+
+      const ticketUrl =
+        getTicketUrl(event);
+
+
+      const infoUrl =
+        getInfoUrl(event);
+
+
+      const eventImage =
+        getEventImage(event);
+
 
       document.title =
         `${event.titolo || 'Evento'} | PaddockMap`;
@@ -599,55 +885,103 @@
 
         <article class="event-detail">
 
-          <!-- Immagine -->
-          <div class="event-detail-image-wrapper">
 
-            <img
-              class="event-detail-image"
-              src="${escapeHtml(getEventImage(event))}"
-              alt="${escapeHtml(event.titolo || 'Evento PaddockMap')}"
-              loading="eager"
-              onerror="this.src='images/default-event.jpg'"
-            >
+          <!-- =================================================
+               MAPPA
+               ================================================= -->
+
+          <div class="event-detail-map-column">
+
+            <div id="eventMap"></div>
 
           </div>
 
 
-          <!-- Contenuto -->
-          <div class="event-detail-content">
+          <!-- =================================================
+               INFORMAZIONI
+               ================================================= -->
+
+          <div class="event-detail-info-column">
+
+
+            <!-- Immagine -->
+
+            <div class="event-detail-image-wrapper">
+
+              <img
+                class="event-detail-image"
+                src="${escapeHtml(eventImage)}"
+                alt="${escapeHtml(
+                  event.titolo ||
+                  'Evento PaddockMap'
+                )}"
+                loading="eager"
+                onerror="
+                  this.onerror=null;
+                  this.src='${escapeHtml(
+                    getRandomEventImage()
+                  )}';
+                "
+              >
+
+            </div>
+
+
+            <!-- Data -->
 
             ${
               formatEventDate(event)
+
                 ? `
                   <div class="event-detail-date">
-                    📅
-                    <span>${formatEventDate(event)}</span>
+
+                    <span>📅</span>
+
+                    <span>
+                      ${formatEventDate(event)}
+                    </span>
+
                   </div>
                 `
+
                 : ''
             }
 
 
+            <!-- Titolo -->
+
             <h1 class="event-detail-title">
-              ${escapeHtml(event.titolo || 'Evento')}
+
+              ${escapeHtml(
+                event.titolo ||
+                'Evento'
+              )}
+
             </h1>
 
 
+            <!-- Discipline -->
+
             ${
               disciplineHtml
+
                 ? `
                   <div class="event-detail-disciplines">
                     ${disciplineHtml}
                   </div>
                 `
+
                 : ''
             }
 
 
             <!-- Informazioni -->
-            <div class="event-detail-info">
+
+            <div class="event-detail-info-grid">
+
 
               <div class="event-detail-info-box">
+
                 <span class="event-detail-info-label">
                   Circuito
                 </span>
@@ -655,10 +989,12 @@
                 <span class="event-detail-info-value">
                   ${escapeHtml(circuit)}
                 </span>
+
               </div>
 
 
               <div class="event-detail-info-box">
+
                 <span class="event-detail-info-label">
                   Località
                 </span>
@@ -666,10 +1002,12 @@
                 <span class="event-detail-info-value">
                   ${escapeHtml(city)}
                 </span>
+
               </div>
 
 
               <div class="event-detail-info-box">
+
                 <span class="event-detail-info-label">
                   Organizzatore
                 </span>
@@ -677,13 +1015,16 @@
                 <span class="event-detail-info-value">
                   ${escapeHtml(organizer)}
                 </span>
+
               </div>
 
 
               ${
                 freeEntry
+
                   ? `
                     <div class="event-detail-info-box">
+
                       <span class="event-detail-info-label">
                         Ingresso
                       </span>
@@ -691,21 +1032,28 @@
                       <span class="event-detail-info-value">
                         ${escapeHtml(freeEntry)}
                       </span>
+
                     </div>
                   `
+
                   : ''
               }
+
 
             </div>
 
 
             <!-- Azioni -->
+
             <div class="event-detail-actions">
+
 
               <button
                 type="button"
                 class="btn btn-secondary"
-                data-event-id="${escapeHtml(saveEventId)}"
+                data-event-id="${escapeHtml(
+                  event.idAuto
+                )}"
                 data-action="save-event"
               >
                 ☆ Salva evento
@@ -714,22 +1062,27 @@
 
               ${
                 event.circuito
+
                   ? `
                     <button
                       type="button"
                       class="btn btn-secondary"
-                      data-circuit-id="${escapeHtml(event.circuito)}"
+                      data-circuit-id="${escapeHtml(
+                        event.circuito
+                      )}"
                       data-action="follow-circuit"
                     >
                       + Segui circuito
                     </button>
                   `
+
                   : ''
               }
 
 
               ${
                 ticketUrl
+
                   ? `
                     <a
                       href="${escapeHtml(ticketUrl)}"
@@ -740,12 +1093,14 @@
                       🎟 Biglietti
                     </a>
                   `
+
                   : ''
               }
 
 
               ${
                 infoUrl
+
                   ? `
                     <a
                       href="${escapeHtml(infoUrl)}"
@@ -756,26 +1111,18 @@
                       ↗ Maggiori informazioni
                     </a>
                   `
+
                   : ''
               }
+
 
             </div>
 
 
-            <!-- Mappa -->
-            <section class="event-detail-map-section">
-
-              <h2 class="event-detail-map-title">
-                Posizione dell'evento
-              </h2>
-
-              <div id="eventMap"></div>
-
-            </section>
-
           </div>
 
         </article>
+
       `;
 
 
@@ -783,24 +1130,32 @@
     }
 
 
-    /*
-     * Inizializza la mappa usando esattamente lo stesso sistema
-     * utilizzato da mappa.html / index.html.
-     */
+    /* =========================================================
+       MAPPA
+       ========================================================= */
+
     async function initializeEventMap(event) {
 
-      const mapContainer = document.getElementById('eventMap');
+      const mapContainer =
+        document.getElementById('eventMap');
+
 
       if (!mapContainer) {
         return;
       }
 
+
       if (!event.citta) {
 
         mapContainer.outerHTML = `
+
           <div class="event-map-missing">
-            Posizione non disponibile per questo evento.
+
+            Posizione non disponibile
+            per questo evento.
+
           </div>
+
         `;
 
         return;
@@ -810,14 +1165,61 @@
       try {
 
         /*
-         * coordinates.json viene caricato tramite
+         * Carica coordinates.json attraverso
          * map-common.js
          */
+
         await loadCityCoordinates();
 
 
-        const coordinates = cityCoordinates[event.citta];
+        /*
+         * Prima prova il nome esatto.
+         */
 
+        let coordinates =
+          cityCoordinates[event.citta];
+
+
+        /*
+         * Fallback:
+         * confronto normalizzato.
+         */
+
+        if (!coordinates) {
+
+          const normalizeCity =
+            value => String(value || '')
+              .normalize('NFD')
+              .replace(
+                /[\u0300-\u036f]/g,
+                ''
+              )
+              .toLowerCase()
+              .trim();
+
+
+          const target =
+            normalizeCity(event.citta);
+
+
+          const matchingKey =
+            Object.keys(cityCoordinates)
+              .find(
+                key =>
+                  normalizeCity(key) === target
+              );
+
+
+          if (matchingKey) {
+            coordinates =
+              cityCoordinates[matchingKey];
+          }
+        }
+
+
+        /*
+         * Nessuna coordinata.
+         */
 
         if (
           !coordinates ||
@@ -826,18 +1228,29 @@
         ) {
 
           mapContainer.outerHTML = `
+
             <div class="event-map-missing">
-              Non sono disponibili coordinate per
-              <strong>&nbsp;${escapeHtml(event.citta)}</strong>.
+
+              Non sono disponibili
+              coordinate per
+              <strong>
+                &nbsp;${escapeHtml(event.citta)}
+              </strong>.
+
             </div>
+
           `;
 
           return;
         }
 
 
-        const lat = Number(coordinates[0]);
-        const lng = Number(coordinates[1]);
+        const lat =
+          Number(coordinates[0]);
+
+
+        const lng =
+          Number(coordinates[1]);
 
 
         if (
@@ -846,10 +1259,17 @@
         ) {
 
           mapContainer.outerHTML = `
+
             <div class="event-map-missing">
-              Coordinate non valide per
-              <strong>&nbsp;${escapeHtml(event.citta)}</strong>.
+
+              Coordinate non valide
+              per
+              <strong>
+                &nbsp;${escapeHtml(event.citta)}
+              </strong>.
+
             </div>
+
           `;
 
           return;
@@ -857,10 +1277,16 @@
 
 
         /*
-         * Usa la stessa funzione della mappa principale.
+         * Usa la stessa mappa di Mappa/Home.
          */
-        const map = createBaseMap('eventMap');
 
+        const map =
+          createBaseMap('eventMap');
+
+
+        /*
+         * Zoom sulla città.
+         */
 
         map.setView(
           [lat, lng],
@@ -869,42 +1295,53 @@
 
 
         /*
-         * Marker singolo dell'evento.
+         * Marker PaddockMap.
          */
-        const marker = L.circleMarker(
-          [lat, lng],
-          {
-            radius: 10,
-            color: '#FFFFFF',
-            weight: 3,
-            fillColor: '#FF4B24',
-            fillOpacity: 1
-          }
-        ).addTo(map);
+
+        const marker =
+          L.circleMarker(
+            [lat, lng],
+            {
+              radius: 10,
+
+              color: '#FFFFFF',
+              weight: 3,
+
+              fillColor: '#FF4B24',
+              fillOpacity: 1
+            }
+          ).addTo(map);
 
 
         marker.bindPopup(`
+
           <strong>
-            ${escapeHtml(event.titolo || 'Evento')}
+            ${escapeHtml(
+              event.titolo ||
+              'Evento'
+            )}
           </strong>
+
           <br>
+
           ${escapeHtml(event.citta)}
+
         `);
 
 
-        /*
-         * Apre automaticamente il popup.
-         */
         marker.openPopup();
 
 
         /*
-         * Necessario quando la mappa viene inizializzata
-         * dentro un contenitore dinamico.
+         * Leaflet deve ricalcolare le dimensioni
+         * dopo il rendering della griglia.
          */
-        setTimeout(() => {
-          map.invalidateSize();
-        }, 100);
+
+        setTimeout(
+          () => map.invalidateSize(),
+          100
+        );
+
 
       } catch (error) {
 
@@ -913,34 +1350,48 @@
           error
         );
 
+
         mapContainer.outerHTML = `
+
           <div class="event-map-missing">
-            Impossibile caricare la posizione dell'evento.
+
+            Impossibile caricare
+            la posizione dell'evento.
+
           </div>
+
         `;
       }
     }
 
 
-    /*
-     * Caricamento evento dall'API Cloudflare.
-     */
+    /* =========================================================
+       CARICAMENTO DATI
+       ========================================================= */
+
     async function loadEvent() {
 
       /*
-       * ID mancante.
+       * ID mancante
        */
+
       if (!eventId) {
 
         container.innerHTML = `
-          <div class="event-detail">
-            <div class="event-state error">
-              <h1>Evento non specificato</h1>
-              <p>
-                L'URL non contiene l'identificativo dell'evento.
-              </p>
-            </div>
+
+          <div class="event-state error">
+
+            <h1>
+              Evento non specificato
+            </h1>
+
+            <p>
+              L'URL non contiene
+              l'identificativo dell'evento.
+            </p>
+
           </div>
+
         `;
 
         return;
@@ -949,57 +1400,75 @@
 
       try {
 
-        const response = await fetch(API_URL, {
-          cache: 'no-store'
-        });
+        const response =
+          await fetch(
+            API_URL,
+            {
+              cache: 'no-store'
+            }
+          );
 
 
         if (!response.ok) {
+
           throw new Error(
             `HTTP ${response.status}`
           );
+
         }
 
 
-        const text = await response.text();
+        const text =
+          await response.text();
 
-        const data = JSON.parse(text);
+
+        const data =
+          JSON.parse(text);
 
 
         if (!Array.isArray(data)) {
+
           throw new Error(
             'Formato dati non valido'
           );
+
         }
 
 
         /*
-         * IMPORTANTE:
+         * =====================================================
+         * ID CANONICO
+         * =====================================================
          *
-         * idAuto è l'identificativo reale dell'evento
-         * proveniente dal database Supabase.
+         * L'evento viene cercato esclusivamente attraverso
+         * idAuto proveniente da Supabase.
          */
-        const event = data.find(
-          item =>
-            String(item.idAuto) === String(eventId)
-        );
+
+        const event =
+          data.find(
+            item =>
+              String(item.idAuto) ===
+              String(eventId)
+          );
 
 
-        /*
-         * Evento non trovato.
-         */
         if (!event) {
 
           container.innerHTML = `
-            <div class="event-detail">
-              <div class="event-state error">
-                <h1>Evento non trovato</h1>
-                <p>
-                  L'evento richiesto non è presente
-                  nei dati disponibili.
-                </p>
-              </div>
+
+            <div class="event-state error">
+
+              <h1>
+                Evento non trovato
+              </h1>
+
+              <p>
+                L'evento richiesto non è presente
+                nei dati disponibili.
+              </p>
+
             </div>
+
           `;
 
           return;
@@ -1009,7 +1478,9 @@
         /*
          * Evento trovato.
          */
+
         renderEvent(event);
+
 
       } catch (error) {
 
@@ -1020,23 +1491,29 @@
 
 
         container.innerHTML = `
-          <div class="event-detail">
-            <div class="event-state error">
-              <h1>Errore</h1>
-              <p>
-                Non è stato possibile caricare
-                i dati dell'evento.
-              </p>
-            </div>
+
+          <div class="event-state error">
+
+            <h1>
+              Errore
+            </h1>
+
+            <p>
+              Non è stato possibile caricare
+              i dati dell'evento.
+            </p>
+
           </div>
+
         `;
       }
     }
 
 
-    /*
-     * Avvio.
-     */
+    /* =========================================================
+       AVVIO
+       ========================================================= */
+
     document.addEventListener(
       'DOMContentLoaded',
       loadEvent
