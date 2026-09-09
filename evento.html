@@ -897,7 +897,7 @@
 
 
       container.innerHTML = `
-
+        
         <article class="event-detail">
 
 
@@ -1018,10 +1018,17 @@
                 <span class="event-detail-info-value">
                   ${
                     ticketUrl
-                      ? `<a href="${escapeHtml(ticketUrl)}" target="_blank" rel="noopener">Biglietti</a>`
-                      : freeEntry
-                        ? `<span style="color: var(--success); font-weight: 800;">${PMIcons.sparkle} ${escapeHtml(freeEntry)}</span>`
-                        : 'Da definire'
+                      ? `
+        
+                            href="${escapeHtml(ticketUrl)}"
+                            class="btn btn-primary"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            ${PMIcons.ticket} Biglietti
+                          </a>
+                        `
+                      : ''
                   }
                 </span>
               </div>
@@ -1091,8 +1098,8 @@
         </article>
 
       `;
-
-
+      
+      if (window.pmRefreshButtonStates) window.pmRefreshButtonStates();
       initializeEventMap(event);
     }
 
