@@ -780,17 +780,12 @@ footer p:first-child { color: rgba(255, 255, 255, 0.85); font-weight: 600; }
     height: 1.15em;
 }
 .itinerant-tooltip {
+    display: none;
     background: #12151B;
     color: #fff;
     padding: 0.4rem 0.6rem;
     border-radius: 6px;
     font-size: 0.75rem;
     white-space: nowrap;
-    bottom: 130%;
-    left: 0;
-    z-index: 10;
-}
-.itinerant-badge:hover .itinerant-tooltip,
-.itinerant-badge.show-tooltip .itinerant-tooltip {
-    display: block;
+    z-index: 9999;
 }
