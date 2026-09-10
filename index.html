@@ -412,7 +412,7 @@ const titleHtml = event.isPromo
                                        <span>
                              <strong>${event.circuito || ''}</strong>
                         ${event.citta ? ' - ' + event.citta : ''}
-                        ${event.itinerante ? `<span class="itinerant-badge" onclick="event.stopPropagation(); this.classList.toggle('show-tooltip')">${PMIcons.compass}<span class="itinerant-tooltip">Punto di partenza — evento itinerante su più tappe</span></span>` : ''}
+                        ${event.itinerante ? `<span class="itinerant-badge" onclick="event.stopPropagation(); window.pmToggleItinerantTooltip(this)">${PMIcons.compass}<span class="itinerant-tooltip">Punto di partenza — evento itinerante su più tappe</span></span>` : ''}
                              </span>
                 </div>
                                 ${event.organizzatore ? `
@@ -692,6 +692,18 @@ function trackFilter(filterType, filterValue) {
     if (!filterValue) return;
     gtag('event', 'filter_used', { filter_type: filterType, filter_value: filterValue });
 }
+window.pmToggleItinerantTooltip = function(badge) {
+    const tooltip = badge.querySelector('.itinerant-tooltip');
+    const isShown = tooltip.style.display === 'block';
+    document.querySelectorAll('.itinerant-tooltip').forEach(t => t.style.display = 'none');
+    if (!isShown) {
+        const rect = badge.getBoundingClientRect();
+        tooltip.style.position = 'fixed';
+        tooltip.style.left = rect.left + 'px';
+        tooltip.style.top = (rect.top - 34) + 'px';
+        tooltip.style.display = 'block';
+    }
+};        
 function trackSearch(searchTerm) {
     if (!searchTerm || searchTerm.length < 2) return;
     gtag('event', 'search', { search_term: searchTerm });
