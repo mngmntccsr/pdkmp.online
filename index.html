@@ -599,6 +599,7 @@ function applyFilters() {
     gtag('event', 'filter_results', { results_count: filtered.length });
     renderEvents(filtered);
     updateURLFromFilters();
+    return filtered;
 }
 
         function resetFilters() {
@@ -631,8 +632,8 @@ function scrollDisciplines(button, direction) {
     track.style.transform = `translateX(${newX}px)`;
 }
 
-        let searchTimeout;
-        document.getElementById('filterSearch').addEventListener('input', function() {
+let searchTimeout;
+document.getElementById('filterSearch').addEventListener('input', function() {
     clearTimeout(searchTimeout);
     const value = this.value;
     searchTimeout = setTimeout(() => {
@@ -715,7 +716,7 @@ window.pmToggleItinerantTooltip = function(badge) {
         tooltip.style.display = 'block';
     }
 }; 
-function trackSearch(searchTerm) {
+function trackSearch(searchTerm, resultsCount) {
     if (!searchTerm || searchTerm.length < 2) return;
     gtag('event', 'search', {
         search_term: searchTerm,
