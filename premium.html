@@ -116,7 +116,16 @@ async function handlePlanClick(plan, btnEl) {
     return;
   }
   const { error } = await window.pmSupabase.from('premium_interest').upsert({ user_id: session.user.id, plan_wanted: plan }, { onConflict: 'user_id,plan_wanted' });
-  if (error) { window.pmShowToast('Si è verificato un errore, riprova tra poco.'); return; }
+  if (error) {
+    if (window.pmGtagSafe) {
+      window.pmGtagSafe('premium_waitlist_error', {
+        plan
+      });
+    }
+
+    window.pmShowToast('Si è verificato un errore, riprova tra poco.');
+    return;
+  }
   if (window.pmGtagSafe) window.pmGtagSafe('premium_waitlist_joined', { plan });
   btnEl.innerHTML = PMIcons.check + ' Ti avviseremo!';
   btnEl.classList.add('done');
