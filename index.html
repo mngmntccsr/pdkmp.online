@@ -691,7 +691,11 @@ function trackInfo(element) {
 function trackPromo() { gtag('event', 'click_promuovi_evento'); }
 function trackFilter(filterType, filterValue) {
     if (!filterValue) return;
-    gtag('event', 'filter_used', { filter_type: filterType, filter_value: filterValue });
+    gtag('event', 'filter_used', {
+        filter_type: filterType,
+        filter_value: filterValue,
+        results_count: filtered.length
+    });
 }
 window.pmToggleItinerantTooltip = function(badge) {
     let tooltip = document.getElementById('pm-itinerant-tooltip');
@@ -713,7 +717,10 @@ window.pmToggleItinerantTooltip = function(badge) {
 }; 
 function trackSearch(searchTerm) {
     if (!searchTerm || searchTerm.length < 2) return;
-    gtag('event', 'search', { search_term: searchTerm });
+    gtag('event', 'search', {
+        search_term: searchTerm,
+        results_count: filtered.length
+    });
 }
 function initEventTracking() {
     const cards = document.querySelectorAll('.event-card');
@@ -722,7 +729,7 @@ function initEventTracking() {
             if (entry.isIntersecting && !entry.target.dataset.viewTracked) {
                 entry.target.dataset.viewTracked = 'true';
                 const card = entry.target;
-                gtag('event', 'event_card_view', {
+                gtag('event', 'event_view', {
                     event_title: card.dataset.eventTitle,
                     discipline: card.dataset.discipline,
                     circuit: card.dataset.circuit
