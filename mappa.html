@@ -136,11 +136,16 @@ document.getElementById('mapLocateBtn').innerHTML = PMIcons.locate + ' Usa la mi
   let searchRadiusKm = 50;
 
   function initMap() {
+    gtag('event', 'map_open');
     map = createBaseMap('interactiveMapFull');
     map.setView([41.5, 12.5], 6);
     markersLayer = L.layerGroup().addTo(map);
-    map.on('click', (e) => setSearchCenter(e.latlng.lat, e.latlng.lng));
-
+    map.on('click', (e) => {
+        gtag('event', 'map_search', {
+            radius_km: searchRadiusKm
+        });
+        setSearchCenter(e.latlng.lat, e.latlng.lng);
+    });
     window.addEventListener('resize', () => map.invalidateSize());
     setTimeout(() => map.invalidateSize(), 200);
   }
@@ -272,11 +277,20 @@ document.getElementById('mapLocateBtn').innerHTML = PMIcons.locate + ' Usa la mi
   });
 
   document.getElementById('mapLocateBtn').addEventListener('click', () => {
-    if (!navigator.geolocation) { alert('Geolocalizzazione non supportata dal tuo browser.'); return; }
-    navigator.geolocation.getCurrentPosition(
-      (pos) => setSearchCenter(pos.coords.latitude, pos.coords.longitude),
-      () => alert('Impossibile ottenere la tua posizione.')
-    );
+      if (!navigator.geolocation) {
+          alert('Geolocalizzazione non supportata dal tuo browser.');
+          return;
+      }
+      navigator.geolocation.getCurrentPosition(
+          (pos) => {
+              gtag('event', 'location_used');
+              setSearchCenter(
+                  pos.coords.latitude,
+                  pos.coords.longitude
+              );
+          },
+          () => alert('Impossibile ottenere la tua posizione.')
+      );
   });
 
   document.getElementById('resetFiltersBtn').addEventListener('click', () => {
