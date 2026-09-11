@@ -168,11 +168,15 @@
 
   function openAuthModal(options) {
     options = options || {};
-    setModalMode(options.mode || 'signup');
+    const mode = options.mode || 'signup';
+    setModalMode(mode);
     els.msg.textContent = options.message || 'Crea gratuitamente il tuo Paddock su PaddockMap.';
     els.error.textContent = '';
     els.form.reset();
     overlay.classList.remove('hidden');
+    if (mode === 'signup') {
+      gtagSafe('signup_started');
+    }
   }
 
   function closeAuthModal() {
@@ -203,6 +207,11 @@
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
+
+        gtagSafe('login', {
+          method: 'email'
+        });
+
         closeAuthModal();
       }
     } catch (err) {
@@ -213,6 +222,10 @@
   });
 
   els.googleBtn.addEventListener('click', async () => {
+    gtagSafe('login_start', {
+      method: 'google'
+    });
+
     await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: { redirectTo: window.location.href }
