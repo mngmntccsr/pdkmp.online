@@ -632,15 +632,15 @@ function scrollDisciplines(button, direction) {
     track.style.transform = `translateX(${newX}px)`;
 }
 
+
 let searchTimeout;
 document.getElementById('filterSearch').addEventListener('input', function() {
     clearTimeout(searchTimeout);
     const value = this.value;
     searchTimeout = setTimeout(() => {
-        trackSearch(value);
-        applyFilters();
-        updateURLFromFilters();
-    }, 800);
+        const filteredResults = applyFilters();
+        trackSearch(value, filteredResults.length);
+    }, 500);
 });
 
 document.addEventListener('DOMContentLoaded', async function() {
@@ -695,7 +695,7 @@ function trackFilter(filterType, filterValue) {
     gtag('event', 'filter_used', {
         filter_type: filterType,
         filter_value: filterValue,
-        results_count: filtered.length
+        results_count: resultsCount
     });
 }
 window.pmToggleItinerantTooltip = function(badge) {
@@ -720,7 +720,7 @@ function trackSearch(searchTerm, resultsCount) {
     if (!searchTerm || searchTerm.length < 2) return;
     gtag('event', 'search', {
         search_term: searchTerm,
-        results_count: filtered.length
+        results_count: resultsCount
     });
 }
 function initEventTracking() {
