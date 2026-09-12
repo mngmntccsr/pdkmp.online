@@ -701,80 +701,40 @@
 
 
     /* =========================================================
-       IMMAGINI
-       =========================================================
-       
-       Prima usa event.immagine.
+   IMMAGINI
+   ========================================================= */
 
-       Se non esiste, prova a usare la stessa logica
-       delle immagini random della homepage.
-       ========================================================= */
+    const organizerImages = {
+        "FX Racing Weekend": "image/fxwk.jpg",
+        "ACI Sport": "image/AciSport.jpg",
+        "European Le Mans Series": "image/4himola1.jpg",
+        "Red Bull": "image/redbullKOS.png",
+        "We Can Race": "image/werace.png",
+        "RSE Italia": "image/RSEitalia.jpg",
+        "SRO Motorsports": "image/GtWcEurope.jpg"
+    };
+
+    const randomImages = [
+        "image/random1.png",
+        "image/random2.png",
+        "image/random3.png",
+        "image/random4.png"
+    ];
 
     function getRandomEventImage() {
-
-      /*
-       * Se index.html / il progetto espone già
-       * una funzione per le immagini automatiche,
-       * proviamo ad utilizzarla.
-       */
-
-      if (
-        typeof window.getRandomEventImage ===
-        'function'
-      ) {
-        try {
-          const image =
-            window.getRandomEventImage();
-
-          if (image) {
-            return image;
-          }
-        } catch (error) {}
-      }
-
-
-      /*
-       * Lista fallback.
-       *
-       * IMPORTANTE:
-       * se nella tua cartella immagini i nomi sono
-       * differenti, questi possono essere sostituiti
-       * con quelli già utilizzati da index.html.
-       */
-
-      const fallbackImages = [
-
-        'images/evento-1.jpg',
-        'images/evento-2.jpg',
-        'images/evento-3.jpg',
-        'images/evento-4.jpg',
-        'images/evento-5.jpg'
-
-      ];
-
-
-      return fallbackImages[
-        Math.floor(
-          Math.random() *
-          fallbackImages.length
-        )
-      ];
+        return randomImages[Math.floor(Math.random() * randomImages.length)];
     }
-
 
     function getEventImage(event) {
-
-      if (
-        event.immagine &&
-        String(event.immagine).trim() !== ''
-      ) {
-        return event.immagine;
-      }
-
-
-      return getRandomEventImage();
+        if (event.immagine && String(event.immagine).trim() !== '') {
+            return event.immagine;
+        }
+        const organizerImage = organizerImages[event.organizzatore];
+        if (organizerImage) {
+            return organizerImage;
+        }
+        return getRandomEventImage();
     }
-
 
     /* =========================================================
        INGRESSO GRATUITO
