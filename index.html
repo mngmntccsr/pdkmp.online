@@ -52,6 +52,12 @@ gtag('config', 'G-F54J4RR4YY');
     <div class="container">
         <div class="youtube-layout map-open" id="youtubeLayout">
 
+            <!-- Toggle mobile: apre/chiude filtri + mappa insieme, visibile solo su telefono -->
+            <button class="mobile-filters-toggle" id="mobileFiltersToggle" type="button">
+                <span class="mobile-filters-toggle-label">Filtri e mappa</span>
+                <span class="chevron">▾</span>
+            </button>
+
             <!-- Sidebar filtri (a sinistra, in colonna) -->
             <aside class="sidebar-filters" id="sidebarFilters">
                 <section class="filters">
@@ -883,6 +889,7 @@ function initEventTracking() {
     const toggleFiltersBtn = document.getElementById('toggleFiltersBtn');
     const toggleMapBtn = document.getElementById('toggleMapBtn');
     const youtubeLayout = document.getElementById('youtubeLayout');
+    const mobileFiltersToggle = document.getElementById('mobileFiltersToggle');
 
     toggleFiltersBtn.addEventListener('click', () => {
       const collapsed = sidebarFilters.classList.toggle('collapsed');
@@ -895,6 +902,17 @@ function initEventTracking() {
       youtubeLayout.classList.toggle('map-open', !collapsed);
       setTimeout(() => map.invalidateSize(), 260);
     });
+
+    // Toggle unico per mobile: apre/chiude filtri + mappa insieme
+    if (mobileFiltersToggle) {
+      mobileFiltersToggle.addEventListener('click', () => {
+        const isOpen = youtubeLayout.classList.toggle('mobile-panels-open');
+        mobileFiltersToggle.classList.toggle('open', isOpen);
+        if (isOpen) {
+          setTimeout(() => map.invalidateSize(), 300);
+        }
+      });
+    }
 
     const container = document.getElementById('eventsContainer');
     if (container) gridObserver.observe(container, { childList: true, subtree: false });
