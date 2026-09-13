@@ -903,11 +903,15 @@ function initEventTracking() {
       setTimeout(() => map.invalidateSize(), 260);
     });
 
-    // Toggle unico per mobile: apre/chiude filtri + mappa insieme
+    // Toggle unico per mobile: apre/chiude filtri + mappa insieme.
+    // Il display viene forzato direttamente via JS (non solo via classe CSS)
+    // così il risultato non dipende dalla cascata/specificità del CSS.
     if (mobileFiltersToggle) {
       mobileFiltersToggle.addEventListener('click', () => {
         const isOpen = youtubeLayout.classList.toggle('mobile-panels-open');
         mobileFiltersToggle.classList.toggle('open', isOpen);
+        sidebarFilters.style.display = isOpen ? 'block' : '';
+        mapSidebar.style.display = isOpen ? 'block' : '';
         if (isOpen) {
           setTimeout(() => map.invalidateSize(), 300);
         }
