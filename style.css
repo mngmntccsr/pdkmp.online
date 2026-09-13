@@ -611,15 +611,75 @@ footer p:first-child { color: rgba(255, 255, 255, 0.85); font-weight: 600; }
 .popup-counter { font-size: 0.7rem; color: var(--muted); }
 
 /* ==========================================================================
+   Toggle mobile "Filtri e mappa"
+   Visibile solo sotto i 768px: unico pulsante per aprire/chiudere insieme
+   filtri e mappa, tenuti chiusi di default così gli eventi restano il
+   primo contenuto visibile.
+   ========================================================================== */
+
+.mobile-filters-toggle {
+  display: none;
+}
+
+/* ==========================================================================
    Responsive
    ========================================================================== */
 
 @media (max-width: 768px) {
+  .mobile-filters-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.75rem 1.1rem;
+    margin-bottom: 0.9rem;
+    background: var(--surface-glass-strong);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-card);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .mobile-filters-toggle .chevron {
+    color: var(--accent);
+    transition: transform 0.25s var(--ease);
+  }
+  .youtube-layout.mobile-panels-open .mobile-filters-toggle .chevron {
+    transform: rotate(180deg);
+  }
+  .youtube-layout.mobile-panels-open .mobile-filters-toggle {
+    background: var(--accent-soft);
+    color: var(--accent-dark);
+  }
+
   .youtube-layout { flex-direction: column; }
-  .sidebar-filters { order: 1; }
-  .map-sidebar { order: 2; }
-  .main-content { order: 3; }
-  .sidebar-filters { width: 100%; position: static; max-height: none; }
+
+  /* Ordine mobile: barra di toggle, poi subito la griglia eventi,
+     filtri e mappa restano sotto e nascosti finché non si apre il pannello */
+  .mobile-filters-toggle { order: 0; }
+  .main-content { order: 1; }
+  .sidebar-filters { order: 2; }
+  .map-sidebar { order: 3; }
+
+  /* Filtri e mappa: pannello unico, chiuso di default su mobile */
+  .sidebar-filters,
+  .map-sidebar {
+    width: 100%;
+    position: static;
+    max-height: none;
+    display: none;
+  }
+  .youtube-layout.mobile-panels-open .sidebar-filters,
+  .youtube-layout.mobile-panels-open .map-sidebar {
+    display: block;
+  }
+  .map-sidebar { margin-top: 0.9rem; }
+
   .events-grid { grid-template-columns: 1fr; gap: 0.7rem; }
   .filter-grid { grid-template-columns: 1fr; }
 
