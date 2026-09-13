@@ -620,9 +620,77 @@ footer p:first-child { color: rgba(255, 255, 255, 0.85); font-weight: 600; }
   .map-sidebar { order: 2; }
   .main-content { order: 3; }
   .sidebar-filters { width: 100%; position: static; max-height: none; }
-  .events-grid { grid-template-columns: 1fr; }
+  .events-grid { grid-template-columns: 1fr; gap: 0.7rem; }
   .filter-grid { grid-template-columns: 1fr; }
-  .event-card { height: auto; }
+
+  /* Card evento stile App Store: immagine quadrata a destra,
+     testo (titolo / circuito+città / biglietti) impilato a sinistra
+     su tutta l'altezza della foto. Nessuna modifica a HTML/JS: si
+     riposizionano semplicemente i blocchi già esistenti via grid. */
+  .event-card {
+    display: grid;
+    grid-template-columns: 1fr 92px;
+    grid-template-rows: auto auto auto;
+    height: auto;
+    border-radius: var(--radius-lg);
+  }
+  .event-card:hover { transform: none; box-shadow: var(--shadow-card); }
+
+  .event-image-container {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    width: 92px;
+    height: 92px;
+    aspect-ratio: 1 / 1;
+    align-self: center;
+    margin: 0.8rem 0.8rem 0.8rem 0;
+    border-radius: var(--radius-md);
+  }
+
+  .event-header {
+    grid-column: 1;
+    grid-row: 1;
+    padding: 0.85rem 0 0 0.9rem;
+  }
+  /* su mobile teniamo solo il titolo: azioni rapide, data e chip
+     disciplina occupano spazio prezioso e sono già nella pagina evento */
+  .event-header .pm-quick-actions,
+  .event-header .event-date,
+  .event-header .event-disciplines {
+    display: none;
+  }
+  .event-title {
+    min-height: 0;
+    font-size: 0.96rem;
+    margin-bottom: 0;
+    -webkit-line-clamp: 2;
+  }
+
+  .event-body {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 0.3rem 0 0 0.9rem;
+    flex: none;
+  }
+  .event-info { margin-top: 0; }
+  /* teniamo solo circuito + città, nascondiamo la riga organizzatore */
+  .event-body .info-row:nth-child(2) { display: none; }
+  .info-row { font-size: 0.78rem; margin-bottom: 0; }
+
+  .event-actions {
+    grid-column: 1;
+    grid-row: 3;
+    padding: 0.5rem 0.9rem 0.85rem 0.9rem;
+    border-top: none;
+    margin-top: 0;
+  }
+  /* "Maggiori informazioni" via, la card intera porta già alla pagina evento */
+  .event-actions .btn-secondary { display: none; }
+  .event-actions .btn {
+    width: auto;
+    padding: 0.42rem 1rem;
+    font-size: 0.78rem;
+  }
 }
 
 /* ==========================================================================
