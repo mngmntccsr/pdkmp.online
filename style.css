@@ -659,12 +659,13 @@ footer p:first-child { color: rgba(255, 255, 255, 0.85); font-weight: 600; }
 
   .youtube-layout { flex-direction: column; }
 
-  /* Ordine mobile: barra di toggle, poi subito la griglia eventi,
-     filtri e mappa restano sotto e nascosti finché non si apre il pannello */
+  /* Ordine mobile: barra di toggle, poi (quando aperto) filtri e mappa,
+     poi la griglia eventi. Da chiuso i pannelli non occupano spazio
+     (display:none), quindi il primo contenuto visibile resta la griglia. */
   .mobile-filters-toggle { order: 0; }
-  .main-content { order: 1; }
-  .sidebar-filters { order: 2; }
-  .map-sidebar { order: 3; }
+  .sidebar-filters { order: 1; }
+  .map-sidebar { order: 2; }
+  .main-content { order: 3; }
 
   /* Filtri e mappa: pannello unico, chiuso di default su mobile */
   .sidebar-filters,
