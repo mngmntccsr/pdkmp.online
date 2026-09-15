@@ -711,13 +711,24 @@ footer p:first-child { color: rgba(255, 255, 255, 0.85); font-weight: 600; }
     grid-column: 1;
     grid-row: 1;
     padding: 0.85rem 0 0 0.9rem;
+    display: flex;
+    flex-direction: column;
   }
-  /* su mobile teniamo solo il titolo: azioni rapide, data e chip
-     disciplina occupano spazio prezioso e sono già nella pagina evento */
+  /* su mobile teniamo titolo e data (in quest'ordine); azioni rapide e
+     chip disciplina occupano spazio prezioso e sono già nella pagina evento */
   .event-header .pm-quick-actions,
-  .event-header .event-date,
   .event-header .event-disciplines {
     display: none;
+  }
+  .event-header .event-title {
+    order: 1;
+  }
+  .event-header .event-date {
+    order: 2;
+    display: flex;
+    margin-bottom: 0;
+    margin-top: 0.3rem;
+    font-size: 0.72rem;
   }
   .event-title {
     min-height: 0;
