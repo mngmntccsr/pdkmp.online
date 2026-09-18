@@ -317,6 +317,41 @@ svg.icon {
   font-weight: 600;
 }
 
+/* Filtro data (Da / A) */
+.date-range-group {
+  display: flex;
+  gap: 0.6rem;
+}
+.date-range-field {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.date-range-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.date-range-field input[type="date"] {
+  width: 100%;
+  padding: 0.62rem 0.6rem;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.date-range-field input[type="date"]:hover { border-color: var(--line-strong); }
+.date-range-field input[type="date"]:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-ring);
+}
+
 /* ==========================================================================
    Griglia eventi
    ========================================================================== */
@@ -657,7 +692,7 @@ footer p:first-child { color: rgba(255, 255, 255, 0.85); font-weight: 600; }
     color: var(--accent-dark);
   }
 
-  .youtube-layout { flex-direction: column; }
+  .youtube-layout { flex-direction: column; gap: 0; }
 
   /* Ordine mobile: barra di toggle, poi (quando aperto) filtri e mappa,
      poi la griglia eventi. Da chiuso i pannelli non occupano spazio
@@ -701,6 +736,7 @@ footer p:first-child { color: rgba(255, 255, 255, 0.85); font-weight: 600; }
     border-radius: 0 0 var(--radius-lg) var(--radius-lg);
     box-shadow: var(--shadow-card);
     margin-top: 0;
+    margin-bottom: 0.9rem;
     overflow: hidden;
   }
   .sidebar-filters .filters,
@@ -736,6 +772,12 @@ footer p:first-child { color: rgba(255, 255, 255, 0.85); font-weight: 600; }
   .sidebar-filters .multi-select-display {
     padding: 0.48rem 0.7rem;
     font-size: 0.82rem;
+  }
+  .sidebar-filters .date-range-group {
+    gap: 0.4rem;
+  }
+  .sidebar-filters .date-range-label {
+    font-size: 0.7rem;
   }
   .sidebar-filters .multi-select-display {
     min-height: 36px;
