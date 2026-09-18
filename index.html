@@ -64,10 +64,10 @@ gtag('config', 'G-F54J4RR4YY');
                     <h3>Filtra eventi</h3>
                     <div class="filter-grid">
                         <div class="filter-group">
-                            <label>Disciplina</label>
+                            <label>Tipo di evento</label>
                             <div class="multi-select" data-filter="discipline">
                                 <div class="multi-select-display" onclick="toggleMultiSelect(this)">
-                                    <span class="placeholder">Tutte le discipline</span>
+                                    <span class="placeholder">Tutti i tipi</span>
                                 </div>
                                 <div class="multi-select-options">
                                     <div class="multi-select-option" data-value="Gt">GT</div>
@@ -84,10 +84,10 @@ gtag('config', 'G-F54J4RR4YY');
                         </div>
 
                         <div class="filter-group">
-                            <label>Circuito</label>
+                            <label>Location</label>
                             <div class="multi-select" data-filter="circuit">
                                 <div class="multi-select-display" onclick="toggleMultiSelect(this)">
-                                    <span class="placeholder">Tutti i circuiti</span>
+                                    <span class="placeholder">Tutte le location</span>
                                 </div>
                                 <div class="multi-select-options"></div>
                             </div>
@@ -104,24 +104,15 @@ gtag('config', 'G-F54J4RR4YY');
                         </div>
 
                         <div class="filter-group">
-                            <label>Mese</label>
-                            <div class="multi-select" data-filter="month">
-                                <div class="multi-select-display" onclick="toggleMultiSelect(this)">
-                                    <span class="placeholder">Tutti i mesi</span>
+                            <label>Data</label>
+                            <div class="date-range-group">
+                                <div class="date-range-field">
+                                    <span class="date-range-label">Da</span>
+                                    <input type="date" id="filterDateFrom">
                                 </div>
-                                <div class="multi-select-options">
-                                    <div class="multi-select-option" data-value="01">Gennaio</div>
-                                    <div class="multi-select-option" data-value="02">Febbraio</div>
-                                    <div class="multi-select-option" data-value="03">Marzo</div>
-                                    <div class="multi-select-option" data-value="04">Aprile</div>
-                                    <div class="multi-select-option" data-value="05">Maggio</div>
-                                    <div class="multi-select-option" data-value="06">Giugno</div>
-                                    <div class="multi-select-option" data-value="07">Luglio</div>
-                                    <div class="multi-select-option" data-value="08">Agosto</div>
-                                    <div class="multi-select-option" data-value="09">Settembre</div>
-                                    <div class="multi-select-option" data-value="10">Ottobre</div>
-                                    <div class="multi-select-option" data-value="11">Novembre</div>
-                                    <div class="multi-select-option" data-value="12">Dicembre</div>
+                                <div class="date-range-field">
+                                    <span class="date-range-label">A</span>
+                                    <input type="date" id="filterDateTo">
                                 </div>
                             </div>
                         </div>
@@ -491,7 +482,8 @@ initEventTracking();
     discipline: [],
     circuit: [],
     organizer: [],
-    month: []
+    dateFrom: '',
+    dateTo: ''
 };
 
 function updateURLFromFilters() {
@@ -499,7 +491,8 @@ function updateURLFromFilters() {
     if (selectedFilters.discipline.length) params.set('discipline', selectedFilters.discipline.join(','));
     if (selectedFilters.circuit.length) params.set('circuit', selectedFilters.circuit.join(','));
     if (selectedFilters.organizer.length) params.set('organizer', selectedFilters.organizer.join(','));
-    if (selectedFilters.month.length) params.set('month', selectedFilters.month.join(','));
+    if (selectedFilters.dateFrom) params.set('dateFrom', selectedFilters.dateFrom);
+    if (selectedFilters.dateTo) params.set('dateTo', selectedFilters.dateTo);
     const search = document.getElementById('filterSearch').value;
     if (search) params.set('search', search);
     const newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
@@ -508,11 +501,21 @@ function updateURLFromFilters() {
 
 function applyFiltersFromURL() {
     const params = new URLSearchParams(window.location.search);
-    const map = ['discipline', 'circuit', 'organizer', 'month'];
+    const map = ['discipline', 'circuit', 'organizer'];
     map.forEach(key => {
         const value = params.get(key);
         if (value) selectedFilters[key] = value.split(',');
     });
+    const dateFrom = params.get('dateFrom');
+    const dateTo = params.get('dateTo');
+    if (dateFrom) {
+        selectedFilters.dateFrom = dateFrom;
+        document.getElementById('filterDateFrom').value = dateFrom;
+    }
+    if (dateTo) {
+        selectedFilters.dateTo = dateTo;
+        document.getElementById('filterDateTo').value = dateTo;
+    }
     const search = params.get('search');
     if (search) document.getElementById('filterSearch').value = search;
     syncFiltersToUI();
@@ -558,10 +561,10 @@ function updateDisplay(container, filterType) {
     const selected = selectedFilters[filterType];
     if (selected.length === 0) {
         display.innerHTML = '<span class="placeholder">' +
-            (filterType === 'discipline' ? 'Tutte le discipline' :
-             filterType === 'circuit' ? 'Tutti i circuiti' :
+            (filterType === 'discipline' ? 'Tutti i tipi' :
+             filterType === 'circuit' ? 'Tutte le location' :
              filterType === 'organizer' ? 'Tutti gli organizzatori' :
-             'Tutti i mesi') + '</span>';
+             '') + '</span>';
     } else {
         display.innerHTML = selected.map(v =>
             `<span class="selected-tag">${v}</span>`
@@ -590,8 +593,8 @@ function applyFilters() {
             selectedFilters.circuit.includes(event.circuito);
         const matchOrganizer = selectedFilters.organizer.length === 0 ||
             selectedFilters.organizer.includes(event.organizzatore);
-        const matchMonth = selectedFilters.month.length === 0 ||
-            selectedFilters.month.includes(event.dataInizio.substring(5, 7));
+        const matchDate = (!selectedFilters.dateFrom || event.dataInizio >= selectedFilters.dateFrom) &&
+            (!selectedFilters.dateTo || event.dataInizio <= selectedFilters.dateTo);
         const matchSearch = !searchFilter ||
             event.titolo.toLowerCase().includes(searchFilter) ||
             (event.circuito || '').toLowerCase().includes(searchFilter) ||
@@ -599,7 +602,7 @@ function applyFilters() {
             event.disciplina.some(disc => disc.toLowerCase().includes(searchFilter)) ||
             (event.organizzatore || '').toLowerCase().includes(searchFilter);
 
-        return matchDiscipline && matchCircuit && matchOrganizer && matchMonth && matchSearch;
+        return matchDiscipline && matchCircuit && matchOrganizer && matchDate && matchSearch;
     });
 
     gtag('event', 'filter_results', { results_count: filtered.length });
@@ -612,12 +615,15 @@ function applyFilters() {
     selectedFilters.discipline = [];
     selectedFilters.circuit = [];
     selectedFilters.organizer = [];
-    selectedFilters.month = [];
+    selectedFilters.dateFrom = '';
+    selectedFilters.dateTo = '';
 
     document.querySelectorAll('.multi-select-option').forEach(opt => opt.classList.remove('selected'));
     document.querySelectorAll('.multi-select').forEach(container => updateDisplay(container, container.dataset.filter));
 
     document.getElementById('filterSearch').value = '';
+    document.getElementById('filterDateFrom').value = '';
+    document.getElementById('filterDateTo').value = '';
 
     renderEvents(eventsData);
     updateURLFromFilters();
@@ -647,6 +653,15 @@ document.getElementById('filterSearch').addEventListener('input', function() {
         const filteredResults = applyFilters();
         trackSearch(value, filteredResults.length);
     }, 500);
+});
+
+document.getElementById('filterDateFrom').addEventListener('change', function() {
+    selectedFilters.dateFrom = this.value;
+    applyFilters();
+});
+document.getElementById('filterDateTo').addEventListener('change', function() {
+    selectedFilters.dateTo = this.value;
+    applyFilters();
 });
 
 document.addEventListener('DOMContentLoaded', async function() {
@@ -812,9 +827,12 @@ function initEventTracking() {
     const anyMultiSelected = document.querySelector('.multi-select-option.selected') !== null;
     const searchInput = document.getElementById('filterSearch');
     const anySearchText = searchInput && searchInput.value.trim() !== '';
+    const dateFromEl = document.getElementById('filterDateFrom');
+    const dateToEl = document.getElementById('filterDateTo');
+    const anyDate = (dateFromEl && dateFromEl.value) || (dateToEl && dateToEl.value);
     const resetBtn = document.querySelector('.reset-filters');
     if (!resetBtn) return;
-    resetBtn.classList.toggle('active', anyMultiSelected || anySearchText || !!searchCenter);
+    resetBtn.classList.toggle('active', anyMultiSelected || anySearchText || !!anyDate || !!searchCenter);
   }
 
   function setSearchCenter(lat, lng) {
@@ -883,6 +901,10 @@ function initEventTracking() {
     });
     const searchInputEl = document.getElementById('filterSearch');
     if (searchInputEl) searchInputEl.addEventListener('input', updateResetButtonState);
+    const dateFromEl = document.getElementById('filterDateFrom');
+    const dateToEl = document.getElementById('filterDateTo');
+    if (dateFromEl) dateFromEl.addEventListener('change', updateResetButtonState);
+    if (dateToEl) dateToEl.addEventListener('change', updateResetButtonState);
 
     const sidebarFilters = document.getElementById('sidebarFilters');
     const mapSidebar = document.getElementById('mapSidebar');
