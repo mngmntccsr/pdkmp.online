@@ -105,14 +105,25 @@ gtag('config', 'G-F54J4RR4YY');
 
                         <div class="filter-group">
                             <label>Data</label>
-                            <div class="date-range-group">
-                                <div class="date-range-field">
-                                    <span class="date-range-label">Da</span>
-                                    <input type="date" id="filterDateFrom">
-                                </div>
-                                <div class="date-range-field">
-                                    <span class="date-range-label">A</span>
-                                    <input type="date" id="filterDateTo">
+                            <div class="date-picker" id="datePicker">
+                                <button type="button" class="date-picker-trigger" onclick="toggleDatePicker()">
+                                    <span id="datePickerLabel">Qualsiasi data</span>
+                                    <span class="chevron">▾</span>
+                                </button>
+                                <div class="date-picker-panel" id="datePickerPanel">
+                                    <div class="date-picker-header">
+                                        <button type="button" class="date-picker-nav" onclick="changeCalendarMonth(-1)">‹</button>
+                                        <span id="datePickerMonthLabel"></span>
+                                        <button type="button" class="date-picker-nav" onclick="changeCalendarMonth(1)">›</button>
+                                    </div>
+                                    <div class="date-picker-weekdays">
+                                        <span>L</span><span>M</span><span>M</span><span>G</span><span>V</span><span>S</span><span>D</span>
+                                    </div>
+                                    <div class="date-picker-days" id="datePickerDays"></div>
+                                    <div class="date-picker-footer">
+                                        <button type="button" class="date-picker-clear" onclick="clearDateRange()">Cancella</button>
+                                        <button type="button" class="btn btn-primary date-picker-apply" onclick="applyDateRange()">Applica</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -510,15 +521,159 @@ function applyFiltersFromURL() {
     const dateTo = params.get('dateTo');
     if (dateFrom) {
         selectedFilters.dateFrom = dateFrom;
-        document.getElementById('filterDateFrom').value = dateFrom;
+        rangeStart = parseISODate(dateFrom);
     }
     if (dateTo) {
         selectedFilters.dateTo = dateTo;
-        document.getElementById('filterDateTo').value = dateTo;
+        rangeEnd = parseISODate(dateTo);
+    }
+    if (dateFrom || dateTo) {
+        calendarViewDate = rangeStart ? new Date(rangeStart) : new Date();
+        calendarViewDate.setDate(1);
+        updateDatePickerLabel();
     }
     const search = params.get('search');
     if (search) document.getElementById('filterSearch').value = search;
     syncFiltersToUI();
+}
+
+// ===== Filtro data: calendario a comparsa stile Booking/Google Flights =====
+const ITALIAN_MONTHS = ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
+
+let calendarViewDate = new Date();
+calendarViewDate.setDate(1);
+let rangeStart = null;
+let rangeEnd = null;
+
+function toISODate(d) {
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${y}-${m}-${day}`;
+}
+
+function parseISODate(s) {
+    if (!s) return null;
+    const [y, m, d] = s.split('-').map(Number);
+    return new Date(y, m - 1, d);
+}
+
+function formatShortIt(d) {
+    return `${d.getDate()} ${ITALIAN_MONTHS[d.getMonth()].substring(0, 3)}`;
+}
+
+function updateDatePickerLabel() {
+    const label = document.getElementById('datePickerLabel');
+    if (!label) return;
+    if (rangeStart && rangeEnd) {
+        label.textContent = `${formatShortIt(rangeStart)} – ${formatShortIt(rangeEnd)}`;
+    } else if (rangeStart) {
+        label.textContent = `${formatShortIt(rangeStart)} – ?`;
+    } else {
+        label.textContent = 'Qualsiasi data';
+    }
+}
+
+function renderCalendar() {
+    const monthLabel = document.getElementById('datePickerMonthLabel');
+    const daysContainer = document.getElementById('datePickerDays');
+    if (!monthLabel || !daysContainer) return;
+
+    const year = calendarViewDate.getFullYear();
+    const month = calendarViewDate.getMonth();
+    monthLabel.textContent = `${ITALIAN_MONTHS[month]} ${year}`;
+
+    const firstOfMonth = new Date(year, month, 1);
+    let startOffset = firstOfMonth.getDay() - 1; // lunedì = 0
+    if (startOffset < 0) startOffset = 6;
+
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const daysInPrevMonth = new Date(year, month, 0).getDate();
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const cells = [];
+    for (let i = 0; i < startOffset; i++) {
+        cells.push({ date: new Date(year, month - 1, daysInPrevMonth - startOffset + i + 1), otherMonth: true });
+    }
+    for (let d = 1; d <= daysInMonth; d++) {
+        cells.push({ date: new Date(year, month, d), otherMonth: false });
+    }
+    while (cells.length % 7 !== 0) {
+        const last = cells[cells.length - 1].date;
+        const next = new Date(last);
+        next.setDate(next.getDate() + 1);
+        cells.push({ date: next, otherMonth: true });
+    }
+
+    const rs = rangeStart ? new Date(rangeStart).setHours(0, 0, 0, 0) : null;
+    const re = rangeEnd ? new Date(rangeEnd).setHours(0, 0, 0, 0) : null;
+
+    daysContainer.innerHTML = cells.map(cell => {
+        const classes = ['date-picker-day'];
+        if (cell.otherMonth) classes.push('other-month');
+        const cellTime = new Date(cell.date).setHours(0, 0, 0, 0);
+        if (cellTime === today.getTime()) classes.push('today');
+        if (rs !== null && cellTime === rs) classes.push('range-start');
+        if (re !== null && cellTime === re) classes.push('range-end');
+        if (rs !== null && re !== null && cellTime > rs && cellTime < re) classes.push('in-range');
+
+        return `<button type="button" class="${classes.join(' ')}" onclick="selectCalendarDay('${toISODate(cell.date)}')">${cell.date.getDate()}</button>`;
+    }).join('');
+}
+
+function selectCalendarDay(iso) {
+    const clicked = parseISODate(iso);
+    if (!rangeStart || (rangeStart && rangeEnd)) {
+        rangeStart = clicked;
+        rangeEnd = null;
+    } else if (clicked < rangeStart) {
+        rangeStart = clicked;
+        rangeEnd = null;
+    } else {
+        rangeEnd = clicked;
+    }
+    renderCalendar();
+    updateDatePickerLabel();
+}
+
+function changeCalendarMonth(delta) {
+    calendarViewDate.setMonth(calendarViewDate.getMonth() + delta);
+    renderCalendar();
+}
+
+function toggleDatePicker() {
+    const picker = document.getElementById('datePicker');
+    const isOpen = picker.classList.contains('open');
+    document.querySelectorAll('.multi-select-options').forEach(d => d.classList.remove('active'));
+    if (isOpen) {
+        picker.classList.remove('open');
+    } else {
+        picker.classList.add('open');
+        renderCalendar();
+    }
+}
+
+function applyDateRange() {
+    selectedFilters.dateFrom = rangeStart ? toISODate(rangeStart) : '';
+    selectedFilters.dateTo = rangeEnd ? toISODate(rangeEnd) : '';
+    updateDatePickerLabel();
+    document.getElementById('datePicker').classList.remove('open');
+    applyFilters();
+    if (window.pmRefreshResetButton) window.pmRefreshResetButton();
+}
+
+function clearDateRange() {
+    rangeStart = null;
+    rangeEnd = null;
+    selectedFilters.dateFrom = '';
+    selectedFilters.dateTo = '';
+    renderCalendar();
+    updateDatePickerLabel();
+    document.getElementById('datePicker').classList.remove('open');
+    applyFilters();
+    if (window.pmRefreshResetButton) window.pmRefreshResetButton();
 }
 
 function syncFiltersToUI() {
@@ -540,6 +695,8 @@ function toggleMultiSelect(display) {
     const allDropdowns = document.querySelectorAll('.multi-select-options');
     allDropdowns.forEach(d => { if (d !== dropdown) d.classList.remove('active'); });
     dropdown.classList.toggle('active');
+    const picker = document.getElementById('datePicker');
+    if (picker) picker.classList.remove('open');
 }
 
 function selectMultiOption(option) {
@@ -575,6 +732,10 @@ function updateDisplay(container, filterType) {
 document.addEventListener('click', (e) => {
     if (!e.target.closest('.multi-select')) {
         document.querySelectorAll('.multi-select-options').forEach(d => d.classList.remove('active'));
+    }
+    if (!e.target.closest('.date-picker')) {
+        const picker = document.getElementById('datePicker');
+        if (picker) picker.classList.remove('open');
     }
 });
 
@@ -617,13 +778,17 @@ function applyFilters() {
     selectedFilters.organizer = [];
     selectedFilters.dateFrom = '';
     selectedFilters.dateTo = '';
+    rangeStart = null;
+    rangeEnd = null;
+    renderCalendar();
+    updateDatePickerLabel();
+    const picker = document.getElementById('datePicker');
+    if (picker) picker.classList.remove('open');
 
     document.querySelectorAll('.multi-select-option').forEach(opt => opt.classList.remove('selected'));
     document.querySelectorAll('.multi-select').forEach(container => updateDisplay(container, container.dataset.filter));
 
     document.getElementById('filterSearch').value = '';
-    document.getElementById('filterDateFrom').value = '';
-    document.getElementById('filterDateTo').value = '';
 
     renderEvents(eventsData);
     updateURLFromFilters();
@@ -653,15 +818,6 @@ document.getElementById('filterSearch').addEventListener('input', function() {
         const filteredResults = applyFilters();
         trackSearch(value, filteredResults.length);
     }, 500);
-});
-
-document.getElementById('filterDateFrom').addEventListener('change', function() {
-    selectedFilters.dateFrom = this.value;
-    applyFilters();
-});
-document.getElementById('filterDateTo').addEventListener('change', function() {
-    selectedFilters.dateTo = this.value;
-    applyFilters();
 });
 
 document.addEventListener('DOMContentLoaded', async function() {
@@ -827,13 +983,13 @@ function initEventTracking() {
     const anyMultiSelected = document.querySelector('.multi-select-option.selected') !== null;
     const searchInput = document.getElementById('filterSearch');
     const anySearchText = searchInput && searchInput.value.trim() !== '';
-    const dateFromEl = document.getElementById('filterDateFrom');
-    const dateToEl = document.getElementById('filterDateTo');
-    const anyDate = (dateFromEl && dateFromEl.value) || (dateToEl && dateToEl.value);
+    const anyDate = !!(selectedFilters.dateFrom || selectedFilters.dateTo);
     const resetBtn = document.querySelector('.reset-filters');
     if (!resetBtn) return;
-    resetBtn.classList.toggle('active', anyMultiSelected || anySearchText || !!anyDate || !!searchCenter);
+    resetBtn.classList.toggle('active', anyMultiSelected || anySearchText || anyDate || !!searchCenter);
   }
+  // esposta globalmente così il calendario data (definito nell'altro script) può richiamarla
+  window.pmRefreshResetButton = updateResetButtonState;
 
   function setSearchCenter(lat, lng) {
     searchCenter = { lat, lng };
@@ -901,10 +1057,6 @@ function initEventTracking() {
     });
     const searchInputEl = document.getElementById('filterSearch');
     if (searchInputEl) searchInputEl.addEventListener('input', updateResetButtonState);
-    const dateFromEl = document.getElementById('filterDateFrom');
-    const dateToEl = document.getElementById('filterDateTo');
-    if (dateFromEl) dateFromEl.addEventListener('change', updateResetButtonState);
-    if (dateToEl) dateToEl.addEventListener('change', updateResetButtonState);
 
     const sidebarFilters = document.getElementById('sidebarFilters');
     const mapSidebar = document.getElementById('mapSidebar');
