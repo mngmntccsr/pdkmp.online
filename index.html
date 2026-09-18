@@ -108,7 +108,10 @@ gtag('config', 'G-F54J4RR4YY');
                             <div class="date-picker" id="datePicker">
                                 <button type="button" class="date-picker-trigger" onclick="toggleDatePicker()">
                                     <span id="datePickerLabel">Qualsiasi data</span>
-                                    <span class="chevron">▾</span>
+                                    <span class="date-picker-trigger-icons">
+                                        <span class="date-picker-clear-x" onclick="clearDateRangeQuiet(event)" title="Cancella">✕</span>
+                                        <span class="chevron">▾</span>
+                                    </span>
                                 </button>
                                 <div class="date-picker-panel" id="datePickerPanel">
                                     <div class="date-picker-header">
@@ -564,6 +567,7 @@ function formatShortIt(d) {
 
 function updateDatePickerLabel() {
     const label = document.getElementById('datePickerLabel');
+    const picker = document.getElementById('datePicker');
     if (!label) return;
     if (rangeStart && rangeEnd) {
         label.textContent = `${formatShortIt(rangeStart)} – ${formatShortIt(rangeEnd)}`;
@@ -572,6 +576,7 @@ function updateDatePickerLabel() {
     } else {
         label.textContent = 'Qualsiasi data';
     }
+    if (picker) picker.classList.toggle('has-value', !!rangeStart);
 }
 
 function renderCalendar() {
@@ -674,6 +679,11 @@ function clearDateRange() {
     document.getElementById('datePicker').classList.remove('open');
     applyFilters();
     if (window.pmRefreshResetButton) window.pmRefreshResetButton();
+}
+
+function clearDateRangeQuiet(event) {
+    if (event) event.stopPropagation();
+    clearDateRange();
 }
 
 function syncFiltersToUI() {
