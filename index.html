@@ -123,10 +123,6 @@ gtag('config', 'G-F54J4RR4YY');
                                         <span>L</span><span>M</span><span>M</span><span>G</span><span>V</span><span>S</span><span>D</span>
                                     </div>
                                     <div class="date-picker-days" id="datePickerDays"></div>
-                                    <div class="date-picker-footer">
-                                        <button type="button" class="date-picker-clear" onclick="clearDateRange()">Cancella</button>
-                                        <button type="button" class="btn btn-primary date-picker-apply" onclick="applyDateRange()">Applica</button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -633,14 +629,28 @@ function selectCalendarDay(iso) {
     if (!rangeStart || (rangeStart && rangeEnd)) {
         rangeStart = clicked;
         rangeEnd = null;
+        renderCalendar();
+        updateDatePickerLabel();
     } else if (clicked < rangeStart) {
         rangeStart = clicked;
         rangeEnd = null;
+        renderCalendar();
+        updateDatePickerLabel();
     } else {
         rangeEnd = clicked;
+        commitDateRange();
     }
+}
+
+function commitDateRange() {
+    selectedFilters.dateFrom = rangeStart ? toISODate(rangeStart) : '';
+    selectedFilters.dateTo = rangeEnd ? toISODate(rangeEnd) : '';
     renderCalendar();
     updateDatePickerLabel();
+    const picker = document.getElementById('datePicker');
+    if (picker) picker.classList.remove('open');
+    applyFilters();
+    if (window.pmRefreshResetButton) window.pmRefreshResetButton();
 }
 
 function changeCalendarMonth(delta) {
@@ -658,15 +668,6 @@ function toggleDatePicker() {
         picker.classList.add('open');
         renderCalendar();
     }
-}
-
-function applyDateRange() {
-    selectedFilters.dateFrom = rangeStart ? toISODate(rangeStart) : '';
-    selectedFilters.dateTo = rangeEnd ? toISODate(rangeEnd) : '';
-    updateDatePickerLabel();
-    document.getElementById('datePicker').classList.remove('open');
-    applyFilters();
-    if (window.pmRefreshResetButton) window.pmRefreshResetButton();
 }
 
 function clearDateRange() {
