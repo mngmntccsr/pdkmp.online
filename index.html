@@ -64,46 +64,6 @@ gtag('config', 'G-F54J4RR4YY');
                     <h3>Filtra eventi</h3>
                     <div class="filter-grid">
                         <div class="filter-group">
-                            <label>Tipo di evento</label>
-                            <div class="multi-select" data-filter="discipline">
-                                <div class="multi-select-display" onclick="toggleMultiSelect(this)">
-                                    <span class="placeholder">Tutti i tipi</span>
-                                </div>
-                                <div class="multi-select-options">
-                                    <div class="multi-select-option" data-value="Gt">GT</div>
-                                    <div class="multi-select-option" data-value="Formula">Formula</div>
-                                    <div class="multi-select-option" data-value="Misto">Misto</div>
-                                    <div class="multi-select-option" data-value="Storico">Storico</div>
-                                    <div class="multi-select-option" data-value="Rally">Rally</div>
-                                    <div class="multi-select-option" data-value="Le Mans Prototype">Le Mans Prototype</div>
-                                    <div class="multi-select-option" data-value="Cronoscalata">Cronoscalata</div>
-                                    <div class="multi-select-option" data-value="Raduno">Raduno</div>
-                                    <div class="multi-select-option" data-value="Trackday">Trackday</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="filter-group">
-                            <label>Location</label>
-                            <div class="multi-select" data-filter="circuit">
-                                <div class="multi-select-display" onclick="toggleMultiSelect(this)">
-                                    <span class="placeholder">Tutte le location</span>
-                                </div>
-                                <div class="multi-select-options"></div>
-                            </div>
-                        </div>
-
-                        <div class="filter-group">
-                            <label>Organizzatore</label>
-                            <div class="multi-select" data-filter="organizer">
-                                <div class="multi-select-display" onclick="toggleMultiSelect(this)">
-                                    <span class="placeholder">Tutti gli organizzatori</span>
-                                </div>
-                                <div class="multi-select-options"></div>
-                            </div>
-                        </div>
-
-                        <div class="filter-group">
                             <label>Data</label>
                             <div class="date-picker" id="datePicker">
                                 <button type="button" class="date-picker-trigger" onclick="toggleDatePicker()">
@@ -124,6 +84,46 @@ gtag('config', 'G-F54J4RR4YY');
                                     </div>
                                     <div class="date-picker-days" id="datePickerDays"></div>
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>Location</label>
+                            <div class="multi-select" data-filter="circuit">
+                                <div class="multi-select-display" onclick="toggleMultiSelect(this)">
+                                    <span class="placeholder">Tutte le location</span>
+                                </div>
+                                <div class="multi-select-options"></div>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>Tipo di evento</label>
+                            <div class="multi-select" data-filter="discipline">
+                                <div class="multi-select-display" onclick="toggleMultiSelect(this)">
+                                    <span class="placeholder">Tutti i tipi</span>
+                                </div>
+                                <div class="multi-select-options">
+                                    <div class="multi-select-option" data-value="Gt">GT</div>
+                                    <div class="multi-select-option" data-value="Formula">Formula</div>
+                                    <div class="multi-select-option" data-value="Misto">Misto</div>
+                                    <div class="multi-select-option" data-value="Storico">Storico</div>
+                                    <div class="multi-select-option" data-value="Rally">Rally</div>
+                                    <div class="multi-select-option" data-value="Le Mans Prototype">Le Mans Prototype</div>
+                                    <div class="multi-select-option" data-value="Cronoscalata">Cronoscalata</div>
+                                    <div class="multi-select-option" data-value="Raduno">Raduno</div>
+                                    <div class="multi-select-option" data-value="Trackday">Trackday</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>Organizzatore</label>
+                            <div class="multi-select" data-filter="organizer">
+                                <div class="multi-select-display" onclick="toggleMultiSelect(this)">
+                                    <span class="placeholder">Tutti gli organizzatori</span>
+                                </div>
+                                <div class="multi-select-options"></div>
                             </div>
                         </div>
 
@@ -629,28 +629,26 @@ function selectCalendarDay(iso) {
     if (!rangeStart || (rangeStart && rangeEnd)) {
         rangeStart = clicked;
         rangeEnd = null;
-        renderCalendar();
-        updateDatePickerLabel();
     } else if (clicked < rangeStart) {
         rangeStart = clicked;
         rangeEnd = null;
-        renderCalendar();
-        updateDatePickerLabel();
     } else {
         rangeEnd = clicked;
-        commitDateRange();
     }
-}
-
-function commitDateRange() {
-    selectedFilters.dateFrom = rangeStart ? toISODate(rangeStart) : '';
-    selectedFilters.dateTo = rangeEnd ? toISODate(rangeEnd) : '';
     renderCalendar();
     updateDatePickerLabel();
-    const picker = document.getElementById('datePicker');
-    if (picker) picker.classList.remove('open');
+
+    // applica subito, anche con una sola data impostata (solo "da" o solo "a")
+    selectedFilters.dateFrom = rangeStart ? toISODate(rangeStart) : '';
+    selectedFilters.dateTo = rangeEnd ? toISODate(rangeEnd) : '';
     applyFilters();
     if (window.pmRefreshResetButton) window.pmRefreshResetButton();
+
+    // chiude il calendario solo quando il range è completo (inizio + fine)
+    if (rangeStart && rangeEnd) {
+        const picker = document.getElementById('datePicker');
+        if (picker) picker.classList.remove('open');
+    }
 }
 
 function changeCalendarMonth(delta) {
