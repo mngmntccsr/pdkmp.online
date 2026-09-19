@@ -65,10 +65,33 @@ gtag('config', 'G-F54J4RR4YY');
 <h3>Filtra eventi</h3>
 
 <div class="filter-group">
-<label>Disciplina</label>
-<div class="multi-select" data-filter="discipline" data-placeholder="Tutte le discipline">
+<label>Data</label>
+<div class="date-picker" id="datePicker">
+    <button type="button" class="date-picker-trigger" onclick="toggleDatePicker()">
+        <span id="datePickerLabel" class="placeholder">Qualsiasi data</span>
+        <span class="date-picker-trigger-icons">
+            <span class="date-picker-clear-x" onclick="clearDateRangeQuiet(event)" title="Cancella">✕</span>
+        </span>
+    </button>
+    <div class="date-picker-panel" id="datePickerPanel">
+        <div class="date-picker-header">
+            <button type="button" class="date-picker-nav" onclick="changeCalendarMonth(-1)">‹</button>
+            <span id="datePickerMonthLabel"></span>
+            <button type="button" class="date-picker-nav" onclick="changeCalendarMonth(1)">›</button>
+        </div>
+        <div class="date-picker-weekdays">
+            <span>L</span><span>M</span><span>M</span><span>G</span><span>V</span><span>S</span><span>D</span>
+        </div>
+        <div class="date-picker-days" id="datePickerDays"></div>
+    </div>
+</div>
+</div>
+
+<div class="filter-group">
+<label>Tipo di evento</label>
+<div class="multi-select" data-filter="discipline" data-placeholder="Tutti i tipi">
 <div class="multi-select-display" onclick="toggleMultiSelect(this)">
-<span class="placeholder">Tutte le discipline</span>
+<span class="placeholder">Tutti i tipi</span>
 </div>
 <div class="multi-select-options">
                                     <div class="multi-select-option" data-value="Gt">GT</div>
@@ -80,29 +103,6 @@ gtag('config', 'G-F54J4RR4YY');
                                     <div class="multi-select-option" data-value="Cronoscalata">Cronoscalata</div>
                                     <div class="multi-select-option" data-value="Raduno">Raduno</div>
                                     <div class="multi-select-option" data-value="Trackday">Trackday</div>
-</div>
-</div>
-</div>
-
-<div class="filter-group">
-<label>Mese</label>
-<div class="multi-select" data-filter="month" data-placeholder="Tutti i mesi">
-<div class="multi-select-display" onclick="toggleMultiSelect(this)">
-<span class="placeholder">Tutti i mesi</span>
-</div>
-<div class="multi-select-options">
-<div class="multi-select-option" data-value="01">Gennaio</div>
-<div class="multi-select-option" data-value="02">Febbraio</div>
-<div class="multi-select-option" data-value="03">Marzo</div>
-<div class="multi-select-option" data-value="04">Aprile</div>
-<div class="multi-select-option" data-value="05">Maggio</div>
-<div class="multi-select-option" data-value="06">Giugno</div>
-<div class="multi-select-option" data-value="07">Luglio</div>
-<div class="multi-select-option" data-value="08">Agosto</div>
-<div class="multi-select-option" data-value="09">Settembre</div>
-<div class="multi-select-option" data-value="10">Ottobre</div>
-<div class="multi-select-option" data-value="11">Novembre</div>
-<div class="multi-select-option" data-value="12">Dicembre</div>
 </div>
 </div>
 </div>
@@ -135,6 +135,148 @@ document.getElementById('mapLocateBtn').innerHTML = PMIcons.locate + ' Usa la mi
   let searchCenter = null;
   let searchRadiusKm = 50;
 
+  // ===== Filtro data: calendario a comparsa in stile "liquid glass" =====
+  const ITALIAN_MONTHS = ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
+  let calendarViewDate = new Date();
+  calendarViewDate.setDate(1);
+  let rangeStart = null;
+  let rangeEnd = null;
+
+  function toISODate(d) {
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${y}-${m}-${day}`;
+  }
+
+  function parseISODate(s) {
+    if (!s) return null;
+    const [y, m, d] = s.split('-').map(Number);
+    return new Date(y, m - 1, d);
+  }
+
+  function formatShortIt(d) {
+    return `${d.getDate()} ${ITALIAN_MONTHS[d.getMonth()].substring(0, 3)}`;
+  }
+
+  function updateDatePickerLabel() {
+    const label = document.getElementById('datePickerLabel');
+    const picker = document.getElementById('datePicker');
+    if (!label) return;
+    if (rangeStart && rangeEnd) {
+        label.textContent = `${formatShortIt(rangeStart)} – ${formatShortIt(rangeEnd)}`;
+        label.classList.remove('placeholder');
+    } else if (rangeStart) {
+        label.textContent = `${formatShortIt(rangeStart)} – ?`;
+        label.classList.remove('placeholder');
+    } else {
+        label.textContent = 'Qualsiasi data';
+        label.classList.add('placeholder');
+    }
+    if (picker) picker.classList.toggle('has-value', !!rangeStart);
+  }
+
+  function renderCalendar() {
+    const monthLabel = document.getElementById('datePickerMonthLabel');
+    const daysContainer = document.getElementById('datePickerDays');
+    if (!monthLabel || !daysContainer) return;
+
+    const year = calendarViewDate.getFullYear();
+    const month = calendarViewDate.getMonth();
+    monthLabel.textContent = `${ITALIAN_MONTHS[month]} ${year}`;
+
+    const firstOfMonth = new Date(year, month, 1);
+    let startOffset = firstOfMonth.getDay() - 1; // lunedì = 0
+    if (startOffset < 0) startOffset = 6;
+
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const daysInPrevMonth = new Date(year, month, 0).getDate();
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const cells = [];
+    for (let i = 0; i < startOffset; i++) {
+        cells.push({ date: new Date(year, month - 1, daysInPrevMonth - startOffset + i + 1), otherMonth: true });
+    }
+    for (let d = 1; d <= daysInMonth; d++) {
+        cells.push({ date: new Date(year, month, d), otherMonth: false });
+    }
+    while (cells.length % 7 !== 0) {
+        const last = cells[cells.length - 1].date;
+        const next = new Date(last);
+        next.setDate(next.getDate() + 1);
+        cells.push({ date: next, otherMonth: true });
+    }
+
+    const rs = rangeStart ? new Date(rangeStart).setHours(0, 0, 0, 0) : null;
+    const re = rangeEnd ? new Date(rangeEnd).setHours(0, 0, 0, 0) : null;
+
+    daysContainer.innerHTML = cells.map(cell => {
+        const classes = ['date-picker-day'];
+        if (cell.otherMonth) classes.push('other-month');
+        const cellTime = new Date(cell.date).setHours(0, 0, 0, 0);
+        if (cellTime === today.getTime()) classes.push('today');
+        if (rs !== null && cellTime === rs) classes.push('range-start');
+        if (re !== null && cellTime === re) classes.push('range-end');
+        if (rs !== null && re !== null && cellTime > rs && cellTime < re) classes.push('in-range');
+
+        return `<button type="button" class="${classes.join(' ')}" onclick="selectCalendarDay('${toISODate(cell.date)}')">${cell.date.getDate()}</button>`;
+    }).join('');
+  }
+
+  window.selectCalendarDay = function (iso) {
+    const clicked = parseISODate(iso);
+    if (!rangeStart || (rangeStart && rangeEnd)) {
+        rangeStart = clicked;
+        rangeEnd = null;
+    } else if (clicked < rangeStart) {
+        rangeStart = clicked;
+        rangeEnd = null;
+    } else {
+        rangeEnd = clicked;
+    }
+    renderCalendar();
+    updateDatePickerLabel();
+
+    // applica subito, anche con una sola data impostata
+    applyFilters();
+
+    // chiude il calendario solo quando il range è completo
+    if (rangeStart && rangeEnd) {
+        const picker = document.getElementById('datePicker');
+        if (picker) picker.classList.remove('open');
+    }
+  };
+
+  window.changeCalendarMonth = function (delta) {
+    calendarViewDate.setMonth(calendarViewDate.getMonth() + delta);
+    renderCalendar();
+  };
+
+  window.toggleDatePicker = function () {
+    const picker = document.getElementById('datePicker');
+    const isOpen = picker.classList.contains('open');
+    document.querySelectorAll('.multi-select-options.active').forEach(el => el.classList.remove('active'));
+    if (isOpen) {
+        picker.classList.remove('open');
+    } else {
+        picker.classList.add('open');
+        renderCalendar();
+    }
+  };
+
+  window.clearDateRangeQuiet = function (event) {
+    if (event) event.stopPropagation();
+    rangeStart = null;
+    rangeEnd = null;
+    renderCalendar();
+    updateDatePickerLabel();
+    const picker = document.getElementById('datePicker');
+    if (picker) picker.classList.remove('open');
+    applyFilters();
+  };
+
   function initMap() {
     gtag('event', 'map_open');
     map = createBaseMap('interactiveMapFull');
@@ -157,12 +299,14 @@ document.getElementById('mapLocateBtn').innerHTML = PMIcons.locate + ' Usa la mi
 
   function applyFilters() {
     const disciplines = getSelectedValues('discipline');
-    const months = getSelectedValues('month');
     const searchText = document.getElementById('filterSearch').value.trim().toLowerCase();
+    const dateFromISO = rangeStart ? toISODate(rangeStart) : '';
+    const dateToISO = rangeEnd ? toISODate(rangeEnd) : '';
 
     const filtered = allEvents.filter(ev => {
       if (disciplines.length && !(ev.disciplina || []).some(d => disciplines.includes(d))) return false;
-      if (months.length && !months.includes((ev.dataInizio || '').slice(5, 7))) return false;
+      if (dateFromISO && (ev.dataInizio || '') < dateFromISO) return false;
+      if (dateToISO && (ev.dataInizio || '') > dateToISO) return false;
       if (searchText) {
         const haystack = `${ev.titolo} ${ev.circuito || ''} ${ev.citta || ''}`.toLowerCase();
         if (!haystack.includes(searchText)) return false;
@@ -176,7 +320,7 @@ document.getElementById('mapLocateBtn').innerHTML = PMIcons.locate + ' Usa la mi
     });
 
     renderMarkers(filtered);
-    updateResetButtonState(disciplines, months, searchText);
+    updateResetButtonState(disciplines, searchText);
   }
 
   function renderMarkers(events) {
@@ -205,9 +349,9 @@ document.getElementById('mapLocateBtn').innerHTML = PMIcons.locate + ' Usa la mi
     }
   }
 
-  function updateResetButtonState(disciplines, months, searchText) {
+  function updateResetButtonState(disciplines, searchText) {
     const btn = document.getElementById('resetFiltersBtn');
-    const active = disciplines.length > 0 || months.length > 0 || !!searchText || !!searchCenter;
+    const active = disciplines.length > 0 || !!searchText || !!searchCenter || !!rangeStart;
     btn.classList.toggle('active', active);
   }
 
@@ -242,6 +386,8 @@ document.getElementById('mapLocateBtn').innerHTML = PMIcons.locate + ' Usa la mi
       if (el !== options) el.classList.remove('active');
     });
     options.classList.toggle('active');
+    const picker = document.getElementById('datePicker');
+    if (picker) picker.classList.remove('open');
   };
 
   function updateMultiSelectDisplay(multiSelectEl) {
@@ -256,6 +402,10 @@ document.getElementById('mapLocateBtn').innerHTML = PMIcons.locate + ' Usa la mi
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.multi-select')) {
       document.querySelectorAll('.multi-select-options.active').forEach(el => el.classList.remove('active'));
+    }
+    if (!e.target.closest('.date-picker')) {
+      const picker = document.getElementById('datePicker');
+      if (picker) picker.classList.remove('open');
     }
   });
 
@@ -297,6 +447,12 @@ document.getElementById('mapLocateBtn').innerHTML = PMIcons.locate + ' Usa la mi
     document.querySelectorAll('.multi-select-option.selected').forEach(o => o.classList.remove('selected'));
     document.querySelectorAll('.multi-select').forEach(updateMultiSelectDisplay);
     document.getElementById('filterSearch').value = '';
+    rangeStart = null;
+    rangeEnd = null;
+    renderCalendar();
+    updateDatePickerLabel();
+    const picker = document.getElementById('datePicker');
+    if (picker) picker.classList.remove('open');
     searchCenter = null;
     document.getElementById('mapRadiusRange').disabled = true;
     document.getElementById('mapRadiusValue').textContent = 'off';
