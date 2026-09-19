@@ -347,8 +347,6 @@ svg.icon {
 
 .date-picker-trigger-icons { display: flex; align-items: center; gap: 0.4rem; flex-shrink: 0; }
 
-#datePickerLabel.placeholder { color: var(--muted); }
-
 .date-picker-clear-x {
   display: none;
   align-items: center;
@@ -366,12 +364,8 @@ svg.icon {
 .date-picker-clear-x:hover { background: var(--accent); color: #fff; }
 .date-picker.has-value .date-picker-clear-x { display: flex; }
 
-.date-picker-trigger .chevron {
-  color: var(--accent);
-  font-size: 0.72rem;
-  transition: transform 0.2s var(--ease);
-}
-.date-picker.open .date-picker-trigger .chevron { transform: rotate(180deg); }
+#datePickerLabel.placeholder,
+.date-picker-trigger .placeholder { color: var(--muted); }
 
 .date-picker-panel {
   display: none;
