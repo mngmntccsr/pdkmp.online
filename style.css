@@ -334,6 +334,9 @@ svg.icon {
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
   transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
 }
 .date-picker-trigger:hover { border-color: var(--line-strong); }
@@ -343,6 +346,8 @@ svg.icon {
 }
 
 .date-picker-trigger-icons { display: flex; align-items: center; gap: 0.4rem; flex-shrink: 0; }
+
+#datePickerLabel.placeholder { color: var(--muted); }
 
 .date-picker-clear-x {
   display: none;
