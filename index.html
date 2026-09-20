@@ -417,8 +417,8 @@ const titleHtml = event.isPromo
                              <div class="info-row">
                              <span class="info-icon">${PMIcons.pin}</span>
                                        <span>
-                             <strong>${event.circuito || ''}</strong>
-                        ${event.citta ? ' - ' + event.citta : ''}
+                             <strong>${event.circuito || event.citta || ''}</strong>
+                        ${(event.citta && event.circuito && event.citta.trim().toLowerCase() !== event.circuito.trim().toLowerCase()) ? ' - ' + event.citta : ''}
                         ${event.itinerante ? `<span class="itinerant-badge" onclick="event.stopPropagation(); window.pmToggleItinerantTooltip(this)">${PMIcons.compass}</span>` : ''}
                              </span>
                 </div>
@@ -438,6 +438,7 @@ const titleHtml = event.isPromo
     ${PMIcons.megaphone} Promuovi il tuo evento
 </a>
     ` : `
+<div class="event-actions-row">
 ${event.linkBiglietti ? `
     <a href="${event.linkBiglietti}"
        target="_blank"
@@ -455,6 +456,11 @@ onclick='trackBiglietti(event, this)'>
                 Info biglietti in arrivo
             </button>
         `}
+        <div class="pm-quick-actions pm-quick-actions-mobile">
+            <button class="pm-icon-btn pm-save-btn" data-event-id="${window.pmEventId(event)}" onclick="pmHandleSaveClick(this)" title="Salva evento">${PMIcons.heart}</button>
+            ${event.circuito ? `<button class="pm-icon-btn pm-follow-btn" data-circuit-id="${event.circuito}" onclick="pmHandleFollowClick(this)" title="Segui circuito">${PMIcons.flag}</button>` : ''}
+        </div>
+</div>
 
         ${event.linkInfo ? `
             <a href="${event.linkInfo}"
