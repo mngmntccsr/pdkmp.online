@@ -619,6 +619,12 @@ svg.icon {
   margin-top: auto;
 }
 
+/* Su desktop il wrapper è invisibile al layout: i suoi figli si comportano
+   come se fossero direttamente dentro .event-actions (nessun cambiamento
+   visivo). Su mobile diventa una riga: bottone biglietti + azioni rapide. */
+.event-actions-row { display: contents; }
+.pm-quick-actions-mobile { display: none; }
+
 .btn {
   width: 100%;
   padding: 0.72rem 1rem;
@@ -930,7 +936,7 @@ footer p:first-child { color: rgba(255, 255, 255, 0.85); font-weight: 600; }
      riposizionano semplicemente i blocchi già esistenti via grid. */
   .event-card {
     display: grid;
-    grid-template-columns: 1fr 92px;
+    grid-template-columns: 1fr 84px;
     grid-template-rows: auto auto auto;
     height: auto;
     border-radius: var(--radius-lg);
@@ -940,11 +946,11 @@ footer p:first-child { color: rgba(255, 255, 255, 0.85); font-weight: 600; }
   .event-image-container {
     grid-column: 2;
     grid-row: 1 / span 3;
-    width: 92px;
-    height: 92px;
+    width: 84px;
+    height: 84px;
     aspect-ratio: 1 / 1;
-    align-self: center;
-    margin: 0.8rem 0.8rem 0.8rem 0;
+    align-self: start;
+    margin: 0.8rem 0.8rem 0 0;
     border-radius: var(--radius-md);
   }
 
@@ -999,9 +1005,26 @@ footer p:first-child { color: rgba(255, 255, 255, 0.85); font-weight: 600; }
   /* "Maggiori informazioni" via, la card intera porta già alla pagina evento */
   .event-actions .btn-secondary { display: none; }
   .event-actions .btn {
-    width: auto;
-    padding: 0.42rem 1rem;
+    padding: 0.42rem 0.85rem;
     font-size: 0.78rem;
+  }
+
+  /* Riga affiancata: bottone biglietti/gratuito a sinistra, azioni rapide a destra */
+  .event-actions-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .event-actions-row .btn {
+    flex: 1;
+    min-width: 0;
+    width: auto;
+  }
+  .pm-quick-actions-mobile {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-shrink: 0;
   }
 }
 
