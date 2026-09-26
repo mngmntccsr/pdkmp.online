@@ -461,20 +461,6 @@ onclick='trackBiglietti(event, this)'>
             ${event.circuito ? `<button class="pm-icon-btn pm-follow-btn" data-circuit-id="${event.circuito}" onclick="pmHandleFollowClick(this)" title="Segui circuito">${PMIcons.flag}</button>` : ''}
         </div>
 </div>
-
-        ${event.linkInfo ? `
-            <a href="${event.linkInfo}"
-   target="_blank"
-   class="btn btn-secondary"
-   data-event='${encodeURIComponent(JSON.stringify(event))}'
-onclick='trackInfo(this)'>
-    ${PMIcons.info} Maggiori informazioni
-</a>
-        ` : `
-            <button class="btn btn-secondary" disabled>
-                Info in arrivo
-            </button>
-        `}
     `}
 </div>
                     </div>
