@@ -623,7 +623,7 @@ svg.icon {
    come se fossero direttamente dentro .event-actions (nessun cambiamento
    visivo). Su mobile diventa una riga: bottone biglietti + azioni rapide. */
 .event-actions-row { display: contents; }
-.pm-quick-actions-mobile { display: none; }
+.event-actions .pm-quick-actions.pm-quick-actions-mobile { display: none; }
 
 .btn {
   width: 100%;
@@ -1002,8 +1002,7 @@ footer p:first-child { color: rgba(255, 255, 255, 0.85); font-weight: 600; }
     border-top: none;
     margin-top: 0;
   }
-  /* "Maggiori informazioni" via, la card intera porta già alla pagina evento */
-  .event-actions .btn-secondary { display: none; }
+  /* la card intera porta già alla pagina evento */
   .event-actions .btn {
     padding: 0.42rem 0.85rem;
     font-size: 0.78rem;
@@ -1020,7 +1019,7 @@ footer p:first-child { color: rgba(255, 255, 255, 0.85); font-weight: 600; }
     min-width: 0;
     width: auto;
   }
-  .pm-quick-actions-mobile {
+  .event-actions .pm-quick-actions.pm-quick-actions-mobile {
     display: flex;
     align-items: center;
     gap: 0.35rem;
