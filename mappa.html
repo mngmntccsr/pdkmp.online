@@ -60,7 +60,12 @@ gtag('config', 'G-F54J4RR4YY');
 <div id="interactiveMapFull"></div>
 </div>
 
-<div class="filters-half">
+<button class="map-mobile-toggle" id="mapMobileToggle" type="button">
+<span>Filtri</span>
+<span class="chevron">▾</span>
+</button>
+
+<div class="filters-half" id="filtersHalf">
 <div class="filters-inner">
 <h3>Filtra eventi</h3>
 
@@ -487,6 +492,15 @@ const today = todayISO();
         console.error("Errore caricamento eventi:", error);
     });
 });
+  const mapMobileToggle = document.getElementById('mapMobileToggle');
+  const filtersHalf = document.getElementById('filtersHalf');
+  if (mapMobileToggle && filtersHalf) {
+    mapMobileToggle.addEventListener('click', () => {
+      const isOpen = filtersHalf.classList.toggle('mobile-open');
+      mapMobileToggle.classList.toggle('open', isOpen);
+      setTimeout(() => { if (map) map.invalidateSize(); }, 300);
+    });
+  }
 })();
 </script>
 
