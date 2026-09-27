@@ -1125,7 +1125,7 @@ body.submit-page .header { flex: 0 0 auto; }
 
 .submit-card {
   width: 100%;
-  max-width: 760px;
+  max-width: 1080px;
   max-height: 100%;
   overflow-y: auto;
   background: var(--surface);
@@ -1150,10 +1150,16 @@ body.submit-page .header { flex: 0 0 auto; }
 
 .submit-form-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.8rem 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.9rem 1.2rem;
 }
 .submit-form-grid .full { grid-column: 1 / -1; }
+.submit-form-grid .half { grid-column: span 1.5; }
+
+@media (max-width: 900px) {
+  .submit-form-grid { grid-template-columns: 1fr 1fr; }
+  .submit-form-grid .half { grid-column: span 1; }
+}
 
 .submit-form-grid label {
   font-size: 0.8rem;
