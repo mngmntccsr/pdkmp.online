@@ -1221,13 +1221,40 @@ body.submit-page .header { flex: 0 0 auto; }
 .submit-card button[type="submit"]:hover { background: var(--accent-dark); transform: translateY(-1px); }
 .submit-card button[type="submit"]:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
-.submit-note { font-size: 0.76rem; color: var(--muted); text-align: center; margin-top: 0.6rem; }
-
-@media (max-width: 640px) {
-  body.submit-page { height: auto; overflow: auto; }
-  .submit-form-grid { grid-template-columns: 1fr; }
-  .submit-card { padding: 1.25rem 1.4rem; }
+/* Card generica riusata dal modale di login/registrazione (auth.js) */
+.form-card {
+  background: var(--surface);
+  padding: 2.1rem;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--line);
 }
+.form-card h1 {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+.form-card > p { color: var(--muted); margin-bottom: 1.4rem; font-size: 0.9rem; }
+.form-card label { font-size: 0.82rem; font-weight: 600; color: var(--ink-soft); display: block; margin-bottom: 0.32rem; }
+.form-card input {
+  width: 100%;
+  padding: 0.72rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--line);
+  font-size: 0.9rem;
+  margin-bottom: 1.1rem;
+  font-family: inherit;
+  background: var(--bg);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-card input:focus {
+  outline: none; border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-ring); background: #fff;
+}
+
+.submit-note { font-size: 0.76rem; color: var(--muted); text-align: center; margin-top: 0.6rem; }
 
 .modal {
   position: fixed; inset: 0;
@@ -1264,10 +1291,6 @@ body.submit-page .header { flex: 0 0 auto; }
 }
 .modal-content button:hover { background: var(--accent-dark); }
 
-@media (max-width: 640px) {
-  .contact-container { margin: 1.5rem auto; padding: 0 1rem; }
-  .form-card { padding: 1.4rem; }
-}
 .itinerant-badge {
     position: relative;
     cursor: pointer;
