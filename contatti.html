@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Promuovi il tuo evento su PaddockMap</title>
+    <title>Segnala un evento su PaddockMap</title>
 
     <link rel="stylesheet" href="style.css">
     <script src="icons.js"></script>
@@ -11,7 +11,7 @@
     <script src="auth.js" defer></script>
 </head>
 
-<body>
+<body class="submit-page">
 
 <header class="header" id="mainHeader">
 <div class="header-content">
@@ -34,33 +34,81 @@
 </div>
 </header>
 
-<div class="contact-container">
-    <div class="form-card">
-        <h1 id="formTitle">Promuovi il tuo evento</h1>
-        <p>Inserisci i dettagli del tuo evento e verrà valutato per la pubblicazione su PaddockMap.</p>
+<div class="submit-wrap">
+<div class="submit-card">
+<h1 id="formTitle">Segnala un evento</h1>
+<p>Conosci un evento motorsport che manca su PaddockMap? Segnalacelo: verrà valutato e pubblicato a breve.</p>
 
-        <form id="eventForm">
-<input type="text" id="titolo" placeholder="Nome evento" required>
-<input type="date" id="dataInizio" required>
-<input type="text" id="circuito" placeholder="Circuito / Location" required>
-<input type="text" id="organizzatore" placeholder="Organizzatore (opzionale)">
-<input type="email" id="email" placeholder="Email di contatto" required>
-<input type="text" id="linkInfo" placeholder="Link evento o pagina info">
-<textarea id="descrizione" rows="4" placeholder="Descrizione evento"></textarea>
+<form id="eventForm">
+<div class="submit-form-grid">
 
-            <button type="submit">Invia richiesta</button>
-        </form>
-    </div>
+<div class="full">
+<label for="titolo">Nome evento</label>
+<input type="text" id="titolo" placeholder="Es. 6 Ore di Vallelunga" required>
 </div>
 
-<footer>
-    <p>&copy; 2026 PaddockMap · Il calendario del motorsport italiano</p>
-    <p id="footerMail"></p>
-</footer>
+<div>
+<label for="dataInizio">Data inizio</label>
+<input type="date" id="dataInizio" required>
+</div>
+<div>
+<label for="dataFine">Data fine (se più giorni)</label>
+<input type="date" id="dataFine">
+</div>
+
+<div>
+<label for="circuito">Circuito / Location</label>
+<input type="text" id="circuito" placeholder="Es. Autodromo di Vallelunga" required>
+</div>
+<div>
+<label for="citta">Città</label>
+<input type="text" id="citta" placeholder="Es. Campagnano di Roma">
+</div>
+
+<div class="full">
+<label>Tipo di evento</label>
+<div class="chip-select" id="disciplineChips">
+<span class="chip" data-value="Gt">GT</span>
+<span class="chip" data-value="Formula">Formula</span>
+<span class="chip" data-value="Misto">Misto</span>
+<span class="chip" data-value="Storico">Storico</span>
+<span class="chip" data-value="Rally">Rally</span>
+<span class="chip" data-value="Le Mans Prototype">Le Mans Prototype</span>
+<span class="chip" data-value="Cronoscalata">Cronoscalata</span>
+<span class="chip" data-value="Raduno">Raduno</span>
+<span class="chip" data-value="Trackday">Trackday</span>
+</div>
+</div>
+
+<div>
+<label for="organizzatore">Organizzatore (opzionale)</label>
+<input type="text" id="organizzatore" placeholder="Es. ACI Sport">
+</div>
+<div>
+<label for="linkBiglietti">Link biglietti/info (opzionale)</label>
+<input type="url" id="linkBiglietti" placeholder="https://...">
+</div>
+
+<div class="full toggle-row">
+<label><input type="checkbox" id="eventoGratuito"> Ingresso gratuito</label>
+<label><input type="checkbox" id="itinerante"> Evento itinerante</label>
+</div>
+
+<div class="full">
+<label for="descrizione">Note aggiuntive (opzionale)</label>
+<textarea id="descrizione" rows="2" placeholder="Qualsiasi dettaglio utile"></textarea>
+</div>
+
+</div>
+
+<button type="submit">Invia segnalazione</button>
+<p class="submit-note">Devi avere un account PaddockMap per inviare una segnalazione.</p>
+</form>
+</div>
+</div>
 
 <script>
-document.getElementById('formTitle').innerHTML = PMIcons.megaphone + ' Promuovi il tuo evento';
-document.getElementById('footerMail').innerHTML = PMIcons.mail + ' managementcesar37@gmail.com';
+document.getElementById('formTitle').innerHTML = PMIcons.megaphone + ' Segnala un evento';
 
 function todayISO() {
   const d = new Date();
@@ -81,27 +129,46 @@ fetch('https://paddockmap-api.managementcesar37.workers.dev/?v=' + Date.now())
   })
   .catch(err => console.error('Errore caricamento statistiche:', err));
 
+document.querySelectorAll('#disciplineChips .chip').forEach(chip => {
+  chip.addEventListener('click', () => chip.classList.toggle('selected'));
+});
+
+function getSelectedDisciplines() {
+  return Array.from(document.querySelectorAll('#disciplineChips .chip.selected')).map(c => c.dataset.value);
+}
+
 document.getElementById("eventForm").addEventListener("submit", async (e) => {
     e.preventDefault();
-    const modal = document.getElementById("successModal");
-    const closeModal = document.getElementById("closeModal");
+
+    // Serve un account PaddockMap per inviare la segnalazione:
+    // stesso identico modale usato per "salva evento" / "segui circuito"
+    const { data: { session } } = await window.pmSupabase.auth.getSession();
+    if (!session) {
+        window.pmOpenAuthModal({
+            mode: 'login',
+            message: 'Per segnalare un evento accedi al tuo account PaddockMap (o creane uno gratis).'
+        });
+        return;
+    }
+
     const data = {
         titolo: document.getElementById("titolo").value,
         dataInizio: document.getElementById("dataInizio").value,
+        dataFine: document.getElementById("dataFine").value,
         circuito: document.getElementById("circuito").value,
+        citta: document.getElementById("citta").value,
+        disciplina: getSelectedDisciplines(),
         organizzatore: document.getElementById("organizzatore").value,
-        email: document.getElementById("email").value,
-        linkInfo: document.getElementById("linkInfo").value,
-        descrizione: document.getElementById("descrizione").value
+        linkBiglietti: document.getElementById("linkBiglietti").value,
+        eventoGratuito: document.getElementById("eventoGratuito").checked,
+        itinerante: document.getElementById("itinerante").checked,
+        descrizione: document.getElementById("descrizione").value,
+        segnalatoDa: session.user.email
     };
 
-    const button = e.target.querySelector("button");
+    const button = e.target.querySelector("button[type='submit']");
     button.disabled = true;
     button.innerText = "Invio...";
-
-    closeModal.addEventListener("click", () => {
-    modal.classList.add("hidden");
-    });
 
     try {
         await fetch("https://script.google.com/macros/s/AKfycbwlo-27y2T-5FGBRQArFZdFLLBmt23pUAmOjnoIuYsOu5QPCCF1fna2SS-NgQMk-dxu/exec", {
@@ -109,31 +176,23 @@ document.getElementById("eventForm").addEventListener("submit", async (e) => {
             body: JSON.stringify(data)
         });
 
-        modal.classList.remove("hidden");
-        setTimeout(() => { modal.classList.add("hidden"); }, 4000);
+        window.pmShowToast(`${PMIcons.check} Segnalazione inviata! Verrà valutata a breve.`);
         document.getElementById("eventForm").reset();
+        document.querySelectorAll('#disciplineChips .chip.selected').forEach(c => c.classList.remove('selected'));
+
+        if (typeof gtag === 'function') {
+            gtag('event', 'event_reported', { circuit: data.circuito || 'unknown' });
+        }
 
     } catch (err) {
         console.error(err);
-        alert("Errore invio evento");
+        window.pmShowToast('Errore nell\'invio della segnalazione. Riprova.');
     }
 
     button.disabled = false;
-    button.innerText = "Invia richiesta";
+    button.innerText = "Invia segnalazione";
 });
 </script>
-<div id="successModal" class="modal hidden">
-    <div class="modal-content">
-        <div class="check"></div>
-        <h2>Grazie!</h2>
-        <p>Il tuo evento è stato inviato correttamente.<br>
-        Verrà valutato e pubblicato su PaddockMap.</p>
 
-        <button id="closeModal">OK</button>
-    </div>
-</div>
-<script>
-document.querySelector('.modal-content .check').innerHTML = PMIcons.check;
-</script>
 </body>
 </html>
