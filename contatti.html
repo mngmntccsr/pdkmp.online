@@ -40,8 +40,7 @@
 <p>Conosci un evento motorsport che manca su PaddockMap? Segnalacelo: verrà valutato e pubblicato a breve.</p>
 
 <form id="eventForm">
-<div class="submit-form-grid">
-
+    
 <div class="full">
 <label for="titolo">Nome evento</label>
 <input type="text" id="titolo" placeholder="Es. 6 Ore di Vallelunga" required>
@@ -55,14 +54,22 @@
 <label for="dataFine">Data fine (se più giorni)</label>
 <input type="date" id="dataFine">
 </div>
+<div>
+<label for="citta">Città</label>
+<input type="text" id="citta" placeholder="Es. Campagnano di Roma">
+</div>
 
 <div>
 <label for="circuito">Circuito / Location</label>
 <input type="text" id="circuito" placeholder="Es. Autodromo di Vallelunga" required>
 </div>
 <div>
-<label for="citta">Città</label>
-<input type="text" id="citta" placeholder="Es. Campagnano di Roma">
+<label for="organizzatore">Organizzatore (opzionale)</label>
+<input type="text" id="organizzatore" placeholder="Es. ACI Sport">
+</div>
+<div>
+<label for="linkBiglietti">Link biglietti/info (opzionale)</label>
+<input type="url" id="linkBiglietti" placeholder="https://...">
 </div>
 
 <div class="full">
@@ -80,15 +87,6 @@
 </div>
 </div>
 
-<div>
-<label for="organizzatore">Organizzatore (opzionale)</label>
-<input type="text" id="organizzatore" placeholder="Es. ACI Sport">
-</div>
-<div>
-<label for="linkBiglietti">Link biglietti/info (opzionale)</label>
-<input type="url" id="linkBiglietti" placeholder="https://...">
-</div>
-
 <div class="full toggle-row">
 <label><input type="checkbox" id="eventoGratuito"> Ingresso gratuito</label>
 <label><input type="checkbox" id="itinerante"> Evento itinerante</label>
@@ -97,8 +95,6 @@
 <div class="full">
 <label for="descrizione">Note aggiuntive (opzionale)</label>
 <textarea id="descrizione" rows="2" placeholder="Qualsiasi dettaglio utile"></textarea>
-</div>
-
 </div>
 
 <button type="submit">Invia segnalazione</button>
