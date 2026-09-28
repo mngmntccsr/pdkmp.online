@@ -51,7 +51,6 @@
     document.querySelectorAll('.pm-save-btn').forEach(btn => btn.classList.toggle('active', savedEventIds.has(btn.dataset.eventId)));
     document.querySelectorAll('.pm-follow-btn').forEach(btn => btn.classList.toggle('active', followedCircuitIds.has(btn.dataset.circuitId)));
   }
-  window.pmRefreshButtonStates = refreshButtonStates; 
 
   window.pmHandleSaveClick = async function (btn) {
     const session = await getSession();
@@ -60,34 +59,14 @@
     if (savedEventIds.has(eventId)) {
       await window.pmSupabase.from('saved_events').delete().eq('user_id', session.user.id).eq('event_id', eventId);
       savedEventIds.delete(eventId);
-      if (typeof gtag === 'function') {
-        gtag('event', 'save_event', {
-          action: 'remove',
-          event_id: eventId
-        });
-      }
     } else {
       const { error } = await window.pmSupabase.from('saved_events').insert({ user_id: session.user.id, event_id: eventId });
       if (error) {
-        if (error.message.includes('Limite piano Free')) {
-          if (typeof gtag === 'function') {
-            gtag('event', 'free_limit_reached', {
-              limit_type: 'followed_circuits'
-            });
-          }
-          window.pmShowToast(
-            'Hai raggiunto il limite di circuiti seguiti del piano Free. Con Premium sono illimitati. <a href="premium.html">Scopri Premium</a>'
-          );
-        }
+        window.pmShowToast('Impossibile salvare l\'evento, riprova tra poco.');
         return;
       }
       savedEventIds.add(eventId);
-      if (typeof gtag === 'function') {
-        gtag('event', 'save_event', {
-          action: 'add',
-          event_id: eventId
-        });
-      }
+      if (window.pmGtagSafe) window.pmGtagSafe('save_event', { event_id: eventId });
     }
     refreshButtonStates();
   };
@@ -98,37 +77,16 @@
     const circuitId = btn.dataset.circuitId;
     if (!circuitId) return;
     if (followedCircuitIds.has(circuitId)) {
-      await window.pmSupabase
-        .from('followed_circuits')
-        .delete()
-        .eq('user_id', session.user.id)
-        .eq('circuit_id', circuitId);
-
+      await window.pmSupabase.from('followed_circuits').delete().eq('user_id', session.user.id).eq('circuit_id', circuitId);
       followedCircuitIds.delete(circuitId);
-
-      if (typeof gtag === 'function') {
-        gtag('event', 'follow_circuit', {
-          action: 'remove',
-          circuit_id: circuitId
-        });
-      }
     } else {
       const { error } = await window.pmSupabase.from('followed_circuits').insert({ user_id: session.user.id, circuit_id: circuitId });
       if (error) {
-        if (error.message.includes('Limite piano Free')) {
-          if (typeof gtag === 'function') {
-            gtag('event', 'free_limit_reached', {
-              limit_type: 'saved_events'
-            });
-          }
-
-          window.pmShowToast(
-            'Hai raggiunto il limite di eventi salvati del piano Free. Con Premium sono illimitati. <a href="premium.html">Scopri Premium</a>'
-          );
-        }
+        window.pmShowToast('Impossibile seguire il circuito, riprova tra poco.');
         return;
       }
       followedCircuitIds.add(circuitId);
+      if (window.pmGtagSafe) window.pmGtagSafe('follow_circuit', { circuit: circuitId });
     }
     refreshButtonStates();
   };
