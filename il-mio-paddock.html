@@ -22,22 +22,17 @@
 .pk-section { background:var(--surface,#fff); border:1px solid var(--line,#e0e0e0); border-radius:var(--radius-md,10px); padding:1.25rem 1.5rem; margin-bottom:1.5rem; }
 .pk-section h2 { font-size:1.05rem; margin-bottom:0.9rem; display:flex; align-items:center; gap:0.5rem; }
 .pk-section h2 svg.icon { color:var(--accent); width:19px; height:19px; }
-.pk-row { display:flex; justify-content:space-between; align-items:center; padding:0.6rem 0; border-bottom:1px solid var(--line,#f0f0f0); font-size:0.9rem; }
+.pk-row { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:0.6rem 0; border-bottom:1px solid var(--line,#f0f0f0); font-size:0.9rem; }
 .pk-row:last-child { border-bottom:none; }
 .pk-title { font-weight:600; }
+a.pk-link { color:inherit; text-decoration:none; display:block; flex:1; }
+a.pk-link:hover .pk-title { color:var(--accent); }
 .pk-sub { color:var(--ink-soft); font-size:0.8rem; }
 .pk-remove { background:none; border:none; color:var(--ink-soft); cursor:pointer; }
 .pk-remove:hover { color:var(--accent); }
 .pk-empty { color:var(--ink-soft); font-size:0.85rem; padding:0.5rem 0; }
 .pk-alert-form { display:flex; gap:0.6rem; flex-wrap:wrap; margin-top:0.9rem; }
 .pk-alert-form select { padding:0.55rem 0.8rem; border-radius:var(--radius-sm,6px); border:1.5px solid var(--line,#e0e0e0); font-size:0.85rem; font-family:inherit; }
-.pk-premium-box { background:var(--ink,#212121); color:#fff; border-radius:var(--radius-md,10px); padding:1.5rem; text-align:center; margin-bottom:1.5rem; }
-.pk-premium-box h2 { display:flex; gap:0.5rem; align-items:center; justify-content:center; margin-bottom:0.4rem; }
-.pk-premium-box h2 svg.icon { color:var(--accent); }
-.pk-premium-box p { color:rgba(255,255,255,0.65); font-size:0.88rem; margin-bottom:1rem; }
-.pk-premium-box ul { list-style:none; text-align:left; max-width:280px; margin:0 auto 1.1rem; font-size:0.85rem; }
-.pk-premium-box li { margin-bottom:0.4rem; display:flex; gap:0.5rem; align-items:center; }
-.pk-premium-box li svg.icon { color:var(--accent); width:15px; height:15px; flex-shrink:0; }
 .pk-logout-row { text-align:center; margin-top:1.5rem; }
 .pk-gate { text-align:center; padding:4rem 1rem; color:var(--ink-soft); }
 </style>
@@ -62,11 +57,15 @@
 <script>
 (function () {
   const container = document.getElementById('paddockContainer');
+  const FEED_URL = 'https://paddockmap-api.managementcesar37.workers.dev/?v=';
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const fmtDate = d => d ? new Date(d).toLocaleDateString('it-IT', { day:'numeric', month:'short', year:'numeric' }) : '';
+  const todayISO = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0'); };
 
   async function init() {
-    if (!window.pmSupabase) { setTimeout(init, 100); return; }
-    const { data: { session } } = await window.pmSupabase.auth.getSession();
+    if (!window.pmSupabase || !window.pmEventId) { setTimeout(init, 100); return; }
+    const sb = window.pmSupabase;
+    const { data: { session } } = await sb.auth.getSession();
     if (!session) {
       container.innerHTML = `<div class="pk-gate"><p>Devi accedere per vedere il tuo Paddock.</p><br><a href="index.html">Torna alla home e accedi</a></div>`;
       return;
@@ -74,64 +73,92 @@
     const userId = session.user.id;
     const name = session.user.user_metadata?.full_name || session.user.email.split('@')[0];
 
-    const [{ data: profile }, { data: savedEvents }, { data: circuits }, { data: alerts }] = await Promise.all([
-      window.pmSupabase.from('profiles').select('*').eq('id', userId).single(),
-      window.pmSupabase.from('saved_events').select('*').eq('user_id', userId),
-      window.pmSupabase.from('followed_circuits').select('*').eq('user_id', userId),
-      window.pmSupabase.from('alerts').select('*').eq('user_id', userId)
+    const [{ data: savedRaw }, { data: circuits }, { data: alerts }] = await Promise.all([
+      sb.from('saved_events').select('*').eq('user_id', userId),
+      sb.from('followed_circuits').select('*').eq('user_id', userId),
+      sb.from('alerts').select('*').eq('user_id', userId)
     ]);
 
-    let feedEvents = [];
-    try { feedEvents = await (await fetch('https://paddockmap-api.managementcesar37.workers.dev/?v=' + Date.now())).json(); } catch (e) {}
-    const feedById = {};
-    feedEvents.forEach(ev => feedById[window.pmEventId(ev)] = ev);
+    // Feed eventi: stesso criterio di index.html (solo eventi non ancora terminati)
+    let feedOk = false, activeEvents = [];
+    try {
+      const all = await (await fetch(FEED_URL + Date.now())).json();
+      const today = todayISO();
+      activeEvents = all.filter(ev => (ev.dataFine || ev.dataInizio) >= today);
+      feedOk = Array.isArray(all) && all.length > 0;
+    } catch (e) {}
 
-    const plan = profile?.plan || 'free';
-    const planLabel = plan === 'premium' ? 'Premium' : plan === 'premium_plus' ? 'Premium Plus' : 'Free';
+    const activeById = {};
+    activeEvents.forEach(ev => activeById[window.pmEventId(ev)] = ev);
+
+    // Pulizia: elimino dal DB gli eventi salvati terminati/rimossi (solo se il feed è stato letto correttamente)
+    let savedEvents = savedRaw || [];
+    if (feedOk) {
+      const staleIds = savedEvents.filter(se => !activeById[se.event_id]).map(se => se.event_id);
+      if (staleIds.length) {
+        await sb.from('saved_events').delete().eq('user_id', userId).in('event_id', staleIds);
+        savedEvents = savedEvents.filter(se => activeById[se.event_id]);
+      }
+    }
+    // Ordino per data
+    savedEvents = savedEvents
+      .map(se => ({ se, ev: activeById[se.event_id] }))
+      .filter(x => x.ev)
+      .sort((a, b) => new Date(a.ev.dataInizio) - new Date(b.ev.dataInizio));
+
+    const countByCircuit = {};
+    activeEvents.forEach(ev => { if (ev.circuito) countByCircuit[ev.circuito] = (countByCircuit[ev.circuito] || 0) + 1; });
+
+    const circuitOptions = [...new Set(activeEvents.map(e => e.circuito).filter(Boolean))].sort();
 
     container.innerHTML = `
       <div class="pk-welcome">
-        <h1>Bentornato, ${name}</h1>
-        <p>Il tuo Paddock · Piano attuale: <strong>${planLabel}</strong></p>
+        <h1>Bentornato, ${esc(name)}</h1>
+        <p>Il tuo Paddock</p>
       </div>
 
       <div class="pk-stats">
-        <div class="pk-stat">${PMIcons.heart}<div><div class="num">${savedEvents?.length || 0}</div><div class="lbl">eventi salvati</div></div></div>
-        <div class="pk-stat">${PMIcons.flag}<div><div class="num">${circuits?.length || 0}</div><div class="lbl">circuiti seguiti</div></div></div>
-        <div class="pk-stat">${PMIcons.bell}<div><div class="num">${alerts?.length || 0}</div><div class="lbl">alert attivi</div></div></div>
+        <div class="pk-stat">${PMIcons.heart}<div><div class="num">${savedEvents.length}</div><div class="lbl">eventi salvati</div></div></div>
+        <div class="pk-stat">${PMIcons.flag}<div><div class="num">${(circuits || []).length}</div><div class="lbl">circuiti seguiti</div></div></div>
+        <div class="pk-stat">${PMIcons.bell}<div><div class="num">${(alerts || []).length}</div><div class="lbl">alert attivi</div></div></div>
       </div>
-
-      ${plan === 'free' ? `
-      <div class="pk-premium-box">
-        <h2>${PMIcons.sparkle} PaddockMap Premium</h2>
-        <p>Segui automaticamente gli eventi che ti interessano.</p>
-        <ul>
-          <li>${PMIcons.check} Alert personalizzati illimitati</li>
-          <li>${PMIcons.check} Preferiti illimitati</li>
-          <li>${PMIcons.check} Calendario personale</li>
-          <li>${PMIcons.check} Funzioni avanzate</li>
-        </ul>
-        <a href="premium.html" class="btn btn-primary">Scopri Premium</a>
-      </div>` : ''}
 
       <div class="pk-section">
         <h2>${PMIcons.heart} Eventi salvati</h2>
-        ${(savedEvents && savedEvents.length) ? savedEvents.map(se => {
-          const ev = feedById[se.event_id];
-          return `<div class="pk-row"><div><div class="pk-title">${ev ? ev.titolo : 'Evento non più disponibile'}</div><div class="pk-sub">${ev ? fmtDate(ev.dataInizio) + (ev.circuito ? ' · ' + ev.circuito : '') : ''}</div></div><button class="pk-remove" onclick="removeSavedEvent('${se.event_id}')">${PMIcons.close}</button></div>`;
-        }).join('') : '<div class="pk-empty">Non hai ancora salvato nessun evento.</div>'}
+        ${savedEvents.length ? savedEvents.map(({ se, ev }) => `
+          <div class="pk-row">
+            <a class="pk-link" href="index.html?search=${encodeURIComponent(ev.titolo)}">
+              <div class="pk-title">${esc(ev.titolo)}</div>
+              <div class="pk-sub">${fmtDate(ev.dataInizio)}${ev.dataFine && ev.dataFine !== ev.dataInizio ? ' - ' + fmtDate(ev.dataFine) : ''}${ev.circuito ? ' · ' + esc(ev.circuito) : ''}</div>
+            </a>
+            <button class="pk-remove" data-remove="event" data-id="${esc(se.event_id)}" aria-label="Rimuovi">${PMIcons.close}</button>
+          </div>`).join('') : '<div class="pk-empty">Non hai eventi salvati in programma. Clicca il cuore su un evento per aggiungerlo.</div>'}
       </div>
 
       <div class="pk-section">
         <h2>${PMIcons.flag} Circuiti seguiti</h2>
-        ${(circuits && circuits.length) ? circuits.map(c => `<div class="pk-row"><div class="pk-title">${c.circuit_id}</div><button class="pk-remove" onclick="removeCircuit('${c.circuit_id}')">${PMIcons.close}</button></div>`).join('') : '<div class="pk-empty">Non segui ancora nessun circuito.</div>'}
+        ${(circuits && circuits.length) ? circuits.map(c => {
+          const n = countByCircuit[c.circuit_id] || 0;
+          return `
+          <div class="pk-row">
+            <a class="pk-link" href="index.html?circuit=${encodeURIComponent(c.circuit_id)}">
+              <div class="pk-title">${esc(c.circuit_id)}</div>
+              <div class="pk-sub">${n === 0 ? 'Nessun evento in programma' : n === 1 ? '1 evento in programma' : n + ' eventi in programma'}</div>
+            </a>
+            <button class="pk-remove" data-remove="circuit" data-id="${esc(c.circuit_id)}" aria-label="Rimuovi">${PMIcons.close}</button>
+          </div>`;
+        }).join('') : '<div class="pk-empty">Non segui ancora nessun circuito.</div>'}
       </div>
 
       <div class="pk-section">
         <h2>${PMIcons.bell} Alert</h2>
-        ${(alerts && alerts.length) ? alerts.map(a => `<div class="pk-row"><div><div class="pk-title">${a.circuit_id || 'Tutti i circuiti'}</div><div class="pk-sub">${a.discipline || 'Tutte le discipline'}</div></div><button class="pk-remove" onclick="removeAlert('${a.id}')">${PMIcons.close}</button></div>`).join('') : '<div class="pk-empty">Nessun alert attivo.</div>'}
+        ${(alerts && alerts.length) ? alerts.map(a => `
+          <div class="pk-row">
+            <div><div class="pk-title">${esc(a.circuit_id || 'Tutti i circuiti')}</div><div class="pk-sub">${esc(a.discipline || 'Tutte le discipline')}</div></div>
+            <button class="pk-remove" data-remove="alert" data-id="${esc(a.id)}" aria-label="Rimuovi">${PMIcons.close}</button>
+          </div>`).join('') : '<div class="pk-empty">Nessun alert attivo.</div>'}
         <form class="pk-alert-form" id="newAlertForm">
-          <select id="alertCircuit"><option value="">Tutti i circuiti</option>${[...new Set(feedEvents.map(e => e.circuito).filter(Boolean))].sort().map(c => `<option value="${c}">${c}</option>`).join('')}</select>
+          <select id="alertCircuit"><option value="">Tutti i circuiti</option>${circuitOptions.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('')}</select>
           <select id="alertDiscipline"><option value="">Tutte le discipline</option>${['Gt','Formula','Misto','Storico','Rally','Le Mans Prototype','Cronoscalata','Raduno','Trackday'].map(d => `<option value="${d}">${d}</option>`).join('')}</select>
           <button type="submit" class="btn btn-secondary">Crea alert</button>
         </form>
@@ -141,21 +168,28 @@
     `;
 
     document.getElementById('logoutBtn').addEventListener('click', async () => { await window.pmSignOut(); window.location.href = 'index.html'; });
+
     document.getElementById('newAlertForm').addEventListener('submit', async (e) => {
       e.preventDefault();
-      const { error } = await window.pmSupabase.from('alerts').insert({
+      const { error } = await sb.from('alerts').insert({
         user_id: userId,
         circuit_id: document.getElementById('alertCircuit').value || null,
         discipline: document.getElementById('alertDiscipline').value || null
       });
-      if (error) { window.pmShowToast(error.message.includes('Limite piano Free') ? 'Limite alert del piano Free raggiunto. <a href="premium.html">Scopri Premium</a>' : 'Errore nella creazione dell\'alert.'); return; }
+      if (error) { window.pmShowToast('Errore nella creazione dell\'alert.'); return; }
       init();
     });
-  }
 
-  window.removeSavedEvent = async (id) => { const { data: { session } } = await window.pmSupabase.auth.getSession(); await window.pmSupabase.from('saved_events').delete().eq('user_id', session.user.id).eq('event_id', id); init(); };
-  window.removeCircuit = async (id) => { const { data: { session } } = await window.pmSupabase.auth.getSession(); await window.pmSupabase.from('followed_circuits').delete().eq('user_id', session.user.id).eq('circuit_id', id); init(); };
-  window.removeAlert = async (id) => { await window.pmSupabase.from('alerts').delete().eq('id', id); init(); };
+    container.querySelectorAll('[data-remove]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const id = btn.dataset.id, kind = btn.dataset.remove;
+        if (kind === 'event') await sb.from('saved_events').delete().eq('user_id', userId).eq('event_id', id);
+        if (kind === 'circuit') await sb.from('followed_circuits').delete().eq('user_id', userId).eq('circuit_id', id);
+        if (kind === 'alert') await sb.from('alerts').delete().eq('id', id);
+        init();
+      });
+    });
+  }
 
   document.addEventListener('DOMContentLoaded', init);
 })();
