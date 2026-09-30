@@ -33,7 +33,7 @@ gtag('config', 'G-F54J4RR4YY');
 <nav class="nav-menu">
 <a href="index.html" class="active" onclick="gtag('event', 'nav_click', { nav_item: 'home' })">Home</a>
 <a href="mappa.html" onclick="gtag('event', 'nav_click', { nav_item: 'mappa' })">Mappa</a>
-<a href="contatti.html" onclick="gtag('event', 'nav_click', { nav_item: 'promuovi_evento' })">Segnala Evento</a>
+<a href="contatti.html" onclick="gtag('event', 'nav_click', { nav_item: 'promuovi_evento' })">Promuovi Evento</a>
 </nav>
   <div class="header-stats">
                         <div class="stat">
@@ -92,7 +92,10 @@ gtag('config', 'G-F54J4RR4YY');
                                 <div class="multi-select-display" onclick="toggleMultiSelect(this)">
                                     <span class="placeholder">Tutte le location</span>
                                 </div>
-                                <div class="multi-select-options"></div>
+                                <div class="multi-select-options">
+                                    <input type="text" class="multi-select-search" placeholder="Cerca..." oninput="filterMultiSelectOptions(this)">
+                                    <div class="multi-select-options-list"></div>
+                                </div>
                             </div>
                         </div>
 
@@ -103,15 +106,18 @@ gtag('config', 'G-F54J4RR4YY');
                                     <span class="placeholder">Tutti i tipi</span>
                                 </div>
                                 <div class="multi-select-options">
-                                    <div class="multi-select-option" data-value="Gt">GT</div>
-                                    <div class="multi-select-option" data-value="Formula">Formula</div>
-                                    <div class="multi-select-option" data-value="Misto">Misto</div>
-                                    <div class="multi-select-option" data-value="Storico">Storico</div>
-                                    <div class="multi-select-option" data-value="Rally">Rally</div>
-                                    <div class="multi-select-option" data-value="Le Mans Prototype">Le Mans Prototype</div>
-                                    <div class="multi-select-option" data-value="Cronoscalata">Cronoscalata</div>
-                                    <div class="multi-select-option" data-value="Raduno">Raduno</div>
-                                    <div class="multi-select-option" data-value="Trackday">Trackday</div>
+                                    <input type="text" class="multi-select-search" placeholder="Cerca..." oninput="filterMultiSelectOptions(this)">
+                                    <div class="multi-select-options-list">
+                                        <div class="multi-select-option" data-value="Gt">GT</div>
+                                        <div class="multi-select-option" data-value="Formula">Formula</div>
+                                        <div class="multi-select-option" data-value="Misto">Misto</div>
+                                        <div class="multi-select-option" data-value="Storico">Storico</div>
+                                        <div class="multi-select-option" data-value="Rally">Rally</div>
+                                        <div class="multi-select-option" data-value="Le Mans Prototype">Le Mans Prototype</div>
+                                        <div class="multi-select-option" data-value="Cronoscalata">Cronoscalata</div>
+                                        <div class="multi-select-option" data-value="Raduno">Raduno</div>
+                                        <div class="multi-select-option" data-value="Trackday">Trackday</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +128,10 @@ gtag('config', 'G-F54J4RR4YY');
                                 <div class="multi-select-display" onclick="toggleMultiSelect(this)">
                                     <span class="placeholder">Tutti gli organizzatori</span>
                                 </div>
-                                <div class="multi-select-options"></div>
+                                <div class="multi-select-options">
+                                    <input type="text" class="multi-select-search" placeholder="Cerca..." oninput="filterMultiSelectOptions(this)">
+                                    <div class="multi-select-options-list"></div>
+                                </div>
                             </div>
                         </div>
 
@@ -298,7 +307,7 @@ function getDisciplineIcon(disciplina) {
         // Popola filtri
 function populateCircuitFilter() {
     const circuits = [...new Set(eventsData.map(e => e.circuito).filter(c => c))].sort();
-    const container = document.querySelector('[data-filter="circuit"] .multi-select-options');
+    const container = document.querySelector('[data-filter="circuit"] .multi-select-options-list');
     container.innerHTML = circuits.map(circuit =>
         `<div class="multi-select-option" data-value="${circuit}">${circuit}</div>`
     ).join('');
@@ -309,13 +318,36 @@ function populateCircuitFilter() {
 
 function populateOrganizerFilter() {
     const organizers = [...new Set(eventsData.map(e => e.organizzatore).filter(o => o))].sort();
-    const container = document.querySelector('[data-filter="organizer"] .multi-select-options');
+    const container = document.querySelector('[data-filter="organizer"] .multi-select-options-list');
     container.innerHTML = organizers.map(organizer =>
         `<div class="multi-select-option" data-value="${organizer}">${organizer}</div>`
     ).join('');
     container.querySelectorAll('.multi-select-option').forEach(opt => {
         opt.onclick = () => selectMultiOption(opt);
     });
+}
+
+function filterMultiSelectOptions(input) {
+    const query = input.value.trim().toLowerCase();
+    const list = input.nextElementSibling;
+    if (!list) return;
+    let anyVisible = false;
+    list.querySelectorAll('.multi-select-option').forEach(opt => {
+        const match = opt.textContent.toLowerCase().includes(query);
+        opt.style.display = match ? '' : 'none';
+        if (match) anyVisible = true;
+    });
+    let noResults = list.querySelector('.no-results');
+    if (!anyVisible) {
+        if (!noResults) {
+            noResults = document.createElement('div');
+            noResults.className = 'no-results';
+            noResults.textContent = 'Nessun risultato';
+            list.appendChild(noResults);
+        }
+    } else if (noResults) {
+        noResults.remove();
+    }
 }
 
         // Render eventi
@@ -362,9 +394,10 @@ if (hasImage) {
 }
     }
 
+const titleDisplay = highlightText(event.titolo, currentSearchTerms);
 const titleHtml = event.isPromo
-    ? `<div class="event-title">${event.titolo}</div>`
-    : `<a href="evento.html?id=${encodeURIComponent(event.idAuto)}" class="event-title">${event.titolo}</a>`;
+    ? `<div class="event-title">${titleDisplay}</div>`
+    : `<a href="evento.html?id=${encodeURIComponent(event.idAuto)}" class="event-title">${titleDisplay}</a>`;
 
                 return `
                     <div class="event-card"
@@ -417,15 +450,15 @@ const titleHtml = event.isPromo
                              <div class="info-row">
                              <span class="info-icon">${PMIcons.pin}</span>
                                        <span>
-                             <strong>${event.circuito || event.citta || ''}</strong>
-                        ${(event.citta && event.circuito && event.citta.trim().toLowerCase() !== event.circuito.trim().toLowerCase()) ? ' - ' + event.citta : ''}
+                             <strong>${highlightText(event.circuito || event.citta || '', currentSearchTerms)}</strong>
+                        ${(event.citta && event.circuito && event.citta.trim().toLowerCase() !== event.circuito.trim().toLowerCase()) ? ' - ' + highlightText(event.citta, currentSearchTerms) : ''}
                         ${event.itinerante ? `<span class="itinerant-badge" onclick="event.stopPropagation(); window.pmToggleItinerantTooltip(this)">${PMIcons.compass}</span>` : ''}
                              </span>
                 </div>
                                 ${event.organizzatore ? `
                                 <div class="info-row">
                                     <span class="info-icon">${PMIcons.building}</span>
-                                    <span>${event.organizzatore}</span>
+                                    <span>${highlightText(event.organizzatore, currentSearchTerms)}</span>
                                 </div>
                                 ` : ''}
                             </div>
@@ -697,9 +730,19 @@ function toggleMultiSelect(display) {
     const dropdown = display.nextElementSibling;
     const allDropdowns = document.querySelectorAll('.multi-select-options');
     allDropdowns.forEach(d => { if (d !== dropdown) d.classList.remove('active'); });
+    const wasActive = dropdown.classList.contains('active');
     dropdown.classList.toggle('active');
     const picker = document.getElementById('datePicker');
     if (picker) picker.classList.remove('open');
+
+    if (!wasActive) {
+        const searchInput = dropdown.querySelector('.multi-select-search');
+        if (searchInput) {
+            searchInput.value = '';
+            filterMultiSelectOptions(searchInput);
+            setTimeout(() => searchInput.focus(), 50);
+        }
+    }
 }
 
 function selectMultiOption(option) {
@@ -747,8 +790,33 @@ document.querySelectorAll('.multi-select-option').forEach(opt => {
 });
 
         // Filtri
+let currentSearchTerms = [];
+
+function escapeRegExpChars(s) {
+    return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function highlightText(text, terms) {
+    if (!text || !terms || !terms.length) return text;
+    const escaped = terms.map(escapeRegExpChars).filter(Boolean);
+    if (!escaped.length) return text;
+    const pattern = new RegExp('(' + escaped.join('|') + ')', 'gi');
+    return text.replace(pattern, '<mark class="search-highlight">$1</mark>');
+}
+
+function buildSearchHaystack(event) {
+    return [
+        event.titolo,
+        event.circuito,
+        event.citta,
+        event.organizzatore,
+        ...(event.disciplina || [])
+    ].filter(Boolean).join(' ').toLowerCase();
+}
+
 function applyFilters() {
-    const searchFilter = document.getElementById('filterSearch').value.toLowerCase();
+    const searchFilter = document.getElementById('filterSearch').value.toLowerCase().trim();
+    currentSearchTerms = searchFilter ? searchFilter.split(/\s+/).filter(Boolean) : [];
 
     const filtered = eventsData.filter(event => {
         const matchDiscipline = selectedFilters.discipline.length === 0 ||
@@ -759,12 +827,9 @@ function applyFilters() {
             selectedFilters.organizer.includes(event.organizzatore);
         const matchDate = (!selectedFilters.dateFrom || event.dataInizio >= selectedFilters.dateFrom) &&
             (!selectedFilters.dateTo || event.dataInizio <= selectedFilters.dateTo);
-        const matchSearch = !searchFilter ||
-            event.titolo.toLowerCase().includes(searchFilter) ||
-            (event.circuito || '').toLowerCase().includes(searchFilter) ||
-            (event.citta || '').toLowerCase().includes(searchFilter) ||
-            event.disciplina.some(disc => disc.toLowerCase().includes(searchFilter)) ||
-            (event.organizzatore || '').toLowerCase().includes(searchFilter);
+        const haystack = buildSearchHaystack(event);
+        const matchSearch = currentSearchTerms.length === 0 ||
+            currentSearchTerms.every(term => haystack.includes(term));
 
         return matchDiscipline && matchCircuit && matchOrganizer && matchDate && matchSearch;
     });
@@ -929,9 +994,12 @@ function initEventTracking() {
   let searchCenter = null;
   let searchRadiusKm = 50;
   let eventMarkers = [];
+  let defaultMapCenter, defaultMapZoom;
 
   function initMap() {
     map = createBaseMap('interactiveMap');
+    defaultMapCenter = map.getCenter();
+    defaultMapZoom = map.getZoom();
     map.on('click', (e) => setSearchCenter(e.latlng.lat, e.latlng.lng));
   }
 
@@ -1048,7 +1116,7 @@ function initEventTracking() {
         if (searchCircle) map.removeLayer(searchCircle);
         if (centerMarker) map.removeLayer(centerMarker);
         applyMapRadiusFilter();
-        map.setView([42.8, 12.5], 6);
+        map.setView(defaultMapCenter, defaultMapZoom);
         updateResetButtonState();
       });
     }
