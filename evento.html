@@ -1,114 +1,313 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Evento | PaddockMap</title>
 
-  <link rel="stylesheet" href="style.css">
+  <!-- =========================================================
+       DESIGN SYSTEM CONDIVISO
+       NON MODIFICARE
+       ========================================================= -->
 
-  <!-- Leaflet -->
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+
+  <!-- =========================================================
+       LEAFLET
+       ========================================================= -->
+
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     crossorigin=""
   >
 
+
+  <!-- =========================================================
+       STILE LOCALE PAGINA EVENTO
+
+       Tutto ciò che segue riguarda esclusivamente questa pagina.
+       style.css non viene modificato.
+       ========================================================= -->
+
   <style>
+
     /* =========================================================
        PAGINA DETTAGLIO EVENTO
+       LAYOUT DESKTOP:
+
+       30% | 40% | 30%
+
+       SX      CENTRO       DX
+       ADV     EVENTO       LOCANDINA
+               75%
+               MAPPA
+               25%
        ========================================================= */
 
     .event-page-container {
+
+      width: 100%;
       max-width: none;
-      width: 97vw;
-      margin: 0 auto;
-      padding: 1.25rem 0.75rem 1.25rem;
-    }
 
-    .event-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      margin-bottom: 1.25rem;
+      margin: 0;
 
-      color: var(--ink-soft);
-      text-decoration: none;
-      font-size: 0.92rem;
-      font-weight: 750;
+      padding:
+        1rem
+        1.25rem
+        1.25rem;
 
-      transition:
-        color 0.2s ease,
-        transform 0.2s ease;
-    }
-
-    .event-back:hover {
-      color: var(--accent);
-      transform: translateX(-3px);
     }
 
 
-        /* =========================================================
-       SCHEDA PRINCIPALE
+    #eventContainer {
+
+      width: 100%;
+
+    }
+
+
+    /* =========================================================
+       LAYOUT PRINCIPALE
        ========================================================= */
 
     .event-detail {
-      display: grid;
-      grid-template-columns: minmax(280px, 0.4fr) minmax(0, 0.6fr);
 
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-card);
+      width: 100%;
+
+      height:
+        calc(100vh - 100px);
+
+      display: grid;
+
+      grid-template-columns:
+        30%
+        40%
+        30%;
+
+      background: transparent;
+
+      border: none;
+
+      border-radius: 0;
+
+      box-shadow: none;
 
       overflow: hidden;
+
     }
+
 
     /* =========================================================
-       LOCANDINA (colonna sinistra, tutta altezza)
+       COLONNA SINISTRA
+       PUBBLICITÀ PERSONALIZZATA
        ========================================================= */
 
-    .event-detail-poster-column {
-      position: relative;
-      min-height: 360px;
-      background: var(--bg);
-    }
-
-    .event-detail-poster-image {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: contain;
-      background: var(--bg);
-    }
-
-    /* =========================================================
-       COLONNA DESTRA (info sopra, mappa sotto)
-       ========================================================= */
-
-    .event-detail-right-column {
-      display: grid;
-      grid-template-rows: minmax(0, 1fr) minmax(220px, 0.42fr);
+    .event-detail-ad-column {
 
       min-width: 0;
       min-height: 0;
+
+      padding:
+        0.75rem
+        1rem
+        0.75rem
+        0;
+
+      display: flex;
+
+      align-items: stretch;
+
+      justify-content: center;
+
     }
 
+
+    .event-ad-box {
+
+      width: 100%;
+      height: 100%;
+
+      min-height: 250px;
+
+      position: relative;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,0.82),
+          rgba(255,255,255,0.52)
+        );
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius:
+        var(--radius-xl);
+
+      box-shadow:
+        var(--shadow-card);
+
+      -webkit-backdrop-filter:
+        blur(18px);
+
+      backdrop-filter:
+        blur(18px);
+
+    }
+
+
+    .event-ad-box::before {
+
+      content: "PUBBLICITÀ";
+
+      position: absolute;
+
+      top: 0.8rem;
+      left: 1rem;
+
+      color:
+        var(--muted);
+
+      font-size:
+        0.62rem;
+
+      font-weight:
+        800;
+
+      letter-spacing:
+        0.08em;
+
+    }
+
+
+    .event-ad-placeholder {
+
+      max-width:
+        230px;
+
+      padding:
+        1.5rem;
+
+      text-align:
+        center;
+
+      color:
+        var(--muted);
+
+    }
+
+
+    .event-ad-placeholder strong {
+
+      display:
+        block;
+
+      margin-bottom:
+        0.45rem;
+
+      color:
+        var(--ink-soft);
+
+      font-family:
+        var(--font-display);
+
+      font-size:
+        1rem;
+
+    }
+
+
+    .event-ad-placeholder span {
+
+      display:
+        block;
+
+      font-size:
+        0.78rem;
+
+      line-height:
+        1.45;
+
+    }
+
+
     /* =========================================================
-       INFORMAZIONI
+       COLONNA CENTRALE
+       ========================================================= */
+
+    .event-detail-center-column {
+
+      min-width: 0;
+      min-height: 0;
+
+      display: grid;
+
+      grid-template-rows:
+        75%
+        25%;
+
+      padding:
+        0 0.5rem;
+
+    }
+
+
+    /* =========================================================
+       INFORMAZIONI EVENTO
        ========================================================= */
 
     .event-detail-info-column {
-      padding: 2rem;
 
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    
       min-width: 0;
       min-height: 0;
-      overflow: hidden;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      padding:
+        2rem
+        2.2rem;
+
+      background:
+        var(--surface);
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius:
+        var(--radius-xl);
+
+      box-shadow:
+        var(--shadow-card);
+
+      overflow-y:
+        auto;
+
     }
 
 
@@ -117,235 +316,758 @@
        ========================================================= */
 
     .event-detail-date {
+
       display: flex;
+
       align-items: center;
-      gap: 0.5rem;
 
-      margin-bottom: 0.7rem;
+      gap:
+        0.5rem;
 
-      color: var(--accent);
+      margin-bottom:
+        0.65rem;
 
-      font-size: 0.86rem;
-      font-weight: 800;
+      color:
+        var(--accent);
 
-      text-transform: uppercase;
-      letter-spacing: 0.025em;
+      font-size:
+        0.82rem;
+
+      font-weight:
+        800;
+
+      text-transform:
+        uppercase;
+
+      letter-spacing:
+        0.025em;
+
     }
 
 
-/* =========================================================
-   TITOLO
-   ========================================================= */
+    /* =========================================================
+       TITOLO
+       ========================================================= */
 
     .event-detail-title {
-      margin: 0 0 1rem;
 
-      color: var(--ink);
+      margin:
+        0 0 1rem;
 
-      font-family: var(--font-display);
-      font-size: clamp(1.7rem, 2.6vw, 2.6rem);
-      line-height: 1.05;
+      color:
+        var(--ink);
 
-      letter-spacing: -0.035em;
+      font-family:
+        var(--font-display);
+
+      font-size:
+        clamp(1.65rem, 2.5vw, 2.5rem);
+
+      line-height:
+        1.05;
+
+      letter-spacing:
+        -0.035em;
+
     }
 
 
-/* =========================================================
-   DISCIPLINE
-   ========================================================= */
+    /* =========================================================
+       DISCIPLINE
+       ========================================================= */
 
     .event-detail-disciplines {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
 
-      margin-bottom: 1.4rem;
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        0.4rem;
+
+      margin-bottom:
+        1rem;
+
     }
+
 
     .event-detail-disciplines .event-discipline {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
 
-      min-height: 34px;
+      display:
+        inline-flex;
 
-      padding: 0.4rem 0.7rem;
+      align-items:
+        center;
 
-      border-radius: var(--radius-pill);
+      gap:
+        0.4rem;
 
-      background: var(--accent-soft);
-      color: var(--accent);
+      min-height:
+        30px;
 
-      font-size: 0.8rem;
-      font-weight: 800;
+      padding:
+        0.35rem
+        0.65rem;
+
+      border-radius:
+        var(--radius-pill);
+
+      background:
+        var(--accent-soft);
+
+      color:
+        var(--accent);
+
+      font-size:
+        0.75rem;
+
+      font-weight:
+        800;
+
     }
 
 
-/* =========================================================
-   BOX INFORMAZIONI
-   ========================================================= */
+    /* =========================================================
+       INFORMAZIONI
+       ========================================================= */
 
     .event-detail-info-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
 
-      gap: 0.75rem;
+      display:
+        grid;
 
-      margin-bottom: 1.4rem;
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap:
+        0.55rem;
+
+      margin-bottom:
+        1rem;
+
     }
+
 
     .event-detail-info-box {
-      padding: 0.9rem 1rem;
 
-      background: var(--bg);
+      min-width:
+        0;
 
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
+      padding:
+        0.7rem
+        0.8rem;
+
+      background:
+        var(--bg);
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius:
+        var(--radius-md);
+
     }
+
 
     .event-detail-info-label {
-      display: block;
 
-      margin-bottom: 0.3rem;
+      display:
+        block;
 
-    color: var(--muted);
+      margin-bottom:
+        0.2rem;
 
-      font-size: 0.7rem;
-      font-weight: 800;
+      color:
+        var(--muted);
 
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
+      font-size:
+        0.62rem;
+
+      font-weight:
+        800;
+
+      text-transform:
+        uppercase;
+
+      letter-spacing:
+        0.04em;
+
     }
+
 
     .event-detail-info-value {
-      display: block;
 
-      color: var(--ink);
+      display:
+        block;
 
-      font-size: 0.92rem;
-      font-weight: 750;
-      line-height: 1.35;
+      color:
+        var(--ink);
 
-      overflow-wrap: anywhere;
+      font-size:
+        0.82rem;
+
+      font-weight:
+        750;
+
+      line-height:
+        1.3;
+
+      overflow-wrap:
+        anywhere;
+
     }
 
 
-/* =========================================================
-   AZIONI
-   ========================================================= */
+    .event-detail-info-value a {
+
+      color:
+        var(--accent);
+
+      font-weight:
+        750;
+
+      text-decoration:
+        none;
+
+    }
+
+
+    .event-detail-info-value a:hover {
+
+      text-decoration:
+        underline;
+
+    }
+
+
+    /* =========================================================
+       AZIONI
+       ========================================================= */
 
     .event-detail-actions {
-      display: flex;
-      flex-wrap: wrap;
 
-      gap: 0.6rem;
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        0.5rem;
+
     }
+
 
     .event-detail-actions .btn {
-      width: auto;
-      min-width: 135px;
+
+      width:
+        auto;
+
+      min-width:
+        0;
+
+      flex:
+        1 1 auto;
+
+      padding:
+        0.62rem
+        0.85rem;
+
+      font-size:
+        0.78rem;
+
     }
 
-    .event-detail-actions .pm-save-btn.active,
-    .event-detail-actions .pm-follow-btn.active {
-      border-color: var(--accent);
-      background: rgba(255, 75, 36, 0.08);
-      color: var(--accent);
+
+    .event-detail-actions
+    .pm-save-btn.active,
+
+    .event-detail-actions
+    .pm-follow-btn.active {
+
+      border-color:
+        var(--accent);
+
+      background:
+        var(--accent-soft);
+
+      color:
+        var(--accent);
+
     }
 
-    .event-detail-actions .pm-save-btn.active svg.icon,
-    .event-detail-actions .pm-follow-btn.active svg.icon {
-      fill: var(--accent);
+
+    .event-detail-actions
+    .pm-save-btn.active
+    svg.icon,
+
+    .event-detail-actions
+    .pm-follow-btn.active
+    svg.icon {
+
+      fill:
+        var(--accent);
+
     }
 
-/* =========================================================
-   MAPPA (colonna destra, riga bassa)
-   ========================================================= */
+
+    /* =========================================================
+       MAPPA
+       ========================================================= */
 
     .event-detail-map-column {
-      position: relative;
-      min-height: 0;
-      background: var(--bg);
+
+      min-width:
+        0;
+
+      min-height:
+        0;
+
+      position:
+        relative;
+
+      margin-top:
+        0.75rem;
+
+      overflow:
+        hidden;
+
+      background:
+        var(--bg);
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius:
+        var(--radius-xl);
+
+      box-shadow:
+        var(--shadow-card);
+
     }
+
 
     #eventMap {
-      width: 100%;
-      height: 100%;
+
+      width:
+        100%;
+
+      height:
+        100%;
+
     }
+
 
     .event-map-missing {
-      width: 100%;
-      height: 100%;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width:
+        100%;
 
-      padding: 1.5rem;
+      height:
+        100%;
 
-      background: var(--bg);
-      color: var(--ink-soft);
+      display:
+        flex;
 
-      text-align: center;
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      padding:
+        1.5rem;
+
+      background:
+        var(--bg);
+
+      color:
+        var(--ink-soft);
+
+      text-align:
+        center;
+
+      font-size:
+        0.82rem;
+
     }
 
-    @media (min-width: 851px) {
-      html, body { height: 100%; overflow: hidden; }
-      body { display: flex; flex-direction: column; }
 
-      .event-page-container {
-        flex: 1;
-        min-height: 0;
-        display: flex;
-        flex-direction: column;
-        padding: 1rem 2rem 1rem;
-      }
+    /* =========================================================
+       COLONNA DESTRA
+       LOCANDINA / GOOGLE ADS
+       ========================================================= */
 
-      #eventContainer {
-        flex: 1;
-        min-height: 0;
-        display: flex;
-        flex-direction: column;
-      }
+    .event-detail-poster-column {
 
-      .event-detail {
-        flex: 1;
-        min-height: 0;
-      }
+      min-width:
+        0;
 
-      .footer { display: none; }
+      min-height:
+        0;
+
+      padding:
+        0.75rem
+        0
+        0.75rem
+        1rem;
+
+      display:
+        flex;
+
+      align-items:
+        stretch;
+
+      justify-content:
+        center;
+
     }
+
+
+    /* =========================================================
+       LOCANDINA
+       ========================================================= */
+
+    .event-detail-poster-wrapper {
+
+      width:
+        100%;
+
+      height:
+        100%;
+
+      position:
+        relative;
+
+      overflow:
+        hidden;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      background:
+        var(--surface);
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius:
+        var(--radius-xl);
+
+      box-shadow:
+        var(--shadow-card);
+
+    }
+
+
+    .event-detail-poster-image {
+
+      width:
+        100%;
+
+      height:
+        100%;
+
+      display:
+        block;
+
+      object-fit:
+        contain;
+
+      background:
+        var(--surface);
+
+    }
+
+
+    /* =========================================================
+       GOOGLE ADS
+       ========================================================= */
+
+    .event-google-ad {
+
+      width:
+        100%;
+
+      height:
+        100%;
+
+      position:
+        relative;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      overflow:
+        hidden;
+
+      background:
+        var(--surface);
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius:
+        var(--radius-xl);
+
+      box-shadow:
+        var(--shadow-card);
+
+    }
+
+
+    .event-google-ad::before {
+
+      content:
+        "PUBBLICITÀ";
+
+      position:
+        absolute;
+
+      top:
+        0.8rem;
+
+      left:
+        1rem;
+
+      color:
+        var(--muted);
+
+      font-size:
+        0.62rem;
+
+      font-weight:
+        800;
+
+      letter-spacing:
+        0.08em;
+
+    }
+
+
     /* =========================================================
        STATO / ERRORI
        ========================================================= */
 
     .event-state {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-card);
 
-      padding: 4rem 2rem;
+      width:
+        100%;
 
-      text-align: center;
+      padding:
+        4rem
+        2rem;
+
+      background:
+        var(--surface);
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius:
+        var(--radius-xl);
+
+      box-shadow:
+        var(--shadow-card);
+
+      text-align:
+        center;
+
     }
+
 
     .event-state h1 {
-      margin: 0 0 0.7rem;
 
-      color: var(--ink);
+      margin:
+        0 0 0.7rem;
 
-      font-family: var(--font-display);
+      color:
+        var(--ink);
+
+      font-family:
+        var(--font-display);
+
     }
+
 
     .event-state p {
-      margin: 0;
 
-      color: var(--ink-soft);
+      margin:
+        0;
+
+      color:
+        var(--ink-soft);
+
     }
 
+
     .event-state.error h1 {
-      color: var(--accent);
+
+      color:
+        var(--accent);
+
+    }
+
+
+    /* =========================================================
+       DESKTOP ALTEZZA
+       ========================================================= */
+
+    @media (min-width: 851px) {
+
+      html,
+      body {
+
+        height:
+          100%;
+
+        overflow:
+          hidden;
+
+      }
+
+
+      body {
+
+        display:
+          flex;
+
+        flex-direction:
+          column;
+
+      }
+
+
+      .event-page-container {
+
+        flex:
+          1;
+
+        min-height:
+          0;
+
+        display:
+          flex;
+
+        flex-direction:
+          column;
+
+        padding:
+          1rem
+          1.25rem;
+
+      }
+
+
+      #eventContainer {
+
+        flex:
+          1;
+
+        min-height:
+          0;
+
+      }
+
+
+      .event-detail {
+
+        flex:
+          1;
+
+        min-height:
+          0;
+
+      }
+
+
+      .footer {
+
+        display:
+          none;
+
+      }
+
+    }
+
+
+    /* =========================================================
+       TABLET
+       ========================================================= */
+
+    @media (max-width: 1100px) {
+
+      .event-detail {
+
+        height:
+          calc(100vh - 100px);
+
+        grid-template-columns:
+          28%
+          44%
+          28%;
+
+      }
+
+
+      .event-detail-info-column {
+
+        padding:
+          1.4rem;
+
+      }
+
+
+      .event-detail-title {
+
+        font-size:
+          1.7rem;
+
+      }
+
+
+      .event-detail-info-grid {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .event-detail-actions {
+
+        flex-direction:
+          column;
+
+      }
+
+
+      .event-detail-actions .btn {
+
+        width:
+          100%;
+
+      }
+
     }
 
 
@@ -355,85 +1077,270 @@
 
     @media (max-width: 850px) {
 
-      .event-detail {
-        display: block;
+      html,
+      body {
+
+        height:
+          auto;
+
+        overflow:
+          auto;
+
       }
 
-      /*
-       * Su telefono:
-       * informazioni sopra
-       * mappa sotto
-       */
+
+      body {
+
+        display:
+          block;
+
+      }
+
+
+      .event-page-container {
+
+        padding:
+          0.75rem;
+
+      }
+
+
+      .event-detail {
+
+        display:
+          flex;
+
+        flex-direction:
+          column;
+
+        height:
+          auto;
+
+        overflow:
+          visible;
+
+      }
+
+
+      /* -------------------------------------------------------
+         EVENTO
+         ------------------------------------------------------- */
+
+      .event-detail-center-column {
+
+        display:
+          flex;
+
+        flex-direction:
+          column;
+
+        order:
+          1;
+
+        padding:
+          0;
+
+      }
+
 
       .event-detail-info-column {
-        padding: 1.25rem;
+
+        order:
+          1;
+
+        padding:
+          1.25rem;
+
+        border-radius:
+          var(--radius-lg);
+
       }
+
+
+      /* -------------------------------------------------------
+         MAPPA
+         ------------------------------------------------------- */
 
       .event-detail-map-column {
-        min-height: 360px;
+
+        order:
+          2;
+
+        height:
+          320px;
+
+        min-height:
+          320px;
+
+        margin-top:
+          0.75rem;
+
+        border-radius:
+          var(--radius-lg);
+
       }
+
 
       #eventMap {
-        min-height: 360px;
-        height: 360px;
+
+        min-height:
+          320px;
+
+        height:
+          320px;
+
       }
 
-      .event-map-missing {
-        min-height: 360px;
+
+      /* -------------------------------------------------------
+         LOCANDINA
+         ------------------------------------------------------- */
+
+      .event-detail-poster-column {
+
+        order:
+          2;
+
+        min-height:
+          360px;
+
+        padding:
+          0;
+
+        margin-top:
+          0.75rem;
+
       }
 
-      .event-detail-image-wrapper {
-        aspect-ratio: 16 / 9;
+
+      .event-detail-poster-wrapper,
+      .event-google-ad {
+
+        min-height:
+          360px;
+
+        border-radius:
+          var(--radius-lg);
+
       }
 
-      .event-detail-title {
-        font-size: 2rem;
+
+      /* -------------------------------------------------------
+         PUBBLICITÀ SINISTRA
+         ------------------------------------------------------- */
+
+      .event-detail-ad-column {
+
+        order:
+          3;
+
+        min-height:
+          300px;
+
+        padding:
+          0;
+
+        margin-top:
+          0.75rem;
+
       }
+
+
+      .event-ad-box {
+
+        min-height:
+          300px;
+
+        border-radius:
+          var(--radius-lg);
+
+      }
+
     }
 
+
+    /* =========================================================
+       MOBILE PICCOLO
+       ========================================================= */
 
     @media (max-width: 550px) {
 
-      .event-page-container {
-        padding: 1.25rem 1rem 2rem;
+      .event-detail-info-grid {
+
+        grid-template-columns:
+          1fr;
+
       }
 
-      .event-detail-info-grid {
-        grid-template-columns: 1fr;
-      }
 
       .event-detail-actions {
-        display: grid;
-        grid-template-columns: 1fr;
+
+        display:
+          grid;
+
+        grid-template-columns:
+          1fr;
+
       }
 
+
       .event-detail-actions .btn {
-        width: 100%;
-        min-width: 0;
+
+        width:
+          100%;
+
       }
+
+
+      .event-detail-title {
+
+        font-size:
+          1.8rem;
+
+      }
+
     }
+
   </style>
+
 </head>
 
 
 <body>
 
+
   <!-- =========================================================
        HEADER
        ========================================================= -->
 
-  <header class="header" id="mainHeader">
+  <header
+    class="header"
+    id="mainHeader"
+  >
 
     <div class="header-content">
 
       <div class="logo">
+
         Paddock<span>Map</span>
+
       </div>
 
+
       <nav class="nav-menu">
-        <a href="index.html">Home</a>
-        <a href="mappa.html">Mappa</a>
-        <a href="contatti.html">Promuovi Evento</a>
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="mappa.html">
+          Mappa
+        </a>
+
+        <a href="contatti.html">
+          Promuovi Evento
+        </a>
+
       </nav>
 
     </div>
@@ -447,16 +1354,13 @@
 
   <main class="event-page-container">
 
-    <a href="index.html" class="event-back">
-      ← Torna agli eventi
-    </a>
-
-
     <div id="eventContainer">
 
       <div class="event-state">
 
-        <h1>Caricamento evento...</h1>
+        <h1>
+          Caricamento evento...
+        </h1>
 
         <p>
           Attendi qualche secondo.
@@ -478,8 +1382,15 @@
     <div class="footer-content">
 
       <div>
-        <strong>PaddockMap</strong>
-        <span>Il calendario del motorsport italiano.</span>
+
+        <strong>
+          PaddockMap
+        </strong>
+
+        <span>
+          Il calendario del motorsport italiano.
+        </span>
+
       </div>
 
     </div>
@@ -493,8 +1404,8 @@
 
   <script
     src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    crossorigin="">
-  </script>
+    crossorigin=""
+  ></script>
 
 
   <!-- =========================================================
@@ -502,10 +1413,17 @@
        ========================================================= -->
 
   <script src="icons.js"></script>
+
   <script src="map-common.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+  ></script>
+
+
   <script src="auth.js"></script>
+
   <script src="paddock-actions.js"></script>
 
 
@@ -529,14 +1447,19 @@
        ========================================================= */
 
     const urlParams =
-      new URLSearchParams(window.location.search);
+      new URLSearchParams(
+        window.location.search
+      );
+
 
     const eventId =
       urlParams.get('id');
 
 
     const container =
-      document.getElementById('eventContainer');
+      document.getElementById(
+        'eventContainer'
+      );
 
 
     /* =========================================================
@@ -549,15 +1472,39 @@
         value === null ||
         value === undefined
       ) {
+
         return '';
+
       }
 
+
       return String(value)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
+
+        .replace(
+          /&/g,
+          '&amp;'
+        )
+
+        .replace(
+          /</g,
+          '&lt;'
+        )
+
+        .replace(
+          />/g,
+          '&gt;'
+        )
+
+        .replace(
+          /"/g,
+          '&quot;'
+        )
+
+        .replace(
+          /'/g,
+          '&#039;'
+        );
+
     }
 
 
@@ -568,19 +1515,28 @@
     function formatDate(dateString) {
 
       if (!dateString) {
+
         return '';
+
       }
+
 
       const date =
         new Date(dateString);
+
 
       if (
         Number.isNaN(
           date.getTime()
         )
       ) {
-        return escapeHtml(dateString);
+
+        return escapeHtml(
+          dateString
+        );
+
       }
+
 
       return date.toLocaleDateString(
         'it-IT',
@@ -590,6 +1546,7 @@
           year: 'numeric'
         }
       );
+
     }
 
 
@@ -598,12 +1555,15 @@
       const start =
         event.dataInizio;
 
+
       const end =
         event.dataFine;
 
 
       if (!start) {
+
         return '';
+
       }
 
 
@@ -611,13 +1571,16 @@
         !end ||
         start === end
       ) {
+
         return formatDate(start);
+
       }
 
 
       return (
         `${formatDate(start)} – ${formatDate(end)}`
       );
+
     }
 
 
@@ -632,27 +1595,37 @@
           event.disciplina
         )
       ) {
+
         return event.disciplina;
+
       }
 
 
       if (
         typeof event.disciplina === 'string'
       ) {
+
         return event.disciplina
+
           .split(',')
+
           .map(
             item => item.trim()
           )
+
           .filter(Boolean);
+
       }
 
 
       return [];
+
     }
 
 
-    function getDisciplineIcon(discipline) {
+    function getDisciplineIcon(
+      discipline
+    ) {
 
       const value =
         String(
@@ -664,11 +1637,15 @@
         typeof window.getDisciplineIcon ===
         'function'
       ) {
+
         try {
+
           return window.getDisciplineIcon(
             discipline
           );
+
         } catch (error) {}
+
       }
 
 
@@ -676,18 +1653,24 @@
         typeof window.getIconForDiscipline ===
         'function'
       ) {
+
         try {
+
           return window.getIconForDiscipline(
             discipline
           );
+
         } catch (error) {}
+
       }
 
 
       if (
         value.includes('rally')
       ) {
+
         return '🏁';
+
       }
 
 
@@ -696,7 +1679,9 @@
         value.includes('cronoscalata') ||
         value.includes('salita')
       ) {
+
         return '🏎️';
+
       }
 
 
@@ -704,14 +1689,18 @@
         value.includes('gt') ||
         value.includes('turismo')
       ) {
+
         return '🏎️';
+
       }
 
 
       if (
         value.includes('kart')
       ) {
+
         return '🏎️';
+
       }
 
 
@@ -719,80 +1708,138 @@
         value.includes('moto') ||
         value.includes('motocicl')
       ) {
+
         return '🏍️';
+
       }
 
 
       return '🏁';
+
     }
 
 
     /* =========================================================
-   IMMAGINI
-   ========================================================= */
+       IMMAGINE EVENTO
+       =========================================================
 
-    const organizerImages = {
-        "FX Racing Weekend": "image/fxwk.jpg",
-        "ACI Sport": "image/AciSport.jpg",
-        "European Le Mans Series": "image/4himola1.jpg",
-        "Red Bull": "image/redbullKOS.png",
-        "We Can Race": "image/werace.png",
-        "RSE Italia": "image/RSEitalia.jpg",
-        "SRO Motorsports": "image/GtWcEurope.jpg"
-    };
+       IMPORTANTE:
 
-    const randomImages = [
-        "image/random1.png",
-        "image/random2.png",
-        "image/random3.png",
-        "image/random4.png"
-    ];
+       Qui NON vengono utilizzate:
 
-    function getRandomEventImage() {
-        return randomImages[Math.floor(Math.random() * randomImages.length)];
+       - immagini organizzatore
+       - random1.png
+       - random2.png
+       - random3.png
+       - random4.png
+
+       Se l'evento ha una vera immagine:
+       → locandina
+
+       Se non ce l'ha:
+       → Google Ads
+       ========================================================= */
+
+    function getEventPoster(event) {
+
+      if (
+        event.immagine &&
+        String(event.immagine).trim() !== ''
+      ) {
+
+        return String(
+          event.immagine
+        ).trim();
+
+      }
+
+
+      return '';
+
     }
 
-    function getEventImage(event) {
-        if (event.immagine && String(event.immagine).trim() !== '') {
-            return event.immagine;
-        }
-        const organizerImage = organizerImages[event.organizzatore];
-        if (organizerImage) {
-            return organizerImage;
-        }
-        return getRandomEventImage();
-    }
 
     /* =========================================================
        INGRESSO GRATUITO
        ========================================================= */
 
     function getFreeEntry(event) {
-      if (event.eventoGratuito === true || event.eventoGratuito === 'true') {
+
+      if (
+        event.eventoGratuito === true ||
+        event.eventoGratuito === 'true'
+      ) {
+
         return 'Ingresso gratuito';
+
       }
+
+
       return '';
+
     }
 
 
     /* =========================================================
-       URL
+       URL BIGLIETTI
        ========================================================= */
 
     function getTicketUrl(event) {
 
       return (
+
         event.linkBiglietti ||
+
         event.biglietti ||
+
         event.ticketUrl ||
+
         event.urlBiglietti ||
+
         ''
+
       );
+
     }
 
 
+    /* =========================================================
+       URL INFORMAZIONI
+       ========================================================= */
+
     function getInfoUrl(event) {
-      return event.linkInfo || '';
+
+      return (
+        event.linkInfo || ''
+      );
+
+    }
+
+
+    /* =========================================================
+       ID CIRCUITO
+       =========================================================
+
+       paddock-actions.js richiede data-circuit-id.
+       La pagina evento si adatta ai dati disponibili senza
+       modificare il file comune.
+
+       Se l'API fornisce un identificativo esplicito, viene usato
+       quello; in assenza di un campo ID dedicato, viene usato
+       event.circuito come valore canonico già presente nell'evento.
+       ========================================================= */
+
+    function getCircuitId(event) {
+
+      return (
+        event.circuitId ||
+        event.circuit_id ||
+        event.idCircuito ||
+        event.circuitoId ||
+        event.circuito ||
+        ''
+      );
+
     }
 
 
@@ -806,32 +1853,46 @@
         normalizeDisciplines(event);
 
 
+      /* -------------------------------------------------------
+         DISCIPLINE HTML
+         ------------------------------------------------------- */
+
       const disciplineHtml =
         disciplines.length
 
           ? disciplines
+
               .map(
                 discipline => `
+
                   <span class="event-discipline">
+
                     <span>
-                      ${getDisciplineIcon(discipline)}
+                      ${getDisciplineIcon(
+                        discipline
+                      )}
                     </span>
 
-                    ${escapeHtml(discipline)}
+                    ${escapeHtml(
+                      discipline
+                    )}
+
                   </span>
+
                 `
               )
+
               .join('')
 
           : '';
 
 
+      /* -------------------------------------------------------
+         DATI
+         ------------------------------------------------------- */
+
       const freeEntry =
         getFreeEntry(event);
-
-
-      const circuit =
-        event.circuito || '—';
 
 
       const city =
@@ -850,172 +1911,666 @@
         getInfoUrl(event);
 
 
-      const eventImage =
-        getEventImage(event);
+      const eventPoster =
+        getEventPoster(event);
 
+
+      /* -------------------------------------------------------
+         TITLE
+         ------------------------------------------------------- */
 
       document.title =
         `${event.titolo || 'Evento'} | PaddockMap`;
 
 
-      container.innerHTML = `
-        
-        <article class="event-detail">
+      /* =======================================================
+         PUBBLICITÀ SINISTRA
+         =======================================================
 
-          <!-- LOCANDINA -->
-          <div class="event-detail-poster-column">
-            <img
-              class="event-detail-poster-image"
-              src="${escapeHtml(eventImage)}"
-              alt="${escapeHtml(event.titolo || 'Evento PaddockMap')}"
-              loading="eager"
-              onerror="this.onerror=null; this.src='${escapeHtml(getRandomEventImage())}';"
-            >
+         Questa è volutamente una struttura semplice.
+
+         In futuro possiamo sostituirla con:
+
+         - banner statico
+         - immagine sponsor
+         - link sponsor
+         - gestione da Supabase
+         - più campagne pubblicitarie
+         ======================================================= */
+
+      const customAdHtml = `
+
+        <div class="event-ad-box">
+
+          <div class="event-ad-placeholder">
+
+            <strong>
+              Promuovi il tuo evento
+            </strong>
+
+            <span>
+              Questo spazio è disponibile
+              per pubblicità personalizzate.
+            </span>
+
           </div>
 
-          <div class="event-detail-right-column">
+        </div>
 
-            <!-- INFORMAZIONI -->
-            <div class="event-detail-info-column">
+      `;
+
+
+      /* =======================================================
+         COLONNA DESTRA
+         ======================================================= */
+
+      let posterHtml;
+
+
+      if (eventPoster) {
+
+        posterHtml = `
+
+          <div class="event-detail-poster-wrapper">
+
+            <img
+
+              class="event-detail-poster-image"
+
+              src="${escapeHtml(
+                eventPoster
+              )}"
+
+              alt="${escapeHtml(
+                event.titolo ||
+                'Locandina evento'
+              )}"
+
+              loading="eager"
+
+              onerror="
+                this.onerror=null;
+                this.parentElement.innerHTML=\`
+                  <div class='event-google-ad'>
+
+                    <div class='event-ad-placeholder'>
+
+                      <strong>
+                        Spazio pubblicitario
+                      </strong>
+
+                      <span>
+                        Google Ads
+                      </span>
+
+                    </div>
+
+                  </div>
+                \`;
+              "
+
+            >
+
+          </div>
+
+        `;
+
+      } else {
+
+        posterHtml = `
+
+          <div class="event-google-ad">
+
+            <!--
+              =================================================
+              GOOGLE ADS
+
+              Qui potrà essere inserito successivamente
+              il codice Google AdSense reale.
+              =================================================
+            -->
+
+            <div class="event-ad-placeholder">
+
+              <strong>
+                Spazio pubblicitario
+              </strong>
+
+              <span>
+                Google Ads
+              </span>
+
+            </div>
+
+          </div>
+
+        `;
+
+      }
+
+
+      /* =======================================================
+         HTML COMPLETO
+         ======================================================= */
+
+      container.innerHTML = `
+
+        <article class="event-detail">
+
+
+          <!-- ===============================================
+               COLONNA 1 — PUBBLICITÀ
+               =============================================== -->
+
+          <aside
+            class="event-detail-ad-column"
+          >
+
+            ${customAdHtml}
+
+          </aside>
+
+
+          <!-- ===============================================
+               COLONNA 2 — INFORMAZIONI + MAPPA
+               =============================================== -->
+
+          <section
+            class="event-detail-center-column"
+          >
+
+
+            <!-- =============================================
+                 PARTE SUPERIORE — 75%
+                 ============================================= -->
+
+            <div
+              class="event-detail-info-column"
+            >
+
+
+              <!-- DATA -->
 
               ${
                 formatEventDate(event)
+
                   ? `
-                    <div class="event-detail-date">
-                      <span>📅</span>
-                      <span>${formatEventDate(event)}</span>
+
+                    <div
+                      class="event-detail-date"
+                    >
+
+                      <span>
+                        📅
+                      </span>
+
+                      <span>
+                        ${formatEventDate(event)}
+                      </span>
+
                     </div>
+
                   `
+
                   : ''
               }
 
-              <h1 class="event-detail-title">
-                ${escapeHtml(event.titolo || 'Evento')}
+
+              <!-- TITOLO -->
+
+              <h1
+                class="event-detail-title"
+              >
+
+                ${escapeHtml(
+                  event.titolo ||
+                  'Evento'
+                )}
+
               </h1>
+
+
+              <!-- DISCIPLINE -->
 
               ${
                 disciplineHtml
-                  ? `<div class="event-detail-disciplines">${disciplineHtml}</div>`
+
+                  ? `
+
+                    <div
+                      class="event-detail-disciplines"
+                    >
+
+                      ${disciplineHtml}
+
+                    </div>
+
+                  `
+
                   : ''
               }
 
-              <div class="event-detail-info-grid">
 
-                <div class="event-detail-info-box">
-                  <span class="event-detail-info-label">Circuito</span>
-                  <span class="event-detail-info-value">${escapeHtml(circuit)}</span>
-                </div>
+              <!-- INFORMAZIONI -->
 
-                <div class="event-detail-info-box">
-                  <span class="event-detail-info-label">Località</span>
-                  <span class="event-detail-info-value">${escapeHtml(city)}</span>
-                </div>
+              <div
+                class="event-detail-info-grid"
+              >
 
-                <div class="event-detail-info-box">
-                  <span class="event-detail-info-label">Organizzatore</span>
-                  <span class="event-detail-info-value">${escapeHtml(organizer)}</span>
-                </div>
-
-                <div class="event-detail-info-box">
-                  <span class="event-detail-info-label">Ingresso</span>
-                  <span class="event-detail-info-value">
-                    ${
-                      ticketUrl
-                        ? `<a href="${escapeHtml(ticketUrl)}" target="_blank" rel="noopener">Biglietti</a>`
-                        : freeEntry
-                          ? `<span style="color: var(--success); font-weight: 800;">${PMIcons.sparkle} ${escapeHtml(freeEntry)}</span>`
-                          : 'Da definire'
-                    }
-                  </span>
-                </div>
-
-              </div>
-
-              <div class="event-detail-actions">
-
-                <button
-                  type="button"
-                  class="btn btn-secondary pm-save-btn"
-                  data-event-id="${escapeHtml(window.pmEventId(event))}"
-                  onclick="pmHandleSaveClick(this)"
-                >
-                  ${PMIcons.heart} Salva evento
-                </button>
 
                 ${
                   event.circuito
+
                     ? `
-                      <button
-                        type="button"
-                        class="btn btn-secondary pm-follow-btn"
-                        data-circuit-id="${escapeHtml(event.circuito)}"
-                        onclick="pmHandleFollowClick(this)"
+
+                      <div
+                        class="event-detail-info-box"
                       >
-                        ${PMIcons.flag} Segui circuito
-                      </button>
+
+                        <span
+                          class="event-detail-info-label"
+                        >
+                          Circuito
+                        </span>
+
+                        <span
+                          class="event-detail-info-value"
+                        >
+                          ${escapeHtml(
+                            event.circuito
+                          )}
+                        </span>
+
+                      </div>
+
                     `
+
                     : ''
                 }
+
+
+                <!-- LOCATION -->
+
+                <div
+                  class="event-detail-info-box"
+                >
+
+                  <span
+                    class="event-detail-info-label"
+                  >
+                    Località
+                  </span>
+
+                  <span
+                    class="event-detail-info-value"
+                  >
+                    ${escapeHtml(city)}
+                  </span>
+
+                </div>
+
+
+                <!-- ORGANIZZATORE -->
+
+                ${
+                  event.organizzatore
+
+                    ? `
+
+                      <div
+                        class="event-detail-info-box"
+                      >
+
+                        <span
+                          class="event-detail-info-label"
+                        >
+                          Organizzatore
+                        </span>
+
+                        <span
+                          class="event-detail-info-value"
+                        >
+                          ${escapeHtml(
+                            organizer
+                          )}
+                        </span>
+
+                      </div>
+
+                    `
+
+                    : ''
+                }
+
+
+                <!-- INGRESSO -->
+
+                <div
+                  class="event-detail-info-box"
+                >
+
+                  <span
+                    class="event-detail-info-label"
+                  >
+                    Ingresso
+                  </span>
+
+
+                  <span
+                    class="event-detail-info-value"
+                  >
+
+                    ${
+                      ticketUrl
+
+                        ? `
+
+                          <a
+                            href="${escapeHtml(
+                              ticketUrl
+                            )}"
+
+                            target="_blank"
+
+                            rel="
+                              noopener
+                              noreferrer
+                            "
+                          >
+
+                            Biglietti
+
+                          </a>
+
+                        `
+
+                        : freeEntry
+
+                          ? `
+
+                            <span
+                              style="
+                                color:
+                                  var(--success);
+                                font-weight:
+                                  800;
+                              "
+                            >
+
+                              ${PMIcons.sparkle}
+
+                              ${escapeHtml(
+                                freeEntry
+                              )}
+
+                            </span>
+
+                          `
+
+                          : `
+
+                            Da definire
+
+                          `
+
+                    }
+
+                  </span>
+
+                </div>
+
+
+              </div>
+
+
+              <!-- =========================================
+                   AZIONI
+                   ========================================= -->
+
+              <div
+                class="event-detail-actions"
+              >
+
+
+                <!-- SALVA EVENTO -->
+
+                <button
+
+                  type="button"
+
+                  class="
+                    btn
+                    btn-secondary
+                    pm-save-btn
+                  "
+
+                  data-event-id="${escapeHtml(
+                    window.pmEventId(event)
+                  )}"
+
+                  onclick="
+                    pmHandleSaveClick(this)
+                  "
+
+                >
+
+                  ${PMIcons.heart}
+
+                  Salva evento
+
+                </button>
+
+
+                <!-- SEGUI CIRCUITO -->
+
+                ${
+                  getCircuitId(event)
+
+                    ? `
+
+                      <button
+
+                        type="button"
+
+                        class="
+                          btn
+                          btn-secondary
+                          pm-follow-btn
+                        "
+
+                        data-circuit-id="${escapeHtml(
+                          getCircuitId(event)
+                        )}"
+
+                        onclick="
+                          pmHandleFollowClick(this)
+                        "
+
+                      >
+
+                        ${PMIcons.flag}
+
+                        Segui circuito
+
+                      </button>
+
+                    `
+
+                    : ''
+                }
+
+
+                <!-- BIGLIETTI -->
 
                 ${
                   ticketUrl
+
                     ? `
-                      <a href="${escapeHtml(ticketUrl)}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                        ${PMIcons.ticket} Biglietti
+
+                      <a
+
+                        href="${escapeHtml(
+                          ticketUrl
+                        )}"
+
+                        class="
+                          btn
+                          btn-primary
+                        "
+
+                        target="_blank"
+
+                        rel="
+                          noopener
+                          noreferrer
+                        "
+
+                      >
+
+                        ${PMIcons.ticket}
+
+                        Biglietti
+
                       </a>
+
                     `
+
                     : ''
                 }
+
+
+                <!-- MAGGIORI INFORMAZIONI -->
 
                 ${
                   infoUrl
+
                     ? `
-                      <a href="${escapeHtml(infoUrl)}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-                        ${PMIcons.info} Maggiori informazioni
+
+                      <a
+
+                        href="${escapeHtml(
+                          infoUrl
+                        )}"
+
+                        class="
+                          btn
+                          btn-secondary
+                        "
+
+                        target="_blank"
+
+                        rel="
+                          noopener
+                          noreferrer
+                        "
+
+                      >
+
+                        ${PMIcons.info}
+
+                        Maggiori informazioni
+
                       </a>
+
                     `
+
                     : ''
                 }
 
+
               </div>
+
+
             </div>
 
-            <!-- MAPPA -->
-            <div class="event-detail-map-column">
-              <div id="eventMap"></div>
+
+            <!-- =============================================
+                 PARTE INFERIORE — MAPPA 25%
+                 ============================================= -->
+
+            <div
+              class="event-detail-map-column"
+            >
+
+              <div
+                id="eventMap"
+              ></div>
+
             </div>
 
-          </div>
+
+          </section>
+
+
+          <!-- ===============================================
+               COLONNA 3 — LOCANDINA / GOOGLE ADS
+               =============================================== -->
+
+          <aside
+            class="event-detail-poster-column"
+          >
+
+            ${posterHtml}
+
+          </aside>
+
 
         </article>
 
       `;
-      
-      if (window.pmRefreshButtonStates) window.pmRefreshButtonStates();
+
+
+      /* -------------------------------------------------------
+         STATO BOTTONI
+         -------------------------------------------------------
+         paddock-actions.js gestisce autonomamente:
+         - caricamento degli eventi salvati
+         - caricamento dei circuiti seguiti
+         - refresh degli stati dei pulsanti
+         - sincronizzazione dopo il rendering tramite MutationObserver
+
+         La pagina evento non richiama API interne del file comune.
+         ------------------------------------------------------- */
+
+      /* -------------------------------------------------------
+         MAPPA
+         ------------------------------------------------------- */
+
       initializeEventMap(event);
+
     }
 
 
     /* =========================================================
-       MAPPA
+       MAPPA EVENTO
        ========================================================= */
 
     async function initializeEventMap(event) {
 
       const mapContainer =
-        document.getElementById('eventMap');
+        document.getElementById(
+          'eventMap'
+        );
 
 
       if (!mapContainer) {
+
         return;
+
       }
 
+
+      /* -------------------------------------------------------
+         NESSUNA CITTÀ
+         ------------------------------------------------------- */
 
       if (!event.citta) {
 
         mapContainer.outerHTML = `
 
-          <div class="event-map-missing">
+          <div
+            class="event-map-missing"
+          >
 
             Posizione non disponibile
             per questo evento.
@@ -1025,82 +2580,115 @@
         `;
 
         return;
+
       }
 
 
       try {
 
-        /*
-         * Carica coordinates.json attraverso
-         * map-common.js
-         */
+        /* -----------------------------------------------------
+           CARICAMENTO COORDINATE
+           ----------------------------------------------------- */
 
         await loadCityCoordinates();
 
 
-        /*
-         * Prima prova il nome esatto.
-         */
+        /* -----------------------------------------------------
+           RICERCA ESATTA
+           ----------------------------------------------------- */
 
         let coordinates =
-          cityCoordinates[event.citta];
+          cityCoordinates[
+            event.citta
+          ];
 
 
-        /*
-         * Fallback:
-         * confronto normalizzato.
-         */
+        /* -----------------------------------------------------
+           FALLBACK NORMALIZZATO
+           ----------------------------------------------------- */
 
         if (!coordinates) {
 
           const normalizeCity =
-            value => String(value || '')
-              .normalize('NFD')
-              .replace(
-                /[\u0300-\u036f]/g,
-                ''
+            value =>
+
+              String(
+                value || ''
               )
-              .toLowerCase()
-              .trim();
+
+                .normalize('NFD')
+
+                .replace(
+                  /[\u0300-\u036f]/g,
+                  ''
+                )
+
+                .toLowerCase()
+
+                .trim();
 
 
           const target =
-            normalizeCity(event.citta);
+            normalizeCity(
+              event.citta
+            );
 
 
           const matchingKey =
-            Object.keys(cityCoordinates)
+            Object.keys(
+              cityCoordinates
+            )
+
               .find(
                 key =>
-                  normalizeCity(key) === target
+                  normalizeCity(
+                    key
+                  ) === target
               );
 
 
           if (matchingKey) {
+
             coordinates =
-              cityCoordinates[matchingKey];
+              cityCoordinates[
+                matchingKey
+              ];
+
           }
+
         }
 
 
-        /*
-         * Nessuna coordinata.
-         */
+        /* -----------------------------------------------------
+           NESSUNA COORDINATA
+           ----------------------------------------------------- */
 
         if (
+
           !coordinates ||
-          !Array.isArray(coordinates) ||
+
+          !Array.isArray(
+            coordinates
+          ) ||
+
           coordinates.length < 2
+
         ) {
 
           mapContainer.outerHTML = `
 
-            <div class="event-map-missing">
+            <div
+              class="event-map-missing"
+            >
 
               Non sono disponibili
               coordinate per
+
               <strong>
-                &nbsp;${escapeHtml(event.citta)}
+                &nbsp;
+                ${escapeHtml(
+                  event.citta
+                )}
               </strong>.
 
             </div>
@@ -1108,30 +2696,48 @@
           `;
 
           return;
+
         }
 
 
+        /* -----------------------------------------------------
+           COORDINATE
+           ----------------------------------------------------- */
+
         const lat =
-          Number(coordinates[0]);
+          Number(
+            coordinates[0]
+          );
 
 
         const lng =
-          Number(coordinates[1]);
+          Number(
+            coordinates[1]
+          );
 
 
         if (
+
           !Number.isFinite(lat) ||
+
           !Number.isFinite(lng)
+
         ) {
 
           mapContainer.outerHTML = `
 
-            <div class="event-map-missing">
+            <div
+              class="event-map-missing"
+            >
 
               Coordinate non valide
               per
+
               <strong>
-                &nbsp;${escapeHtml(event.citta)}
+                &nbsp;
+                ${escapeHtml(
+                  event.citta
+                )}
               </strong>.
 
             </div>
@@ -1139,58 +2745,87 @@
           `;
 
           return;
+
         }
 
 
-        /*
-         * Usa la stessa mappa di Mappa/Home.
-         */
+        /* -----------------------------------------------------
+           CREA MAPPA
+           ----------------------------------------------------- */
 
         const map =
-          createBaseMap('eventMap');
+          createBaseMap(
+            'eventMap'
+          );
 
 
-        /*
-         * Zoom sulla città.
-         */
+        /* -----------------------------------------------------
+           POSIZIONA MAPPA
+           ----------------------------------------------------- */
 
         map.setView(
-          [lat, lng],
+          [
+            lat,
+            lng
+          ],
           11
         );
 
 
-        /*
-         * Marker PaddockMap.
-         */
+        /* -----------------------------------------------------
+           MARKER
+           ----------------------------------------------------- */
 
         const marker =
           L.circleMarker(
-            [lat, lng],
+
+            [
+              lat,
+              lng
+            ],
+
             {
-              radius: 10,
 
-              color: '#FFFFFF',
-              weight: 3,
+              radius:
+                10,
 
-              fillColor: '#FF4B24',
-              fillOpacity: 1
+              color:
+                '#FFFFFF',
+
+              weight:
+                3,
+
+              fillColor:
+                '#FF4B24',
+
+              fillOpacity:
+                1
+
             }
+
           ).addTo(map);
 
+
+        /* -----------------------------------------------------
+           POPUP
+           ----------------------------------------------------- */
 
         marker.bindPopup(`
 
           <strong>
+
             ${escapeHtml(
               event.titolo ||
               'Evento'
             )}
+
           </strong>
 
           <br>
 
-          ${escapeHtml(event.citta)}
+          ${escapeHtml(
+            event.citta
+          )}
 
         `);
 
@@ -1198,14 +2833,17 @@
         marker.openPopup();
 
 
-        /*
-         * Leaflet deve ricalcolare le dimensioni
-         * dopo il rendering della griglia.
-         */
+        /* -----------------------------------------------------
+           INVALIDATE SIZE
+           ----------------------------------------------------- */
 
         setTimeout(
-          () => map.invalidateSize(),
+
+          () =>
+            map.invalidateSize(),
+
           100
+
         );
 
 
@@ -1219,7 +2857,9 @@
 
         mapContainer.outerHTML = `
 
-          <div class="event-map-missing">
+          <div
+            class="event-map-missing"
+          >
 
             Impossibile caricare
             la posizione dell'evento.
@@ -1227,7 +2867,9 @@
           </div>
 
         `;
+
       }
+
     }
 
 
@@ -1237,15 +2879,18 @@
 
     async function loadEvent() {
 
-      /*
-       * ID mancante
-       */
+
+      /* -------------------------------------------------------
+         ID MANCANTE
+         ------------------------------------------------------- */
 
       if (!eventId) {
 
         container.innerHTML = `
 
-          <div class="event-state error">
+          <div
+            class="event-state error"
+          >
 
             <h1>
               Evento non specificato
@@ -1253,7 +2898,8 @@
 
             <p>
               L'URL non contiene
-              l'identificativo dell'evento.
+              l'identificativo
+              dell'evento.
             </p>
 
           </div>
@@ -1261,17 +2907,27 @@
         `;
 
         return;
+
       }
 
 
       try {
 
+
+        /* -----------------------------------------------------
+           FETCH API
+           ----------------------------------------------------- */
+
         const response =
           await fetch(
+
             API_URL,
+
             {
-              cache: 'no-store'
+              cache:
+                'no-store'
             }
+
           );
 
 
@@ -1284,9 +2940,17 @@
         }
 
 
+        /* -----------------------------------------------------
+           TESTO RISPOSTA
+           ----------------------------------------------------- */
+
         const text =
           await response.text();
 
+
+        /* -----------------------------------------------------
+           JSON
+           ----------------------------------------------------- */
 
         const data =
           JSON.parse(text);
@@ -1301,35 +2965,49 @@
         }
 
 
-        /*
-         * =====================================================
-         * ID CANONICO
-         * =====================================================
-         *
-         * L'evento viene cercato esclusivamente attraverso
-         * idAuto proveniente da Supabase.
-         */
+        /* -----------------------------------------------------
+           ID CANONICO
+           -----------------------------------------------------
+
+           L'evento viene cercato esclusivamente
+           attraverso idAuto.
+           ----------------------------------------------------- */
 
         const event =
           data.find(
+
             item =>
-              String(item.idAuto) ===
-              String(eventId)
+
+              String(
+                item.idAuto
+              ) ===
+
+              String(
+                eventId
+              )
+
           );
 
+
+        /* -----------------------------------------------------
+           EVENTO NON TROVATO
+           ----------------------------------------------------- */
 
         if (!event) {
 
           container.innerHTML = `
 
-            <div class="event-state error">
+            <div
+              class="event-state error"
+            >
 
               <h1>
                 Evento non trovato
               </h1>
 
               <p>
-                L'evento richiesto non è presente
+                L'evento richiesto
+                non è presente
                 nei dati disponibili.
               </p>
 
@@ -1338,12 +3016,13 @@
           `;
 
           return;
+
         }
 
 
-        /*
-         * Evento trovato.
-         */
+        /* -----------------------------------------------------
+           EVENTO TROVATO
+           ----------------------------------------------------- */
 
         renderEvent(event);
 
@@ -1358,34 +3037,36 @@
 
         container.innerHTML = `
 
-          <div class="event-state error">
+          <div
+            class="event-state error"
+          >
 
             <h1>
               Errore
             </h1>
 
             <p>
-              Non è stato possibile caricare
-              i dati dell'evento.
+              Non è stato possibile
+              caricare i dati
+              dell'evento.
             </p>
 
           </div>
 
         `;
+
       }
+
     }
 
 
     /* =========================================================
        AVVIO
        ========================================================= */
-
     document.addEventListener(
       'DOMContentLoaded',
       loadEvent
     );
-
   </script>
-
 </body>
 </html>
