@@ -288,34 +288,13 @@ svg.icon {
   backdrop-filter: blur(20px);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  max-height: 260px;
+  max-height: 220px;
   overflow-y: auto;
   z-index: 30;
   box-shadow: var(--shadow-pop);
   padding: 0.35rem;
 }
 .multi-select-options.active { display: block; }
-
-.multi-select-options-list .no-results {
-  padding: 0.6rem 0.7rem;
-  font-size: 0.82rem;
-  color: var(--muted);
-}
-
-/* Il box "Tutte le location" ecc. diventa esso stesso il campo di ricerca
-   quando il menu è aperto: nessun bordo proprio, eredita l'aspetto del box. */
-.multi-select-display .multi-select-search {
-  width: 100%;
-  border: none;
-  outline: none;
-  background: transparent;
-  padding: 0;
-  margin: 0;
-  font: inherit;
-  color: var(--ink);
-  cursor: text;
-}
-.multi-select-display .multi-select-search::placeholder { color: var(--muted); }
 
 .multi-select-option {
   padding: 0.55rem 0.7rem;
@@ -577,15 +556,6 @@ svg.icon {
 .event-info { margin-top: 0.7rem; flex: 1; overflow: hidden; }
 
 .info-row { display: flex; align-items: flex-start; margin-bottom: 0.4rem; font-size: 0.82rem; color: var(--ink-soft); }
-
-/* Evidenziazione del termine cercato nelle card */
-.search-highlight {
-  background: #FFE066;
-  color: var(--ink);
-  border-radius: 3px;
-  padding: 0 2px;
-  font-weight: 700;
-}
 .info-icon { margin-right: 0.55rem; margin-top: 0.15rem; flex-shrink: 0; color: var(--muted); }
 
 .free-badge {
@@ -1079,7 +1049,44 @@ footer p:first-child { color: rgba(255, 255, 255, 0.85); font-weight: 600; }
   justify-content: center;
   padding: 1.5rem;
 }
-@media (max-width: 700px) { .filters-half { min-height: 60vh; } }
+.map-mobile-toggle { display: none; }
+
+@media (max-width: 700px) {
+  .map-half { flex: 1 1 auto; min-height: 64vh; }
+
+  .filters-half {
+    display: none;
+    min-height: 0;
+    flex: none;
+    padding: 1.1rem;
+  }
+  .filters-half.mobile-open { display: flex; }
+
+  .map-mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 2rem);
+    margin: 0.75rem auto;
+    padding: 0.7rem 1.05rem;
+    background: var(--surface-glass-strong);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-card);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .map-mobile-toggle .chevron {
+    color: var(--accent);
+    transition: transform 0.25s var(--ease);
+  }
+  .map-mobile-toggle.open .chevron { transform: rotate(180deg); }
+}
 
 .filters-inner {
   width: 100%;
@@ -1104,8 +1111,117 @@ footer p:first-child { color: rgba(255, 255, 255, 0.85); font-weight: 600; }
    Pagina Contatti (contatti.html)
    ========================================================================== */
 
-.contact-container { max-width: 620px; margin: 2.5rem auto; padding: 0 1.5rem; }
+body.submit-page { display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+body.submit-page .header { flex: 0 0 auto; }
 
+.submit-wrap {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1rem 1.5rem;
+}
+
+.submit-card {
+  width: 100%;
+  max-width: 760px;
+  max-height: 100%;
+  overflow-y: auto;
+  background: var(--surface);
+  padding: 1.6rem 2rem;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--line);
+}
+
+.submit-card h1 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.submit-card h1 svg.icon { color: var(--accent); }
+.submit-card > p { color: var(--muted); margin-bottom: 1.2rem; font-size: 0.88rem; }
+
+.submit-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem 1rem;
+}
+.submit-form-grid .full { grid-column: 1 / -1; }
+
+.submit-form-grid label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.submit-form-grid input,
+.submit-form-grid textarea {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--line);
+  font-size: 0.88rem;
+  font-family: inherit;
+  background: var(--bg);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.submit-form-grid input:focus,
+.submit-form-grid textarea:focus {
+  outline: none; border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-ring); background: #fff;
+}
+
+.chip-select { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.chip-select .chip {
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: rgba(18, 21, 27, 0.05);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all 0.15s;
+  user-select: none;
+}
+.chip-select .chip.selected {
+  background: var(--accent-soft); color: var(--accent-dark); border-color: var(--accent);
+}
+
+.toggle-row { display: flex; gap: 1.4rem; align-items: center; }
+.toggle-row label {
+  display: flex; align-items: center; gap: 0.45rem;
+  font-size: 0.85rem; font-weight: 500; color: var(--ink-soft); cursor: pointer;
+  margin-bottom: 0;
+}
+.toggle-row input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--accent); }
+
+.submit-card button[type="submit"] {
+  width: 100%;
+  margin-top: 1.1rem;
+  padding: 0.8rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+}
+.submit-card button[type="submit"]:hover { background: var(--accent-dark); transform: translateY(-1px); }
+.submit-card button[type="submit"]:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+/* Card generica riusata dal modale di login/registrazione (auth.js) */
 .form-card {
   background: var(--surface);
   padding: 2.1rem;
@@ -1113,25 +1229,16 @@ footer p:first-child { color: rgba(255, 255, 255, 0.85); font-weight: 600; }
   box-shadow: var(--shadow-card);
   border: 1px solid var(--line);
 }
-
 .form-card h1 {
   font-family: var(--font-display);
   font-size: 1.55rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
   letter-spacing: -0.01em;
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
 }
-.form-card h1 svg.icon { color: var(--accent); }
-
-.form-card > p { color: var(--muted); margin-bottom: 1.6rem; font-size: 0.92rem; }
-
+.form-card > p { color: var(--muted); margin-bottom: 1.4rem; font-size: 0.9rem; }
 .form-card label { font-size: 0.82rem; font-weight: 600; color: var(--ink-soft); display: block; margin-bottom: 0.32rem; }
-
-.form-card input,
-.form-card textarea {
+.form-card input {
   width: 100%;
   padding: 0.72rem 0.85rem;
   border-radius: var(--radius-sm);
@@ -1142,23 +1249,12 @@ footer p:first-child { color: rgba(255, 255, 255, 0.85); font-weight: 600; }
   background: var(--bg);
   transition: border-color 0.2s, box-shadow 0.2s;
 }
-.form-card input:focus,
-.form-card textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-ring); background: #fff; }
-
-.form-card button[type="submit"] {
-  width: 100%;
-  padding: 0.85rem;
-  background: var(--accent);
-  color: white;
-  border: none;
-  border-radius: var(--radius-pill);
-  font-weight: 600;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: all 0.2s var(--ease);
+.form-card input:focus {
+  outline: none; border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-ring); background: #fff;
 }
-.form-card button[type="submit"]:hover { background: var(--accent-dark); transform: translateY(-1px); }
-.form-card button[type="submit"]:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.submit-note { font-size: 0.76rem; color: var(--muted); text-align: center; margin-top: 0.6rem; }
 
 .modal {
   position: fixed; inset: 0;
@@ -1195,10 +1291,6 @@ footer p:first-child { color: rgba(255, 255, 255, 0.85); font-weight: 600; }
 }
 .modal-content button:hover { background: var(--accent-dark); }
 
-@media (max-width: 640px) {
-  .contact-container { margin: 1.5rem auto; padding: 0 1rem; }
-  .form-card { padding: 1.4rem; }
-}
 .itinerant-badge {
     position: relative;
     cursor: pointer;
