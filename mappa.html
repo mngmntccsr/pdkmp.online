@@ -28,7 +28,7 @@ gtag('config', 'G-F54J4RR4YY');
   html, body { height: 100%; overflow: hidden; display: flex; flex-direction: column; }
   .header { flex: 0 0 auto; }
   .page-wrap { flex: 1 1 auto; }
-</style>
+</style
 </head>
 
 <body>
@@ -39,7 +39,7 @@ gtag('config', 'G-F54J4RR4YY');
 <nav class="nav-menu">
 <a href="index.html" onclick="gtag('event', 'nav_click', { nav_item: 'home' })">Home</a>
 <a href="mappa.html" class="active" onclick="gtag('event', 'nav_click', { nav_item: 'mappa' })">Mappa</a>
-<a href="contatti.html" onclick="gtag('event', 'nav_click', { nav_item: 'promuovi_evento' })">Segnala Evento</a>
+<a href="contatti.html" onclick="gtag('event', 'nav_click', { nav_item: 'promuovi_evento' })">Promuovi Evento</a>
 </nav>
   <div class="header-stats">
   <div class="stat">
@@ -60,12 +60,7 @@ gtag('config', 'G-F54J4RR4YY');
 <div id="interactiveMapFull"></div>
 </div>
 
-<button class="map-mobile-toggle" id="mapMobileToggle" type="button">
-<span>Filtri</span>
-<span class="chevron">▾</span>
-</button>
-
-<div class="filters-half" id="filtersHalf">
+<div class="filters-half">
 <div class="filters-inner">
 <h3>Filtra eventi</h3>
 
@@ -99,6 +94,8 @@ gtag('config', 'G-F54J4RR4YY');
 <span class="placeholder">Tutti i tipi</span>
 </div>
 <div class="multi-select-options">
+<input type="text" class="multi-select-search" placeholder="Cerca..." oninput="filterMultiSelectOptions(this)">
+<div class="multi-select-options-list">
                                     <div class="multi-select-option" data-value="Gt">GT</div>
                                     <div class="multi-select-option" data-value="Formula">Formula</div>
                                     <div class="multi-select-option" data-value="Misto">Misto</div>
@@ -492,15 +489,6 @@ const today = todayISO();
         console.error("Errore caricamento eventi:", error);
     });
 });
-  const mapMobileToggle = document.getElementById('mapMobileToggle');
-  const filtersHalf = document.getElementById('filtersHalf');
-  if (mapMobileToggle && filtersHalf) {
-    mapMobileToggle.addEventListener('click', () => {
-      const isOpen = filtersHalf.classList.toggle('mobile-open');
-      mapMobileToggle.classList.toggle('open', isOpen);
-      setTimeout(() => { if (map) map.invalidateSize(); }, 300);
-    });
-  }
 })();
 </script>
 
