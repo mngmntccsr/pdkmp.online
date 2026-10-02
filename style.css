@@ -289,42 +289,33 @@ svg.icon {
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
   max-height: 260px;
+  overflow-y: auto;
   z-index: 30;
   box-shadow: var(--shadow-pop);
   padding: 0.35rem;
-  flex-direction: column;
 }
-.multi-select-options.active { display: flex; }
+.multi-select-options.active { display: block; }
 
-.multi-select-search {
-  width: 100%;
-  padding: 0.5rem 0.65rem;
-  border: 1.5px solid var(--line);
-  border-radius: var(--radius-sm);
-  font-size: 0.82rem;
-  font-family: inherit;
-  background: var(--surface);
-  color: var(--ink);
-  margin-bottom: 0.35rem;
-  flex-shrink: 0;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-.multi-select-search:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-ring);
-}
-
-.multi-select-options-list {
-  overflow-y: auto;
-  flex: 1;
-  min-height: 0;
-}
 .multi-select-options-list .no-results {
   padding: 0.6rem 0.7rem;
   font-size: 0.82rem;
   color: var(--muted);
 }
+
+/* Il box "Tutte le location" ecc. diventa esso stesso il campo di ricerca
+   quando il menu è aperto: nessun bordo proprio, eredita l'aspetto del box. */
+.multi-select-display .multi-select-search {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: var(--ink);
+  cursor: text;
+}
+.multi-select-display .multi-select-search::placeholder { color: var(--muted); }
 
 .multi-select-option {
   padding: 0.55rem 0.7rem;
