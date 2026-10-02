@@ -1,194 +1,821 @@
 <!DOCTYPE html>
 <html lang="it">
-    
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Segnala un evento su PaddockMap</title>
 
     <link rel="stylesheet" href="style.css">
+
     <script src="icons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
     <script src="auth.js" defer></script>
+
+    <!-- ============================================================
+         STILI ESCLUSIVI DELLA PAGINA CONTATTI
+         Non modificano style.css e quindi non influenzano le altre pagine.
+         ============================================================ -->
+    <style>
+
+        .submit-page {
+            min-height: 100vh;
+        }
+
+        /* Contenitore principale */
+        .submit-page .contact-container {
+            max-width: 760px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem 3rem;
+        }
+
+        /* Card */
+        .submit-page .form-card {
+            background: var(--surface);
+            padding: 2.1rem;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--line);
+        }
+
+        /* Titolo */
+        .submit-page .form-card h1 {
+            font-family: var(--font-display);
+            font-size: 1.55rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+        }
+
+        .submit-page .form-card h1 svg.icon {
+            color: var(--accent);
+        }
+
+        /* Descrizione */
+        .submit-page .form-card > p {
+            color: var(--muted);
+            margin-bottom: 1.6rem;
+            font-size: 0.92rem;
+            line-height: 1.55;
+        }
+
+        /* Form a griglia */
+        .submit-page #eventForm {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0 1rem;
+        }
+
+        /* Ogni campo */
+        .submit-page #eventForm > div {
+            min-width: 0;
+        }
+
+        /* Campi a tutta larghezza */
+        .submit-page #eventForm > .full {
+            grid-column: 1 / -1;
+        }
+
+        /* Label */
+        .submit-page #eventForm label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--ink-soft);
+            margin-bottom: 0.32rem;
+        }
+
+        /* Input e textarea */
+        .submit-page #eventForm input[type="text"],
+        .submit-page #eventForm input[type="date"],
+        .submit-page #eventForm input[type="url"],
+        .submit-page #eventForm textarea {
+            width: 100%;
+            padding: 0.72rem 0.85rem;
+            border-radius: var(--radius-sm);
+            border: 1.5px solid var(--line);
+            font-size: 0.9rem;
+            margin-bottom: 1.1rem;
+            font-family: inherit;
+            background: var(--bg);
+            color: var(--ink);
+            transition:
+                border-color 0.2s,
+                box-shadow 0.2s,
+                background 0.2s;
+        }
+
+        .submit-page #eventForm input[type="text"]:focus,
+        .submit-page #eventForm input[type="date"]:focus,
+        .submit-page #eventForm input[type="url"]:focus,
+        .submit-page #eventForm textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-ring);
+            background: #fff;
+        }
+
+        .submit-page #eventForm textarea {
+            resize: vertical;
+            min-height: 72px;
+        }
+
+        /* ============================================================
+           CHIP DISCIPLINE
+           ============================================================ */
+
+        .submit-page .chip-select {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.1rem;
+        }
+
+        .submit-page .chip {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.48rem 0.8rem;
+            border-radius: var(--radius-pill);
+            background: rgba(18, 21, 27, 0.06);
+            color: var(--ink-soft);
+            border: 1px solid transparent;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            user-select: none;
+            transition:
+                background 0.2s var(--ease),
+                color 0.2s var(--ease),
+                border-color 0.2s var(--ease),
+                transform 0.2s var(--ease);
+        }
+
+        .submit-page .chip:hover {
+            background: rgba(18, 21, 27, 0.1);
+            color: var(--ink);
+        }
+
+        .submit-page .chip.selected {
+            background: var(--accent-soft);
+            color: var(--accent-dark);
+            border-color: var(--accent-ring);
+        }
+
+        .submit-page .chip.selected:hover {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        /* ============================================================
+           TOGGLE
+           ============================================================ */
+
+        .submit-page .toggle-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .submit-page .toggle-row label {
+            display: inline-flex !important;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0 !important;
+            cursor: pointer;
+            font-size: 0.84rem !important;
+            color: var(--ink-soft);
+        }
+
+        .submit-page .toggle-row input[type="checkbox"] {
+            width: 17px;
+            height: 17px;
+            margin: 0;
+            accent-color: var(--accent);
+            cursor: pointer;
+        }
+
+        /* ============================================================
+           BOTTONE
+           ============================================================ */
+
+        .submit-page #eventForm button[type="submit"] {
+            grid-column: 1 / -1;
+            width: 100%;
+            padding: 0.85rem;
+            margin-top: 0.2rem;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: var(--radius-pill);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s var(--ease);
+        }
+
+        .submit-page #eventForm button[type="submit"]:hover {
+            background: var(--accent-dark);
+            transform: translateY(-1px);
+        }
+
+        .submit-page #eventForm button[type="submit"]:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Nota sotto il bottone */
+        .submit-page .submit-note {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin: 0.75rem 0 0 !important;
+            color: var(--muted);
+            font-size: 0.78rem !important;
+        }
+
+        /* ============================================================
+           MOBILE
+           ============================================================ */
+
+        @media (max-width: 640px) {
+
+            .submit-page .contact-container {
+                margin: 1.25rem auto;
+                padding: 0 0.9rem 2rem;
+            }
+
+            .submit-page .form-card {
+                padding: 1.3rem;
+                border-radius: var(--radius-lg);
+            }
+
+            .submit-page .form-card h1 {
+                font-size: 1.3rem;
+            }
+
+            .submit-page .form-card > p {
+                font-size: 0.86rem;
+                margin-bottom: 1.3rem;
+            }
+
+            .submit-page #eventForm {
+                grid-template-columns: 1fr;
+            }
+
+            .submit-page #eventForm > .full,
+            .submit-page #eventForm button[type="submit"],
+            .submit-page .submit-note {
+                grid-column: 1;
+            }
+
+            .submit-page .chip-select {
+                gap: 0.4rem;
+            }
+
+            .submit-page .chip {
+                font-size: 0.74rem;
+                padding: 0.42rem 0.68rem;
+            }
+
+            .submit-page .toggle-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.65rem;
+            }
+        }
+
+    </style>
 </head>
 
 <body class="submit-page">
 
 <header class="header" id="mainHeader">
-<div class="header-content">
-<div class="logo">Paddock<span>Map</span></div>
-<nav class="nav-menu">
-<a href="index.html" onclick="gtag('event', 'nav_click', { nav_item: 'home' })">Home</a>
-<a href="mappa.html" onclick="gtag('event', 'nav_click', { nav_item: 'mappa' })">Mappa</a>
-<a href="contatti.html" class="active" onclick="gtag('event', 'nav_click', { nav_item: 'promuovi_evento' })">Segnala Evento</a>
-</nav>
-<div class="header-stats">
-<div class="stat">
-<span class="stat-number" id="totalEvents">0</span>
-<span class="stat-label">Eventi</span>
-</div>
-<div class="stat">
-<span class="stat-number" id="totalCircuits">0</span>
-<span class="stat-label">Locations</span>
-</div>
-</div>
-</div>
+
+    <div class="header-content">
+
+        <div class="logo">
+            Paddock<span>Map</span>
+        </div>
+
+        <nav class="nav-menu">
+
+            <a href="index.html"
+               onclick="gtag('event', 'nav_click', { nav_item: 'home' })">
+                Home
+            </a>
+
+            <a href="mappa.html"
+               onclick="gtag('event', 'nav_click', { nav_item: 'mappa' })">
+                Mappa
+            </a>
+
+            <a href="contatti.html"
+               class="active"
+               onclick="gtag('event', 'nav_click', { nav_item: 'promuovi_evento' })">
+                Segnala Evento
+            </a>
+
+        </nav>
+
+        <div class="header-stats">
+
+            <div class="stat">
+                <span class="stat-number" id="totalEvents">0</span>
+                <span class="stat-label">Eventi</span>
+            </div>
+
+            <div class="stat">
+                <span class="stat-number" id="totalCircuits">0</span>
+                <span class="stat-label">Locations</span>
+            </div>
+
+        </div>
+
+    </div>
+
 </header>
 
-<div class="submit-wrap">
-<div class="submit-card">
-<h1 id="formTitle">Segnala un evento</h1>
-<p>Conosci un evento motorsport che manca su PaddockMap? Segnalacelo: verrà valutato e pubblicato a breve.</p>
 
-<form id="eventForm">
-    
-<div class="full">
-<label for="titolo">Nome evento</label>
-<input type="text" id="titolo" placeholder="Es. 6 Ore di Vallelunga" required>
+<div class="contact-container">
+
+    <div class="form-card">
+
+        <h1 id="formTitle">Segnala un evento</h1>
+
+        <p>
+            Conosci un evento motorsport che manca su PaddockMap?
+            Segnalacelo: verrà valutato e pubblicato a breve.
+        </p>
+
+
+        <form id="eventForm">
+
+            <!-- NOME EVENTO -->
+            <div class="full">
+
+                <label for="titolo">
+                    Nome evento
+                </label>
+
+                <input
+                    type="text"
+                    id="titolo"
+                    placeholder="Es. 6 Ore di Vallelunga"
+                    required
+                >
+
+            </div>
+
+
+            <!-- DATA INIZIO -->
+            <div>
+
+                <label for="dataInizio">
+                    Data inizio
+                </label>
+
+                <input
+                    type="date"
+                    id="dataInizio"
+                    required
+                >
+
+            </div>
+
+
+            <!-- DATA FINE -->
+            <div>
+
+                <label for="dataFine">
+                    Data fine (se più giorni)
+                </label>
+
+                <input
+                    type="date"
+                    id="dataFine"
+                >
+
+            </div>
+
+
+            <!-- CITTA -->
+            <div>
+
+                <label for="citta">
+                    Città
+                </label>
+
+                <input
+                    type="text"
+                    id="citta"
+                    placeholder="Es. Campagnano di Roma"
+                >
+
+            </div>
+
+
+            <!-- CIRCUITO -->
+            <div>
+
+                <label for="circuito">
+                    Circuito / Location
+                </label>
+
+                <input
+                    type="text"
+                    id="circuito"
+                    placeholder="Es. Autodromo di Vallelunga"
+                    required
+                >
+
+            </div>
+
+
+            <!-- ORGANIZZATORE -->
+            <div>
+
+                <label for="organizzatore">
+                    Organizzatore (opzionale)
+                </label>
+
+                <input
+                    type="text"
+                    id="organizzatore"
+                    placeholder="Es. ACI Sport"
+                >
+
+            </div>
+
+
+            <!-- LINK -->
+            <div>
+
+                <label for="linkBiglietti">
+                    Link biglietti/info (opzionale)
+                </label>
+
+                <input
+                    type="url"
+                    id="linkBiglietti"
+                    placeholder="https://..."
+                >
+
+            </div>
+
+
+            <!-- DISCIPLINE -->
+            <div class="full">
+
+                <label>
+                    Tipo di evento
+                </label>
+
+                <div class="chip-select" id="disciplineChips">
+
+                    <span class="chip" data-value="Gt">
+                        GT
+                    </span>
+
+                    <span class="chip" data-value="Formula">
+                        Formula
+                    </span>
+
+                    <span class="chip" data-value="Misto">
+                        Misto
+                    </span>
+
+                    <span class="chip" data-value="Storico">
+                        Storico
+                    </span>
+
+                    <span class="chip" data-value="Rally">
+                        Rally
+                    </span>
+
+                    <span class="chip" data-value="Le Mans Prototype">
+                        Le Mans Prototype
+                    </span>
+
+                    <span class="chip" data-value="Cronoscalata">
+                        Cronoscalata
+                    </span>
+
+                    <span class="chip" data-value="Raduno">
+                        Raduno
+                    </span>
+
+                    <span class="chip" data-value="Trackday">
+                        Trackday
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- TOGGLE -->
+            <div class="full toggle-row">
+
+                <label>
+                    <input
+                        type="checkbox"
+                        id="eventoGratuito"
+                    >
+                    Ingresso gratuito
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        id="itinerante"
+                    >
+                    Evento itinerante
+                </label>
+
+            </div>
+
+
+            <!-- NOTE -->
+            <div class="full">
+
+                <label for="descrizione">
+                    Note aggiuntive (opzionale)
+                </label>
+
+                <textarea
+                    id="descrizione"
+                    rows="2"
+                    placeholder="Qualsiasi dettaglio utile"
+                ></textarea>
+
+            </div>
+
+
+            <!-- SUBMIT -->
+            <button type="submit">
+                Invia segnalazione
+            </button>
+
+            <p class="submit-note">
+                Devi avere un account PaddockMap per inviare una segnalazione.
+            </p>
+
+        </form>
+
+    </div>
+
 </div>
 
-<div>
-<label for="dataInizio">Data inizio</label>
-<input type="date" id="dataInizio" required>
-</div>
-<div>
-<label for="dataFine">Data fine (se più giorni)</label>
-<input type="date" id="dataFine">
-</div>
-<div>
-<label for="citta">Città</label>
-<input type="text" id="citta" placeholder="Es. Campagnano di Roma">
-</div>
-
-<div>
-<label for="circuito">Circuito / Location</label>
-<input type="text" id="circuito" placeholder="Es. Autodromo di Vallelunga" required>
-</div>
-<div>
-<label for="organizzatore">Organizzatore (opzionale)</label>
-<input type="text" id="organizzatore" placeholder="Es. ACI Sport">
-</div>
-<div>
-<label for="linkBiglietti">Link biglietti/info (opzionale)</label>
-<input type="url" id="linkBiglietti" placeholder="https://...">
-</div>
-
-<div class="full">
-<label>Tipo di evento</label>
-<div class="chip-select" id="disciplineChips">
-<span class="chip" data-value="Gt">GT</span>
-<span class="chip" data-value="Formula">Formula</span>
-<span class="chip" data-value="Misto">Misto</span>
-<span class="chip" data-value="Storico">Storico</span>
-<span class="chip" data-value="Rally">Rally</span>
-<span class="chip" data-value="Le Mans Prototype">Le Mans Prototype</span>
-<span class="chip" data-value="Cronoscalata">Cronoscalata</span>
-<span class="chip" data-value="Raduno">Raduno</span>
-<span class="chip" data-value="Trackday">Trackday</span>
-</div>
-</div>
-
-<div class="full toggle-row">
-<label><input type="checkbox" id="eventoGratuito"> Ingresso gratuito</label>
-<label><input type="checkbox" id="itinerante"> Evento itinerante</label>
-</div>
-
-<div class="full">
-<label for="descrizione">Note aggiuntive (opzionale)</label>
-<textarea id="descrizione" rows="2" placeholder="Qualsiasi dettaglio utile"></textarea>
-</div>
-
-<button type="submit">Invia segnalazione</button>
-<p class="submit-note">Devi avere un account PaddockMap per inviare una segnalazione.</p>
-</form>
-</div>
-</div>
 
 <script>
-document.getElementById('formTitle').innerHTML = PMIcons.megaphone + ' Segnala un evento';
+
+document.getElementById('formTitle').innerHTML =
+    PMIcons.megaphone + ' Segnala un evento';
+
 
 function todayISO() {
-  const d = new Date();
-  const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, '0');
-  const day = String(d.getDate()).padStart(2, '0');
-  return `${y}-${m}-${day}`;
+
+    const d = new Date();
+
+    const y = d.getFullYear();
+
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+
+    const day = String(d.getDate()).padStart(2, '0');
+
+    return `${y}-${m}-${day}`;
 }
 
-fetch('https://paddockmap-api.managementcesar37.workers.dev/?v=' + Date.now())
-  .then(res => res.json())
-  .then(data => {
-    const today = todayISO();
-    const validEvents = data.filter(event => (event.dataFine || event.dataInizio) >= today);
-    document.getElementById('totalEvents').textContent = validEvents.length;
-    const circuits = new Set(validEvents.map(e => e.circuito).filter(c => c && c.trim() !== ''));
-    document.getElementById('totalCircuits').textContent = circuits.size;
-  })
-  .catch(err => console.error('Errore caricamento statistiche:', err));
 
-document.querySelectorAll('#disciplineChips .chip').forEach(chip => {
-  chip.addEventListener('click', () => chip.classList.toggle('selected'));
+/* ============================================================
+   STATISTICHE HEADER
+   ============================================================ */
+
+fetch(
+    'https://paddockmap-api.managementcesar37.workers.dev/?v='
+    + Date.now()
+)
+
+.then(res => res.json())
+
+.then(data => {
+
+    const today = todayISO();
+
+    const validEvents = data.filter(
+        event => (event.dataFine || event.dataInizio) >= today
+    );
+
+    document.getElementById('totalEvents').textContent =
+        validEvents.length;
+
+    const circuits = new Set(
+        validEvents
+            .map(e => e.circuito)
+            .filter(c => c && c.trim() !== '')
+    );
+
+    document.getElementById('totalCircuits').textContent =
+        circuits.size;
+
+})
+
+.catch(err => {
+
+    console.error(
+        'Errore caricamento statistiche:',
+        err
+    );
+
 });
+
+
+/* ============================================================
+   CHIP DISCIPLINE
+   ============================================================ */
+
+document
+    .querySelectorAll('#disciplineChips .chip')
+    .forEach(chip => {
+
+        chip.addEventListener('click', () => {
+
+            chip.classList.toggle('selected');
+
+        });
+
+    });
+
 
 function getSelectedDisciplines() {
-  return Array.from(document.querySelectorAll('#disciplineChips .chip.selected')).map(c => c.dataset.value);
+
+    return Array.from(
+        document.querySelectorAll(
+            '#disciplineChips .chip.selected'
+        )
+    ).map(c => c.dataset.value);
+
 }
 
-document.getElementById("eventForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
 
-    // Serve un account PaddockMap per inviare la segnalazione:
-    // stesso identico modale usato per "salva evento" / "segui circuito"
-    const { data: { session } } = await window.pmSupabase.auth.getSession();
-    if (!session) {
-        window.pmOpenAuthModal({
-            mode: 'login',
-            message: 'Per segnalare un evento accedi al tuo account PaddockMap (o creane uno gratis).'
-        });
-        return;
-    }
+/* ============================================================
+   INVIO FORM
+   ============================================================ */
 
-    const data = {
-        titolo: document.getElementById("titolo").value,
-        dataInizio: document.getElementById("dataInizio").value,
-        dataFine: document.getElementById("dataFine").value,
-        circuito: document.getElementById("circuito").value,
-        citta: document.getElementById("citta").value,
-        disciplina: getSelectedDisciplines(),
-        organizzatore: document.getElementById("organizzatore").value,
-        linkBiglietti: document.getElementById("linkBiglietti").value,
-        eventoGratuito: document.getElementById("eventoGratuito").checked,
-        itinerante: document.getElementById("itinerante").checked,
-        descrizione: document.getElementById("descrizione").value,
-        segnalatoDa: session.user.email
-    };
+document
+    .getElementById("eventForm")
+    .addEventListener("submit", async (e) => {
 
-    const button = e.target.querySelector("button[type='submit']");
-    button.disabled = true;
-    button.innerText = "Invio...";
+        e.preventDefault();
 
-    try {
-        await fetch("https://script.google.com/macros/s/AKfycbwlo-27y2T-5FGBRQArFZdFLLBmt23pUAmOjnoIuYsOu5QPCCF1fna2SS-NgQMk-dxu/exec", {
-            method: "POST",
-            body: JSON.stringify(data)
-        });
 
-        window.pmShowToast(`${PMIcons.check} Segnalazione inviata! Verrà valutata a breve.`);
-        document.getElementById("eventForm").reset();
-        document.querySelectorAll('#disciplineChips .chip.selected').forEach(c => c.classList.remove('selected'));
+        /*
+         * Serve un account PaddockMap per inviare
+         * la segnalazione.
+         */
 
-        if (typeof gtag === 'function') {
-            gtag('event', 'event_reported', { circuit: data.circuito || 'unknown' });
+        const {
+            data: { session }
+        } = await window.pmSupabase.auth.getSession();
+
+
+        if (!session) {
+
+            window.pmOpenAuthModal({
+
+                mode: 'login',
+
+                message:
+                    'Per segnalare un evento accedi al tuo account PaddockMap (o creane uno gratis).'
+
+            });
+
+            return;
+
         }
 
-    } catch (err) {
-        console.error(err);
-        window.pmShowToast('Errore nell\'invio della segnalazione. Riprova.');
-    }
 
-    button.disabled = false;
-    button.innerText = "Invia segnalazione";
-});
+        const data = {
+
+            titolo:
+                document.getElementById("titolo").value,
+
+            dataInizio:
+                document.getElementById("dataInizio").value,
+
+            dataFine:
+                document.getElementById("dataFine").value,
+
+            circuito:
+                document.getElementById("circuito").value,
+
+            citta:
+                document.getElementById("citta").value,
+
+            disciplina:
+                getSelectedDisciplines(),
+
+            organizzatore:
+                document.getElementById("organizzatore").value,
+
+            linkBiglietti:
+                document.getElementById("linkBiglietti").value,
+
+            eventoGratuito:
+                document.getElementById("eventoGratuito").checked,
+
+            itinerante:
+                document.getElementById("itinerante").checked,
+
+            descrizione:
+                document.getElementById("descrizione").value,
+
+            segnalatoDa:
+                session.user.email
+
+        };
+
+
+        const button =
+            e.target.querySelector(
+                "button[type='submit']"
+            );
+
+
+        button.disabled = true;
+
+        button.innerText = "Invio...";
+
+
+        try {
+
+            await fetch(
+                "https://script.google.com/macros/s/AKfycbwlo-27y2T-5FGBRQArFZdFLLBmt23pUAmOjnoIuYsOu5QPCCF1fna2SS-NgQMk-dxu/exec",
+                {
+                    method: "POST",
+                    body: JSON.stringify(data)
+                }
+            );
+
+
+            window.pmShowToast(
+                `${PMIcons.check} Segnalazione inviata! Verrà valutata a breve.`
+            );
+
+
+            document
+                .getElementById("eventForm")
+                .reset();
+
+
+            document
+                .querySelectorAll(
+                    '#disciplineChips .chip.selected'
+                )
+                .forEach(c =>
+                    c.classList.remove('selected')
+                );
+
+
+            if (typeof gtag === 'function') {
+
+                gtag(
+                    'event',
+                    'event_reported',
+                    {
+                        circuit:
+                            data.circuito || 'unknown'
+                    }
+                );
+
+            }
+
+
+        } catch (err) {
+
+            console.error(err);
+
+            window.pmShowToast(
+                'Errore nell\'invio della segnalazione. Riprova.'
+            );
+
+        }
+
+
+        button.disabled = false;
+
+        button.innerText =
+            "Invia segnalazione";
+
+    });
+
 </script>
 
 </body>
