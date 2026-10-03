@@ -705,46 +705,36 @@ document
 
 
         const data = {
-
             titolo:
                 document.getElementById("titolo").value,
-
             dataInizio:
                 document.getElementById("dataInizio").value,
-
             dataFine:
                 document.getElementById("dataFine").value,
-
             circuito:
                 document.getElementById("circuito").value,
-
             citta:
                 document.getElementById("citta").value,
-
             disciplina:
                 getSelectedDisciplines(),
-
             organizzatore:
                 document.getElementById("organizzatore").value,
-
             linkBiglietti:
                 document.getElementById("linkBiglietti").value,
-
             eventoGratuito:
                 document.getElementById("eventoGratuito").checked,
-
             itinerante:
                 document.getElementById("itinerante").checked,
-
             descrizione:
                 document.getElementById("descrizione").value,
-
             segnalatoDa:
                 session.user.email
-
         };
 
-
+        if (data.linkBiglietti && !/^https?:\/\//i.test(data.linkBiglietti)) {
+          window.pmShowToast('Il link deve iniziare con http:// o https://'); return;
+        }
+        
         const button =
             e.target.querySelector(
                 "button[type='submit']"
