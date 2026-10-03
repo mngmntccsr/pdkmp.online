@@ -149,6 +149,10 @@
     forgotLink: overlay.querySelector('#pmForgotLink')
   };
 
+  // Metti true solo dopo aver attivato Google su Supabase (passo C della guida)
+  const ENABLE_GOOGLE = false;
+  if (!ENABLE_GOOGLE) els.googleBtn.style.display = 'none';
+
   function attachSwitchLink() {
     const link = overlay.querySelector('#pmSwitchLink');
     link.addEventListener('click', (e) => {
