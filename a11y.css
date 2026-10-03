@@ -1,0 +1,22 @@
+/* PaddockMap — a11y.css (da caricare DOPO style.css) */
+:root {
+  --accent: #D23A10;        /* bianco su arancio ≈ 4,8:1 */
+  --accent-dark: #B02E0A;
+  --muted: #5F6775;         /* ≈ 5,1:1 su grigio chiaro */
+  --success: #17804A;       /* bianco su verde ≈ 5:1 */
+}
+/* Sullo sfondo scuro dell'header l'arancio originale ha più contrasto */
+.logo span, .stat-number { color: #FF4B24; }
+
+:focus-visible {
+  outline: 3px solid #12151B;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px #fff;   /* anello bianco: visibile anche su sfondi scuri */
+}
+.header :focus-visible { outline-color: #fff; box-shadow: 0 0 0 5px #12151B; }
+
+.pm-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
