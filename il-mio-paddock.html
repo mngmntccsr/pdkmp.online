@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+<script src="consent.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Il mio Paddock - PaddockMap</title>
@@ -10,6 +11,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
 <script src="auth.js" defer></script>
 <script src="paddock-actions.js" defer></script>
+  
 <style>
 .pk-container { max-width:900px; margin:0 auto; padding:2rem 1.25rem 3.5rem; }
 .pk-welcome h1 { font-size:1.5rem; margin-bottom:0.2rem; }
@@ -45,7 +47,7 @@ a.pk-link:hover .pk-title { color:var(--accent); }
 <nav class="nav-menu">
 <a href="index.html">Home</a>
 <a href="mappa.html">Mappa</a>
-<a href="contatti.html">Promuovi Evento</a>
+<a href="contatti.html">Segnala Evento</a>
 </nav>
 </div>
 </header>
@@ -158,16 +160,39 @@ a.pk-link:hover .pk-title { color:var(--accent); }
             <button class="pk-remove" data-remove="alert" data-id="${esc(a.id)}" aria-label="Rimuovi">${PMIcons.close}</button>
           </div>`).join('') : '<div class="pk-empty">Nessun alert attivo.</div>'}
         <form class="pk-alert-form" id="newAlertForm">
-          <select id="alertCircuit"><option value="">Tutti i circuiti</option>${circuitOptions.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('')}</select>
-          <select id="alertDiscipline"><option value="">Tutte le discipline</option>${['Gt','Formula','Misto','Storico','Rally','Le Mans Prototype','Cronoscalata','Raduno','Trackday'].map(d => `<option value="${d}">${d}</option>`).join('')}</select>
+          <select id="alertCircuit" aria-label="Circuito"><option value="">Tutti i circuiti</option>${circuitOptions.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('')}</select>
+          <select id="alertDiscipline" aria-label="Disciplina"><option value="">Tutte le discipline</option>${['Gt','Formula','Misto','Storico','Rally','Le Mans Prototype','Cronoscalata','Raduno','Trackday'].map(d => `<option value="${d}">${d}</option>`).join('')}</select>
           <button type="submit" class="btn btn-secondary">Crea alert</button>
         </form>
       </div>
 
+      <div class="pk-section">
+        <h2>${PMIcons.user} Privacy e dati</h2>
+        <p class="pk-sub" style="margin-bottom:.8rem">Scarica i tuoi dati o elimina definitivamente l'account. <a href="legale.html#privacy">Informativa privacy</a></p>
+        <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+          <button class="btn btn-secondary" id="exportBtn" style="width:auto">Scarica i miei dati</button>
+          <button class="btn btn-secondary" id="deleteBtn" style="width:auto">Elimina il mio account</button>
+        </div>
+      </div>
+      
       <div class="pk-logout-row"><button class="btn btn-secondary" id="logoutBtn">${PMIcons.logout} Esci</button></div>
     `;
 
     document.getElementById('logoutBtn').addEventListener('click', async () => { await window.pmSignOut(); window.location.href = 'index.html'; });
+
+    document.getElementById('exportBtn').addEventListener('click', () => {
+      const dump = { email: session.user.email, nome: name, eventi_salvati: savedRaw || [], circuiti_seguiti: circuits || [], alert: alerts || [] };
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([JSON.stringify(dump, null, 2)], { type: 'application/json' }));
+      a.download = 'paddockmap-i-miei-dati.json'; a.click();
+    });
+    
+    document.getElementById('deleteBtn').addEventListener('click', async () => {
+      if (!confirm('Eliminare definitivamente il tuo account e tutti i dati collegati? L\'operazione non si può annullare.')) return;
+      const { error } = await sb.rpc('delete_my_account');
+      if (error) { window.pmShowToast('Impossibile eliminare l\'account. Usa il link «Cancella i miei dati».'); return; }
+      await sb.auth.signOut(); window.location.href = 'index.html';
+    });
 
     document.getElementById('newAlertForm').addEventListener('submit', async (e) => {
       e.preventDefault();
