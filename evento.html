@@ -27,12 +27,7 @@
        LEAFLET
        ========================================================= -->
 
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    crossorigin=""
-  >
-
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
 
   <!-- =========================================================
        STILE LOCALE PAGINA EVENTO
@@ -418,7 +413,7 @@
         var(--accent-soft);
 
       color:
-        var(--accent);
+        var(--accent-dark);
 
       font-size:
         0.75rem;
@@ -494,9 +489,7 @@
 
       letter-spacing:
         0.04em;
-
     }
-
 
     .event-detail-info-value {
 
@@ -517,9 +510,7 @@
 
       overflow-wrap:
         anywhere;
-
     }
-
 
     .event-detail-info-value a {
 
@@ -531,17 +522,13 @@
 
       text-decoration:
         none;
-
     }
-
 
     .event-detail-info-value a:hover {
 
       text-decoration:
         underline;
-
     }
-
 
     /* =========================================================
        AZIONI
@@ -1402,11 +1389,7 @@
        LEAFLET
        ========================================================= -->
 
-  <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    crossorigin=""
-  ></script>
-
+  <script src="vendor/leaflet/leaflet.js"></script>
 
   <!-- =========================================================
        PADDockMAP JS
@@ -1415,15 +1398,8 @@
   <script src="icons.js"></script>
   <script src="pm-safe.js"></script>
   <script src="map-common.js"></script>
-
-
-  <script
-    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
-  ></script>
-
-
+  <script src="vendor/supabase.js"></script>
   <script src="auth.js"></script>
-
   <script src="paddock-actions.js"></script>
 
 
