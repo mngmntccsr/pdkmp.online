@@ -182,20 +182,6 @@
         document.getElementById('mapLocateBtn').innerHTML = PMIcons.locate + ' Usa la mia posizione';
         document.getElementById('footerMail').innerHTML = PMIcons.mail + ' managementcesar37@gmail.com';
 
-        // SCROLL HEADER ANIMATION
-let lastState = null;
-
-window.addEventListener('scroll', () => {
-    const header = document.getElementById('mainHeader');
-    if (!header) return;
-    const isCollapsed = window.scrollY > 80;
-
-    if (isCollapsed === lastState) return;
-    lastState = isCollapsed;
-
-    header.classList.toggle('collapsed', isCollapsed);
-});
-
         // CONFIGURAZIONE ICONE PERSONALIZZATE
         // Puoi usare emoji oppure percorsi a file immagine
         const disciplineIcons = {
@@ -795,14 +781,17 @@ function updateDisplay(container, filterType) {
 }
 
 document.addEventListener('click', (e) => {
-    if (!e.target.closest('.multi-select')) {
+    const path = e.composedPath ? e.composedPath() : [];
+    const isInside = (cls) => path.some(el => el.classList && el.classList.contains(cls));
+
+    if (!isInside('multi-select')) {
         document.querySelectorAll('.multi-select-options.active').forEach(d => {
             d.classList.remove('active');
             const display = d.previousElementSibling;
             if (display) restoreMultiSelectDisplay(display);
         });
     }
-    if (!e.target.closest('.date-picker')) {
+    if (!isInside('date-picker')) {
         const picker = document.getElementById('datePicker');
         if (picker) picker.classList.remove('open');
     }
