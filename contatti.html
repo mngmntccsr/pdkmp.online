@@ -65,7 +65,7 @@
             line-height: 1.55;
         }
 
-        /* Form a griglia */
+        /* Form a griglia (tablet: 2 colonne) */
         .submit-page #eventForm {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -243,6 +243,130 @@
         }
 
         /* ============================================================
+           DESKTOP (da 1100px): tutti i campi distribuiti su tutta la
+           larghezza della pagina, senza bisogno di scrollare.
+           Griglia a 12 colonne:
+             riga 1: Nome evento (6) · Data inizio (3) · Data fine (3)
+             riga 2: Città (3) · Circuito (3) · Organizzatore (3) · Link (3)
+             riga 3: Tipo di evento (8) · Opzioni (4)
+             riga 4: Note (8) · Invia (4)
+           ============================================================ */
+
+        @media (min-width: 1100px) {
+
+            .submit-page {
+                display: flex;
+                flex-direction: column;
+            }
+
+            /* la card occupa la larghezza e si centra in verticale */
+            .submit-page .contact-container {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                width: 100%;
+                max-width: 1440px;
+                margin: 0 auto;
+                padding: 1rem 2rem;
+            }
+
+            .submit-page .form-card {
+                width: 100%;
+                padding: 1.4rem 1.8rem;
+            }
+
+            .submit-page .form-card h1 {
+                font-size: 1.4rem;
+                margin-bottom: 0.35rem;
+            }
+
+            .submit-page .form-card > p {
+                margin-bottom: 1rem;
+            }
+
+            .submit-page #eventForm {
+                grid-template-columns: repeat(12, minmax(0, 1fr));
+            }
+
+            .submit-page #eventForm input[type="text"],
+            .submit-page #eventForm input[type="date"],
+            .submit-page #eventForm input[type="url"],
+            .submit-page #eventForm textarea {
+                margin-bottom: 0.8rem;
+            }
+
+            .submit-page #eventForm textarea {
+                min-height: 58px;
+            }
+
+            .submit-page .chip-select {
+                margin-bottom: 0.8rem;
+            }
+
+            .submit-page #eventForm > .f-titolo   { grid-column: span 6; }
+            .submit-page #eventForm > .f-inizio   { grid-column: span 3; }
+            .submit-page #eventForm > .f-fine     { grid-column: span 3; }
+            .submit-page #eventForm > .f-citta    { grid-column: span 3; }
+            .submit-page #eventForm > .f-circuito { grid-column: span 3; }
+            .submit-page #eventForm > .f-org      { grid-column: span 3; }
+            .submit-page #eventForm > .f-link     { grid-column: span 3; }
+            .submit-page #eventForm > .f-disc     { grid-column: span 8; }
+
+            /* le due opzioni sono allineate ai chip accanto */
+            .submit-page #eventForm > .f-toggle {
+                grid-column: span 4;
+                padding-top: 2.1rem;
+                margin-bottom: 0;
+            }
+
+            .submit-page #eventForm > .f-note     { grid-column: span 8; }
+
+            .submit-page #eventForm button[type="submit"] {
+                grid-column: span 4;
+                align-self: end;
+                height: 3.6rem;
+                margin: 0 0 0.8rem;
+            }
+
+            .submit-page .submit-note {
+                margin-top: 0.3rem !important;
+            }
+        }
+
+        /* Schermi desktop poco alti: spaziature più compatte */
+        @media (min-width: 1100px) and (max-height: 720px) {
+
+            .submit-page .contact-container {
+                padding: 0.5rem 2rem;
+            }
+
+            .submit-page .form-card {
+                padding: 1rem 1.4rem;
+            }
+
+            .submit-page .form-card > p {
+                margin-bottom: 0.7rem;
+            }
+
+            .submit-page #eventForm input[type="text"],
+            .submit-page #eventForm input[type="date"],
+            .submit-page #eventForm input[type="url"],
+            .submit-page #eventForm textarea {
+                padding: 0.5rem 0.75rem;
+                margin-bottom: 0.55rem;
+            }
+
+            .submit-page #eventForm > .f-toggle {
+                padding-top: 1.9rem;
+            }
+
+            .submit-page #eventForm button[type="submit"] {
+                height: 3.2rem;
+                margin-bottom: 0.55rem;
+            }
+        }
+
+        /* ============================================================
            MOBILE
            ============================================================ */
 
@@ -360,7 +484,7 @@
         <form id="eventForm">
 
             <!-- NOME EVENTO -->
-            <div class="full">
+            <div class="full f-titolo">
 
                 <label for="titolo">
                     Nome evento
@@ -377,7 +501,7 @@
 
 
             <!-- DATA INIZIO -->
-            <div>
+            <div class="f-inizio">
 
                 <label for="dataInizio">
                     Data inizio
@@ -393,7 +517,7 @@
 
 
             <!-- DATA FINE -->
-            <div>
+            <div class="f-fine">
 
                 <label for="dataFine">
                     Data fine (se più giorni)
@@ -408,7 +532,7 @@
 
 
             <!-- CITTA -->
-            <div>
+            <div class="f-citta">
 
                 <label for="citta">
                     Città
@@ -424,7 +548,7 @@
 
 
             <!-- CIRCUITO -->
-            <div>
+            <div class="f-circuito">
 
                 <label for="circuito">
                     Circuito / Location
@@ -441,7 +565,7 @@
 
 
             <!-- ORGANIZZATORE -->
-            <div>
+            <div class="f-org">
 
                 <label for="organizzatore">
                     Organizzatore (opzionale)
@@ -457,7 +581,7 @@
 
 
             <!-- LINK -->
-            <div>
+            <div class="f-link">
 
                 <label for="linkBiglietti">
                     Link biglietti/info (opzionale)
@@ -473,7 +597,7 @@
 
 
             <!-- DISCIPLINE -->
-            <div class="full">
+            <div class="full f-disc">
 
                 <label>
                     Tipo di evento
@@ -523,7 +647,7 @@
 
 
             <!-- TOGGLE -->
-            <div class="full toggle-row">
+            <div class="full toggle-row f-toggle">
 
                 <label>
                     <input
@@ -545,7 +669,7 @@
 
 
             <!-- NOTE -->
-            <div class="full">
+            <div class="full f-note">
 
                 <label for="descrizione">
                     Note aggiuntive (opzionale)
@@ -739,15 +863,9 @@ document
             e.target.querySelector(
                 "button[type='submit']"
             );
-
-
         button.disabled = true;
-
         button.innerText = "Invio...";
-
-
         try {
-
             await fetch(
                 "https://script.google.com/macros/s/AKfycbwlo-27y2T-5FGBRQArFZdFLLBmt23pUAmOjnoIuYsOu5QPCCF1fna2SS-NgQMk-dxu/exec",
                 {
@@ -755,18 +873,12 @@ document
                     body: JSON.stringify(data)
                 }
             );
-
-
             window.pmShowToast(
                 `${PMIcons.check} Segnalazione inviata! Verrà valutata a breve.`
             );
-
-
             document
                 .getElementById("eventForm")
                 .reset();
-
-
             document
                 .querySelectorAll(
                     '#disciplineChips .chip.selected'
@@ -774,10 +886,7 @@ document
                 .forEach(c =>
                     c.classList.remove('selected')
                 );
-
-
             if (typeof gtag === 'function') {
-
                 gtag(
                     'event',
                     'event_reported',
@@ -786,29 +895,17 @@ document
                             data.circuito || 'unknown'
                     }
                 );
-
             }
-
-
         } catch (err) {
-
             console.error(err);
-
             window.pmShowToast(
                 'Errore nell\'invio della segnalazione. Riprova.'
             );
-
         }
-
-
         button.disabled = false;
-
         button.innerText =
             "Invia segnalazione";
-
     });
-
 </script>
-
 </body>
 </html>
