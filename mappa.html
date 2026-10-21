@@ -30,7 +30,24 @@
   .map-half { position: relative; }
   #interactiveMapFull { position: absolute; inset: 0; width: 100%; height: 100%; }
 
-  /* MOBILE: [Filtri ▾] in alto -> pannello filtri (se aperto) -> mappa.
+  /* ✕ per cancellare un singolo filtro */
+  .clear-x {
+    display: none; align-items: center; justify-content: center;
+    width: 18px; height: 18px; padding: 0; border: 0; border-radius: 50%;
+    background: rgba(18, 21, 27, 0.08); color: var(--ink-soft);
+    font-family: inherit; font-size: 0.62rem; line-height: 1;
+    cursor: pointer; flex-shrink: 0; margin-left: auto;
+    transition: background 0.15s, color 0.15s;
+  }
+  .clear-x.visible { display: flex; }
+  .clear-x:hover { background: var(--accent); color: #fff; }
+  .input-clearable { position: relative; }
+  .input-clearable input { padding-right: 2.2rem; }
+  .input-clearable .clear-x { position: absolute; right: 0.7rem; top: 50%; transform: translateY(-50%); }
+  .label-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem; }
+  .label-row label { margin-bottom: 0; }
+
+  /* MOBILE: mappa -> [Filtri ▾] -> pannello filtri (se aperto).
      --bottom-space è lo spazio che lo script riserva in fondo per il banner
      cookie e per i link legali, così non coprono mai filtri o mappa. */
   @media (max-width: 700px) {
@@ -39,10 +56,10 @@
       overflow-y: auto;
       padding-bottom: var(--bottom-space, 0px);
     }
-    .map-mobile-toggle { order: 0; flex: 0 0 auto; margin: 0.5rem auto; padding: 0.6rem 1.05rem; }
-    .filters-half { order: 1; padding: 0 0.75rem 0.75rem; }
+    .map-half { flex: 1 1 0; min-height: 200px; }
+    .map-mobile-toggle { flex: 0 0 auto; margin: 0.5rem auto; padding: 0.6rem 1.05rem; }
+    .filters-half { padding: 0 0.75rem 0.75rem; }
     .filters-inner { max-width: none; padding: 1rem; gap: 0.7rem; }
-    .map-half { order: 2; flex: 1 1 0; min-height: 200px; }
   }
 </style>
 </head>
@@ -130,11 +147,17 @@
 
 <div class="filter-group">
 <label for="filterSearch">Cerca</label>
+<div class="input-clearable">
 <input type="text" id="filterSearch" placeholder="Nome evento, circuito...">
+<button type="button" class="clear-x" id="clearSearch" aria-label="Cancella ricerca">✕</button>
+</div>
 </div>
 
 <div class="filter-group">
+<div class="label-row">
 <label for="mapRadiusRange">Distanza: <span class="radius-value" id="mapRadiusValue">off</span></label>
+<button type="button" class="clear-x" id="clearZone" aria-label="Cancella zona">✕</button>
+</div>
 <input type="range" id="mapRadiusRange" min="5" max="300" step="5" value="50" disabled>
 </div>
 
@@ -342,6 +365,15 @@ document.getElementById('mapLocateBtn').innerHTML = PMIcons.locate + ' Usa la mi
 
     renderMarkers(filtered);
     updateResetButtonState(disciplines, searchText);
+    refreshClearButtons(searchText);
+  }
+
+  // Mostra la ✕ di Cerca e di Distanza solo quando quel filtro è attivo
+  function refreshClearButtons(searchText) {
+    const s = document.getElementById('clearSearch');
+    if (s) s.classList.toggle('visible', !!searchText);
+    const z = document.getElementById('clearZone');
+    if (z) z.classList.toggle('visible', !!searchCenter);
   }
 
   function renderMarkers(events) {
@@ -418,6 +450,21 @@ document.getElementById('mapLocateBtn').innerHTML = PMIcons.locate + ' Usa la mi
     display.innerHTML = selected.length === 0
       ? `<span class="placeholder">${placeholder}</span>`
       : selected.map(s => `<span class="selected-tag">${s.textContent}</span>`).join('');
+
+    if (selected.length > 0) {
+      const x = document.createElement('button');
+      x.type = 'button';
+      x.className = 'clear-x visible';
+      x.setAttribute('aria-label', 'Cancella filtro');
+      x.textContent = '✕';
+      x.addEventListener('click', (e) => {
+        e.stopPropagation(); // non apre/chiude il menu a tendina
+        multiSelectEl.querySelectorAll('.multi-select-option.selected').forEach(o => o.classList.remove('selected'));
+        updateMultiSelectDisplay(multiSelectEl);
+        applyFilters();
+      });
+      display.appendChild(x);
+    }
   }
 
   document.addEventListener('click', (e) => {
@@ -480,6 +527,22 @@ document.getElementById('mapLocateBtn').innerHTML = PMIcons.locate + ' Usa la mi
     if (searchCircle) map.removeLayer(searchCircle);
     if (centerMarker) map.removeLayer(centerMarker);
     map.setView([42.8, 12.5], 6);
+    applyFilters();
+  });
+
+  // ✕ singole: Cerca e Distanza (zona)
+  document.getElementById('clearSearch').addEventListener('click', () => {
+    document.getElementById('filterSearch').value = '';
+    applyFilters();
+  });
+
+  document.getElementById('clearZone').addEventListener('click', () => {
+    searchCenter = null;
+    document.getElementById('mapRadiusRange').disabled = true;
+    document.getElementById('mapRadiusValue').textContent = 'off';
+    if (searchCircle) map.removeLayer(searchCircle);
+    if (centerMarker) map.removeLayer(centerMarker);
+    map.setView([41.5, 12.5], 6);
     applyFilters();
   });
 
@@ -546,6 +609,17 @@ const today = todayISO();
     mapMobileToggle.addEventListener('click', () => {
       const isOpen = filtersHalf.classList.toggle('mobile-open');
       mapMobileToggle.classList.toggle('open', isOpen);
+
+      // I filtri stanno sotto la mappa: all'apertura scorro in modo che la barra
+      // "Filtri" salga in cima e il pannello sia visibile; alla chiusura torno alla mappa.
+      const wrap = document.querySelector('.page-wrap');
+      if (wrap) {
+        const top = isOpen
+          ? wrap.scrollTop + mapMobileToggle.getBoundingClientRect().top - wrap.getBoundingClientRect().top
+          : 0;
+        wrap.scrollTo({ top: top, behavior: 'smooth' });
+      }
+
       setTimeout(() => { if (map) map.invalidateSize(); }, 300);
     });
   }
