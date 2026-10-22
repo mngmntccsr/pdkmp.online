@@ -417,6 +417,18 @@
             }
         }
 
+        /* Mobile e tablet: la pagina deve sempre poter scorrere */
+        @media (max-width: 1099px) {
+            html, body {
+                height: auto;
+                overflow-y: auto;
+            }
+            .submit-page {
+                display: block;
+                min-height: 100vh;
+            }
+        }
+        
     </style>
 </head>
 
