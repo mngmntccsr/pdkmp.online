@@ -1313,3 +1313,51 @@ body.submit-page .header { flex: 0 0 auto; }
     white-space: nowrap;
     z-index: 9999;
 }
+
+/* ==========================================================================
+   Filtri rapidi (sotto l'header, tutta la larghezza)
+   ========================================================================== */
+.quick-filters { padding: 0.9rem 1.5rem 0; }
+.quick-filters-inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.quick-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.05rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: var(--surface-glass-strong);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  backdrop-filter: blur(16px) saturate(160%);
+  box-shadow: var(--shadow-card);
+  color: var(--ink-soft);
+  font-family: inherit;
+  font-size: 0.86rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease), box-shadow 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.quick-chip svg.icon { color: var(--accent); transition: color 0.2s var(--ease); }
+.quick-chip:hover { color: var(--ink); transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.quick-chip.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.quick-chip.active svg.icon { color: #fff; }
+.quick-chip.loading { opacity: 0.6; pointer-events: none; }
+
+@media (max-width: 768px) {
+  .quick-filters { padding: 0.7rem 0.9rem 0; }
+  .quick-filters-inner {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 0.9rem;
+    margin-bottom: -0.5rem;
+  }
+  .quick-filters-inner::-webkit-scrollbar { display: none; }
+  .quick-chip { flex-shrink: 0; }
+}
