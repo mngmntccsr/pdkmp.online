@@ -42,6 +42,15 @@
 </div>
 </header>
 
+    <!-- Filtri rapidi -->
+    <div class="quick-filters">
+        <div class="quick-filters-inner">
+            <button type="button" class="quick-chip" id="qfWeek" aria-pressed="false" onclick="toggleQuickFilter('week')"></button>
+            <button type="button" class="quick-chip" id="qfRecommended" aria-pressed="false" onclick="toggleQuickFilter('recommended')"></button>
+            <button type="button" class="quick-chip" id="qfRoad" aria-pressed="false" onclick="toggleQuickFilter('road')"></button>
+        </div>
+    </div>
+
     <!-- Main Content -->
     <div class="container">
         <div class="youtube-layout map-open" id="youtubeLayout">
@@ -181,6 +190,9 @@
         document.getElementById('mapFilterTitle').innerHTML = PMIcons.pin + ' Filtra per zona';
         document.getElementById('mapLocateBtn').innerHTML = PMIcons.locate + ' Usa la mia posizione';
         document.getElementById('footerMail').innerHTML = PMIcons.mail + ' managementcesar37@gmail.com';
+        document.getElementById('qfWeek').innerHTML = PMIcons.locate + ' In zona questa settimana';
+        document.getElementById('qfRecommended').innerHTML = PMIcons.sparkle + ' Consigliati';
+        document.getElementById('qfRoad').innerHTML = PMIcons.compass + ' On the road';
 
         // CONFIGURAZIONE ICONE PERSONALIZZATE
         // Puoi usare emoji oppure percorsi a file immagine
@@ -801,6 +813,78 @@ document.querySelectorAll('.multi-select-option').forEach(opt => {
     opt.onclick = () => selectMultiOption(opt);
 });
 
+// ===== FILTRI RAPIDI =====
+const quickFilters = { recommended: false, road: false };
+
+// CONSIGLIATI — PLACEHOLDER DI TEST: per ora = tutti gli eventi di ACI Sport.
+// Qui va sostituita con la logica vera (flag nel foglio eventi, selezione redazionale, ecc.).
+function isRecommended(event) {
+    return (event.organizzatore || '').trim().toLowerCase() === 'aci sport';
+}
+
+function weekRange() {
+    const now = new Date();
+    const offset = (now.getDay() + 6) % 7; // lunedì = 0
+    const mon = new Date(now.getFullYear(), now.getMonth(), now.getDate() - offset);
+    const sun = new Date(mon.getFullYear(), mon.getMonth(), mon.getDate() + 6);
+    return [mon, sun];
+}
+
+function isWeekFilterOn() {
+    const [mon, sun] = weekRange();
+    const center = window.pmGetSearchCenter ? window.pmGetSearchCenter() : null;
+    return !!center && selectedFilters.dateFrom === toISODate(mon) && selectedFilters.dateTo === toISODate(sun);
+}
+
+function refreshQuickChips() {
+    [['qfWeek', isWeekFilterOn()], ['qfRecommended', quickFilters.recommended], ['qfRoad', quickFilters.road]]
+        .forEach(([id, on]) => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.classList.toggle('active', on);
+            el.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+}
+window.pmRefreshQuick = refreshQuickChips;
+
+function toggleQuickFilter(key) {
+    if (key === 'week') { toggleWeekNearMe(); return; }
+    quickFilters[key] = !quickFilters[key];
+    applyFilters();
+    refreshQuickChips();
+    if (window.pmRefreshResetButton) window.pmRefreshResetButton();
+    if (typeof gtag === 'function') gtag('event', 'quick_filter', { filter: key, active: quickFilters[key] ? 'yes' : 'no' });
+}
+
+function toggleWeekNearMe() {
+    if (!window.pmNearMe) return;
+    if (isWeekFilterOn()) {            // secondo click: toglie date e posizione
+        clearDateRange();
+        if (window.pmClearMapSearch) window.pmClearMapSearch();
+        refreshQuickChips();
+        return;
+    }
+    const btn = document.getElementById('qfWeek');
+    btn.classList.add('loading');
+    window.pmNearMe(100, (ok) => {     // raggio 100 km
+        btn.classList.remove('loading');
+        if (!ok) return;
+        const [mon, sun] = weekRange();
+        rangeStart = mon;
+        rangeEnd = sun;
+        selectedFilters.dateFrom = toISODate(mon);
+        selectedFilters.dateTo = toISODate(sun);
+        calendarViewDate = new Date(mon);
+        calendarViewDate.setDate(1);
+        renderCalendar();
+        updateDatePickerLabel();
+        applyFilters();
+        refreshQuickChips();
+        if (window.pmRefreshResetButton) window.pmRefreshResetButton();
+        if (typeof gtag === 'function') gtag('event', 'quick_filter', { filter: 'week', active: 'yes' });
+    });
+}
+
         // Filtri
 let currentSearchTerms = [];
 
@@ -842,8 +926,10 @@ function applyFilters() {
         const haystack = buildSearchHaystack(event);
         const matchSearch = currentSearchTerms.length === 0 ||
             currentSearchTerms.every(term => haystack.includes(term));
+        const matchQuick = (!quickFilters.recommended || isRecommended(event)) &&
+            (!quickFilters.road || !!event.itinerante);
 
-        return matchDiscipline && matchCircuit && matchOrganizer && matchDate && matchSearch;
+        return matchDiscipline && matchCircuit && matchOrganizer && matchDate && matchSearch && matchQuick;
     });
 
     gtag('event', 'filter_results', { results_count: filtered.length });
@@ -870,6 +956,10 @@ function applyFilters() {
     document.querySelectorAll('.multi-select').forEach(container => updateDisplay(container, container.dataset.filter));
 
     document.getElementById('filterSearch').value = '';
+
+    quickFilters.recommended = false;
+    quickFilters.road = false;
+    refreshQuickChips();
 
     renderEvents(eventsData);
     updateURLFromFilters();
@@ -1070,10 +1160,42 @@ function initEventTracking() {
     const anyDate = !!(selectedFilters.dateFrom || selectedFilters.dateTo);
     const resetBtn = document.querySelector('.reset-filters');
     if (!resetBtn) return;
-    resetBtn.classList.toggle('active', anyMultiSelected || anySearchText || anyDate || !!searchCenter);
+    resetBtn.classList.toggle('active', anyMultiSelected || anySearchText || anyDate || !!searchCenter || quickFilters.recommended || quickFilters.road);
+    if (window.pmRefreshQuick) window.pmRefreshQuick();
   }
   // esposta globalmente così il calendario data (definito nell'altro script) può richiamarla
   window.pmRefreshResetButton = updateResetButtonState;
+
+  // ----- Filtri rapidi: usate dal bottone "In zona questa settimana" -----
+  window.pmGetSearchCenter = () => searchCenter;
+
+  window.pmNearMe = function (radiusKm, onDone) {
+    if (!map || !navigator.geolocation) {
+      alert('Geolocalizzazione non disponibile.');
+      onDone(false);
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        searchRadiusKm = radiusKm;
+        document.getElementById('mapRadiusRange').value = radiusKm;
+        document.getElementById('mapRadiusValue').textContent = radiusKm;
+        setSearchCenter(pos.coords.latitude, pos.coords.longitude);
+        onDone(true);
+      },
+      () => { alert('Impossibile ottenere la tua posizione.'); onDone(false); }
+    );
+  };
+
+  window.pmClearMapSearch = function () {
+    if (!map) return;
+    searchCenter = null;
+    if (searchCircle) map.removeLayer(searchCircle);
+    if (centerMarker) map.removeLayer(centerMarker);
+    applyMapRadiusFilter();
+    map.setView(defaultMapCenter, defaultMapZoom);
+    updateResetButtonState();
+  };
 
   function setSearchCenter(lat, lng) {
     searchCenter = { lat, lng };
