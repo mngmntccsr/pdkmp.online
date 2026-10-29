@@ -15,56 +15,114 @@
 <script src="paddock-actions.js" defer></script>
   
 <style>
-.pk-container { width:min(100% - 2rem, 1560px); margin:0 auto; padding:2rem 0 3.5rem; }
-.pk-welcome { position:relative; padding:1.5rem 1.7rem; margin-bottom:1rem; overflow:hidden; border-radius:var(--radius-xl,28px); color:#fff; background:linear-gradient(115deg,#171b24 0%,#292e39 68%,#20232b 100%); box-shadow:var(--shadow-card); }
-.pk-welcome:after { content:""; position:absolute; right:-35px; top:-80px; width:260px; height:260px; border:1px solid rgba(255,255,255,.09); border-radius:50%; box-shadow:0 0 0 24px rgba(255,255,255,.025),0 0 0 50px rgba(255,255,255,.02); pointer-events:none; }
-.pk-welcome h1 { font-family:var(--font-display); font-size:clamp(1.5rem,2.5vw,2.15rem); letter-spacing:-.04em; margin-bottom:.25rem; position:relative; z-index:1; }
-.pk-welcome p { color:rgba(255,255,255,.65); font-size:.9rem; margin:0; position:relative; z-index:1; }
-.pk-welcome:before { content:"PIT WALL / DRIVER PROFILE"; display:block; color:var(--accent); font-size:.68rem; font-weight:800; letter-spacing:.16em; margin-bottom:.55rem; position:relative; z-index:1; }
-.pk-stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin-bottom:1.25rem; }
-.pk-stat { background:var(--surface-glass-strong,var(--surface,#fff)); border:1px solid rgba(255,255,255,.75); border-radius:var(--radius-lg,20px); padding:1.1rem 1.25rem; min-width:0; display:flex; align-items:center; gap:.8rem; box-shadow:var(--shadow-card); }
-.pk-stat svg.icon { color:var(--accent); width:24px; height:24px; flex-shrink:0; }
-.pk-stat .num { font-family:var(--font-display); font-size:1.65rem; font-weight:800; line-height:1; font-variant-numeric:tabular-nums; }
-.pk-stat .lbl { font-size:.76rem; color:var(--ink-soft); margin-top:.25rem; }
-.pk-dashboard { display:grid; grid-template-columns:minmax(0,1.7fr) minmax(310px,1fr); gap:1.1rem; align-items:start; }
-.pk-main,.pk-side { min-width:0; }
-.pk-section { background:var(--surface-glass-strong,var(--surface,#fff)); border:1px solid rgba(255,255,255,.75); border-radius:var(--radius-lg,20px); padding:1.25rem 1.4rem; margin-bottom:1.1rem; box-shadow:var(--shadow-card); }
-.pk-section h2 { font-family:var(--font-display); font-size:1.02rem; margin-bottom:.85rem; display:flex; align-items:center; gap:.5rem; }
-.pk-section h2 svg.icon { color:var(--accent); width:19px; height:19px; }
-.pk-row { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:.72rem 0; border-bottom:1px solid var(--line,#f0f0f0); font-size:.9rem; }
-.pk-row:last-child { border-bottom:none; }
-.pk-title { font-weight:650; line-height:1.35; }
-a.pk-link { color:inherit; text-decoration:none; display:block; flex:1; min-width:0; }
-a.pk-link:hover .pk-title { color:var(--accent); }
-.pk-sub { color:var(--ink-soft); font-size:.8rem; }
-.pk-remove { background:none; border:1px solid transparent; border-radius:8px; color:var(--muted); cursor:pointer; padding:.35rem; flex-shrink:0; }
-.pk-remove:hover { color:var(--accent); background:var(--accent-soft); }
-.pk-empty { color:var(--ink-soft); font-size:.85rem; padding:.65rem 0; }
-.pk-alert-form { display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.9rem; }
-.pk-alert-form select { padding:.6rem .7rem; border-radius:var(--radius-sm,10px); border:1.5px solid var(--line-strong); background:var(--surface); font-size:.83rem; font-family:inherit; min-width:0; flex:1; }
-.pk-alert-form .btn { width:auto; white-space:nowrap; padding:.65rem 1rem; }
-.pk-logout-row { text-align:center; margin-top:1.25rem; }
+/* ==========================================================================
+   Il mio Paddock — pit wall / telemetria
+   Usa solo i token di style.css (colori, raggi, ombre): nessun accento nuovo.
+   ========================================================================== */
+.pk-container { width:min(100% - 2rem, 1560px); margin:0 auto; padding:1.25rem 0 3rem; }
 .pk-gate { text-align:center; padding:4rem 1rem; color:var(--ink-soft); }
-.pk-telemetry { background:#171b24; color:#fff; border-radius:var(--radius-lg,20px); padding:1.25rem; margin-bottom:1.1rem; box-shadow:var(--shadow-card); position:relative; overflow:hidden; }
-.pk-telemetry-head { display:flex; justify-content:space-between; align-items:center; gap:.6rem; margin-bottom:1rem; }
-.pk-telemetry-title { font-size:.76rem; letter-spacing:.12em; font-weight:800; color:rgba(255,255,255,.72); }
-.pk-live { display:inline-flex; align-items:center; gap:.4rem; font-size:.67rem; text-transform:uppercase; letter-spacing:.08em; color:#9ce4b8; }
-.pk-live:before { content:""; width:7px; height:7px; border-radius:50%; background:#39cf76; box-shadow:0 0 0 4px rgba(57,207,118,.12); }
-.pk-telemetry-main { display:grid; grid-template-columns:1fr 1fr; gap:.7rem; }
-.pk-telemetry-metric { padding:.8rem; border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.045); border-radius:12px; }
-.pk-telemetry-metric strong { display:block; font-family:var(--font-display); font-size:1.55rem; line-height:1.1; font-variant-numeric:tabular-nums; }
-.pk-telemetry-metric span { display:block; color:rgba(255,255,255,.55); font-size:.7rem; margin-top:.35rem; }
-.pk-telemetry-label { color:rgba(255,255,255,.55); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; margin:1rem 0 .55rem; }
-.pk-signal { display:flex; align-items:center; gap:.65rem; font-size:.8rem; color:rgba(255,255,255,.8); padding:.55rem 0; border-top:1px solid rgba(255,255,255,.09); }
-.pk-signal-mark { width:24px; height:24px; border-radius:8px; display:grid; place-items:center; background:rgba(255,75,36,.16); color:#ff7658; font-weight:800; flex-shrink:0; }
-.pk-meter { height:5px; background:rgba(255,255,255,.12); border-radius:99px; overflow:hidden; margin-top:.5rem; }
-.pk-meter span { display:block; height:100%; background:var(--accent); border-radius:99px; }
-.pk-telemetry-foot { font-size:.68rem; color:rgba(255,255,255,.42); margin-top:1rem; padding-top:.7rem; border-top:1px solid rgba(255,255,255,.09); }
-.pk-privacy { margin-top:.2rem; }
-@media (min-width:1200px) { .pk-side { position:sticky; top:90px; } }
-@media (max-width:900px) { .pk-dashboard { grid-template-columns:minmax(0,1fr) minmax(260px,.8fr); gap:.8rem; } .pk-section { padding:1.1rem; } }
-@media (max-width:700px) { .pk-container { width:calc(100% - 1rem); padding-top:1rem; } .pk-welcome { padding:1.25rem; border-radius:var(--radius-lg); } .pk-stats { gap:.55rem; } .pk-stat { padding:.8rem .65rem; gap:.45rem; border-radius:14px; } .pk-stat svg.icon { width:19px; height:19px; } .pk-stat .num { font-size:1.35rem; } .pk-stat .lbl { font-size:.67rem; } .pk-dashboard { grid-template-columns:1fr; } .pk-side { display:contents; } .pk-telemetry { order:0; } .pk-main { order:1; } .pk-section { padding:1rem; margin-bottom:.8rem; } .pk-row { gap:.5rem; } .pk-alert-form { flex-direction:column; } .pk-alert-form .btn { width:100%; } }
-@media (max-width:380px) { .pk-stats { grid-template-columns:1fr; } .pk-stat { padding:.8rem 1rem; } }
+.pk-mono { font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; }
+
+/* ---------- Race control: fascia scura in alto ---------- */
+.pk-rc { position:relative; overflow:hidden; border-radius:var(--radius-xl); padding:1.1rem 1.3rem 1.3rem; margin-bottom:1.1rem; color:#fff; background:linear-gradient(135deg,#12151B 0%,#1C2029 100%); box-shadow:var(--shadow-card); }
+.pk-rc:before { content:""; position:absolute; inset:0; pointer-events:none; background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px); background-size:30px 30px; -webkit-mask-image:linear-gradient(180deg,#000,transparent 92%); mask-image:linear-gradient(180deg,#000,transparent 92%); }
+.pk-rc > * { position:relative; }
+.pk-rc-top { display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; margin-bottom:1rem; }
+.pk-kicker { display:flex; align-items:center; gap:.5rem; font-size:.66rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); }
+.pk-led { width:7px; height:7px; border-radius:50%; background:var(--success); box-shadow:0 0 0 4px rgba(30,158,90,.2); flex-shrink:0; }
+.pk-rc h1 { font-family:var(--font-display); font-size:clamp(1.35rem,2.2vw,1.9rem); letter-spacing:-.03em; line-height:1.15; margin-top:.4rem; }
+.pk-rc-side { display:flex; align-items:center; gap:.8rem; flex-shrink:0; }
+.pk-clock { font-size:.72rem; letter-spacing:.06em; color:rgba(255,255,255,.55); white-space:nowrap; font-variant-numeric:tabular-nums; }
+.pk-ghost { display:inline-flex; align-items:center; gap:.4rem; padding:.45rem .9rem; border-radius:var(--radius-pill); border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.06); color:rgba(255,255,255,.8); font-family:inherit; font-size:.8rem; font-weight:600; cursor:pointer; transition:background .2s var(--ease), color .2s var(--ease); }
+.pk-ghost:hover { background:rgba(255,255,255,.14); color:#fff; }
+
+.pk-rc-grid { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:.7rem; }
+.pk-tile { min-width:0; padding:.8rem .9rem; border-radius:14px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.09); }
+.pk-metric { grid-column:span 2; }
+.pk-next { grid-column:span 4; border-left:3px solid var(--accent); }
+.pk-mlabel { display:flex; align-items:center; gap:.4rem; font-size:.62rem; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:rgba(255,255,255,.55); }
+.pk-mlabel svg.icon { width:13px; height:13px; color:var(--accent); }
+.pk-num { font-family:var(--font-display); font-size:1.8rem; font-weight:800; line-height:1; margin-top:.55rem; font-variant-numeric:tabular-nums; }
+.pk-note { font-size:.7rem; color:rgba(255,255,255,.5); margin-top:.45rem; }
+.pk-seg { display:flex; gap:3px; margin-top:.6rem; }
+.pk-seg i { flex:1; height:5px; border-radius:2px; background:rgba(255,255,255,.13); }
+.pk-seg i.on { background:var(--accent); }
+
+.pk-next-body { display:flex; align-items:center; gap:.9rem; margin-top:.55rem; }
+.pk-count { flex-shrink:0; }
+.pk-count strong { display:block; font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; font-size:2rem; font-weight:800; line-height:1; color:#fff; font-variant-numeric:tabular-nums; }
+.pk-count span { display:block; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.5); margin-top:.3rem; }
+.pk-next-info { min-width:0; font-size:.76rem; color:rgba(255,255,255,.55); line-height:1.4; }
+.pk-next-info a { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; color:#fff; font-size:.92rem; font-weight:650; text-decoration:none; margin-bottom:.15rem; }
+.pk-next-info a:hover { color:var(--accent); }
+.pk-next-empty { margin-top:.6rem; font-size:.82rem; color:rgba(255,255,255,.6); line-height:1.5; }
+.pk-next-empty a { color:var(--accent); font-weight:600; text-decoration:none; }
+
+/* ---------- Dashboard ---------- */
+.pk-dashboard { display:grid; grid-template-columns:minmax(0,1.6fr) minmax(300px,1fr); gap:1.1rem; align-items:start; }
+.pk-main, .pk-side { min-width:0; }
+.pk-section { background:var(--surface-glass-strong); border:1px solid rgba(255,255,255,.75); border-radius:var(--radius-lg); padding:1rem 1.2rem 1.1rem; margin-bottom:1.1rem; box-shadow:var(--shadow-card); }
+.pk-sec-head { display:flex; align-items:center; justify-content:space-between; gap:.6rem; margin-bottom:.35rem; }
+.pk-sec-head h2 { font-family:var(--font-display); font-size:.98rem; display:flex; align-items:center; gap:.5rem; }
+.pk-sec-head h2 svg.icon { width:18px; height:18px; color:var(--accent); }
+.pk-pill { font-size:.68rem; font-weight:700; letter-spacing:.06em; padding:.15rem .55rem; border-radius:var(--radius-pill); background:rgba(18,21,27,.06); color:var(--ink-soft); font-variant-numeric:tabular-nums; }
+
+.pk-row { display:flex; align-items:center; gap:.8rem; padding:.65rem 0; border-top:1px solid var(--line); font-size:.9rem; }
+.pk-list .pk-row:first-child { border-top:none; }
+.pk-title { font-weight:650; line-height:1.3; }
+.pk-sub { color:var(--ink-soft); font-size:.78rem; margin-top:.1rem; }
+.pk-grow { flex:1; min-width:0; }
+a.pk-link { display:block; flex:1; min-width:0; color:inherit; text-decoration:none; }
+a.pk-link:hover .pk-title { color:var(--accent); }
+
+.pk-date { width:46px; flex-shrink:0; text-align:center; padding:.35rem 0; border-radius:12px; background:var(--ink); color:#fff; line-height:1; }
+.pk-date b { display:block; font-family:var(--font-display); font-size:1.15rem; font-variant-numeric:tabular-nums; }
+.pk-date span { display:block; margin-top:.22rem; font-size:.56rem; font-weight:700; letter-spacing:.12em; color:rgba(255,255,255,.6); }
+.pk-row.is-soon .pk-date { background:var(--accent); }
+.pk-row.is-soon .pk-date span { color:rgba(255,255,255,.88); }
+.pk-mark { width:32px; height:32px; flex-shrink:0; display:grid; place-items:center; border-radius:10px; background:var(--accent-soft); color:var(--accent); }
+.pk-mark svg.icon { width:16px; height:16px; }
+.pk-chip { flex-shrink:0; padding:.22rem .55rem; border-radius:var(--radius-pill); background:rgba(18,21,27,.06); color:var(--ink-soft); font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; font-size:.68rem; font-weight:700; letter-spacing:.04em; white-space:nowrap; font-variant-numeric:tabular-nums; }
+.pk-chip.soon { background:var(--accent-soft); color:var(--accent-dark); }
+.pk-remove { flex-shrink:0; padding:.35rem; border:1px solid transparent; border-radius:8px; background:none; color:var(--muted); cursor:pointer; }
+.pk-remove:hover { color:var(--accent); background:var(--accent-soft); }
+.pk-empty { padding:.7rem 0 .2rem; color:var(--ink-soft); font-size:.85rem; line-height:1.5; }
+.pk-empty a { color:var(--accent-dark); font-weight:600; text-decoration:none; }
+
+.pk-alert-form { display:grid; grid-template-columns:1fr 1fr; gap:.5rem; margin-top:.8rem; padding-top:.8rem; border-top:1px solid var(--line); }
+.pk-alert-form select { min-width:0; padding:.55rem .65rem; border-radius:var(--radius-sm); border:1.5px solid var(--line); background:var(--surface); color:var(--ink); font-family:inherit; font-size:.82rem; }
+.pk-alert-form select:hover { border-color:var(--line-strong); }
+.pk-alert-form select:focus { outline:none; border-color:var(--accent); box-shadow:0 0 0 4px var(--accent-ring); }
+.pk-alert-form .btn { grid-column:1 / -1; width:100%; padding:.6rem 1rem; }
+
+.pk-privacy { padding:0; }
+.pk-privacy summary { list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:.6rem; padding:.95rem 1.2rem; font-family:var(--font-display); font-size:.98rem; font-weight:700; }
+.pk-privacy summary::-webkit-details-marker { display:none; }
+.pk-privacy summary span { display:flex; align-items:center; gap:.5rem; }
+.pk-privacy summary svg.icon { width:18px; height:18px; color:var(--accent); }
+.pk-privacy summary:after { content:"▾"; color:var(--accent); transition:transform .2s var(--ease); }
+.pk-privacy[open] summary:after { transform:rotate(180deg); }
+.pk-privacy-body { padding:0 1.2rem 1.1rem; }
+.pk-privacy-body p { margin-bottom:.8rem; }
+.pk-privacy-actions { display:flex; gap:.6rem; flex-wrap:wrap; }
+.pk-privacy-actions .btn { width:auto; }
+
+@media (max-width:1000px) {
+  .pk-dashboard { grid-template-columns:minmax(0,1fr) minmax(260px,.8fr); gap:.9rem; }
+  .pk-next { grid-column:1 / -1; }
+  .pk-metric { grid-column:span 3; }
+}
+@media (max-width:760px) {
+  .pk-container { width:calc(100% - 1rem); padding-top:.75rem; }
+  .pk-rc { padding:1rem; border-radius:var(--radius-lg); }
+  .pk-clock { display:none; }
+  .pk-metric { grid-column:span 6; }
+  .pk-num { font-size:1.5rem; }
+  .pk-dashboard { grid-template-columns:1fr; }
+  .pk-section { padding:.9rem 1rem 1rem; margin-bottom:.8rem; }
+  .pk-privacy summary { padding:.9rem 1rem; }
+  .pk-privacy-body { padding:0 1rem 1rem; }
+}
 </style>
 </head>
 <body>
@@ -75,7 +133,7 @@ a.pk-link:hover .pk-title { color:var(--accent); }
 <nav class="nav-menu">
 <a href="index.html">Home</a>
 <a href="mappa.html">Mappa</a>
-<a href="contatti.html">Promuovi Evento</a>
+<a href="contatti.html">Segnala Evento</a>
 </nav>
 </div>
 </header>
@@ -91,6 +149,26 @@ a.pk-link:hover .pk-title { color:var(--accent); }
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const fmtDate = d => d ? new Date(d).toLocaleDateString('it-IT', { day:'numeric', month:'short', year:'numeric' }) : '';
   const todayISO = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0'); };
+  const parseISO = s => { const [y, m, d] = String(s).slice(0, 10).split('-').map(Number); return new Date(y, m - 1, d); };
+  const daysTo = iso => { const n = new Date(); return Math.round((parseISO(iso) - new Date(n.getFullYear(), n.getMonth(), n.getDate())) / 86400000); };
+
+  // Stato di un evento rispetto a oggi (countdown stile "T-minus")
+  function status(ev) {
+    const s = daysTo(ev.dataInizio), e = daysTo(ev.dataFine || ev.dataInizio);
+    if (s <= 0 && e >= 0) {
+      return (s === 0 && e === 0)
+        ? { label: 'OGGI', big: 'OGGI', unit: 'evento', soon: true }
+        : { label: 'IN CORSO', big: 'LIVE', unit: 'in corso', soon: true };
+    }
+    return { label: 'T-' + s, big: 'T-' + s, unit: s === 1 ? 'giorno' : 'giorni', soon: s <= 7 };
+  }
+
+  let clockTimer = null;
+  function tickClock() {
+    const el = document.getElementById('pkClock');
+    if (!el) { clearInterval(clockTimer); clockTimer = null; return; }
+    el.textContent = 'ORA LOCALE ' + new Date().toLocaleTimeString('it-IT');
+  }
 
   async function init() {
     if (!window.pmSupabase || !window.pmEventId) { setTimeout(init, 100); return; }
@@ -138,109 +216,147 @@ a.pk-link:hover .pk-title { color:var(--accent); }
 
     const countByCircuit = {};
     activeEvents.forEach(ev => { if (ev.circuito) countByCircuit[ev.circuito] = (countByCircuit[ev.circuito] || 0) + 1; });
-
     const circuitOptions = [...new Set(activeEvents.map(e => e.circuito).filter(Boolean))].sort();
 
+    const circuitList = circuits || [];
+    const alertList = alerts || [];
+    const followedEvents = circuitList.reduce((sum, c) => sum + (countByCircuit[c.circuit_id] || 0), 0);
+
+    // Copertura calendario: eventi salvati / eventi in calendario (barra a 12 segmenti)
+    const pct = Math.min(100, Math.round((savedEvents.length / Math.max(1, activeEvents.length)) * 100));
+    let filled = Math.round(pct / 100 * 12);
+    if (savedEvents.length && !filled) filled = 1;
+    const segments = Array.from({ length: 12 }, (_, i) => `<i class="${i < filled ? 'on' : ''}"></i>`).join('');
+
+    const tile = (icon, label, num, note, extra = '') =>
+      `<div class="pk-tile pk-metric"><div class="pk-mlabel">${icon}<span>${label}</span></div><div class="pk-num">${num}</div>${extra}<div class="pk-note">${note}</div></div>`;
+
+    // Prossimo evento salvato
+    const next = savedEvents[0];
+    let nextHtml;
+    if (next) {
+      const st = status(next.ev);
+      nextHtml = `
+        <div class="pk-tile pk-next">
+          <div class="pk-mlabel">${PMIcons.calendar}<span>Prossimo evento</span></div>
+          <div class="pk-next-body">
+            <div class="pk-count"><strong>${st.big}</strong><span>${st.unit}</span></div>
+            <div class="pk-next-info">
+              <a href="index.html?search=${encodeURIComponent(next.ev.titolo)}">${esc(next.ev.titolo)}</a>
+              <div>${fmtDate(next.ev.dataInizio)}${next.ev.circuito ? ' · ' + esc(next.ev.circuito) : ''}</div>
+            </div>
+          </div>
+        </div>`;
+    } else {
+      nextHtml = `
+        <div class="pk-tile pk-next">
+          <div class="pk-mlabel">${PMIcons.calendar}<span>Prossimo evento</span></div>
+          <div class="pk-next-empty">Nessun evento salvato. <a href="index.html">Esplora il calendario →</a></div>
+        </div>`;
+    }
+
+    // Eventi salvati
+    const savedHtml = savedEvents.length ? `<div class="pk-list">${savedEvents.map(({ se, ev }) => {
+      const st = status(ev);
+      const d = parseISO(ev.dataInizio);
+      const mon = d.toLocaleDateString('it-IT', { month: 'short' }).replace('.', '').toUpperCase();
+      return `
+        <div class="pk-row${st.soon ? ' is-soon' : ''}">
+          <div class="pk-date"><b>${d.getDate()}</b><span>${mon}</span></div>
+          <a class="pk-link" href="index.html?search=${encodeURIComponent(ev.titolo)}">
+            <div class="pk-title">${esc(ev.titolo)}</div>
+            <div class="pk-sub">${fmtDate(ev.dataInizio)}${ev.dataFine && ev.dataFine !== ev.dataInizio ? ' - ' + fmtDate(ev.dataFine) : ''}${ev.circuito ? ' · ' + esc(ev.circuito) : ''}</div>
+          </a>
+          <span class="pk-chip${st.soon ? ' soon' : ''}">${st.label}</span>
+          <button class="pk-remove" data-remove="event" data-id="${esc(se.event_id)}" aria-label="Rimuovi">${PMIcons.close}</button>
+        </div>`;
+    }).join('')}</div>` : `<div class="pk-empty">Nessun evento salvato in programma. Tocca il cuore su un evento per aggiungerlo. <a href="index.html">Esplora il calendario →</a></div>`;
+
+    // Circuiti seguiti
+    const circuitsHtml = circuitList.length ? `<div class="pk-list">${circuitList.map(c => {
+      const n = countByCircuit[c.circuit_id] || 0;
+      return `
+        <div class="pk-row">
+          <span class="pk-mark">${PMIcons.flag}</span>
+          <a class="pk-link" href="index.html?circuit=${encodeURIComponent(c.circuit_id)}">
+            <div class="pk-title">${esc(c.circuit_id)}</div>
+            <div class="pk-sub">${n === 0 ? 'Nessun evento in programma' : n === 1 ? '1 evento in programma' : n + ' eventi in programma'}</div>
+          </a>
+          <span class="pk-chip${n ? ' soon' : ''}">${n}</span>
+          <button class="pk-remove" data-remove="circuit" data-id="${esc(c.circuit_id)}" aria-label="Rimuovi">${PMIcons.close}</button>
+        </div>`;
+    }).join('')}</div>` : '<div class="pk-empty">Non segui ancora nessun circuito. Tocca la bandierina su un evento per seguirne il circuito.</div>';
+
+    // Alert
+    const alertsHtml = alertList.length ? `<div class="pk-list">${alertList.map(a => `
+      <div class="pk-row">
+        <span class="pk-mark">${PMIcons.bell}</span>
+        <div class="pk-grow"><div class="pk-title">${esc(a.circuit_id || 'Tutti i circuiti')}</div><div class="pk-sub">${esc(a.discipline || 'Tutte le discipline')}</div></div>
+        <button class="pk-remove" data-remove="alert" data-id="${esc(a.id)}" aria-label="Rimuovi">${PMIcons.close}</button>
+      </div>`).join('')}</div>` : '<div class="pk-empty">Nessun alert attivo.</div>';
+
     container.innerHTML = `
-      <div class="pk-welcome">
-        <h1>Bentornato, ${esc(name)}</h1>
-        <p>Il tuo Paddock</p>
-      </div>
-
-      <div class="pk-stats">
-        <div class="pk-stat">${PMIcons.heart}<div><div class="num">${savedEvents.length}</div><div class="lbl">eventi salvati</div></div></div>
-        <div class="pk-stat">${PMIcons.flag}<div><div class="num">${(circuits || []).length}</div><div class="lbl">circuiti seguiti</div></div></div>
-        <div class="pk-stat">${PMIcons.bell}<div><div class="num">${(alerts || []).length}</div><div class="lbl">alert attivi</div></div></div>
-      </div>
-
-      <div class="pk-section">
-        <h2>${PMIcons.heart} Eventi salvati</h2>
-        ${savedEvents.length ? savedEvents.map(({ se, ev }) => `
-          <div class="pk-row">
-            <a class="pk-link" href="index.html?search=${encodeURIComponent(ev.titolo)}">
-              <div class="pk-title">${esc(ev.titolo)}</div>
-              <div class="pk-sub">${fmtDate(ev.dataInizio)}${ev.dataFine && ev.dataFine !== ev.dataInizio ? ' - ' + fmtDate(ev.dataFine) : ''}${ev.circuito ? ' · ' + esc(ev.circuito) : ''}</div>
-            </a>
-            <button class="pk-remove" data-remove="event" data-id="${esc(se.event_id)}" aria-label="Rimuovi">${PMIcons.close}</button>
-          </div>`).join('') : '<div class="pk-empty">Non hai eventi salvati in programma. Clicca il cuore su un evento per aggiungerlo.</div>'}
-      </div>
-
-      <div class="pk-section">
-        <h2>${PMIcons.flag} Circuiti seguiti</h2>
-        ${(circuits && circuits.length) ? circuits.map(c => {
-          const n = countByCircuit[c.circuit_id] || 0;
-          return `
-          <div class="pk-row">
-            <a class="pk-link" href="index.html?circuit=${encodeURIComponent(c.circuit_id)}">
-              <div class="pk-title">${esc(c.circuit_id)}</div>
-              <div class="pk-sub">${n === 0 ? 'Nessun evento in programma' : n === 1 ? '1 evento in programma' : n + ' eventi in programma'}</div>
-            </a>
-            <button class="pk-remove" data-remove="circuit" data-id="${esc(c.circuit_id)}" aria-label="Rimuovi">${PMIcons.close}</button>
-          </div>`;
-        }).join('') : '<div class="pk-empty">Non segui ancora nessun circuito.</div>'}
-      </div>
-
-      <div class="pk-section">
-        <h2>${PMIcons.bell} Alert</h2>
-        ${(alerts && alerts.length) ? alerts.map(a => `
-          <div class="pk-row">
-            <div><div class="pk-title">${esc(a.circuit_id || 'Tutti i circuiti')}</div><div class="pk-sub">${esc(a.discipline || 'Tutte le discipline')}</div></div>
-            <button class="pk-remove" data-remove="alert" data-id="${esc(a.id)}" aria-label="Rimuovi">${PMIcons.close}</button>
-          </div>`).join('') : '<div class="pk-empty">Nessun alert attivo.</div>'}
-        <form class="pk-alert-form" id="newAlertForm">
-          <select id="alertCircuit" aria-label="Circuito"><option value="">Tutti i circuiti</option>${circuitOptions.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('')}</select>
-          <select id="alertDiscipline" aria-label="Disciplina"><option value="">Tutte le discipline</option>${['Gt','Formula','Misto','Storico','Rally','Le Mans Prototype','Cronoscalata','Raduno','Trackday'].map(d => `<option value="${d}">${d}</option>`).join('')}</select>
-          <button type="submit" class="btn btn-secondary">Crea alert</button>
-        </form>
-      </div>
-
-      <div class="pk-section">
-        <h2>${PMIcons.user} Privacy e dati</h2>
-        <p class="pk-sub" style="margin-bottom:.8rem">Scarica i tuoi dati o elimina definitivamente l'account. <a href="legale.html#privacy">Informativa privacy</a></p>
-        <div style="display:flex;gap:.6rem;flex-wrap:wrap">
-          <button class="btn btn-secondary" id="exportBtn" style="width:auto">Scarica i miei dati</button>
-          <button class="btn btn-secondary" id="deleteBtn" style="width:auto">Elimina il mio account</button>
+      <section class="pk-rc">
+        <div class="pk-rc-top">
+          <div>
+            <div class="pk-kicker"><i class="pk-led"></i>Pit wall · Profilo pilota</div>
+            <h1>Bentornato, ${esc(name)}</h1>
+          </div>
+          <div class="pk-rc-side">
+            <span class="pk-clock pk-mono" id="pkClock"></span>
+            <button class="pk-ghost" id="logoutBtn">${PMIcons.logout} Esci</button>
+          </div>
         </div>
+        <div class="pk-rc-grid">
+          ${nextHtml}
+          ${tile(PMIcons.heart, 'Eventi salvati', savedEvents.length, pct + '% del calendario', `<div class="pk-seg">${segments}</div>`)}
+          ${tile(PMIcons.flag, 'Circuiti seguiti', circuitList.length, followedEvents + (followedEvents === 1 ? ' evento in programma' : ' eventi in programma'))}
+          ${tile(PMIcons.bell, 'Alert attivi', alertList.length, alertList.length ? 'Regole attive' : 'Nessuna regola')}
+          ${tile(PMIcons.calendar, 'In calendario', activeEvents.length, circuitOptions.length + ' location')}
+        </div>
+      </section>
+
+      <div class="pk-dashboard">
+        <main class="pk-main">
+          <section class="pk-section">
+            <div class="pk-sec-head"><h2>${PMIcons.heart} Eventi salvati</h2><span class="pk-pill">${savedEvents.length}</span></div>
+            ${savedHtml}
+          </section>
+        </main>
+
+        <aside class="pk-side">
+          <section class="pk-section">
+            <div class="pk-sec-head"><h2>${PMIcons.flag} Circuiti seguiti</h2><span class="pk-pill">${circuitList.length}</span></div>
+            ${circuitsHtml}
+          </section>
+
+          <section class="pk-section">
+            <div class="pk-sec-head"><h2>${PMIcons.bell} Alert</h2><span class="pk-pill">${alertList.length}</span></div>
+            ${alertsHtml}
+            <form class="pk-alert-form" id="newAlertForm">
+              <select id="alertCircuit" aria-label="Circuito"><option value="">Tutti i circuiti</option>${circuitOptions.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('')}</select>
+              <select id="alertDiscipline" aria-label="Disciplina"><option value="">Tutte le discipline</option>${['Gt','Formula','Misto','Storico','Rally','Le Mans Prototype','Cronoscalata','Raduno','Trackday'].map(d => `<option value="${d}">${d}</option>`).join('')}</select>
+              <button type="submit" class="btn btn-secondary">Crea alert</button>
+            </form>
+          </section>
+
+          <details class="pk-section pk-privacy">
+            <summary><span>${PMIcons.user} Privacy e dati</span></summary>
+            <div class="pk-privacy-body">
+              <p class="pk-sub">Scarica i tuoi dati o elimina definitivamente l'account. <a href="legale.html#privacy">Informativa privacy</a></p>
+              <div class="pk-privacy-actions">
+                <button class="btn btn-secondary" id="exportBtn">Scarica i miei dati</button>
+                <button class="btn btn-secondary" id="deleteBtn">Elimina il mio account</button>
+              </div>
+            </div>
+          </details>
+        </aside>
       </div>
-      
-      <div class="pk-logout-row"><button class="btn btn-secondary" id="logoutBtn">${PMIcons.logout} Esci</button></div>
     `;
 
-    // Organizzazione dashboard: contenuti esistenti, senza cambiare le azioni Supabase.
-    const sections = [...container.querySelectorAll('.pk-section')];
-    const sectionByTitle = title => sections.find(el => el.querySelector('h2')?.textContent.includes(title));
-    const eventsSection = sectionByTitle('Eventi salvati');
-    const circuitsSection = sectionByTitle('Circuiti seguiti');
-    const alertsSection = sectionByTitle('Alert');
-    const privacySection = sectionByTitle('Privacy e dati');
-    const dashboard = document.createElement('div');
-    dashboard.className = 'pk-dashboard';
-    const mainColumn = document.createElement('main');
-    mainColumn.className = 'pk-main';
-    const sideColumn = document.createElement('aside');
-    sideColumn.className = 'pk-side';
-    const telemetry = document.createElement('section');
-    telemetry.className = 'pk-telemetry';
-    const upcomingCount = activeEvents.length;
-    const telemetryPct = Math.min(100, Math.round((savedEvents.length / Math.max(1, activeEvents.length)) * 100));
-    telemetry.innerHTML = `
-      <div class="pk-telemetry-head"><div class="pk-telemetry-title">RACE CONTROL</div><div class="pk-live">Sistema operativo</div></div>
-      <div class="pk-telemetry-main">
-        <div class="pk-telemetry-metric"><strong>${upcomingCount}</strong><span>Eventi in calendario</span></div>
-        <div class="pk-telemetry-metric"><strong>${savedEvents.length}</strong><span>Preferiti in garage</span></div>
-      </div>
-      <div class="pk-telemetry-label">Attività del paddock</div>
-      <div class="pk-signal"><span class="pk-signal-mark">♥</span><div style="flex:1">Eventi monitorati<div class="pk-meter"><span style="width:${telemetryPct}%"></span></div></div><strong>${telemetryPct}%</strong></div>
-      <div class="pk-signal"><span class="pk-signal-mark">⚑</span><div style="flex:1">Circuiti seguiti</div><strong>${(circuits || []).length}</strong></div>
-      <div class="pk-signal"><span class="pk-signal-mark">⌁</span><div style="flex:1">Alert configurati</div><strong>${(alerts || []).length}</strong></div>
-      <div class="pk-telemetry-foot">DATI PERSONALI · AGGIORNATI ALL'APERTURA DELLA PAGINA</div>`;
-    container.insertBefore(dashboard, privacySection);
-    dashboard.append(mainColumn, sideColumn);
-    if (eventsSection) mainColumn.appendChild(eventsSection);
-    sideColumn.append(telemetry);
-    if (circuitsSection) sideColumn.appendChild(circuitsSection);
-    if (alertsSection) sideColumn.appendChild(alertsSection);
-    if (privacySection) privacySection.classList.add('pk-privacy');
+    tickClock();
+    clearInterval(clockTimer);
+    clockTimer = setInterval(tickClock, 1000);
 
     document.getElementById('logoutBtn').addEventListener('click', async () => { await window.pmSignOut(); window.location.href = 'index.html'; });
 
@@ -250,7 +366,7 @@ a.pk-link:hover .pk-title { color:var(--accent); }
       a.href = URL.createObjectURL(new Blob([JSON.stringify(dump, null, 2)], { type: 'application/json' }));
       a.download = 'paddockmap-i-miei-dati.json'; a.click();
     });
-    
+
     document.getElementById('deleteBtn').addEventListener('click', async () => {
       if (!confirm('Eliminare definitivamente il tuo account e tutti i dati collegati? L\'operazione non si può annullare.')) return;
       const { error } = await sb.rpc('delete_my_account');
