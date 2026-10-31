@@ -862,9 +862,7 @@ document
             itinerante:
                 document.getElementById("itinerante").checked,
             descrizione:
-                document.getElementById("descrizione").value,
-            segnalatoDa:
-                session.user.email
+                document.getElementById("descrizione").value
         };
 
         if (data.linkBiglietti && !/^https?:\/\//i.test(data.linkBiglietti)) {
@@ -878,13 +876,21 @@ document
         button.disabled = true;
         button.innerText = "Invio...";
         try {
-            await fetch(
-                "https://script.google.com/macros/s/AKfycbwlo-27y2T-5FGBRQArFZdFLLBmt23pUAmOjnoIuYsOu5QPCCF1fna2SS-NgQMk-dxu/exec",
-                {
-                    method: "POST",
-                    body: JSON.stringify(data)
-                }
-            );
+            const { error } = await window.pmSupabase.from('event_submissions').insert({
+              titolo: data.titolo,
+              data_inizio: data.dataInizio,
+              data_fine: data.dataFine || null,
+              circuito: data.circuito,
+              citta: data.citta || null,
+              disciplina: data.disciplina,
+              organizzatore: data.organizzatore || null,
+              link_biglietti: data.linkBiglietti || null,
+              evento_gratuito: data.eventoGratuito,
+              itinerante: data.itinerante,
+              descrizione: data.descrizione || null
+            });
+            if (error) throw error;
+            
             window.pmShowToast(
                 `${PMIcons.check} Segnalazione inviata! Verrà valutata a breve.`
             );
