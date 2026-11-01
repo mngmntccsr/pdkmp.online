@@ -275,6 +275,24 @@ function getRandomImage() {
   return `${day} ${month} ${year}`;
 }
 
+// Blocco data della scheda: inizio e fine mostrati con lo stesso peso (giorno grande + mese)
+function dateBlockHtml(event) {
+    const parse = s => { const [y, m, d] = String(s).slice(0, 10).split('-').map(Number); return new Date(y, m - 1, d); };
+    const monShort = d => d.toLocaleDateString('it-IT', { month: 'short' }).replace('.', '');
+    const thisYear = new Date().getFullYear();
+    const part = iso => {
+        const d = parse(iso);
+        const yearTag = d.getFullYear() !== thisYear ? ' ' + d.getFullYear() : '';
+        return `<time class="ed-d" datetime="${String(iso).slice(0, 10)}" aria-hidden="true">` +
+            `<span class="ed-n">${d.getDate()}</span><span class="ed-m">${monShort(d)}${yearTag}</span></time>`;
+    };
+    const multi = event.dataFine && event.dataFine !== event.dataInizio;
+    const full = formatDateShort(event.dataInizio) + (multi ? ' - ' + formatDateShort(event.dataFine) : '');
+    return `<span class="ed"><span class="ed-sr">${full}</span>${part(event.dataInizio)}` +
+        (multi ? `<span class="ed-sep" aria-hidden="true"></span>${part(event.dataFine)}` : '') +
+        `</span>`;
+}
+
 function getDisciplineIcon(disciplina) {
     const config = disciplineIcons[disciplina];
     if (!config) return PMIcons.flag;
@@ -400,9 +418,7 @@ const titleHtml = event.isPromo
                             <button class="pm-icon-btn pm-save-btn" data-event-id="${window.pmEventId(event)}" onclick="pmHandleSaveClick(this)" title="Salva evento">${PMIcons.heart}</button>
                             ${event.circuito ? `<button class="pm-icon-btn pm-follow-btn" data-circuit-id="${event.circuito}" onclick="pmHandleFollowClick(this)" title="Segui circuito">${PMIcons.flag}</button>` : ''}
                         </div>
-                            <div class="event-date">
-                                ${PMIcons.calendar} ${formatDateShort(event.dataInizio)}${event.dataFine && event.dataFine !== event.dataInizio ? ' - ' + formatDateShort(event.dataFine) : ''}
-                            </div>
+                            <div class="event-date">${dateBlockHtml(event)}</div>
                             ${titleHtml}
                             
     <div class="event-disciplines">
