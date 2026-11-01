@@ -358,6 +358,7 @@ if (promoIndex !== -1) {
 
             container.innerHTML = sortedEvents.map(event => {
                 let imageHtml;
+                let noImage = false;
 
 if (event.isPromo) {
     imageHtml = `
@@ -371,7 +372,8 @@ if (hasImage) {
     imageHtml = `<img src="${event.immagine}" alt="${event.titolo}" class="event-image">`;
 } else {
     const randomImg = getRandomImage();
-    imageHtml = `<img src="${randomImg}" alt="" class="event-image">`;
+    imageHtml = `<img src="${randomImg}" alt="" class="event-image" loading="lazy">`;
+    noImage = true;
 }
     }
 
@@ -381,7 +383,7 @@ const titleHtml = event.isPromo
     : `<a href="evento.html?id=${encodeURIComponent(event.idAuto)}" class="event-title">${titleDisplay}</a>`;
 
                 return `
-                    <div class="event-card"
+                    <div class="event-card${noImage ? ' no-img' : ''}"
      data-citta="${event.citta || ''}"  
      data-datainizio="${event.dataInizio || ''}"
      data-datafine="${event.dataFine || ''}"
