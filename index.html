@@ -8,6 +8,253 @@
     <meta name="description" content="Scopri tutti gli eventi motorsport in Italia: F1, GT, Rally, Kart, Trackday. Calendario completo con date, circuiti e biglietti.">
 
     <link rel="stylesheet" href="style.css">
+    <!-- TEST: font da Google Fonts. Se si adotta il look, scaricare i woff2 in vendor/fonts e usare @font-face (privacy). -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Big+Shoulders+Display:wght@600;800;900&display=swap">
+    <style id="pm-redesign">
+/* ==========================================================================
+   TEST RESTYLE — sovrascrive style.css, che resta caricato come base funzionale.
+   Per tornare al look precedente basta togliere questo blocco (e il <link> font).
+   Carattere: calendario gara. Piatto, bordi netti, niente vetro né ombre morbide.
+   L'unico elemento forte è il blocco data sulle schede.
+   Colori originali invariati: inchiostro #12151B, arancio #FF4B24, fondo #F2F3F6.
+   ========================================================================== */
+
+:root {
+  --font: "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: "Big Shoulders Display", "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+
+  --line: rgba(18, 21, 27, 0.14);
+  --line-strong: rgba(18, 21, 27, 0.32);
+  --surface-glass: #FFFFFF;
+  --surface-glass-strong: #FFFFFF;
+  --header-glass: #12151B;
+
+  --radius-xl: 8px;
+  --radius-lg: 6px;
+  --radius-md: 5px;
+  --radius-sm: 4px;
+  --radius-pill: 3px;
+
+  --shadow-card: none;
+  --shadow-hover: none;
+  --shadow-glass: 0 8px 20px -10px rgba(18, 21, 27, 0.35);
+  --shadow-pop: 0 14px 30px -14px rgba(18, 21, 27, 0.4);
+}
+
+*, *::before, *::after {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* ---------- Header ---------- */
+.header { background: #12151B; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding: 0.7rem 1.5rem; }
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  transform: translate(-50%, -50%) skewX(-10deg);
+}
+.logo span { color: var(--accent); font-weight: 900; }
+
+.nav-menu { background: none; border: 0; padding: 0; gap: 0.15rem; }
+.nav-menu a {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.62);
+  padding: 0.55rem 1rem;
+  border-radius: 0;
+  background: none;
+}
+.nav-menu a:hover { color: #fff; background: none; }
+.nav-menu a.active { color: #fff; background: none; box-shadow: inset 0 -3px 0 var(--accent); }
+
+.stat-number { font-family: var(--font-display); font-weight: 800; font-size: 1.55rem; color: var(--accent); }
+.stat-label { font-size: 0.78rem; color: rgba(255, 255, 255, 0.55); }
+
+@media (max-width: 720px) {
+  .logo { transform: skewX(-10deg); }
+}
+
+/* ---------- Filtri rapidi ---------- */
+.quick-filters { background: #1A1E27; border-bottom: 1px solid rgba(255, 255, 255, 0.06); padding: 0.55rem 1.5rem; }
+.quick-filters-inner { max-width: 1600px; margin: 0 auto; display: flex; justify-content: space-evenly; align-items: center; gap: 0.6rem; }
+.quick-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 3px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.78);
+  font-family: var(--font);
+  font-size: 0.86rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+.quick-chip svg.icon { color: var(--accent); }
+.quick-chip:hover { color: #fff; border-color: rgba(255, 255, 255, 0.5); background: transparent; }
+.quick-chip.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.quick-chip.active svg.icon { color: #fff; }
+.quick-chip.loading { opacity: 0.6; pointer-events: none; }
+
+@media (max-width: 768px) {
+  .quick-filters { padding: 0.5rem 0.9rem; }
+  .quick-filters-inner { justify-content: flex-start; overflow-x: auto; scrollbar-width: none; }
+  .quick-filters-inner::-webkit-scrollbar { display: none; }
+  .quick-chip { flex-shrink: 0; }
+}
+
+/* ---------- Pannelli filtri e mappa ---------- */
+.filters { background: #fff; border: 1px solid var(--line); border-radius: 6px; box-shadow: none; }
+.filters h3 { font-family: var(--font-display); font-size: 1.45rem; font-weight: 800; letter-spacing: 0.01em; margin-bottom: 1rem; }
+.filter-group label { font-size: 0.8rem; font-weight: 600; color: var(--ink); margin-bottom: 0.35rem; }
+
+.filter-group select,
+.filter-group input,
+.multi-select-display,
+.date-picker-trigger {
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  background: #fff;
+  font-family: var(--font);
+}
+.filter-group select:hover,
+.filter-group input:hover,
+.multi-select-display:hover,
+.date-picker-trigger:hover { border-color: var(--ink); }
+.filter-group select:focus,
+.filter-group input:focus { border-color: var(--ink); box-shadow: 0 0 0 3px var(--accent-ring); }
+.date-picker.open .date-picker-trigger { border-color: var(--ink); box-shadow: 0 0 0 3px var(--accent-ring); }
+
+.reset-filters {
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  color: var(--ink);
+  border-radius: 4px;
+  font-family: var(--font);
+  font-weight: 600;
+}
+.reset-filters:hover { background: rgba(18, 21, 27, 0.05); }
+.reset-filters.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.reset-filters.active:hover { background: var(--accent-dark); }
+
+.multi-select-options { background: #fff; border: 1px solid var(--line-strong); border-radius: 4px; box-shadow: var(--shadow-pop); }
+.multi-select-option { border-radius: 3px; }
+.multi-select-option.selected { background: var(--ink); color: #fff; }
+.selected-tag { background: var(--ink); color: #fff; border-radius: 3px; font-weight: 600; padding: 0.22rem 0.55rem; }
+
+.date-picker-panel { background: #fff; border: 1px solid var(--line-strong); border-radius: 6px; box-shadow: var(--shadow-pop); }
+.date-picker-header span { font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; }
+.date-picker-nav { border-radius: 4px; background: #fff; border: 1px solid var(--line-strong); color: var(--ink); }
+.date-picker-nav:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+.date-picker-day { border-radius: 3px; }
+.date-picker-clear-x { border-radius: 3px; }
+
+.btn-locate {
+  background: #fff;
+  border: 1px solid var(--line-strong);
+  color: var(--ink);
+  border-radius: 4px;
+  box-shadow: none;
+  font-family: var(--font);
+  font-weight: 700;
+}
+.btn-locate svg.icon { color: var(--accent); }
+.btn-locate:hover { background: var(--ink); color: #fff; border-color: var(--ink); box-shadow: none; }
+.btn-locate:hover svg.icon { color: #fff; }
+#interactiveMap { border-radius: 4px; border: 1px solid var(--line); }
+.radius-value { font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; }
+.panel-toggle { border-radius: 3px; background: var(--ink); box-shadow: none; }
+.panel-toggle:hover { background: var(--accent); }
+
+.mobile-filters-toggle { background: #fff; border: 1px solid var(--line-strong); border-radius: 4px; box-shadow: none; font-family: var(--font); font-weight: 700; }
+
+@media (max-width: 768px) {
+  .sidebar-filters, .map-sidebar { border-color: var(--line); }
+  .sidebar-filters .filters h3, .map-sidebar .filters h3 { font-size: 1.2rem; }
+}
+
+/* ---------- Schede evento ---------- */
+.event-card { position: relative; background: #fff; border: 1px solid var(--line); border-radius: 6px; box-shadow: none; transition: border-color 0.15s; }
+.event-card:hover { transform: none; box-shadow: none; border-color: var(--ink); }
+.event-image-container { border-bottom: 1px solid var(--line); }
+
+.event-title { font-family: var(--font-display); font-weight: 800; letter-spacing: 0.005em; color: var(--ink); }
+.event-title:hover { text-decoration: none; color: var(--accent-dark); }
+.info-row strong { color: var(--ink); font-weight: 700; }
+.event-actions { border-top: 1px solid var(--line); }
+.btn { font-family: var(--font); font-weight: 700; border-radius: 4px; }
+.btn-primary:hover { transform: none; }
+.event-discipline { border-radius: 4px; }
+.no-events { border: 1px solid var(--line); border-radius: 6px; box-shadow: none; }
+.no-events h3 { font-size: 1.6rem; font-weight: 800; }
+
+/* Blocco data: l'elemento forte della pagina */
+.ed-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@media (min-width: 769px) {
+  .events-grid { gap: 1.1rem; }
+  .event-header { padding: 1rem 1.15rem 0.4rem; }
+  .event-title { font-size: 1.6rem; line-height: 1.02; margin: 0.15rem 0 0.6rem; min-height: 2.04em; }
+  .event-body { padding: 0 1.15rem; }
+  .info-row { font-size: 0.86rem; }
+  .event-actions { padding: 0.9rem 1.15rem 1rem; }
+
+  .event-date { position: absolute; top: 0; left: 0; z-index: 2; margin: 0; display: block; }
+  .event-date .ed {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 3.7rem;
+    padding: 0.55rem 0.85rem 0.65rem 0.75rem;
+    background: var(--ink);
+    color: #fff;
+    border-bottom-right-radius: 6px;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .ed-day { font-family: var(--font-display); font-weight: 900; font-size: 2.7rem; line-height: 0.86; }
+  .ed-mon { margin-top: 0.25rem; font-size: 0.82rem; font-weight: 700; color: var(--accent); }
+  .ed-end {
+    margin-top: 0.45rem;
+    padding-top: 0.35rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.78);
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .event-title { font-size: 1.3rem; line-height: 1.05; }
+  .event-date .ed { display: inline-flex; align-items: baseline; gap: 0.3rem; color: var(--ink-soft); }
+  .ed-day { font-family: var(--font-display); font-weight: 900; font-size: 1.3rem; line-height: 1; color: var(--accent-dark); }
+  .ed-mon { font-size: 0.78rem; font-weight: 600; }
+  .ed-end { font-size: 0.74rem; font-weight: 500; }
+
+  /* Immagine random: su telefono la scheda resta senza immagine */
+  .event-card.no-img { grid-template-columns: 1fr; }
+  .event-card.no-img .event-image-container { display: none; }
+  .event-card.no-img .event-header,
+  .event-card.no-img .event-body { padding-right: 0.9rem; }
+}
+
+/* ---------- Footer ---------- */
+footer { background: #12151B; }
+footer p:first-child { font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; letter-spacing: 0.01em; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+    </style>
     <link rel="stylesheet" href="a11y.css">
     <script src="a11y.js" defer></script>
     <link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
@@ -275,6 +522,23 @@ function getRandomImage() {
   return `${day} ${month} ${year}`;
 }
 
+// Blocco data della scheda: giorno grande, mese, e "al ..." se l'evento dura più giorni
+function dateBlockHtml(event) {
+    const parse = s => { const [y, m, d] = String(s).slice(0, 10).split('-').map(Number); return new Date(y, m - 1, d); };
+    const monShort = d => d.toLocaleDateString('it-IT', { month: 'short' }).replace('.', '');
+    const start = parse(event.dataInizio);
+    const multi = event.dataFine && event.dataFine !== event.dataInizio;
+    const end = multi ? parse(event.dataFine) : null;
+    const yearTag = start.getFullYear() !== new Date().getFullYear() ? ' ' + start.getFullYear() : '';
+    const full = formatDateShort(event.dataInizio) + (multi ? ' - ' + formatDateShort(event.dataFine) : '');
+    return `<time class="ed" datetime="${String(event.dataInizio).slice(0, 10)}">` +
+        `<span class="ed-sr">${full}</span>` +
+        `<span class="ed-day" aria-hidden="true">${start.getDate()}</span>` +
+        `<span class="ed-mon" aria-hidden="true">${monShort(start)}${yearTag}</span>` +
+        (multi ? `<span class="ed-end" aria-hidden="true">al ${end.getDate()} ${monShort(end)}</span>` : '') +
+        `</time>`;
+}
+
 function getDisciplineIcon(disciplina) {
     const config = disciplineIcons[disciplina];
     if (!config) return PMIcons.flag;
@@ -400,9 +664,7 @@ const titleHtml = event.isPromo
                             <button class="pm-icon-btn pm-save-btn" data-event-id="${window.pmEventId(event)}" onclick="pmHandleSaveClick(this)" title="Salva evento">${PMIcons.heart}</button>
                             ${event.circuito ? `<button class="pm-icon-btn pm-follow-btn" data-circuit-id="${event.circuito}" onclick="pmHandleFollowClick(this)" title="Segui circuito">${PMIcons.flag}</button>` : ''}
                         </div>
-                            <div class="event-date">
-                                ${PMIcons.calendar} ${formatDateShort(event.dataInizio)}${event.dataFine && event.dataFine !== event.dataInizio ? ' - ' + formatDateShort(event.dataFine) : ''}
-                            </div>
+                            <div class="event-date">${dateBlockHtml(event)}</div>
                             ${titleHtml}
                             
     <div class="event-disciplines">
