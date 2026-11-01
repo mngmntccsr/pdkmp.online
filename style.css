@@ -1364,3 +1364,11 @@ body.submit-page .header { flex: 0 0 auto; }
   .quick-filters-inner::-webkit-scrollbar { display: none; }
   .quick-chip { flex-shrink: 0; }
 }
+
+/* Mobile: schede senza immagine reale (sarebbe una random) */
+@media (max-width: 768px) {
+  .event-card.no-img { grid-template-columns: 1fr; }
+  .event-card.no-img .event-image-container { display: none; }
+  .event-card.no-img .event-header,
+  .event-card.no-img .event-body { padding-right: 0.9rem; }
+}
