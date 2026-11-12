@@ -53,7 +53,7 @@
 
     <!-- Main Content -->
     <div class="container">
-        <div class="youtube-layout map-open" id="youtubeLayout">
+        <div class="youtube-layout" id="youtubeLayout">
 
             <!-- Toggle mobile: apre/chiude filtri + mappa insieme, visibile solo su telefono -->
             <button class="mobile-filters-toggle" id="mobileFiltersToggle" type="button">
@@ -64,6 +64,7 @@
             <!-- Sidebar filtri (a sinistra, in colonna) -->
             <aside class="sidebar-filters" id="sidebarFilters">
                 <section class="filters">
+                    <button type="button" class="panel-tab panel-tab-filters" id="closeFiltersBtn" title="Chiudi filtri" aria-label="Chiudi filtri">‹</button>
                     <h3>Filtra eventi</h3>
                     <div class="filter-grid">
                         <div class="filter-group">
@@ -145,18 +146,21 @@
                 </section>
             </aside>
 
-<button class="panel-toggle panel-toggle-left" id="toggleFiltersBtn" title="Comprimi/espandi filtri">‹</button>
 
             <!-- Colonna centrale: griglia eventi, 3 per riga -->
             <main class="main-content">
+                <div class="reopen-bar">
+                    <button type="button" class="panel-tab panel-tab-open-filters" id="openFiltersBtn" title="Mostra filtri" aria-label="Mostra filtri">›</button>
+                    <button type="button" class="panel-tab panel-tab-open-map" id="openMapBtn" title="Mostra mappa" aria-label="Mostra mappa">‹</button>
+                </div>
                 <div id="eventsContainer" class="events-grid">
                     <div class="loading">Caricamento eventi...</div>
                 </div>
             </main>
-<button class="panel-toggle panel-toggle-right" id="toggleMapBtn" title="Comprimi/espandi mappa">›</button>
 
 <aside class="map-sidebar" id="mapSidebar">
   <section class="filters map-controls">
+    <button type="button" class="panel-tab panel-tab-map" id="closeMapBtn" title="Chiudi mappa" aria-label="Chiudi mappa">›</button>
     <h3 id="mapFilterTitle">Filtra per zona</h3>
 
     <button class="btn-locate" id="mapLocateBtn">Usa la mia posizione</button>
@@ -1275,22 +1279,25 @@ function initEventTracking() {
 
     const sidebarFilters = document.getElementById('sidebarFilters');
     const mapSidebar = document.getElementById('mapSidebar');
-    const toggleFiltersBtn = document.getElementById('toggleFiltersBtn');
-    const toggleMapBtn = document.getElementById('toggleMapBtn');
     const youtubeLayout = document.getElementById('youtubeLayout');
     const mobileFiltersToggle = document.getElementById('mobileFiltersToggle');
 
-    toggleFiltersBtn.addEventListener('click', () => {
-      const collapsed = sidebarFilters.classList.toggle('collapsed');
-      toggleFiltersBtn.textContent = collapsed ? '›' : '‹';
-    });
-
-    toggleMapBtn.addEventListener('click', () => {
-      const collapsed = mapSidebar.classList.toggle('collapsed');
-      toggleMapBtn.textContent = collapsed ? '‹' : '›';
-      youtubeLayout.classList.toggle('map-open', !collapsed);
+    // Chiusura/apertura dei pannelli laterali (solo desktop).
+    // Le classi sul layout decidono anche quante schede per riga:
+    // 2 con tutto aperto, 3 con un pannello chiuso, 4 con entrambi chiusi.
+    function setFiltersCollapsed(collapsed) {
+      sidebarFilters.classList.toggle('collapsed', collapsed);
+      youtubeLayout.classList.toggle('filters-closed', collapsed);
+    }
+    function setMapCollapsed(collapsed) {
+      mapSidebar.classList.toggle('collapsed', collapsed);
+      youtubeLayout.classList.toggle('map-closed', collapsed);
       setTimeout(() => map.invalidateSize(), 260);
-    });
+    }
+    document.getElementById('closeFiltersBtn').addEventListener('click', () => setFiltersCollapsed(true));
+    document.getElementById('openFiltersBtn').addEventListener('click', () => setFiltersCollapsed(false));
+    document.getElementById('closeMapBtn').addEventListener('click', () => setMapCollapsed(true));
+    document.getElementById('openMapBtn').addEventListener('click', () => setMapCollapsed(false));
 
     // Toggle unico per mobile: apre/chiude filtri + mappa insieme.
     // Forza esplicitamente ogni proprietà di visibilità (non solo display)
@@ -1298,6 +1305,7 @@ function initEventTracking() {
     // risultato non dipende da nessuna cascata/specificità CSS residua.
     function setMobilePanelOpen(panel, open) {
       panel.classList.remove('collapsed');
+      youtubeLayout.classList.remove('filters-closed', 'map-closed');
       if (open) {
         panel.style.display = 'block';
         panel.style.opacity = '1';
