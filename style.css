@@ -6,8 +6,6 @@
    Condiviso da index.html, mappa.html, contatti.html, paddock.html
    ========================================================================= */
 
-/* Font self-hosted (licenza SIL OFL: uso commerciale libero).
-   Mettere i file woff2 "latin" in vendor/fonts/ con questi nomi. */
 @font-face {
   font-family: "Big Shoulders Display";
   src: url("vendor/fonts/big-shoulders-display-var.woff2") format("woff2");
@@ -555,10 +553,14 @@ svg.icon {
    Griglia eventi
    ========================================================================== */
 
-.events-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-bottom: 2rem; }
+.events-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem; margin-bottom: 2rem; }
 
-@media (max-width: 1100px) { .events-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 769px) { .youtube-layout.map-open .events-grid { grid-template-columns: repeat(2, 1fr); } }
+/* Schede per riga: 2 con filtri e mappa aperti, 3 con un pannello chiuso, 4 con entrambi chiusi */
+@media (min-width: 1101px) {
+  .youtube-layout.filters-closed .events-grid,
+  .youtube-layout.map-closed .events-grid { grid-template-columns: repeat(3, 1fr); }
+  .youtube-layout.filters-closed.map-closed .events-grid { grid-template-columns: repeat(4, 1fr); }
+}
 
 .event-card {
   position: relative;
@@ -809,42 +811,75 @@ footer p:first-child { color: rgba(255, 255, 255, 0.85); font-family: var(--font
 
 .radius-value { font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; }
 
+/* Pannello chiuso: non occupa spazio (il margine negativo annulla anche il gap del flex) */
 .sidebar-filters.collapsed,
 .map-sidebar.collapsed {
   width: 0 !important;
   min-width: 0;
-  margin: 0;
   padding: 0;
   overflow: hidden;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
 }
+.sidebar-filters.collapsed { margin: 0 -1.25rem 0 0; }
+.map-sidebar.collapsed { margin: 0 0 0 -1.25rem; }
 
-.panel-toggle {
-  position: sticky;
-  top: 58vh;
-  transform: translateY(-50%);
-  align-self: flex-start;
-  flex-shrink: 0;
-  width: 26px;
-  height: 60px;
-  border-radius: var(--radius-pill);
-  border: none;
-  background: var(--ink);
-  color: white;
-  font-size: 1.15rem;
-  cursor: pointer;
-  z-index: 20;
+/* Linguette per chiudere/riaprire i pannelli (solo desktop).
+   Chiudi: nell'angolo in alto del pannello (filtri a destra, mappa a sinistra).
+   Riapri: negli angoli in alto del contenuto, nello spazio sopra la griglia. */
+.filters { position: relative; }
+
+.panel-tab {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  font-family: var(--font);
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
   transition: background 0.15s;
 }
-.panel-toggle:hover { background: var(--accent); }
+.panel-tab:hover { background: var(--accent); }
+
+.panel-tab-filters {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-top-right-radius: calc(var(--radius-lg) - 1px);
+  border-bottom-left-radius: var(--radius-lg);
+}
+.panel-tab-map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top-left-radius: calc(var(--radius-lg) - 1px);
+  border-bottom-right-radius: var(--radius-lg);
+}
+/* titolo del pannello mappa: lascia spazio alla linguetta a sinistra */
+.map-sidebar .filters h3 { margin-left: 1rem; }
+
+.reopen-bar { position: sticky; top: 6rem; height: 0; z-index: 25; }
+.panel-tab-open-filters,
+.panel-tab-open-map {
+  display: none;
+  position: absolute;
+  top: -1.75rem;
+}
+.panel-tab-open-filters { left: 0; border-radius: var(--radius-sm) var(--radius-sm) 0 0; }
+.panel-tab-open-map { right: 0; border-radius: var(--radius-sm) var(--radius-sm) 0 0; }
+.youtube-layout.filters-closed .panel-tab-open-filters { display: flex; }
+.youtube-layout.map-closed .panel-tab-open-map { display: flex; }
 
 @media (max-width: 1100px) {
   .map-sidebar { width: 100%; position: static; max-height: none; }
-  .panel-toggle { display: none; }
+  .panel-tab { display: none !important; }
+  .map-sidebar .filters h3 { margin-left: 0; }
 }
 
 /* Popup mappa (Leaflet) */
