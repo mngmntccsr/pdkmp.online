@@ -530,6 +530,115 @@
         underline;
     }
 
+
+
+    /* =========================================================
+       METEO EVENTO — Open-Meteo
+       ========================================================= */
+
+    .event-weather {
+      margin: 0 0 1rem;
+      padding: 0.85rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+    }
+
+    .event-weather-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .event-weather-title {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .event-weather-source {
+      color: var(--muted);
+      font-size: 0.65rem;
+    }
+
+    .event-weather-message {
+      color: var(--ink-soft);
+      font-size: 0.78rem;
+      line-height: 1.5;
+    }
+
+    .event-weather-days {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(88px, 1fr));
+      gap: 0.45rem;
+    }
+
+    .event-weather-day {
+      min-width: 0;
+      padding: 0.6rem 0.45rem;
+      text-align: center;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+    }
+
+    .event-weather-day-date {
+      display: block;
+      margin-bottom: 0.3rem;
+      color: var(--ink-soft);
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .event-weather-day-icon {
+      display: block;
+      margin-bottom: 0.2rem;
+      font-size: 1.35rem;
+    }
+
+    .event-weather-day-description {
+      display: block;
+      min-height: 1.8em;
+      color: var(--ink-soft);
+      font-size: 0.62rem;
+      line-height: 1.3;
+    }
+
+    .event-weather-day-temp {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .event-weather-day-extra {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--muted);
+      font-size: 0.6rem;
+    }
+
+    .event-weather-note {
+      margin-top: 0.65rem;
+      padding-top: 0.55rem;
+      border-top: 1px solid var(--line);
+      color: var(--ink-soft);
+      font-size: 0.68rem;
+      line-height: 1.45;
+    }
+
+    .event-weather-note strong {
+      color: var(--ink);
+    }
+
+
     /* =========================================================
        AZIONI
        ========================================================= */
@@ -2299,6 +2408,24 @@
               </div>
 
 
+              <!-- METEO EVENTO -->
+
+              <section
+                class="event-weather"
+                id="eventWeather"
+                aria-live="polite"
+                aria-label="Previsioni meteo dell'evento"
+              >
+                <div class="event-weather-header">
+                  <span class="event-weather-title">METEO EVENTO</span>
+                  <span class="event-weather-source">Open-Meteo</span>
+                </div>
+                <div class="event-weather-message">
+                  Recupero delle previsioni meteorologiche...
+                </div>
+              </section>
+
+
               <!-- =========================================
                    AZIONI
                    ========================================= -->
@@ -2513,6 +2640,307 @@
          ------------------------------------------------------- */
 
       initializeEventMap(event);
+      loadEventWeather(event);
+
+    }
+
+
+    /* =========================================================
+       METEO EVENTO — OPEN-METEO
+       ========================================================= */
+
+    const WEATHER_FORECAST_DAYS = 16;
+    const WEATHER_NOTICE_DAYS = 15;
+
+
+    function parseEventDate(dateValue) {
+
+      if (!dateValue) return null;
+
+      const value = String(dateValue).trim();
+      let match;
+
+      // Supporta anche date italiane nel formato gg/mm/aaaa.
+      match = value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+
+      if (match) {
+        return new Date(Date.UTC(
+          Number(match[3]),
+          Number(match[2]) - 1,
+          Number(match[1])
+        ));
+      }
+
+      // Per le date ISO usa il giorno di calendario, senza slittamenti di fuso.
+      match = value.match(/^(\d{4})-(\d{2})-(\d{2})/);
+
+      if (match) {
+        return new Date(Date.UTC(
+          Number(match[1]),
+          Number(match[2]) - 1,
+          Number(match[3])
+        ));
+      }
+
+      const parsed = new Date(value);
+
+      if (Number.isNaN(parsed.getTime())) return null;
+
+      return new Date(Date.UTC(
+        parsed.getFullYear(),
+        parsed.getMonth(),
+        parsed.getDate()
+      ));
+
+    }
+
+
+    function dateToISO(date) {
+
+      return [
+        date.getUTCFullYear(),
+        String(date.getUTCMonth() + 1).padStart(2, '0'),
+        String(date.getUTCDate()).padStart(2, '0')
+      ].join('-');
+
+    }
+
+
+    function formatWeatherDate(dateString, options = {}) {
+
+      const date = parseEventDate(dateString);
+
+      if (!date) return dateString || '';
+
+      return date.toLocaleDateString('it-IT', {
+        weekday: options.weekday || 'short',
+        day: 'numeric',
+        month: options.month || 'short',
+        timeZone: 'UTC'
+      });
+
+    }
+
+
+    function getWeatherDescription(code) {
+
+      const weather = {
+        0: ['☀️', 'Sereno'],
+        1: ['🌤️', 'Prevalentemente sereno'],
+        2: ['⛅', 'Parzialmente nuvoloso'],
+        3: ['☁️', 'Nuvoloso'],
+        45: ['🌫️', 'Nebbia'],
+        48: ['🌫️', 'Nebbia con brina'],
+        51: ['🌦️', 'Pioviggine leggera'],
+        53: ['🌦️', 'Pioviggine'],
+        55: ['🌧️', 'Pioviggine intensa'],
+        56: ['🌧️', 'Pioviggine gelata'],
+        57: ['🌧️', 'Pioviggine gelata intensa'],
+        61: ['🌧️', 'Pioggia leggera'],
+        63: ['🌧️', 'Pioggia'],
+        65: ['🌧️', 'Pioggia intensa'],
+        66: ['🌧️', 'Pioggia gelata'],
+        67: ['🌧️', 'Pioggia gelata intensa'],
+        71: ['🌨️', 'Neve leggera'],
+        73: ['🌨️', 'Neve'],
+        75: ['❄️', 'Neve intensa'],
+        77: ['🌨️', 'Granelli di neve'],
+        80: ['🌦️', 'Rovesci leggeri'],
+        81: ['🌧️', 'Rovesci'],
+        82: ['⛈️', 'Rovesci intensi'],
+        85: ['🌨️', 'Rovesci di neve'],
+        86: ['❄️', 'Rovesci di neve intensi'],
+        95: ['⛈️', 'Temporale'],
+        96: ['⛈️', 'Temporale con grandine'],
+        99: ['⛈️', 'Temporale con grandine intensa']
+      };
+
+      return weather[code] || ['🌡️', 'Condizioni variabili'];
+
+    }
+
+
+    function getEventCityCoordinates(city) {
+
+      if (!city || typeof city !== 'string') return null;
+      if (typeof cityCoordinates === 'undefined' || !cityCoordinates) return null;
+
+      let coordinates = cityCoordinates[city];
+
+      if (!coordinates) {
+        const normalizeCity = value => String(value || '')
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .toLowerCase()
+          .trim();
+
+        const target = normalizeCity(city);
+        const matchingKey = Object.keys(cityCoordinates).find(
+          key => normalizeCity(key) === target
+        );
+
+        if (matchingKey) coordinates = cityCoordinates[matchingKey];
+      }
+
+      if (!Array.isArray(coordinates) || coordinates.length < 2) return null;
+
+      const lat = Number(coordinates[0]);
+      const lng = Number(coordinates[1]);
+
+      if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
+
+      return { lat, lng };
+
+    }
+
+
+    function setWeatherMessage(message) {
+
+      const widget = document.getElementById('eventWeather');
+      if (!widget) return;
+
+      const messageElement = widget.querySelector('.event-weather-message');
+      if (messageElement) messageElement.textContent = message;
+
+    }
+
+
+    async function loadEventWeather(event) {
+
+      const widget = document.getElementById('eventWeather');
+      if (!widget) return;
+
+      const startDate = parseEventDate(event.dataInizio);
+      const endDate = parseEventDate(event.dataFine || event.dataInizio);
+
+      if (!startDate) {
+        setWeatherMessage('La data dell’evento non è disponibile: impossibile recuperare il meteo.');
+        return;
+      }
+
+      const today = new Date();
+      const todayUTC = new Date(Date.UTC(
+        today.getFullYear(), today.getMonth(), today.getDate()
+      ));
+
+      const daysUntilEvent = Math.round(
+        (startDate.getTime() - todayUTC.getTime()) / 86400000
+      );
+
+      if (daysUntilEvent < 0) {
+        setWeatherMessage('L’evento è già passato: le previsioni meteo non sono più disponibili in questa sezione.');
+        return;
+      }
+
+      if (daysUntilEvent > WEATHER_NOTICE_DAYS) {
+        const availableFrom = new Date(
+          startDate.getTime() - WEATHER_NOTICE_DAYS * 86400000
+        );
+
+        setWeatherMessage(
+          `Le previsioni non sono ancora disponibili. Il meteo dell’evento sarà consultabile indicativamente da 15 giorni prima, a partire dal ${formatWeatherDate(dateToISO(availableFrom), { weekday: 'long', month: 'long' })}. Le previsioni vengono aggiornate automaticamente.`
+        );
+        return;
+      }
+
+      if (!event.citta) {
+        setWeatherMessage('Non è indicata la località dell’evento: impossibile calcolare le previsioni.');
+        return;
+      }
+
+      try {
+
+        await loadCityCoordinates();
+
+        const coordinates = getEventCityCoordinates(event.citta);
+
+        if (!coordinates) {
+          setWeatherMessage(`Non sono disponibili coordinate per ${event.citta}: impossibile recuperare il meteo.`);
+          return;
+        }
+
+        const params = new URLSearchParams({
+          latitude: String(coordinates.lat),
+          longitude: String(coordinates.lng),
+          daily: 'weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max',
+          forecast_days: String(WEATHER_FORECAST_DAYS),
+          timezone: 'auto'
+        });
+
+        const response = await fetch(
+          `https://api.open-meteo.com/v1/forecast?${params.toString()}`
+        );
+
+        if (!response.ok) {
+          throw new Error(`Open-Meteo HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (!data.daily || !Array.isArray(data.daily.time)) {
+          throw new Error('Formato dati meteo non valido');
+        }
+
+        const daily = data.daily;
+        const eventStartISO = dateToISO(startDate);
+        const eventEndISO = dateToISO(endDate || startDate);
+
+        const eventDays = daily.time
+          .map((date, index) => ({ date, index }))
+          .filter(item => item.date >= eventStartISO && item.date <= eventEndISO);
+
+        if (!eventDays.length) {
+          setWeatherMessage('Le previsioni per le date dell’evento non sono ancora disponibili. Riprova più vicino alla data.');
+          return;
+        }
+
+        const cards = eventDays.map(({ date, index }) => {
+          const [icon, description] = getWeatherDescription(daily.weather_code?.[index]);
+          const max = daily.temperature_2m_max?.[index];
+          const min = daily.temperature_2m_min?.[index];
+          const rain = daily.precipitation_probability_max?.[index];
+          const wind = daily.wind_speed_10m_max?.[index];
+
+          return `
+            <div class="event-weather-day">
+              <span class="event-weather-day-date">${escapeHtml(formatWeatherDate(date))}</span>
+              <span class="event-weather-day-icon" aria-hidden="true">${icon}</span>
+              <span class="event-weather-day-description">${escapeHtml(description)}</span>
+              <span class="event-weather-day-temp">
+                ${Number.isFinite(max) ? `${Math.round(max)}°` : '—'}
+                <span style="color:var(--muted);font-weight:600;">/ ${Number.isFinite(min) ? `${Math.round(min)}°` : '—'}</span>
+              </span>
+              <span class="event-weather-day-extra">Pioggia: ${Number.isFinite(rain) ? `${Math.round(rain)}%` : 'n.d.'}</span>
+              <span class="event-weather-day-extra">Vento: ${Number.isFinite(wind) ? `${Math.round(wind)} km/h` : 'n.d.'}</span>
+            </div>
+          `;
+        }).join('');
+
+        const missingDays = Math.max(
+          0,
+          Math.round((endDate.getTime() - startDate.getTime()) / 86400000) + 1 - eventDays.length
+        );
+
+        const note = missingDays > 0
+          ? `<div class="event-weather-note">Le previsioni degli altri giorni dell’evento non sono ancora disponibili. Saranno mostrate man mano che rientreranno nei prossimi 16 giorni.</div>`
+          : '';
+
+        widget.innerHTML = `
+          <div class="event-weather-header">
+            <span class="event-weather-title">METEO EVENTO</span>
+            <span class="event-weather-source">${escapeHtml(event.citta)} · Dati <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a></span>
+          </div>
+          <div class="event-weather-days">${cards}</div>
+          ${note}
+          <div class="event-weather-note">Previsioni indicative, soggette ad aggiornamenti. Temperature massime/minime · probabilità massima di precipitazioni · vento massimo.</div>
+        `;
+
+      } catch (error) {
+
+        console.error('Errore caricamento meteo evento:', error);
+        setWeatherMessage('Non è stato possibile recuperare le previsioni meteo in questo momento. Riprova più tardi.');
+
+      }
 
     }
 
