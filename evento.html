@@ -537,8 +537,14 @@
        ========================================================= */
 
     .event-weather {
-      margin: 0 0 1rem;
-      padding: 0.85rem;
+      min-width: 0;
+      min-height: 0;
+      height: 100%;
+      margin: 0;
+      padding: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      overflow: auto;
       background: var(--surface);
       border: 1px solid var(--line);
       border-radius: var(--radius-md);
@@ -549,8 +555,8 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-bottom: 0.7rem;
+      gap: 0.4rem;
+      margin-bottom: 0.55rem;
     }
 
     .event-weather-title {
@@ -563,24 +569,24 @@
 
     .event-weather-source {
       color: var(--muted);
-      font-size: 0.65rem;
+      font-size: 0.62rem;
     }
 
     .event-weather-message {
       color: var(--ink-soft);
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       line-height: 1.5;
     }
 
     .event-weather-days {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(88px, 1fr));
-      gap: 0.45rem;
+      grid-template-columns: repeat(auto-fit, minmax(76px, 1fr));
+      gap: 0.35rem;
     }
 
     .event-weather-day {
       min-width: 0;
-      padding: 0.6rem 0.45rem;
+      padding: 0.45rem 0.3rem;
       text-align: center;
       background: var(--bg);
       border: 1px solid var(--line);
@@ -589,49 +595,63 @@
 
     .event-weather-day-date {
       display: block;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.25rem;
       color: var(--ink-soft);
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       font-weight: 800;
       text-transform: uppercase;
     }
 
     .event-weather-day-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      margin-bottom: 0.15rem;
+      color: var(--ink);
+    }
+
+    .event-weather-svg {
+      width: 30px;
+      height: 30px;
       display: block;
-      margin-bottom: 0.2rem;
-      font-size: 1.35rem;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.55;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .event-weather-day-description {
       display: block;
       min-height: 1.8em;
       color: var(--ink-soft);
-      font-size: 0.62rem;
-      line-height: 1.3;
+      font-size: 0.59rem;
+      line-height: 1.25;
     }
 
     .event-weather-day-temp {
       display: block;
-      margin-top: 0.35rem;
+      margin-top: 0.3rem;
       color: var(--ink);
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 800;
     }
 
     .event-weather-day-extra {
       display: block;
-      margin-top: 0.2rem;
+      margin-top: 0.15rem;
       color: var(--muted);
-      font-size: 0.6rem;
+      font-size: 0.56rem;
     }
 
     .event-weather-note {
-      margin-top: 0.65rem;
-      padding-top: 0.55rem;
+      margin-top: 0.55rem;
+      padding-top: 0.45rem;
       border-top: 1px solid var(--line);
       color: var(--ink-soft);
-      font-size: 0.68rem;
-      line-height: 1.45;
+      font-size: 0.63rem;
+      line-height: 1.4;
     }
 
     .event-weather-note strong {
@@ -800,27 +820,28 @@
 
     .event-detail-poster-column {
 
-      min-width:
-        0;
+      min-width: 0;
+      min-height: 0;
 
-      min-height:
-        0;
+      padding: 0.75rem 0 0.75rem 1rem;
 
-      padding:
-        0.75rem
-        0
-        0.75rem
-        1rem;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 0.75rem;
 
-      display:
-        flex;
+    }
 
-      align-items:
-        stretch;
+    .event-detail-poster-slot {
+      min-width: 0;
+      min-height: 0;
+      height: 100%;
+    }
 
-      justify-content:
-        center;
-
+    .event-detail-poster-slot > .event-detail-poster-wrapper,
+    .event-detail-poster-slot > .event-google-ad {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
     }
 
 
@@ -1171,6 +1192,13 @@
        MOBILE
        ========================================================= */
 
+
+    @media (min-width: 851px) and (max-width: 1100px) {
+      .event-weather { padding: 0.55rem; }
+      .event-weather-days { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .event-weather-source { font-size: 0.58rem; }
+    }
+
     @media (max-width: 850px) {
 
       html,
@@ -1293,31 +1321,31 @@
          ------------------------------------------------------- */
 
       .event-detail-poster-column {
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        min-height: 0;
+        padding: 0;
+        margin-top: 0.75rem;
+      }
 
-        order:
-          2;
+      .event-detail-poster-slot {
+        height: auto;
+        min-height: 360px;
+      }
 
-        min-height:
-          360px;
-
-        padding:
-          0;
-
-        margin-top:
-          0.75rem;
-
+      .event-weather {
+        height: auto;
+        min-height: 220px;
+        overflow: visible;
       }
 
 
-      .event-detail-poster-wrapper,
-      .event-google-ad {
-
-        min-height:
-          360px;
-
-        border-radius:
-          var(--radius-lg);
-
+      .event-detail-poster-slot .event-detail-poster-wrapper,
+      .event-detail-poster-slot .event-google-ad {
+        min-height: 360px;
+        border-radius: var(--radius-lg);
       }
 
 
@@ -2408,24 +2436,6 @@
               </div>
 
 
-              <!-- METEO EVENTO -->
-
-              <section
-                class="event-weather"
-                id="eventWeather"
-                aria-live="polite"
-                aria-label="Previsioni meteo dell'evento"
-              >
-                <div class="event-weather-header">
-                  <span class="event-weather-title">METEO EVENTO</span>
-                  <span class="event-weather-source">Open-Meteo</span>
-                </div>
-                <div class="event-weather-message">
-                  Recupero delle previsioni meteorologiche...
-                </div>
-              </section>
-
-
               <!-- =========================================
                    AZIONI
                    ========================================= -->
@@ -2613,7 +2623,25 @@
             class="event-detail-poster-column"
           >
 
-            ${posterHtml}
+            <div class="event-detail-poster-slot">
+              ${posterHtml}
+            </div>
+
+            <!-- METEO EVENTO: riquadro inferiore destro -->
+            <section
+              class="event-weather"
+              id="eventWeather"
+              aria-live="polite"
+              aria-label="Previsioni meteo dell'evento"
+            >
+              <div class="event-weather-header">
+                <span class="event-weather-title">METEO EVENTO</span>
+                <span class="event-weather-source">Open-Meteo</span>
+              </div>
+              <div class="event-weather-message">
+                Recupero delle previsioni meteorologiche...
+              </div>
+            </section>
 
           </aside>
 
@@ -2722,40 +2750,59 @@
     }
 
 
+    function getWeatherIconSvg(type) {
+
+      const paths = {
+        sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2.5 12h2m15 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+        partly: '<path d="M7 17.5a4.5 4.5 0 1 1 4.2-6.1"/><path d="M12 3v1.7M5.6 5.6l1.2 1.2M3 12h1.7"/><path d="M9 18h9.2a3.3 3.3 0 0 0 .2-6.6 5 5 0 0 0-9.7 1.2A2.7 2.7 0 0 0 9 18z"/>',
+        cloud: '<path d="M6.5 18h10.8a4.2 4.2 0 0 0 .2-8.4 6.1 6.1 0 0 0-11.8 1.5A3.4 3.4 0 0 0 6.5 18z"/>',
+        fog: '<path d="M6.5 14h10.8a3.5 3.5 0 0 0 .2-7 5.3 5.3 0 0 0-10.2 1.3A2.9 2.9 0 0 0 6.5 14z"/><path d="M4 17h16M6 20h12"/>',
+        drizzle: '<path d="M6.5 14h10.8a3.5 3.5 0 0 0 .2-7 5.3 5.3 0 0 0-10.2 1.3A2.9 2.9 0 0 0 6.5 14z"/><path d="m9 17-.7 1.5m5.2-1.5-.7 1.5m5.2-1.5-.7 1.5"/>',
+        rain: '<path d="M6.5 13.5h10.8a3.5 3.5 0 0 0 .2-7 5.3 5.3 0 0 0-10.2 1.3 2.9 2.9 0 0 0-.8 5.7z"/><path d="m8 16.5-1 2m6-2-1 2m6-2-1 2"/>',
+        snow: '<path d="M6.5 13.5h10.8a3.5 3.5 0 0 0 .2-7 5.3 5.3 0 0 0-10.2 1.3 2.9 2.9 0 0 0-.8 5.7z"/><path d="M8 17v4m-1.7-3 3.4 2m0-2-3.4 2m8.7-3v4m-1.7-3 3.4 2m0-2-3.4 2"/>',
+        storm: '<path d="M6.5 13.5h10.8a3.5 3.5 0 0 0 .2-7 5.3 5.3 0 0 0-10.2 1.3 2.9 2.9 0 0 0-.8 5.7z"/><path d="m13 15-3 4h3l-1 3 4-5h-3l1-2"/>',
+        variable: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/>'
+      };
+
+      return `<svg class="event-weather-svg" viewBox="0 0 24 24" aria-hidden="true">${paths[type] || paths.variable}</svg>`;
+
+    }
+
+
     function getWeatherDescription(code) {
 
       const weather = {
-        0: ['☀️', 'Sereno'],
-        1: ['🌤️', 'Prevalentemente sereno'],
-        2: ['⛅', 'Parzialmente nuvoloso'],
-        3: ['☁️', 'Nuvoloso'],
-        45: ['🌫️', 'Nebbia'],
-        48: ['🌫️', 'Nebbia con brina'],
-        51: ['🌦️', 'Pioviggine leggera'],
-        53: ['🌦️', 'Pioviggine'],
-        55: ['🌧️', 'Pioviggine intensa'],
-        56: ['🌧️', 'Pioviggine gelata'],
-        57: ['🌧️', 'Pioviggine gelata intensa'],
-        61: ['🌧️', 'Pioggia leggera'],
-        63: ['🌧️', 'Pioggia'],
-        65: ['🌧️', 'Pioggia intensa'],
-        66: ['🌧️', 'Pioggia gelata'],
-        67: ['🌧️', 'Pioggia gelata intensa'],
-        71: ['🌨️', 'Neve leggera'],
-        73: ['🌨️', 'Neve'],
-        75: ['❄️', 'Neve intensa'],
-        77: ['🌨️', 'Granelli di neve'],
-        80: ['🌦️', 'Rovesci leggeri'],
-        81: ['🌧️', 'Rovesci'],
-        82: ['⛈️', 'Rovesci intensi'],
-        85: ['🌨️', 'Rovesci di neve'],
-        86: ['❄️', 'Rovesci di neve intensi'],
-        95: ['⛈️', 'Temporale'],
-        96: ['⛈️', 'Temporale con grandine'],
-        99: ['⛈️', 'Temporale con grandine intensa']
+        0: ['sun', 'Sereno'],
+        1: ['partly', 'Prevalentemente sereno'],
+        2: ['partly', 'Parzialmente nuvoloso'],
+        3: ['cloud', 'Nuvoloso'],
+        45: ['fog', 'Nebbia'],
+        48: ['fog', 'Nebbia con brina'],
+        51: ['drizzle', 'Pioviggine leggera'],
+        53: ['drizzle', 'Pioviggine'],
+        55: ['rain', 'Pioviggine intensa'],
+        56: ['rain', 'Pioviggine gelata'],
+        57: ['rain', 'Pioviggine gelata intensa'],
+        61: ['rain', 'Pioggia leggera'],
+        63: ['rain', 'Pioggia'],
+        65: ['rain', 'Pioggia intensa'],
+        66: ['rain', 'Pioggia gelata'],
+        67: ['rain', 'Pioggia gelata intensa'],
+        71: ['snow', 'Neve leggera'],
+        73: ['snow', 'Neve'],
+        75: ['snow', 'Neve intensa'],
+        77: ['snow', 'Granelli di neve'],
+        80: ['drizzle', 'Rovesci leggeri'],
+        81: ['rain', 'Rovesci'],
+        82: ['storm', 'Rovesci intensi'],
+        85: ['snow', 'Rovesci di neve'],
+        86: ['snow', 'Rovesci di neve intensi'],
+        95: ['storm', 'Temporale'],
+        96: ['storm', 'Temporale con grandine'],
+        99: ['storm', 'Temporale con grandine intensa']
       };
 
-      return weather[code] || ['🌡️', 'Condizioni variabili'];
+      return weather[code] || ['variable', 'Condizioni variabili'];
 
     }
 
@@ -2904,7 +2951,7 @@
           return `
             <div class="event-weather-day">
               <span class="event-weather-day-date">${escapeHtml(formatWeatherDate(date))}</span>
-              <span class="event-weather-day-icon" aria-hidden="true">${icon}</span>
+              <span class="event-weather-day-icon">${getWeatherIconSvg(icon)}</span>
               <span class="event-weather-day-description">${escapeHtml(description)}</span>
               <span class="event-weather-day-temp">
                 ${Number.isFinite(max) ? `${Math.round(max)}°` : '—'}
