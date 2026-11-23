@@ -1,541 +1,340 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
   <script src="consent.js"></script>
-  
   <meta charset="UTF-8">
-
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   >
-
   <title>Evento | PaddockMap</title>
-
   <!-- =========================================================
        DESIGN SYSTEM CONDIVISO
        NON MODIFICARE
        ========================================================= -->
-
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="a11y.css">
   <script src="a11y.js" defer></script>
-
-
   <!-- =========================================================
        LEAFLET
        ========================================================= -->
-
   <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
-
   <!-- =========================================================
        STILE LOCALE PAGINA EVENTO
-
        Tutto ciò che segue riguarda esclusivamente questa pagina.
        style.css non viene modificato.
        ========================================================= -->
-
   <style>
-
     /* =========================================================
        PAGINA DETTAGLIO EVENTO
        LAYOUT DESKTOP:
-
        30% | 40% | 30%
-
        SX      CENTRO       DX
        ADV     EVENTO       LOCANDINA
                75%
                MAPPA
                25%
        ========================================================= */
-
     .event-page-container {
-
       width: 100%;
       max-width: none;
-
       margin: 0;
-
       padding:
         1rem
         1.25rem
         1.25rem;
-
     }
-
-
     #eventContainer {
-
       width: 100%;
-
     }
-
-
     /* =========================================================
        LAYOUT PRINCIPALE
        ========================================================= */
-
     .event-detail {
-
       width: 100%;
-
       height:
         calc(100vh - 100px);
-
       display: grid;
-
       grid-template-columns:
         30%
         40%
         30%;
-
       background: transparent;
-
       border: none;
-
       border-radius: 0;
-
       box-shadow: none;
-
       overflow: hidden;
-
     }
-
-
     /* =========================================================
        COLONNA SINISTRA
        PUBBLICITÀ PERSONALIZZATA
        ========================================================= */
-
     .event-detail-ad-column {
-
       min-width: 0;
       min-height: 0;
-
       padding:
         0.75rem
         1rem
         0.75rem
         0;
-
       display: flex;
-
       align-items: stretch;
-
       justify-content: center;
-
     }
-
-
     .event-ad-box {
-
       width: 100%;
       height: 100%;
-
       min-height: 250px;
-
       position: relative;
-
       display: flex;
-
       align-items: center;
-
       justify-content: center;
-
       overflow: hidden;
-
       background:
         linear-gradient(
           135deg,
           rgba(255,255,255,0.82),
           rgba(255,255,255,0.52)
         );
-
       border:
         1px solid
         var(--line);
-
       border-radius:
         var(--radius-xl);
-
       box-shadow:
         var(--shadow-card);
-
       -webkit-backdrop-filter:
         blur(18px);
-
       backdrop-filter:
         blur(18px);
-
     }
-
-
     .event-ad-box::before {
-
       content: "PUBBLICITÀ";
-
       position: absolute;
-
       top: 0.8rem;
       left: 1rem;
-
       color:
         var(--muted);
-
       font-size:
         0.62rem;
-
       font-weight:
         800;
-
       letter-spacing:
         0.08em;
-
     }
-
-
     .event-ad-placeholder {
-
       max-width:
         230px;
-
       padding:
         1.5rem;
-
       text-align:
         center;
-
       color:
         var(--muted);
-
     }
-
-
     .event-ad-placeholder strong {
-
       display:
         block;
-
       margin-bottom:
         0.45rem;
-
       color:
         var(--ink-soft);
-
       font-family:
         var(--font-display);
-
       font-size:
         1rem;
-
     }
-
-
     .event-ad-placeholder span {
-
       display:
         block;
-
       font-size:
         0.78rem;
-
       line-height:
         1.45;
-
     }
-
-
     /* =========================================================
        COLONNA CENTRALE
        ========================================================= */
-
     .event-detail-center-column {
-
       min-width: 0;
       min-height: 0;
-
       display: grid;
-
       grid-template-rows:
         75%
         25%;
-
       padding:
         0 0.5rem;
-
     }
-
-
     /* =========================================================
        INFORMAZIONI EVENTO
        ========================================================= */
-
     .event-detail-info-column {
-
       min-width: 0;
       min-height: 0;
-
       display: flex;
-
       flex-direction: column;
-
       justify-content: center;
-
       padding:
         2rem
         2.2rem;
-
       background:
         var(--surface);
-
       border:
         1px solid
         var(--line);
-
       border-radius:
         var(--radius-xl);
-
       box-shadow:
         var(--shadow-card);
-
       overflow-y:
         auto;
-
     }
-
-
     /* =========================================================
        DATA
        ========================================================= */
-
     .event-detail-date {
-
       display: flex;
-
       align-items: center;
-
       gap:
         0.5rem;
-
       margin-bottom:
         0.65rem;
-
       color:
         var(--accent);
-
       font-size:
         0.82rem;
-
       font-weight:
         800;
-
       text-transform:
         uppercase;
-
       letter-spacing:
         0.025em;
-
     }
-
-
     /* =========================================================
        TITOLO
        ========================================================= */
-
     .event-detail-title {
-
       margin:
         0 0 1rem;
-
       color:
         var(--ink);
-
       font-family:
         var(--font-display);
-
       font-size:
         clamp(1.65rem, 2.5vw, 2.5rem);
-
       line-height:
         1.05;
-
       letter-spacing:
         -0.035em;
-
     }
-
-
     /* =========================================================
        DISCIPLINE
        ========================================================= */
-
     .event-detail-disciplines {
-
       display:
         flex;
-
       flex-wrap:
         wrap;
-
       gap:
         0.4rem;
-
       margin-bottom:
         1rem;
-
     }
-
-
     .event-detail-disciplines .event-discipline {
-
       display:
         inline-flex;
-
       align-items:
         center;
-
       gap:
         0.4rem;
-
       min-height:
         30px;
-
       padding:
         0.35rem
         0.65rem;
-
       border-radius:
         var(--radius-pill);
-
       background:
         var(--accent-soft);
-
       color:
         var(--accent-dark);
-
       font-size:
         0.75rem;
-
       font-weight:
         800;
-
     }
-
-
     /* =========================================================
        INFORMAZIONI
        ========================================================= */
-
     .event-detail-info-grid {
-
       display:
         grid;
-
       grid-template-columns:
         repeat(2, minmax(0, 1fr));
-
       gap:
         0.55rem;
-
       margin-bottom:
         1rem;
-
     }
-
-
     .event-detail-info-box {
-
       min-width:
         0;
-
       padding:
         0.7rem
         0.8rem;
-
       background:
         var(--bg);
-
       border:
         1px solid
         var(--line);
-
       border-radius:
         var(--radius-md);
-
     }
-
-
     .event-detail-info-label {
-
       display:
         block;
-
       margin-bottom:
         0.2rem;
-
       color:
         var(--muted);
-
       font-size:
         0.62rem;
-
       font-weight:
         800;
-
       text-transform:
         uppercase;
-
       letter-spacing:
         0.04em;
     }
-
     .event-detail-info-value {
-
       display:
         block;
-
       color:
         var(--ink);
-
       font-size:
         0.82rem;
-
       font-weight:
         750;
-
       line-height:
         1.3;
-
       overflow-wrap:
         anywhere;
     }
-
     .event-detail-info-value a {
-
       color:
         var(--accent);
-
       font-weight:
         750;
-
       text-decoration:
         none;
     }
-
     .event-detail-info-value a:hover {
-
       text-decoration:
         underline;
     }
-
-
-
     /* =========================================================
        METEO EVENTO — Open-Meteo
        ========================================================= */
-
     .event-weather {
       min-width: 0;
       min-height: 0;
@@ -549,7 +348,6 @@
       border: 1px solid var(--line);
       border-radius: var(--radius-md);
     }
-
     .event-weather-header {
       display: flex;
       align-items: center;
@@ -558,7 +356,6 @@
       gap: 0.4rem;
       margin-bottom: 0.55rem;
     }
-
     .event-weather-title {
       color: var(--ink);
       font-family: var(--font-display);
@@ -566,24 +363,20 @@
       font-weight: 800;
       letter-spacing: 0.04em;
     }
-
     .event-weather-source {
       color: var(--muted);
       font-size: 0.62rem;
     }
-
     .event-weather-message {
       color: var(--ink-soft);
       font-size: 0.76rem;
       line-height: 1.5;
     }
-
     .event-weather-days {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(76px, 1fr));
       gap: 0.35rem;
     }
-
     .event-weather-day {
       min-width: 0;
       padding: 0.45rem 0.3rem;
@@ -592,7 +385,6 @@
       border: 1px solid var(--line);
       border-radius: var(--radius-sm);
     }
-
     .event-weather-day-date {
       display: block;
       margin-bottom: 0.25rem;
@@ -601,7 +393,6 @@
       font-weight: 800;
       text-transform: uppercase;
     }
-
     .event-weather-day-icon {
       display: flex;
       align-items: center;
@@ -610,7 +401,6 @@
       margin-bottom: 0.15rem;
       color: var(--ink);
     }
-
     .event-weather-svg {
       width: 30px;
       height: 30px;
@@ -621,7 +411,6 @@
       stroke-linecap: round;
       stroke-linejoin: round;
     }
-
     .event-weather-day-description {
       display: block;
       min-height: 1.8em;
@@ -629,7 +418,6 @@
       font-size: 0.59rem;
       line-height: 1.25;
     }
-
     .event-weather-day-temp {
       display: block;
       margin-top: 0.3rem;
@@ -637,14 +425,12 @@
       font-size: 0.78rem;
       font-weight: 800;
     }
-
     .event-weather-day-extra {
       display: block;
       margin-top: 0.15rem;
       color: var(--muted);
       font-size: 0.56rem;
     }
-
     .event-weather-note {
       margin-top: 0.55rem;
       padding-top: 0.45rem;
@@ -653,673 +439,412 @@
       font-size: 0.63rem;
       line-height: 1.4;
     }
-
     .event-weather-note strong {
       color: var(--ink);
     }
-
-
     /* =========================================================
        AZIONI
        ========================================================= */
-
     .event-detail-actions {
-
       display:
         flex;
-
       flex-wrap:
         wrap;
-
       gap:
         0.5rem;
-
     }
-
-
     .event-detail-actions .btn {
-
       width:
         auto;
-
       min-width:
         0;
-
       flex:
         1 1 auto;
-
       padding:
         0.62rem
         0.85rem;
-
       font-size:
         0.78rem;
-
     }
-
-
     .event-detail-actions
     .pm-save-btn.active,
-
     .event-detail-actions
     .pm-follow-btn.active {
-
       border-color:
         var(--accent);
-
       background:
         var(--accent-soft);
-
       color:
         var(--accent);
-
     }
-
-
     .event-detail-actions
     .pm-save-btn.active
     svg.icon,
-
     .event-detail-actions
     .pm-follow-btn.active
     svg.icon {
-
       fill:
         var(--accent);
-
     }
-
-
     /* =========================================================
        MAPPA
        ========================================================= */
-
     .event-detail-map-column {
-
       min-width:
         0;
-
       min-height:
         0;
-
       position:
         relative;
-
       margin-top:
         0.75rem;
-
       overflow:
         hidden;
-
       background:
         var(--bg);
-
       border:
         1px solid
         var(--line);
-
       border-radius:
         var(--radius-xl);
-
       box-shadow:
         var(--shadow-card);
-
     }
-
-
     #eventMap {
-
       width:
         100%;
-
       height:
         100%;
-
     }
-
-
     .event-map-missing {
-
       width:
         100%;
-
       height:
         100%;
-
       display:
         flex;
-
       align-items:
         center;
-
       justify-content:
         center;
-
       padding:
         1.5rem;
-
       background:
         var(--bg);
-
       color:
         var(--ink-soft);
-
       text-align:
         center;
-
       font-size:
         0.82rem;
-
     }
-
-
     /* =========================================================
        COLONNA DESTRA
        LOCANDINA / GOOGLE ADS
        ========================================================= */
-
     .event-detail-poster-column {
-
       min-width: 0;
       min-height: 0;
-
       padding: 0.75rem 0 0.75rem 1rem;
-
       display: grid;
       grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
       gap: 0.75rem;
-
     }
-
     .event-detail-poster-slot {
       min-width: 0;
       min-height: 0;
       height: 100%;
     }
-
     .event-detail-poster-slot > .event-detail-poster-wrapper,
     .event-detail-poster-slot > .event-google-ad {
       width: 100%;
       height: 100%;
       min-height: 0;
     }
-
-
     /* =========================================================
        LOCANDINA
        ========================================================= */
-
     .event-detail-poster-wrapper {
-
       width:
         100%;
-
       height:
         100%;
-
       position:
         relative;
-
       overflow:
         hidden;
-
       display:
         flex;
-
       align-items:
         center;
-
       justify-content:
         center;
-
       background:
         var(--surface);
-
       border:
         1px solid
         var(--line);
-
       border-radius:
         var(--radius-xl);
-
       box-shadow:
         var(--shadow-card);
-
     }
-
-
     .event-detail-poster-image {
-
       width:
         100%;
-
       height:
         100%;
-
       display:
         block;
-
       object-fit:
         contain;
-
       background:
         var(--surface);
-
     }
-
-
     /* =========================================================
        GOOGLE ADS
        ========================================================= */
-
     .event-google-ad {
-
       width:
         100%;
-
       height:
         100%;
-
       position:
         relative;
-
       display:
         flex;
-
       align-items:
         center;
-
       justify-content:
         center;
-
       overflow:
         hidden;
-
       background:
         var(--surface);
-
       border:
         1px solid
         var(--line);
-
       border-radius:
         var(--radius-xl);
-
       box-shadow:
         var(--shadow-card);
-
     }
-
-
     .event-google-ad::before {
-
       content:
         "PUBBLICITÀ";
-
       position:
         absolute;
-
       top:
         0.8rem;
-
       left:
         1rem;
-
       color:
         var(--muted);
-
       font-size:
         0.62rem;
-
       font-weight:
         800;
-
       letter-spacing:
         0.08em;
-
     }
-
-
     /* =========================================================
        STATO / ERRORI
        ========================================================= */
-
     .event-state {
-
       width:
         100%;
-
       padding:
         4rem
         2rem;
-
       background:
         var(--surface);
-
       border:
         1px solid
         var(--line);
-
       border-radius:
         var(--radius-xl);
-
       box-shadow:
         var(--shadow-card);
-
       text-align:
         center;
-
     }
-
-
     .event-state h1 {
-
       margin:
         0 0 0.7rem;
-
       color:
         var(--ink);
-
       font-family:
         var(--font-display);
-
     }
-
-
     .event-state p {
-
       margin:
         0;
-
       color:
         var(--ink-soft);
-
     }
-
-
     .event-state.error h1 {
-
       color:
         var(--accent);
-
     }
-
-
     /* =========================================================
        DESKTOP ALTEZZA
        ========================================================= */
-
     @media (min-width: 851px) {
-
       html,
       body {
-
         height:
           100%;
-
         overflow:
           hidden;
-
       }
-
-
       body {
-
         display:
           flex;
-
         flex-direction:
           column;
-
       }
-
-
       .event-page-container {
-
         flex:
           1;
-
         min-height:
           0;
-
         display:
           flex;
-
         flex-direction:
           column;
-
         padding:
           1rem
           1.25rem;
-
       }
-
-
       #eventContainer {
-
         flex:
           1;
-
         min-height:
           0;
-
       }
-
-
       .event-detail {
-
         flex:
           1;
-
         min-height:
           0;
-
       }
-
-
       .footer {
-
         display:
           none;
-
       }
-
     }
-
-
     /* =========================================================
        TABLET
        ========================================================= */
-
     @media (max-width: 1100px) {
-
       .event-detail {
-
         height:
           calc(100vh - 100px);
-
         grid-template-columns:
           28%
           44%
           28%;
-
       }
-
-
       .event-detail-info-column {
-
         padding:
           1.4rem;
-
       }
-
-
       .event-detail-title {
-
         font-size:
           1.7rem;
-
       }
-
-
       .event-detail-info-grid {
-
         grid-template-columns:
           1fr;
-
       }
-
-
       .event-detail-actions {
-
         flex-direction:
           column;
-
       }
-
-
       .event-detail-actions .btn {
-
         width:
           100%;
-
       }
-
     }
-
-
     /* =========================================================
        MOBILE
        ========================================================= */
-
-
     @media (min-width: 851px) and (max-width: 1100px) {
       .event-weather { padding: 0.55rem; }
       .event-weather-days { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .event-weather-source { font-size: 0.58rem; }
     }
-
     @media (max-width: 850px) {
-
       html,
       body {
-
         height:
           auto;
-
         overflow:
           auto;
-
       }
-
-
       body {
-
         display:
           block;
-
       }
-
-
       .event-page-container {
-
         padding:
           0.75rem;
-
       }
-
-
       .event-detail {
-
         display:
           flex;
-
         flex-direction:
           column;
-
         height:
           auto;
-
         overflow:
           visible;
-
       }
-
-
       /* -------------------------------------------------------
          EVENTO
          ------------------------------------------------------- */
-
       .event-detail-center-column {
-
         display:
           flex;
-
         flex-direction:
           column;
-
         order:
           1;
-
         padding:
           0;
-
       }
-
-
       .event-detail-info-column {
-
         order:
           1;
-
         padding:
           1.25rem;
-
         border-radius:
           var(--radius-lg);
-
       }
-
-
       /* -------------------------------------------------------
          MAPPA
          ------------------------------------------------------- */
-
       .event-detail-map-column {
-
         order:
           2;
-
         height:
           320px;
-
         min-height:
           320px;
-
         margin-top:
           0.75rem;
-
         border-radius:
           var(--radius-lg);
-
       }
-
-
       #eventMap {
-
         min-height:
           320px;
-
         height:
           320px;
-
       }
-
-
       /* -------------------------------------------------------
          LOCANDINA
          ------------------------------------------------------- */
-
       .event-detail-poster-column {
         order: 2;
         display: flex;
@@ -1329,328 +854,206 @@
         padding: 0;
         margin-top: 0.75rem;
       }
-
       .event-detail-poster-slot {
         height: auto;
         min-height: 360px;
       }
-
       .event-weather {
         height: auto;
         min-height: 220px;
         overflow: visible;
       }
-
-
       .event-detail-poster-slot .event-detail-poster-wrapper,
       .event-detail-poster-slot .event-google-ad {
         min-height: 360px;
         border-radius: var(--radius-lg);
       }
-
-
       /* -------------------------------------------------------
          PUBBLICITÀ SINISTRA
          ------------------------------------------------------- */
-
       .event-detail-ad-column {
-
         order:
           3;
-
         min-height:
           300px;
-
         padding:
           0;
-
         margin-top:
           0.75rem;
-
       }
-
-
       .event-ad-box {
-
         min-height:
           300px;
-
         border-radius:
           var(--radius-lg);
-
       }
-
     }
-
-
     /* =========================================================
        MOBILE PICCOLO
        ========================================================= */
-
     @media (max-width: 550px) {
-
       .event-detail-info-grid {
-
         grid-template-columns:
           1fr;
-
       }
-
-
       .event-detail-actions {
-
         display:
           grid;
-
         grid-template-columns:
           1fr;
-
       }
-
-
       .event-detail-actions .btn {
-
         width:
           100%;
-
       }
-
-
       .event-detail-title {
-
         font-size:
           1.8rem;
-
       }
-
     }
-
   </style>
-
 </head>
-
-
 <body>
-
-
   <!-- =========================================================
        HEADER
        ========================================================= -->
-
   <header
     class="header"
     id="mainHeader"
   >
-
     <div class="header-content">
-
       <div class="logo">
-
         Paddock<span>Map</span>
-
       </div>
-
-
       <nav class="nav-menu">
-
         <a href="index.html">
           Home
         </a>
-
         <a href="mappa.html">
           Mappa
         </a>
-
         <a href="contatti.html">
           Segnala Evento
         </a>
-
       </nav>
-
     </div>
-
   </header>
-
-
   <!-- =========================================================
        CONTENUTO
        ========================================================= -->
-
   <main class="event-page-container">
-
     <div id="eventContainer">
-
       <div class="event-state">
-
         <h1>
           Caricamento evento...
         </h1>
-
         <p>
           Attendi qualche secondo.
         </p>
-
       </div>
-
     </div>
-
   </main>
-
-
   <!-- =========================================================
        FOOTER
        ========================================================= -->
-
   <footer class="footer">
-
     <div class="footer-content">
-
       <div>
-
         <strong>
           PaddockMap
         </strong>
-
         <span>
           Il calendario del motorsport italiano.
         </span>
-
       </div>
-
     </div>
-
   </footer>
-
-
   <!-- =========================================================
        LEAFLET
        ========================================================= -->
-
   <script src="vendor/leaflet/leaflet.js"></script>
-
   <!-- =========================================================
        PADDockMAP JS
        ========================================================= -->
-
   <script src="icons.js"></script>
   <script src="pm-safe.js"></script>
   <script src="map-common.js"></script>
   <script src="vendor/supabase.js"></script>
   <script src="auth.js"></script>
   <script src="paddock-actions.js"></script>
-
-
   <!-- =========================================================
        LOGICA PAGINA EVENTO
        ========================================================= -->
-
   <script>
-
     /* =========================================================
        API
        ========================================================= */
-
     const API_URL =
       'https://paddockmap-api.managementcesar37.workers.dev/?v=' +
       Date.now();
-
-
     /* =========================================================
        ID EVENTO
        ========================================================= */
-
     const urlParams =
       new URLSearchParams(
         window.location.search
       );
-
-
     const eventId =
       urlParams.get('id');
-
-
     const container =
       document.getElementById(
         'eventContainer'
       );
-
-
     /* =========================================================
        ESCAPE HTML
        ========================================================= */
-
     function escapeHtml(value) {
-
       if (
         value === null ||
         value === undefined
       ) {
-
         return '';
-
       }
-
-
       return String(value)
-
         .replace(
           /&/g,
           '&amp;'
         )
-
         .replace(
           /</g,
           '&lt;'
         )
-
         .replace(
           />/g,
           '&gt;'
         )
-
         .replace(
           /"/g,
           '&quot;'
         )
-
         .replace(
           /'/g,
           '&#039;'
         );
-
     }
-
-
     /* =========================================================
        DATE
        ========================================================= */
-
     function formatDate(dateString) {
-
       if (!dateString) {
-
         return '';
-
       }
-
-
       const date =
         new Date(dateString);
-
-
       if (
         Number.isNaN(
           date.getTime()
         )
       ) {
-
         return escapeHtml(
           dateString
         );
-
       }
-
-
       return date.toLocaleDateString(
         'it-IT',
         {
@@ -1659,291 +1062,175 @@
           year: 'numeric'
         }
       );
-
     }
-
-
     function formatEventDate(event) {
-
       const start =
         event.dataInizio;
-
-
       const end =
         event.dataFine;
-
-
       if (!start) {
-
         return '';
-
       }
-
-
       if (
         !end ||
         start === end
       ) {
-
         return formatDate(start);
-
       }
-
-
       return (
         `${formatDate(start)} – ${formatDate(end)}`
       );
-
     }
-
-
     /* =========================================================
        DISCIPLINE
        ========================================================= */
-
     function normalizeDisciplines(event) {
-
       if (
         Array.isArray(
           event.disciplina
         )
       ) {
-
         return event.disciplina;
-
       }
-
-
       if (
         typeof event.disciplina === 'string'
       ) {
-
         return event.disciplina
-
           .split(',')
-
           .map(
             item => item.trim()
           )
-
           .filter(Boolean);
-
       }
-
-
       return [];
-
     }
-
-
     function getDisciplineIcon(
       discipline
     ) {
-
       const value =
         String(
           discipline || ''
         ).toLowerCase();
-
-
       if (
         typeof window.getDisciplineIcon ===
         'function'
       ) {
-
         try {
-
           return window.getDisciplineIcon(
             discipline
           );
-
         } catch (error) {}
-
       }
-
-
       if (
         typeof window.getIconForDiscipline ===
         'function'
       ) {
-
         try {
-
           return window.getIconForDiscipline(
             discipline
           );
-
         } catch (error) {}
-
       }
-
-
       if (
         value.includes('rally')
       ) {
-
         return '🏁';
-
       }
-
-
       if (
         value.includes('slalom') ||
         value.includes('cronoscalata') ||
         value.includes('salita')
       ) {
-
         return '🏎️';
-
       }
-
-
       if (
         value.includes('gt') ||
         value.includes('turismo')
       ) {
-
         return '🏎️';
-
       }
-
-
       if (
         value.includes('kart')
       ) {
-
         return '🏎️';
-
       }
-
-
       if (
         value.includes('moto') ||
         value.includes('motocicl')
       ) {
-
         return '🏍️';
-
       }
-
-
       return '🏁';
-
     }
-
-
     /* =========================================================
        IMMAGINE EVENTO
        =========================================================
-
        IMPORTANTE:
-
        Qui NON vengono utilizzate:
-
        - immagini organizzatore
        - random1.png
        - random2.png
        - random3.png
        - random4.png
-
        Se l'evento ha una vera immagine:
        → locandina
-
        Se non ce l'ha:
        → Google Ads
        ========================================================= */
-
     function getEventPoster(event) {
-
       if (
         event.immagine &&
         String(event.immagine).trim() !== ''
       ) {
-
         return String(
           event.immagine
         ).trim();
-
       }
-
-
       return '';
-
     }
-
-
     /* =========================================================
        INGRESSO GRATUITO
        ========================================================= */
-
     function getFreeEntry(event) {
-
       if (
         event.eventoGratuito === true ||
         event.eventoGratuito === 'true'
       ) {
-
         return 'Ingresso gratuito';
-
       }
-
-
       return '';
-
     }
-
-
     /* =========================================================
        URL BIGLIETTI
        ========================================================= */
-
     function getTicketUrl(event) {
-
       return (
-
         event.linkBiglietti ||
-
         event.biglietti ||
-
         event.ticketUrl ||
-
         event.urlBiglietti ||
-
         ''
-
       );
-
     }
-
-
     /* =========================================================
        URL INFORMAZIONI
        ========================================================= */
-
     function getInfoUrl(event) {
-
       return (
         event.linkInfo || ''
       );
-
     }
-
-
     /* =========================================================
        ID CIRCUITO
        =========================================================
-
        paddock-actions.js richiede data-circuit-id.
        La pagina evento si adatta ai dati disponibili senza
        modificare il file comune.
-
        Se l'API fornisce un identificativo esplicito, viene usato
        quello; in assenza di un campo ID dedicato, viene usato
        event.circuito come valore canonico già presente nell'evento.
        ========================================================= */
-
     function getCircuitId(event) {
-
       return (
         event.circuitId ||
         event.circuit_id ||
@@ -1952,340 +1239,213 @@
         event.circuito ||
         ''
       );
-
     }
-
-
     /* =========================================================
        RENDER EVENTO
        ========================================================= */
-
     function renderEvent(event) {
-
       const disciplines =
         normalizeDisciplines(event);
-
-
       /* -------------------------------------------------------
          DISCIPLINE HTML
          ------------------------------------------------------- */
-
       const disciplineHtml =
         disciplines.length
-
           ? disciplines
-
               .map(
                 discipline => `
-
                   <span class="event-discipline">
-
                     <span>
                       ${getDisciplineIcon(
                         discipline
                       )}
                     </span>
-
                     ${escapeHtml(
                       discipline
                     )}
-
                   </span>
-
                 `
               )
-
               .join('')
-
           : '';
-
-
       /* -------------------------------------------------------
          DATI
          ------------------------------------------------------- */
-
       const freeEntry =
         getFreeEntry(event);
-
-
       const city =
         event.citta || '—';
-
-
       const organizer =
         event.organizzatore || '—';
-
-
       const ticketUrl =
         getTicketUrl(event);
-
-
       const infoUrl =
         getInfoUrl(event);
-
-
       const eventPoster =
         getEventPoster(event);
-
-
       /* -------------------------------------------------------
          TITLE
          ------------------------------------------------------- */
-
       document.title =
         `${event.titolo || 'Evento'} | PaddockMap`;
-
-
       /* =======================================================
          PUBBLICITÀ SINISTRA
          =======================================================
-
          Questa è volutamente una struttura semplice.
-
          In futuro possiamo sostituirla con:
-
          - banner statico
          - immagine sponsor
          - link sponsor
          - gestione da Supabase
          - più campagne pubblicitarie
          ======================================================= */
-
       const customAdHtml = `
-
         <div class="event-ad-box">
-
           <div class="event-ad-placeholder">
-
             <strong>
               Promuovi il tuo evento
             </strong>
-
             <span>
               Questo spazio è disponibile
               per pubblicità personalizzate.
             </span>
-
           </div>
-
         </div>
-
       `;
-
-
       /* =======================================================
          COLONNA DESTRA
          ======================================================= */
-
       let posterHtml;
-
-
       if (eventPoster) {
-
         posterHtml = `
-
           <div class="event-detail-poster-wrapper">
-
             <img
-
               class="event-detail-poster-image"
-
               src="${escapeHtml(
                 eventPoster
               )}"
-
               alt="${escapeHtml(
                 event.titolo ||
                 'Locandina evento'
               )}"
-
               loading="eager"
-
               onerror="
                 this.onerror=null;
                 this.parentElement.innerHTML=\`
                   <div class='event-google-ad'>
-
                     <div class='event-ad-placeholder'>
-
                       <strong>
                         Spazio pubblicitario
                       </strong>
-
                       <span>
                         Google Ads
                       </span>
-
                     </div>
-
                   </div>
                 \`;
               "
-
             >
-
           </div>
-
         `;
-
       } else {
-
         posterHtml = `
-
           <div class="event-google-ad">
-
             <!--
               =================================================
               GOOGLE ADS
-
               Qui potrà essere inserito successivamente
               il codice Google AdSense reale.
               =================================================
             -->
-
             <div class="event-ad-placeholder">
-
               <strong>
                 Spazio pubblicitario
               </strong>
-
               <span>
                 Google Ads
               </span>
-
             </div>
-
           </div>
-
         `;
-
       }
-
-
       /* =======================================================
          HTML COMPLETO
          ======================================================= */
-
       container.innerHTML = `
-
         <article class="event-detail">
-
-
           <!-- ===============================================
                COLONNA 1 — PUBBLICITÀ
                =============================================== -->
-
           <aside
             class="event-detail-ad-column"
           >
-
             ${customAdHtml}
-
           </aside>
-
-
           <!-- ===============================================
                COLONNA 2 — INFORMAZIONI + MAPPA
                =============================================== -->
-
           <section
             class="event-detail-center-column"
           >
-
-
             <!-- =============================================
                  PARTE SUPERIORE — 75%
                  ============================================= -->
-
             <div
               class="event-detail-info-column"
             >
-
-
               <!-- DATA -->
-
               ${
                 formatEventDate(event)
-
                   ? `
-
                     <div
                       class="event-detail-date"
                     >
-
                       <span>
                         📅
                       </span>
-
                       <span>
                         ${formatEventDate(event)}
                       </span>
-
                     </div>
-
                   `
-
                   : ''
               }
-
-
               <!-- TITOLO -->
-
               <h1
                 class="event-detail-title"
               >
-
                 ${escapeHtml(
                   event.titolo ||
                   'Evento'
                 )}
-
               </h1>
-
-
               <!-- DISCIPLINE -->
-
               ${
                 disciplineHtml
-
                   ? `
-
                     <div
                       class="event-detail-disciplines"
                     >
-
                       ${disciplineHtml}
-
                     </div>
-
                   `
-
                   : ''
               }
-
-
               <!-- INFORMAZIONI -->
-
               <div
                 class="event-detail-info-grid"
               >
-
-
                 ${
                   event.circuito
-
                     ? `
-
                       <div
                         class="event-detail-info-box"
                       >
-
                         <span
                           class="event-detail-info-label"
                         >
                           Circuito
                         </span>
-
                         <span
                           class="event-detail-info-value"
                         >
@@ -2293,53 +1453,37 @@
                             event.circuito
                           )}
                         </span>
-
                       </div>
-
                     `
-
                     : ''
                 }
-
-
                 <!-- LOCATION -->
-
                 <div
                   class="event-detail-info-box"
                 >
-
                   <span
                     class="event-detail-info-label"
                   >
                     Località
                   </span>
-
                   <span
                     class="event-detail-info-value"
                   >
                     ${escapeHtml(city)}
                   </span>
-
                 </div>
-
-
                 <!-- ORGANIZZATORE -->
-
                 ${
                   event.organizzatore
-
                     ? `
-
                       <div
                         class="event-detail-info-box"
                       >
-
                         <span
                           class="event-detail-info-label"
                         >
                           Organizzatore
                         </span>
-
                         <span
                           class="event-detail-info-value"
                         >
@@ -2347,60 +1491,40 @@
                             organizer
                           )}
                         </span>
-
                       </div>
-
                     `
-
                     : ''
                 }
-
-
                 <!-- INGRESSO -->
-
                 <div
                   class="event-detail-info-box"
                 >
-
                   <span
                     class="event-detail-info-label"
                   >
                     Ingresso
                   </span>
-
-
                   <span
                     class="event-detail-info-value"
                   >
-
                     ${
                       ticketUrl
-
                         ? `
-
                           <a
                             href="${escapeHtml(
                               ticketUrl
                             )}"
-
                             target="_blank"
-
                             rel="
                               noopener
                               noreferrer
                             "
                           >
-
                             Biglietti
-
                           </a>
-
                         `
-
                         : freeEntry
-
                           ? `
-
                             <span
                               style="
                                 color:
@@ -2409,224 +1533,137 @@
                                   800;
                               "
                             >
-
                               ${PMIcons.sparkle}
-
                               ${escapeHtml(
                                 freeEntry
                               )}
-
                             </span>
-
                           `
-
                           : `
-
                             Da definire
-
                           `
-
                     }
-
                   </span>
-
                 </div>
-
-
               </div>
-
-
               <!-- =========================================
                    AZIONI
                    ========================================= -->
-
               <div
                 class="event-detail-actions"
               >
-
-
                 <!-- SALVA EVENTO -->
-
                 <button
-
                   type="button"
-
                   class="
                     btn
                     btn-secondary
                     pm-save-btn
                   "
-
                   data-event-id="${escapeHtml(
                     window.pmEventId(event)
                   )}"
-
                   onclick="
                     pmHandleSaveClick(this)
                   "
-
                 >
-
                   ${PMIcons.heart}
-
                   Salva evento
-
                 </button>
-
-
                 <!-- SEGUI CIRCUITO -->
-
                 ${
                   getCircuitId(event)
-
                     ? `
-
                       <button
-
                         type="button"
-
                         class="
                           btn
                           btn-secondary
                           pm-follow-btn
                         "
-
                         data-circuit-id="${escapeHtml(
                           getCircuitId(event)
                         )}"
-
                         onclick="
                           pmHandleFollowClick(this)
                         "
-
                       >
-
                         ${PMIcons.flag}
-
                         Segui circuito
-
                       </button>
-
                     `
-
                     : ''
                 }
-
-
                 <!-- BIGLIETTI -->
-
                 ${
                   ticketUrl
-
                     ? `
-
                       <a
-
                         href="${escapeHtml(
                           ticketUrl
                         )}"
-
                         class="
                           btn
                           btn-primary
                         "
-
                         target="_blank"
-
                         rel="
                           noopener
                           noreferrer
                         "
-
                       >
-
                         ${PMIcons.ticket}
-
                         Biglietti
-
                       </a>
-
                     `
-
                     : ''
                 }
-
-
                 <!-- MAGGIORI INFORMAZIONI -->
-
                 ${
                   infoUrl
-
                     ? `
-
                       <a
-
                         href="${escapeHtml(
                           infoUrl
                         )}"
-
                         class="
                           btn
                           btn-secondary
                         "
-
                         target="_blank"
-
                         rel="
                           noopener
                           noreferrer
                         "
-
                       >
-
                         ${PMIcons.info}
-
                         Maggiori informazioni
-
                       </a>
-
                     `
-
                     : ''
                 }
-
-
               </div>
-
-
             </div>
-
-
             <!-- =============================================
                  PARTE INFERIORE — MAPPA 25%
                  ============================================= -->
-
             <div
               class="event-detail-map-column"
             >
-
               <div
                 id="eventMap"
               ></div>
-
             </div>
-
-
           </section>
-
-
           <!-- ===============================================
                COLONNA 3 — LOCANDINA / GOOGLE ADS
                =============================================== -->
-
           <aside
             class="event-detail-poster-column"
           >
-
             <div class="event-detail-poster-slot">
               ${posterHtml}
             </div>
-
             <!-- METEO EVENTO: riquadro inferiore destro -->
             <section
               class="event-weather"
@@ -2642,15 +1679,9 @@
                 Recupero delle previsioni meteorologiche...
               </div>
             </section>
-
           </aside>
-
-
         </article>
-
       `;
-
-
       /* -------------------------------------------------------
          STATO BOTTONI
          -------------------------------------------------------
@@ -2659,38 +1690,25 @@
          - caricamento dei circuiti seguiti
          - refresh degli stati dei pulsanti
          - sincronizzazione dopo il rendering tramite MutationObserver
-
          La pagina evento non richiama API interne del file comune.
          ------------------------------------------------------- */
-
       /* -------------------------------------------------------
          MAPPA
          ------------------------------------------------------- */
-
       initializeEventMap(event);
       loadEventWeather(event);
-
     }
-
-
     /* =========================================================
        METEO EVENTO — OPEN-METEO
        ========================================================= */
-
     const WEATHER_FORECAST_DAYS = 16;
     const WEATHER_NOTICE_DAYS = 15;
-
-
     function parseEventDate(dateValue) {
-
       if (!dateValue) return null;
-
       const value = String(dateValue).trim();
       let match;
-
       // Supporta anche date italiane nel formato gg/mm/aaaa.
       match = value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
-
       if (match) {
         return new Date(Date.UTC(
           Number(match[3]),
@@ -2698,10 +1716,8 @@
           Number(match[1])
         ));
       }
-
       // Per le date ISO usa il giorno di calendario, senza slittamenti di fuso.
       match = value.match(/^(\d{4})-(\d{2})-(\d{2})/);
-
       if (match) {
         return new Date(Date.UTC(
           Number(match[1]),
@@ -2709,49 +1725,32 @@
           Number(match[3])
         ));
       }
-
       const parsed = new Date(value);
-
       if (Number.isNaN(parsed.getTime())) return null;
-
       return new Date(Date.UTC(
         parsed.getFullYear(),
         parsed.getMonth(),
         parsed.getDate()
       ));
-
     }
-
-
     function dateToISO(date) {
-
       return [
         date.getUTCFullYear(),
         String(date.getUTCMonth() + 1).padStart(2, '0'),
         String(date.getUTCDate()).padStart(2, '0')
       ].join('-');
-
     }
-
-
     function formatWeatherDate(dateString, options = {}) {
-
       const date = parseEventDate(dateString);
-
       if (!date) return dateString || '';
-
       return date.toLocaleDateString('it-IT', {
         weekday: options.weekday || 'short',
         day: 'numeric',
         month: options.month || 'short',
         timeZone: 'UTC'
       });
-
     }
-
-
     function getWeatherIconSvg(type) {
-
       const paths = {
         sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2.5 12h2m15 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
         partly: '<path d="M7 17.5a4.5 4.5 0 1 1 4.2-6.1"/><path d="M12 3v1.7M5.6 5.6l1.2 1.2M3 12h1.7"/><path d="M9 18h9.2a3.3 3.3 0 0 0 .2-6.6 5 5 0 0 0-9.7 1.2A2.7 2.7 0 0 0 9 18z"/>',
@@ -2763,14 +1762,9 @@
         storm: '<path d="M6.5 13.5h10.8a3.5 3.5 0 0 0 .2-7 5.3 5.3 0 0 0-10.2 1.3 2.9 2.9 0 0 0-.8 5.7z"/><path d="m13 15-3 4h3l-1 3 4-5h-3l1-2"/>',
         variable: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/>'
       };
-
       return `<svg class="event-weather-svg" viewBox="0 0 24 24" aria-hidden="true">${paths[type] || paths.variable}</svg>`;
-
     }
-
-
     function getWeatherDescription(code) {
-
       const weather = {
         0: ['sun', 'Sereno'],
         1: ['partly', 'Prevalentemente sereno'],
@@ -2801,177 +1795,129 @@
         96: ['storm', 'Temporale con grandine'],
         99: ['storm', 'Temporale con grandine intensa']
       };
-
       return weather[code] || ['variable', 'Condizioni variabili'];
-
     }
-
-
     function getEventCityCoordinates(city) {
-
       if (!city || typeof city !== 'string') return null;
       if (typeof cityCoordinates === 'undefined' || !cityCoordinates) return null;
-
       let coordinates = cityCoordinates[city];
-
       if (!coordinates) {
         const normalizeCity = value => String(value || '')
           .normalize('NFD')
           .replace(/[\u0300-\u036f]/g, '')
           .toLowerCase()
           .trim();
-
         const target = normalizeCity(city);
         const matchingKey = Object.keys(cityCoordinates).find(
           key => normalizeCity(key) === target
         );
-
         if (matchingKey) coordinates = cityCoordinates[matchingKey];
       }
-
       if (!Array.isArray(coordinates) || coordinates.length < 2) return null;
-
       const lat = Number(coordinates[0]);
       const lng = Number(coordinates[1]);
-
       if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
-
       return { lat, lng };
-
     }
-
-
     function setWeatherMessage(message) {
-
       const widget = document.getElementById('eventWeather');
       if (!widget) return;
-
       const messageElement = widget.querySelector('.event-weather-message');
       if (messageElement) messageElement.textContent = message;
-
     }
-
-
     async function loadEventWeather(event) {
-
       const widget = document.getElementById('eventWeather');
       if (!widget) return;
-
       const startDate = parseEventDate(event.dataInizio);
       const endDate = parseEventDate(event.dataFine || event.dataInizio);
-
       if (!startDate) {
         setWeatherMessage('La data dell’evento non è disponibile: impossibile recuperare il meteo.');
         return;
       }
-
       const today = new Date();
       const todayUTC = new Date(Date.UTC(
         today.getFullYear(), today.getMonth(), today.getDate()
       ));
-
       const daysUntilEvent = Math.round(
         (startDate.getTime() - todayUTC.getTime()) / 86400000
       );
-
       if (daysUntilEvent < 0) {
         setWeatherMessage('L’evento è già passato: le previsioni meteo non sono più disponibili in questa sezione.');
         return;
       }
-
       if (daysUntilEvent > WEATHER_NOTICE_DAYS) {
         const availableFrom = new Date(
           startDate.getTime() - WEATHER_NOTICE_DAYS * 86400000
         );
-
         setWeatherMessage(
           `Le previsioni non sono ancora disponibili. Il meteo dell’evento sarà consultabile indicativamente da 15 giorni prima, a partire dal ${formatWeatherDate(dateToISO(availableFrom), { weekday: 'long', month: 'long' })}. Le previsioni vengono aggiornate automaticamente.`
         );
         return;
       }
-
       if (!event.citta) {
         setWeatherMessage('Non è indicata la località dell’evento: impossibile calcolare le previsioni.');
         return;
       }
-
       try {
-
         await loadCityCoordinates();
-
         const coordinates = getEventCityCoordinates(event.citta);
-
         if (!coordinates) {
           setWeatherMessage(`Non sono disponibili coordinate per ${event.citta}: impossibile recuperare il meteo.`);
           return;
         }
-
         const params = new URLSearchParams({
           latitude: String(coordinates.lat),
           longitude: String(coordinates.lng),
-          daily: 'weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max',
+          daily: 'weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_mean',
           forecast_days: String(WEATHER_FORECAST_DAYS),
           timezone: 'auto'
         });
-
         const response = await fetch(
           `https://api.open-meteo.com/v1/forecast?${params.toString()}`
         );
-
         if (!response.ok) {
           throw new Error(`Open-Meteo HTTP ${response.status}`);
         }
-
         const data = await response.json();
-
         if (!data.daily || !Array.isArray(data.daily.time)) {
           throw new Error('Formato dati meteo non valido');
         }
-
         const daily = data.daily;
         const eventStartISO = dateToISO(startDate);
         const eventEndISO = dateToISO(endDate || startDate);
-
         const eventDays = daily.time
           .map((date, index) => ({ date, index }))
           .filter(item => item.date >= eventStartISO && item.date <= eventEndISO);
-
         if (!eventDays.length) {
           setWeatherMessage('Le previsioni per le date dell’evento non sono ancora disponibili. Riprova più vicino alla data.');
           return;
         }
-
         const cards = eventDays.map(({ date, index }) => {
           const [icon, description] = getWeatherDescription(daily.weather_code?.[index]);
           const max = daily.temperature_2m_max?.[index];
           const min = daily.temperature_2m_min?.[index];
           const rain = daily.precipitation_probability_max?.[index];
-          const wind = daily.wind_speed_10m_max?.[index];
-
+          const wind = daily.wind_speed_10m_mean?.[index];
           return `
             <div class="event-weather-day">
               <span class="event-weather-day-date">${escapeHtml(formatWeatherDate(date))}</span>
               <span class="event-weather-day-icon">${getWeatherIconSvg(icon)}</span>
-              <span class="event-weather-day-description">${escapeHtml(description)}</span>
-              <span class="event-weather-day-temp">
+              <span class="event-weather-day-temp" aria-label="${escapeHtml(description)}">
                 ${Number.isFinite(max) ? `${Math.round(max)}°` : '—'}
                 <span style="color:var(--muted);font-weight:600;">/ ${Number.isFinite(min) ? `${Math.round(min)}°` : '—'}</span>
               </span>
-              <span class="event-weather-day-extra">Pioggia: ${Number.isFinite(rain) ? `${Math.round(rain)}%` : 'n.d.'}</span>
-              <span class="event-weather-day-extra">Vento: ${Number.isFinite(wind) ? `${Math.round(wind)} km/h` : 'n.d.'}</span>
+              <span class="event-weather-day-extra" title="Probabilità massima di precipitazioni" aria-label="Probabilità massima di precipitazioni">P ${Number.isFinite(rain) ? `${Math.round(rain)}%` : '—'}</span>
+              <span class="event-weather-day-extra" title="Velocità media del vento" aria-label="Velocità media del vento">V ${Number.isFinite(wind) ? `${Math.round(wind)} km/h` : '—'}</span>
             </div>
           `;
         }).join('');
-
         const missingDays = Math.max(
           0,
           Math.round((endDate.getTime() - startDate.getTime()) / 86400000) + 1 - eventDays.length
         );
-
         const note = missingDays > 0
           ? `<div class="event-weather-note">Le previsioni degli altri giorni dell’evento non sono ancora disponibili. Saranno mostrate man mano che rientreranno nei prossimi 16 giorni.</div>`
           : '';
-
         widget.innerHTML = `
           <div class="event-weather-header">
             <span class="event-weather-title">METEO EVENTO</span>
@@ -2979,537 +1925,337 @@
           </div>
           <div class="event-weather-days">${cards}</div>
           ${note}
-          <div class="event-weather-note">Previsioni indicative, soggette ad aggiornamenti. Temperature massime/minime · probabilità massima di precipitazioni · vento massimo.</div>
+          <div class="event-weather-note">Previsioni indicative e soggette ad aggiornamenti automatici.</div>
         `;
-
       } catch (error) {
-
         console.error('Errore caricamento meteo evento:', error);
         setWeatherMessage('Non è stato possibile recuperare le previsioni meteo in questo momento. Riprova più tardi.');
-
       }
-
     }
-
-
     /* =========================================================
        MAPPA EVENTO
        ========================================================= */
-
     async function initializeEventMap(event) {
-
       const mapContainer =
         document.getElementById(
           'eventMap'
         );
-
-
       if (!mapContainer) {
-
         return;
-
       }
-
-
       /* -------------------------------------------------------
          NESSUNA CITTÀ
          ------------------------------------------------------- */
-
       if (!event.citta) {
-
         mapContainer.outerHTML = `
-
           <div
             class="event-map-missing"
           >
-
             Posizione non disponibile
             per questo evento.
-
           </div>
-
         `;
-
         return;
-
       }
-
-
       try {
-
         /* -----------------------------------------------------
            CARICAMENTO COORDINATE
            ----------------------------------------------------- */
-
         await loadCityCoordinates();
-
-
         /* -----------------------------------------------------
            RICERCA ESATTA
            ----------------------------------------------------- */
-
         let coordinates =
           cityCoordinates[
             event.citta
           ];
-
-
         /* -----------------------------------------------------
            FALLBACK NORMALIZZATO
            ----------------------------------------------------- */
-
         if (!coordinates) {
-
           const normalizeCity =
             value =>
-
               String(
                 value || ''
               )
-
                 .normalize('NFD')
-
                 .replace(
                   /[\u0300-\u036f]/g,
                   ''
                 )
-
                 .toLowerCase()
-
                 .trim();
-
-
           const target =
             normalizeCity(
               event.citta
             );
-
-
           const matchingKey =
             Object.keys(
               cityCoordinates
             )
-
               .find(
                 key =>
                   normalizeCity(
                     key
                   ) === target
               );
-
-
           if (matchingKey) {
-
             coordinates =
               cityCoordinates[
                 matchingKey
               ];
-
           }
-
         }
-
-
         /* -----------------------------------------------------
            NESSUNA COORDINATA
            ----------------------------------------------------- */
-
         if (
-
           !coordinates ||
-
           !Array.isArray(
             coordinates
           ) ||
-
           coordinates.length < 2
-
         ) {
-
           mapContainer.outerHTML = `
-
             <div
               class="event-map-missing"
             >
-
               Non sono disponibili
               coordinate per
-
               <strong>
                 &nbsp;
                 ${escapeHtml(
                   event.citta
                 )}
               </strong>.
-
             </div>
-
           `;
-
           return;
-
         }
-
-
         /* -----------------------------------------------------
            COORDINATE
            ----------------------------------------------------- */
-
         const lat =
           Number(
             coordinates[0]
           );
-
-
         const lng =
           Number(
             coordinates[1]
           );
-
-
         if (
-
           !Number.isFinite(lat) ||
-
           !Number.isFinite(lng)
-
         ) {
-
           mapContainer.outerHTML = `
-
             <div
               class="event-map-missing"
             >
-
               Coordinate non valide
               per
-
               <strong>
                 &nbsp;
                 ${escapeHtml(
                   event.citta
                 )}
               </strong>.
-
             </div>
-
           `;
-
           return;
-
         }
-
-
         /* -----------------------------------------------------
            CREA MAPPA
            ----------------------------------------------------- */
-
         const map =
           createBaseMap(
             'eventMap'
           );
-
-
         /* -----------------------------------------------------
            POSIZIONA MAPPA
            ----------------------------------------------------- */
-
         map.setView(
           [
             lat,
             lng
           ],
-          11
+          10
         );
-
-
         /* -----------------------------------------------------
            MARKER
            ----------------------------------------------------- */
-
         const marker =
           L.circleMarker(
-
             [
               lat,
               lng
             ],
-
             {
-
               radius:
                 10,
-
               color:
                 '#FFFFFF',
-
               weight:
                 3,
-
               fillColor:
                 '#FF4B24',
-
               fillOpacity:
                 1
-
             }
-
           ).addTo(map);
-
-
         /* -----------------------------------------------------
            POPUP
            ----------------------------------------------------- */
-
         marker.bindPopup(`
-
           <strong>
-
             ${escapeHtml(
               event.titolo ||
               'Evento'
             )}
-
           </strong>
-
           <br>
-
           ${escapeHtml(
             event.citta
           )}
-
         `);
-
-
-        marker.openPopup();
-
-
         /* -----------------------------------------------------
            INVALIDATE SIZE
            ----------------------------------------------------- */
-
         setTimeout(
-
           () =>
             map.invalidateSize(),
-
           100
-
         );
-
-
       } catch (error) {
-
         console.error(
           'Errore caricamento mappa evento:',
           error
         );
-
-
         mapContainer.outerHTML = `
-
           <div
             class="event-map-missing"
           >
-
             Impossibile caricare
             la posizione dell'evento.
-
           </div>
-
         `;
-
       }
-
     }
-
-
     /* =========================================================
        CARICAMENTO DATI
        ========================================================= */
-
     async function loadEvent() {
-
-
       /* -------------------------------------------------------
          ID MANCANTE
          ------------------------------------------------------- */
-
       if (!eventId) {
-
         container.innerHTML = `
-
           <div
             class="event-state error"
           >
-
             <h1>
               Evento non specificato
             </h1>
-
             <p>
               L'URL non contiene
               l'identificativo
               dell'evento.
             </p>
-
           </div>
-
         `;
-
         return;
-
       }
-
-
       try {
-
-
         /* -----------------------------------------------------
            FETCH API
            ----------------------------------------------------- */
-
         const response =
           await fetch(
-
             API_URL,
-
             {
               cache:
                 'no-store'
             }
-
           );
-
-
         if (!response.ok) {
-
           throw new Error(
             `HTTP ${response.status}`
           );
-
         }
-
-
         /* -----------------------------------------------------
            TESTO RISPOSTA
            ----------------------------------------------------- */
-
         const text =
           await response.text();
-
-
         /* -----------------------------------------------------
            JSON
            ----------------------------------------------------- */
-
         const data = pmCleanEvents(JSON.parse(text));
-
-
         if (!Array.isArray(data)) {
-
           throw new Error(
             'Formato dati non valido'
           );
-
         }
-
-
         /* -----------------------------------------------------
            ID CANONICO
            -----------------------------------------------------
-
            L'evento viene cercato esclusivamente
            attraverso idAuto.
            ----------------------------------------------------- */
-
         const event =
           data.find(
-
             item =>
-
               String(
                 item.idAuto
               ) ===
-
               String(
                 eventId
               )
-
           );
-
-
         /* -----------------------------------------------------
            EVENTO NON TROVATO
            ----------------------------------------------------- */
-
         if (!event) {
-
           container.innerHTML = `
-
             <div
               class="event-state error"
             >
-
               <h1>
                 Evento non trovato
               </h1>
-
               <p>
                 L'evento richiesto
                 non è presente
                 nei dati disponibili.
               </p>
-
             </div>
-
           `;
-
           return;
-
         }
-
-
         /* -----------------------------------------------------
            EVENTO TROVATO
            ----------------------------------------------------- */
-
         renderEvent(event);
-
-
       } catch (error) {
-
         console.error(
           'Errore caricamento evento:',
           error
         );
-
-
         container.innerHTML = `
-
           <div
             class="event-state error"
           >
-
             <h1>
               Errore
             </h1>
-
             <p>
               Non è stato possibile
               caricare i dati
               dell'evento.
             </p>
-
           </div>
-
         `;
-
       }
-
     }
-
-
     /* =========================================================
        AVVIO
        ========================================================= */
