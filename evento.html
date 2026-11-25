@@ -919,6 +919,116 @@
           1.8rem;
       }
     }
+    /* =========================================================
+       ACCENTI VISIVI — PALETTE RACE CALENDAR
+       Arancione per le informazioni principali, verde per lo stato
+       positivo, blu per i dati di contesto.
+       ========================================================= */
+    .event-detail-info-column {
+      border-top: 4px solid var(--accent);
+      background: linear-gradient(145deg, #FFFFFF 0%, #FFF9F6 100%);
+    }
+    .event-detail-date {
+      width: fit-content;
+      padding: 0.42rem 0.7rem;
+      border-left: 3px solid var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+    }
+    .event-detail-title {
+      max-width: 100%;
+      text-wrap: pretty;
+    }
+    .event-detail-disciplines .event-discipline {
+      border: 1px solid rgba(255, 75, 36, 0.16);
+    }
+    .event-detail-info-box {
+      border-left-width: 3px;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .event-detail-info-box.info-location {
+      background: #FFF3ED;
+      border-color: rgba(255, 75, 36, 0.22);
+      border-left-color: var(--accent);
+    }
+    .event-detail-info-box.info-circuit {
+      background: #EEF4FF;
+      border-color: rgba(65, 116, 190, 0.18);
+      border-left-color: #477FC4;
+    }
+    .event-detail-info-box.info-organizer {
+      background: #EFF7F1;
+      border-color: rgba(30, 158, 90, 0.18);
+      border-left-color: var(--success);
+    }
+    .event-detail-info-box.info-entry {
+      background: #FFF8E8;
+      border-color: rgba(204, 148, 25, 0.2);
+      border-left-color: #D39A1D;
+    }
+    .event-detail-info-box.info-location .event-detail-info-label { color: #B94A2D; }
+    .event-detail-info-box.info-circuit .event-detail-info-label { color: #477FC4; }
+    .event-detail-info-box.info-organizer .event-detail-info-label { color: #24804E; }
+    .event-detail-info-box.info-entry .event-detail-info-label { color: #987018; }
+    .event-detail-actions .btn-primary {
+      box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.12);
+    }
+    .event-detail-actions .pm-follow-btn {
+      border: 1px solid rgba(30, 158, 90, 0.2);
+      background: var(--success-soft);
+      color: #187B48;
+    }
+    .event-detail-actions .pm-follow-btn:hover {
+      background: rgba(30, 158, 90, 0.2);
+      color: #12663A;
+    }
+    .event-detail-map-column {
+      display: flex;
+      flex-direction: column;
+    }
+    #eventMap {
+      flex: 1 1 auto;
+      min-height: 0;
+      height: auto;
+    }
+    .event-map-note {
+      flex: 0 0 auto;
+      padding: 0.35rem 0.55rem;
+      background: #FFFFFF;
+      border-top: 1px solid var(--line);
+      color: var(--ink-soft);
+      font-size: 0.62rem;
+      line-height: 1.35;
+    }
+    .event-map-note strong { color: var(--accent-dark); }
+    .event-detail-poster-wrapper,
+    .event-google-ad,
+    .event-ad-box {
+      border-top: 3px solid rgba(255, 75, 36, 0.7);
+    }
+    .event-weather {
+      border-top: 3px solid #477FC4;
+    }
+    .event-weather-day-temp { color: var(--accent-dark); }
+    .event-weather-day-extra:first-of-type { color: #278FCB; }
+    .event-weather-day-extra:last-of-type { color: #248A78; }
+    @media (max-width: 850px) {
+      #eventMap {
+        flex: 1 1 auto;
+        min-height: 0;
+        height: auto;
+      }
+      .event-detail-map-column {
+        display: flex;
+        flex-direction: column;
+        height: 340px;
+        min-height: 340px;
+      }
+      .event-map-note { font-size: 0.68rem; }
+      .event-detail-info-column {
+        background: linear-gradient(145deg, #FFFFFF 0%, #FFF9F6 100%);
+      }
+    }
   </style>
 </head>
 <body>
@@ -1249,6 +1359,17 @@
       );
     }
     /* =========================================================
+       CONFRONTO LOCALITÀ / CIRCUITO
+       ========================================================= */
+    function normalizeEventLocation(value) {
+      return String(value || '')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, ' ')
+        .trim();
+    }
+    /* =========================================================
        RENDER EVENTO
        ========================================================= */
     function renderEvent(event, allEvents = []) {
@@ -1291,6 +1412,11 @@
         getInfoUrl(event);
       const eventPoster =
         getEventPoster(event);
+      const isCircuitLocation = Boolean(
+        event.citta &&
+        event.circuito &&
+        normalizeEventLocation(event.citta) === normalizeEventLocation(event.circuito)
+      );
       /* -------------------------------------------------------
          TITLE
          ------------------------------------------------------- */
@@ -1444,10 +1570,10 @@
                 class="event-detail-info-grid"
               >
                 ${
-                  event.circuito
+                  event.circuito && !isCircuitLocation
                     ? `
                       <div
-                        class="event-detail-info-box"
+                        class="event-detail-info-box info-circuit"
                       >
                         <span
                           class="event-detail-info-label"
@@ -1467,7 +1593,7 @@
                 }
                 <!-- LOCATION -->
                 <div
-                  class="event-detail-info-box"
+                  class="event-detail-info-box info-location"
                 >
                   <span
                     class="event-detail-info-label"
@@ -1485,7 +1611,7 @@
                   event.organizzatore
                     ? `
                       <div
-                        class="event-detail-info-box"
+                        class="event-detail-info-box info-organizer"
                       >
                         <span
                           class="event-detail-info-label"
@@ -1505,7 +1631,7 @@
                 }
                 <!-- INGRESSO -->
                 <div
-                  class="event-detail-info-box"
+                  class="event-detail-info-box info-entry"
                 >
                   <span
                     class="event-detail-info-label"
@@ -1597,7 +1723,7 @@
                         "
                       >
                         ${PMIcons.flag}
-                        Segui circuito
+                        ${isCircuitLocation ? 'Segui località' : 'Segui circuito'}
                       </button>
                     `
                     : ''
@@ -1661,6 +1787,9 @@
               <div
                 id="eventMap"
               ></div>
+              <p class="event-map-note">
+                <strong>Posizione indicativa:</strong> il marker segnala il centro della località, non l’ingresso del circuito o la sede esatta dell’evento.
+              </p>
             </div>
           </section>
           <!-- ===============================================
@@ -2090,29 +2219,65 @@
           10
         );
         /* -------------------------------------------------------
-           MARKER DI TUTTI GLI EVENTI
-           L'evento corrente resta evidenziato in verde.
+           UN MARKER PER OGNI LOCALITÀ
+           Selezionata in verde, le altre in arancione.
+           Gli eventi nella stessa località condividono il marker.
            ------------------------------------------------------- */
-        const eventsToShow = Array.isArray(allEvents) ? allEvents : [event];
+        const eventsToShow = Array.isArray(allEvents) ? [...allEvents] : [];
+        const selectedAlreadyIncluded = eventsToShow.some(item =>
+          item === event || (
+            event.idAuto != null &&
+            item &&
+            item.idAuto != null &&
+            String(item.idAuto) === String(event.idAuto)
+          )
+        );
+        if (!selectedAlreadyIncluded) eventsToShow.push(event);
+        const locations = new Map();
         eventsToShow.forEach(item => {
           if (!item || !item.citta) return;
           const itemCoordinates = getEventCityCoordinates(item.citta);
           if (!itemCoordinates) return;
-          const isSelected = String(item.idAuto) === String(event.idAuto);
+          const locationKey = `${itemCoordinates.lat.toFixed(5)},${itemCoordinates.lng.toFixed(5)}`;
+          const isSelectedEvent = item === event || (
+            event.idAuto != null &&
+            item.idAuto != null &&
+            String(item.idAuto) === String(event.idAuto)
+          );
+          if (!locations.has(locationKey)) {
+            locations.set(locationKey, {
+              coordinates: itemCoordinates,
+              city: item.citta,
+              events: [],
+              isSelected: false
+            });
+          }
+          const location = locations.get(locationKey);
+          location.events.push(item);
+          if (isSelectedEvent) {
+            location.isSelected = true;
+            location.city = event.citta || item.citta;
+          }
+        });
+        locations.forEach(location => {
           const marker = L.circleMarker(
-            [itemCoordinates.lat, itemCoordinates.lng],
+            [location.coordinates.lat, location.coordinates.lng],
             {
-              radius: isSelected ? 10 : 6,
+              radius: location.isSelected ? 10 : 6,
               color: '#FFFFFF',
-              weight: isSelected ? 3 : 2,
-              fillColor: isSelected ? '#22C55E' : '#FF4B24',
+              weight: location.isSelected ? 3 : 2,
+              fillColor: location.isSelected ? '#1E9E5A' : '#FF4B24',
               fillOpacity: 1
             }
           ).addTo(map);
-          marker.bindPopup(`
-            <strong>${escapeHtml(item.titolo || 'Evento')}</strong><br>
-            ${escapeHtml(item.citta)}
-          `);
+          const eventTitles = [...new Set(location.events.map(item =>
+            String(item.titolo || 'Evento')
+          ))];
+          const popupContent = `
+            <strong>${escapeHtml(location.city)}</strong>
+            ${eventTitles.length ? `<br>${eventTitles.map(title => escapeHtml(title)).join('<br>')}` : ''}
+          `;
+          marker.bindPopup(popupContent);
         });
         /* -----------------------------------------------------
            INVALIDATE SIZE
