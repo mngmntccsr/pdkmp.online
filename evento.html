@@ -698,47 +698,13 @@
        DESKTOP ALTEZZA
        ========================================================= */
     @media (min-width: 851px) {
-      html,
-      body {
-        height:
-          100%;
-        overflow:
-          hidden;
-      }
-      body {
-        display:
-          flex;
-        flex-direction:
-          column;
-      }
+      /* La pagina ora scorre: il blocco evento occupa la prima
+         schermata, sotto compaiono le sezioni "eventi correlati". */
       .event-page-container {
-        flex:
-          1;
-        min-height:
-          0;
-        display:
-          flex;
-        flex-direction:
-          column;
         padding:
           1rem
-          1.25rem;
-      }
-      #eventContainer {
-        flex:
-          1;
-        min-height:
-          0;
-      }
-      .event-detail {
-        flex:
-          1;
-        min-height:
-          0;
-      }
-      .footer {
-        display:
-          none;
+          1.25rem
+          0.5rem;
       }
     }
     /* =========================================================
@@ -985,6 +951,9 @@
     .event-detail-map-column {
       display: flex;
       flex-direction: column;
+      /* Contiene gli z-index di Leaflet: ora la pagina scorre e i controlli
+         della mappa non devono passare sopra l'header fisso. */
+      isolation: isolate;
     }
     #eventMap {
       flex: 1 1 auto;
@@ -1029,6 +998,217 @@
         background: linear-gradient(145deg, #FFFFFF 0%, #FFF9F6 100%);
       }
     }
+    /* =========================================================
+       EVENTI CORRELATI — SCHEDE A SCORRIMENTO
+       4 schede visibili (desktop), scorrimento di una scheda alla volta.
+       ========================================================= */
+    .related-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 2.25rem;
+      margin-top: 2rem;
+      padding-bottom: 1.5rem;
+    }
+    .rel-section { min-width: 0; }
+    .rel-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.85rem;
+    }
+    .rel-head-text { min-width: 0; }
+    .rel-title {
+      margin: 0;
+      padding-left: 0.65rem;
+      border-left: 4px solid var(--accent);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 2vw, 1.9rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+    .rel-subtitle {
+      margin: 0.35rem 0 0 calc(0.65rem + 4px);
+      color: var(--ink-soft);
+      font-size: 0.8rem;
+      line-height: 1.35;
+    }
+    .rel-nav { display: flex; gap: 0.4rem; flex-shrink: 0; }
+    .rel-nav[hidden] { display: none; }
+    .rel-arrow {
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      background: var(--surface);
+      border: 1.5px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+      color: var(--ink);
+      cursor: pointer;
+      transition: border-color 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+    }
+    .rel-arrow:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+    .rel-arrow:disabled { opacity: 0.35; cursor: default; }
+    .rel-arrow svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .rel-track {
+      --rel-gap: 1rem;
+      --rel-per-view: 4;
+      display: flex;
+      gap: var(--rel-gap);
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .rel-track::-webkit-scrollbar { display: none; }
+    .rel-track:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+    .rel-card {
+      flex: 0 0 calc((100% - (var(--rel-per-view) - 1) * var(--rel-gap)) / var(--rel-per-view));
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      scroll-snap-align: start;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      color: inherit;
+      text-decoration: none;
+      transition: border-color 0.15s ease;
+    }
+    .rel-card:hover { border-color: var(--ink); }
+    .rel-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .rel-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding: 0.65rem 0.85rem;
+      background: var(--ink);
+      color: #fff;
+    }
+    .rel-date {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .rel-date-part { display: flex; flex-direction: column; line-height: 1; }
+    .rel-date-day {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 0.9;
+    }
+    .rel-date-mon {
+      margin-top: 0.2rem;
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .rel-date-sep {
+      width: 10px;
+      height: 2px;
+      margin-top: 0.85rem;
+      background: rgba(255, 255, 255, 0.4);
+    }
+    .rel-badge {
+      flex-shrink: 0;
+      padding: 0.28rem 0.5rem;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.14);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .rel-card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      padding: 0.85rem 0.9rem 1rem;
+    }
+    .rel-card-title {
+      margin: 0;
+      min-height: 2.1em;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: 0.005em;
+    }
+    .rel-card:hover .rel-card-title { color: var(--accent-dark); }
+    .rel-discs { display: flex; flex-wrap: wrap; gap: 0.3rem; min-height: 24px; }
+    .rel-disc {
+      max-width: 100%;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.2rem 0.45rem;
+      border-radius: var(--radius-pill);
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-size: 0.68rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .rel-disc-icon { width: 14px; height: 14px; object-fit: contain; }
+    .rel-row {
+      min-width: 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.45rem;
+      color: var(--ink-soft);
+      font-size: 0.8rem;
+      line-height: 1.3;
+    }
+    .rel-row svg.icon {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      margin-top: 0.08rem;
+      color: var(--muted);
+    }
+    .rel-row span { min-width: 0; overflow-wrap: anywhere; }
+    .rel-row strong { color: var(--ink); font-weight: 700; }
+    @media (max-width: 1100px) {
+      .rel-track { --rel-per-view: 3; }
+    }
+    @media (max-width: 850px) {
+      .rel-track { --rel-per-view: 2; }
+      .related-wrap { gap: 1.75rem; margin-top: 1.5rem; }
+    }
+    @media (max-width: 550px) {
+      /* Su telefono si intravede la scheda successiva per invitare allo swipe */
+      .rel-track { --rel-per-view: 1.15; --rel-gap: 0.75rem; }
+      .rel-arrow { width: 34px; height: 34px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .rel-track { scroll-behavior: auto; }
+    }
   </style>
 </head>
 <body>
@@ -1070,6 +1250,8 @@
         </p>
       </div>
     </div>
+    <!-- EVENTI CORRELATI (organizzatore / vicinanze / stesso periodo) -->
+    <div id="relatedSections" class="related-wrap"></div>
   </main>
   <!-- =========================================================
        FOOTER
@@ -2397,6 +2579,9 @@
            EVENTO TROVATO
            ----------------------------------------------------- */
         renderEvent(event, data);
+        renderRelatedSections(event, data).catch(error => {
+          console.error('Errore eventi correlati:', error);
+        });
       } catch (error) {
         console.error(
           'Errore caricamento evento:',
@@ -2417,6 +2602,256 @@
           </div>
         `;
       }
+    }
+    /* =========================================================
+       EVENTI CORRELATI
+       - stesso organizzatore
+       - nelle vicinanze (ordinati per distanza)
+       - nello stesso periodo (± REL_PERIOD_DAYS giorni)
+       Ogni sezione è un carosello: 4 schede visibili,
+       scorrimento di una scheda alla volta.
+       ========================================================= */
+    const REL_MAX_ITEMS = 20;
+    const REL_PERIOD_DAYS = 14;
+    const REL_DAY_MS = 86400000;
+    const REL_DISCIPLINE_ICONS = {
+      'Formula': 'image/icons/pdkmp.icon.formula.png',
+      'Rally': 'image/icons/pdkmp.icon.rally1.png',
+      'Gt': 'image/icons/pdkmp.icon.gt.png',
+      'Misto': 'image/icons/pdkmp.icon.misto.png',
+      'Cronoscalata': 'image/icons/pdkmp.icon.crono.png',
+      'Le Mans Prototype': 'image/icons/pdkmp.icon.lmp.png',
+      'Storico': 'image/icons/pdkmp.icon.storico.png',
+      'Raduno': 'image/icons/pdkmp.icon.raduni.png',
+      'Trackday': 'image/icons/pdkmp.icon.trackday.png'
+    };
+    const REL_CHEVRON_LEFT = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>';
+    const REL_CHEVRON_RIGHT = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>';
+
+    function relRange(item) {
+      const start = parseEventDate(item && item.dataInizio);
+      if (!start) return null;
+      let end = parseEventDate(item.dataFine || item.dataInizio) || start;
+      if (end.getTime() < start.getTime()) end = start;
+      return { start, end };
+    }
+    function relTodayUTC() {
+      const now = new Date();
+      return new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+    }
+    function relFormatDay(date, withYear) {
+      return date.toLocaleDateString('it-IT', {
+        day: 'numeric',
+        month: 'long',
+        year: withYear ? 'numeric' : undefined,
+        timeZone: 'UTC'
+      });
+    }
+    function relDateBlockHtml(item) {
+      const range = relRange(item);
+      if (!range) return '';
+      const thisYear = new Date().getFullYear();
+      const part = date => {
+        const mon = date.toLocaleDateString('it-IT', { month: 'short', timeZone: 'UTC' }).replace('.', '');
+        const yearTag = date.getUTCFullYear() !== thisYear ? ' ' + date.getUTCFullYear() : '';
+        return `<span class="rel-date-part"><span class="rel-date-day">${date.getUTCDate()}</span><span class="rel-date-mon">${escapeHtml(mon + yearTag)}</span></span>`;
+      };
+      const multi = range.end.getTime() !== range.start.getTime();
+      const label = relFormatDay(range.start, true) + (multi ? ' – ' + relFormatDay(range.end, true) : '');
+      return `<span class="rel-date" role="text" aria-label="${escapeHtml(label)}">${part(range.start)}${multi ? '<span class="rel-date-sep" aria-hidden="true"></span>' + part(range.end) : ''}</span>`;
+    }
+    function relDisciplineChipsHtml(item) {
+      const list = normalizeDisciplines(item);
+      if (!list.length) return '';
+      const shown = list.slice(0, 2);
+      const extra = list.length - shown.length;
+      const chips = shown.map(name => {
+        const icon = REL_DISCIPLINE_ICONS[name];
+        return `<span class="rel-disc">${icon ? `<img class="rel-disc-icon" src="${escapeHtml(icon)}" alt="">` : ''}${escapeHtml(name)}</span>`;
+      }).join('');
+      const more = extra > 0
+        ? `<span class="rel-disc" title="${escapeHtml(list.slice(2).join(', '))}">+${extra}</span>`
+        : '';
+      return chips + more;
+    }
+    function relCardHtml(item, badge) {
+      const sameName = item.citta && item.circuito &&
+        normalizeEventLocation(item.citta) === normalizeEventLocation(item.circuito);
+      const place = item.circuito && item.citta && !sameName
+        ? `<strong>${escapeHtml(item.circuito)}</strong> – ${escapeHtml(item.citta)}`
+        : `<strong>${escapeHtml(item.circuito || item.citta || '')}</strong>`;
+      return `
+        <a class="rel-card" href="evento.html?id=${encodeURIComponent(item.idAuto)}">
+          <div class="rel-card-top">
+            ${relDateBlockHtml(item)}
+            ${badge ? `<span class="rel-badge">${escapeHtml(badge)}</span>` : ''}
+          </div>
+          <div class="rel-card-body">
+            <h3 class="rel-card-title">${escapeHtml(item.titolo || 'Evento')}</h3>
+            <div class="rel-discs">${relDisciplineChipsHtml(item)}</div>
+            ${item.circuito || item.citta ? `<div class="rel-row">${PMIcons.pin}<span>${place}</span></div>` : ''}
+            ${item.organizzatore ? `<div class="rel-row">${PMIcons.building}<span>${escapeHtml(item.organizzatore)}</span></div>` : ''}
+          </div>
+        </a>
+      `;
+    }
+    function relSectionHtml(key, title, subtitle, items, badgeFn) {
+      return `
+        <section class="rel-section" data-rel="${key}" aria-labelledby="relTitle-${key}">
+          <div class="rel-head">
+            <div class="rel-head-text">
+              <h2 class="rel-title" id="relTitle-${key}">${escapeHtml(title)}</h2>
+              <p class="rel-subtitle">${subtitle}</p>
+            </div>
+            <div class="rel-nav" hidden>
+              <button type="button" class="rel-arrow rel-prev" aria-label="Scorri indietro: ${escapeHtml(title)}">${REL_CHEVRON_LEFT}</button>
+              <button type="button" class="rel-arrow rel-next" aria-label="Scorri avanti: ${escapeHtml(title)}">${REL_CHEVRON_RIGHT}</button>
+            </div>
+          </div>
+          <div class="rel-track" tabindex="0" role="group" aria-label="${escapeHtml(title)}">
+            ${items.map(item => relCardHtml(item, badgeFn ? badgeFn(item) : '')).join('')}
+          </div>
+        </section>
+      `;
+    }
+    function relInitCarousel(section) {
+      const track = section.querySelector('.rel-track');
+      const nav = section.querySelector('.rel-nav');
+      const prev = section.querySelector('.rel-prev');
+      const next = section.querySelector('.rel-next');
+      if (!track || !nav || !prev || !next) return;
+      const reduceMotion = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const step = () => {
+        const card = track.querySelector('.rel-card');
+        if (!card) return track.clientWidth;
+        const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+        return card.getBoundingClientRect().width + gap;
+      };
+      const go = direction => {
+        track.scrollBy({ left: direction * step(), behavior: reduceMotion ? 'auto' : 'smooth' });
+      };
+      const update = () => {
+        const max = track.scrollWidth - track.clientWidth;
+        nav.hidden = max <= 2;
+        prev.disabled = track.scrollLeft <= 2;
+        next.disabled = track.scrollLeft >= max - 2;
+      };
+      prev.addEventListener('click', () => go(-1));
+      next.addEventListener('click', () => go(1));
+      track.addEventListener('scroll', update, { passive: true });
+      track.addEventListener('keydown', e => {
+        if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+      });
+      window.addEventListener('resize', update);
+      update();
+    }
+    function relBuildCoordLookup() {
+      const lookup = new Map();
+      if (typeof cityCoordinates === 'undefined' || !cityCoordinates) return lookup;
+      Object.keys(cityCoordinates).forEach(name => {
+        const value = cityCoordinates[name];
+        if (!Array.isArray(value) || value.length < 2) return;
+        const lat = Number(value[0]);
+        const lng = Number(value[1]);
+        if (Number.isFinite(lat) && Number.isFinite(lng)) {
+          lookup.set(normalizeEventLocation(name), { lat, lng });
+        }
+      });
+      return lookup;
+    }
+    async function renderRelatedSections(event, allEvents) {
+      const host = document.getElementById('relatedSections');
+      if (!host) return;
+      host.innerHTML = '';
+      const currentRange = relRange(event);
+      const today = relTodayUTC().getTime();
+      const pool = (Array.isArray(allEvents) ? allEvents : []).filter(item =>
+        item &&
+        item.idAuto != null &&
+        item.titolo &&
+        !item.isPromo &&
+        String(item.idAuto) !== String(event.idAuto) &&
+        relRange(item)
+      );
+      const upcoming = pool.filter(item => relRange(item).end.getTime() >= today);
+      const byStart = (a, b) => relRange(a).start.getTime() - relRange(b).start.getTime();
+      const sections = [];
+      /* ---------- 1) STESSO ORGANIZZATORE ---------- */
+      const organizerKey = normalizeEventLocation(event.organizzatore);
+      if (organizerKey) {
+        const items = upcoming
+          .filter(item => normalizeEventLocation(item.organizzatore) === organizerKey)
+          .sort(byStart)
+          .slice(0, REL_MAX_ITEMS);
+        if (items.length) {
+          sections.push(relSectionHtml(
+            'organizzatore',
+            'Dello stesso organizzatore',
+            `Prossimi eventi organizzati da <strong>${escapeHtml(event.organizzatore)}</strong>`,
+            items
+          ));
+        }
+      }
+      /* ---------- 2) NELLE VICINANZE ---------- */
+      if (event.citta) {
+        try {
+          if (typeof cityCoordinates === 'undefined' || !Object.keys(cityCoordinates || {}).length) {
+            await loadCityCoordinates();
+          }
+          const lookup = relBuildCoordLookup();
+          const origin = lookup.get(normalizeEventLocation(event.citta));
+          if (origin) {
+            const items = upcoming
+              .map(item => {
+                const point = lookup.get(normalizeEventLocation(item.citta));
+                if (!point) return null;
+                return { item, km: haversineKm(origin.lat, origin.lng, point.lat, point.lng) };
+              })
+              .filter(Boolean)
+              .sort((a, b) => (a.km - b.km) || byStart(a.item, b.item))
+              .slice(0, REL_MAX_ITEMS);
+            if (items.length) {
+              const kmById = new Map(items.map(entry => [String(entry.item.idAuto), entry.km]));
+              sections.push(relSectionHtml(
+                'vicinanze',
+                'Nelle vicinanze',
+                `Ordinati per distanza da <strong>${escapeHtml(event.citta)}</strong> · distanza indicativa tra i centri delle località`,
+                items.map(entry => entry.item),
+                item => {
+                  const km = kmById.get(String(item.idAuto));
+                  return km < 1 ? 'Stessa località' : `${Math.round(km)} km`;
+                }
+              ));
+            }
+          }
+        } catch (error) {
+          console.error('Errore eventi nelle vicinanze:', error);
+        }
+      }
+      /* ---------- 3) STESSO PERIODO (± 2 settimane) ---------- */
+      if (currentRange) {
+        const windowStart = currentRange.start.getTime() - REL_PERIOD_DAYS * REL_DAY_MS;
+        const windowEnd = currentRange.end.getTime() + REL_PERIOD_DAYS * REL_DAY_MS;
+        const items = pool
+          .filter(item => {
+            const range = relRange(item);
+            return range.start.getTime() <= windowEnd && range.end.getTime() >= windowStart;
+          })
+          .sort(byStart)
+          .slice(0, REL_MAX_ITEMS);
+        if (items.length) {
+          sections.push(relSectionHtml(
+            'periodo',
+            'Nello stesso periodo',
+            `Eventi tra il ${escapeHtml(relFormatDay(new Date(windowStart), false))} e il ${escapeHtml(relFormatDay(new Date(windowEnd), false))} (circa due settimane prima e dopo)`,
+            items
+          ));
+        }
+      }
+      host.innerHTML = sections.join('');
+      host.querySelectorAll('.rel-section').forEach(relInitCarousel);
     }
     /* =========================================================
        AVVIO
