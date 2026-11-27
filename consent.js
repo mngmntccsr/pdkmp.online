@@ -81,6 +81,7 @@
     var d = document.createElement('div');
     d.className = 'pm-legal';
     d.innerHTML =
+      (/guida\.html$/.test(location.pathname) ? '' : '<a href="guida.html">Guida</a>') +
       '<a href="legale.html#privacy">Privacy</a><a href="legale.html#cookie">Cookie</a><a href="legale.html#termini">Termini</a>' +
       '<button type="button" id="pmPrefs">Preferenze cookie</button>' +
       '<a href="mailto:' + MAIL + '?subject=Richiesta%20cancellazione%20dati%20PaddockMap&body=Chiedo%20la%20cancellazione%20dei%20dati%20associati%20all%27email%20del%20mio%20account.">Cancella i miei dati</a>';
