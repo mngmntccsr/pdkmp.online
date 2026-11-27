@@ -315,6 +315,10 @@
     const headerContent = document.querySelector('.header-content');
     if (!headerContent) return;
 
+    // Link "Guida" nell'header della home: solo per chi non è registrato
+    const navGuida = document.getElementById('navGuida');
+    if (navGuida) navGuida.hidden = !!(session && session.user);
+
     let widget = headerContent.querySelector('.pm-auth-widget');
     if (!widget) {
       widget = document.createElement('div');
